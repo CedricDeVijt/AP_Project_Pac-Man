@@ -31,6 +31,9 @@
 *.out
 *.app
 
+# Other
+*.pdf
+
 /.idea/
 /cmake-build-debug/
 /cmake-build-debug-coverage/
