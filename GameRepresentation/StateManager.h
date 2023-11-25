@@ -1,0 +1,10 @@
+#ifndef AP_PROJECT_PAC_MAN_STATEMANAGER_H
+#define AP_PROJECT_PAC_MAN_STATEMANAGER_H
+
+
+class StateManager {
+
+};
+
+
+#endif //AP_PROJECT_PAC_MAN_STATEMANAGER_H

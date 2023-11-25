@@ -1,0 +1,10 @@
+#ifndef AP_PROJECT_PAC_MAN_CAMERA_H
+#define AP_PROJECT_PAC_MAN_CAMERA_H
+
+
+class Camera {
+
+};
+
+
+#endif //AP_PROJECT_PAC_MAN_CAMERA_H

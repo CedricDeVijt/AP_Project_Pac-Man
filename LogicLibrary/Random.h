@@ -1,0 +1,10 @@
+#ifndef AP_PROJECT_PAC_MAN_RANDOM_H
+#define AP_PROJECT_PAC_MAN_RANDOM_H
+
+
+class Random {
+
+};
+
+
+#endif //AP_PROJECT_PAC_MAN_RANDOM_H

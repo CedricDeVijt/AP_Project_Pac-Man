@@ -1,0 +1,10 @@
+#ifndef AP_PROJECT_PAC_MAN_SUBJECT_H
+#define AP_PROJECT_PAC_MAN_SUBJECT_H
+
+
+class Subject {
+
+};
+
+
+#endif //AP_PROJECT_PAC_MAN_SUBJECT_H

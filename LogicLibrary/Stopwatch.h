@@ -1,0 +1,10 @@
+#ifndef AP_PROJECT_PAC_MAN_STOPWATCH_H
+#define AP_PROJECT_PAC_MAN_STOPWATCH_H
+
+
+class Stopwatch {
+
+};
+
+
+#endif //AP_PROJECT_PAC_MAN_STOPWATCH_H

@@ -1,0 +1,10 @@
+#ifndef AP_PROJECT_PAC_MAN_OBSERVER_H
+#define AP_PROJECT_PAC_MAN_OBSERVER_H
+
+
+class Observer {
+
+};
+
+
+#endif //AP_PROJECT_PAC_MAN_OBSERVER_H
