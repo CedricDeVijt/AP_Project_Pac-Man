@@ -3,6 +3,8 @@
 
 #include "StateManager.h"
 
+class StateManager;
+
 class State {
 protected:
     StateManager *stateManager;
