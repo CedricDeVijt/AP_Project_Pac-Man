@@ -2,6 +2,7 @@
 #define AP_PROJECT_PAC_MAN_SCORE_H
 
 #include <vector>
+#include <string>
 #include "Observer.h"
 
 class Score : public Observer {
