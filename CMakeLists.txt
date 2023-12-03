@@ -14,7 +14,6 @@ add_executable(AP_Project_Pac_Man
         LogicLibrary/Random.cpp
         LogicLibrary/Observer.cpp
         LogicLibrary/Score.cpp
-        LogicLibrary/State.cpp
         LogicLibrary/Stopwatch.cpp
         LogicLibrary/Subject.cpp
         LogicLibrary/Wall.cpp
