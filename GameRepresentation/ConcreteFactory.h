@@ -5,11 +5,11 @@
 
 class ConcreteFactory final : public AbstractFactory{
 
-    Ghost* createGhost();
-    PacMan* createPacMan();
-    Wall* createWall(const WallType wallType);
-    Coin* createCoin();
-    Fruit* createFruit();
+    Ghost* createGhost() final;
+    PacMan* createPacMan() final;
+    Wall* createWall(WallType wallType) final;
+    Coin* createCoin() final;
+    Fruit*   createFruit() final;
 
 };
 
