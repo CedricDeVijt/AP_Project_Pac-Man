@@ -2,7 +2,8 @@
 #define AP_PROJECT_PAC_MAN_STATEMANAGER_H
 
 #include <stack>
-#include "State.h"
+
+class State;
 
 class StateManager {
     std::stack<State*> stateStack;
