@@ -48,11 +48,11 @@ void LevelState::toGameOverState() {
 PausedState::PausedState(StateManager *stateManager) : State(stateManager) {}
 
 void PausedState::toMenuState() {
-    createNewMenuState()
+    createNewMenuState();
 }
 
 void PausedState::toLevelState() {
-    State *levelState = stateManager.popState();
+    State *levelState = stateManager->popState();
     stateManager->pushState(levelState);
 
     // TODO: Add code to resume the level
