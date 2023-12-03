@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.22.1)
 project(AP_Project_Pac-Man)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -38,3 +38,11 @@ add_executable(AP_Project_Pac_Man
         GameRepresentation/Game.h
         GameRepresentation/StateManager.cpp
         GameRepresentation/StateManager.h)
+
+# Find SFML
+find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
+if(SFML_FOUND)
+    target_link_libraries(AP_Project_Pac_Man sfml-graphics sfml-window sfml-system)
+else()
+    message(FATAL_ERROR "SFML not found")
+endif()
