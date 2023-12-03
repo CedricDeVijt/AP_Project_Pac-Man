@@ -1,6 +1,9 @@
-#include <iostream>
-
+#include "GameRepresentation/Game.h"
 
 int main(){
-    std::cout << "hello world";
+    // Create a game object
+    Game game;
+
+    // Run the game
+    game.run();
 }
