@@ -9,6 +9,7 @@ enum WallType {
 };
 
 class Wall : public EntityModel {
+    WallType wallType;
 public:
     explicit Wall (WallType wallType);
 };
