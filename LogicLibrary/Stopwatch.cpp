@@ -22,7 +22,7 @@ void Stopwatch::reset() {
     previousTime = startTime;
 }
 
-double Stopwatch::getDetalTime() {
+double Stopwatch::getDeltaTime() {
     if (running) {
         auto currentTime = Clock::now();
         auto deltaTime = std::chrono::duration_cast<std::chrono::duration<double>>(currentTime - previousTime);
