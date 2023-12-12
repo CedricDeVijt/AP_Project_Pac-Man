@@ -11,7 +11,7 @@ class Stopwatch {
     void stop();
     void reset();
 
-    double getDetalTime();
+    double getDeltaTime();
 
 private:
     using Clock = std::chrono::high_resolution_clock;
