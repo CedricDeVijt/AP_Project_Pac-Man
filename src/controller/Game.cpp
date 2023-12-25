@@ -4,7 +4,7 @@
 #include <stdexcept>
 
 
-Game::Game() : window(sf::VideoMode(600, 800), "Pac-Man", sf::Style::Titlebar | sf::Style::Close), world(){
+Game::Game() : window(sf::VideoMode(600, 800), "Pac-Man", sf::Style::Titlebar | sf::Style::Close){
     window.setFramerateLimit(60);
 
 //    setupGame();

@@ -41,13 +41,15 @@ void World::setFruits(AbstractFactory* factory) {
     grid[18][10] = factory->createFruit();
 }
 
-World::World(AbstractFactory *factory) {
-    setCoins(factory);
+//World::World(AbstractFactory *factory) {
+//    setCoins(factory);
+//
+//    setWalls(factory);
+//
+//    setFruits(factory);
+//}
 
-    setWalls(factory);
-
-    setFruits(factory);
-
-
+World::World() {
 
 }
+

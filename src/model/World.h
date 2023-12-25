@@ -9,7 +9,7 @@ class World {
 public:
     World();
 
-    ~World();
+    ~World() = default;
 
     void update();
 
