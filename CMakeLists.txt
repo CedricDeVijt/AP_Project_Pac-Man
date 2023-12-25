@@ -5,25 +5,25 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(AP_Project_Pac_Man
         main.cpp
-        LogicLibrary/AbstractFactory.cpp
-        LogicLibrary/Camera.cpp
-        LogicLibrary/Collectable.cpp
-        LogicLibrary/EntityModel.cpp
-        LogicLibrary/Ghost.cpp
-        LogicLibrary/PacMan.cpp
-        LogicLibrary/Random.cpp
-        LogicLibrary/Observer.cpp
-        LogicLibrary/Score.cpp
-        LogicLibrary/Stopwatch.cpp
-        LogicLibrary/Subject.cpp
-        LogicLibrary/Wall.cpp
-        LogicLibrary/World.cpp
+        src/model/AbstractFactory.cpp
+        src/view/Camera.cpp
+        src/model/Collectable.cpp
+        src/model/EntityModel.cpp
+        src/model/Ghost.cpp
+        src/model/PacMan.cpp
+        src/model/Random.cpp
+        src/model/Observer.cpp
+        src/model/Score.cpp
+        src/controller/Stopwatch.cpp
+        src/model/Subject.cpp
+        src/model/Wall.cpp
+        src/model/World.cpp
 
-        GameRepresentation/ConcreteFactory.cpp
-        GameRepresentation/EntityView.cpp
-        GameRepresentation/Game.cpp
-        GameRepresentation/State.cpp
-        GameRepresentation/StateManager.cpp
+        src/view/ConcreteFactory.cpp
+        src/view/EntityView.cpp
+        src/controller/Game.cpp
+        src/model/State.cpp
+        src/model/StateManager.cpp
 )
 # Find SFML
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)

@@ -1,7 +1,7 @@
 #ifndef AP_PROJECT_PAC_MAN_CONCRETEFACTORY_H
 #define AP_PROJECT_PAC_MAN_CONCRETEFACTORY_H
 
-#include "../LogicLibrary/AbstractFactory.h"
+#include "../model/AbstractFactory.h"
 
 class ConcreteFactory final : public AbstractFactory{
 
