@@ -2,29 +2,24 @@
 #define AP_PROJECT_PAC_MAN_GAME_H
 
 #include <SFML/Graphics.hpp>
-#include "../model/StateManager.h"
+#include <memory>
+
+#include "StateManager.h"
 #include "../model/World.h"
 
+using std::shared_ptr;
 
 class Game {
+private:
+    shared_ptr<sf::RenderWindow> window;
+    shared_ptr<World> world;
+    shared_ptr<StateManager> stateManager;
 public:
     Game();
 
     ~Game();
 
     void run();
-
-private:
-
-    sf::RenderWindow window;
-
-    World world;
-    StateManager stateManager;
-
-    sf::Font pacManFont;
-    sf::Font pixelFont;
-
-    void setupGame();
 };
 
 
