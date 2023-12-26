@@ -22,8 +22,10 @@ add_executable(AP_Project_Pac_Man
         src/view/ConcreteFactory.cpp
         src/view/EntityView.cpp
         src/controller/Game.cpp
-        src/model/State.cpp
-        src/model/StateManager.cpp
+        src/controller/State.cpp
+        src/controller/StateManager.cpp
+        src/view/SpriteFactory.cpp
+        src/view/SpriteFactory.h
 )
 # Find SFML
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
