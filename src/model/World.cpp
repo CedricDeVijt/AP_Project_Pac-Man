@@ -1,5 +1,11 @@
 #include "World.h"
 
+World::World(shared_ptr<AbstractFactory> factory) {
+    setCoins(factory.get());
+    setWalls(factory.get());
+    setFruits(factory.get());
+}
+
 void World::setCoins(AbstractFactory* factory) {
     for (int i = 0; i < 20; i++) {
         for (int j = 0; j < 12; j++) {
@@ -41,15 +47,6 @@ void World::setFruits(AbstractFactory* factory) {
     grid[18][10] = factory->createFruit();
 }
 
-//World::World(AbstractFactory *factory) {
-//    setCoins(factory);
-//
-//    setWalls(factory);
-//
-//    setFruits(factory);
-//}
-
-World::World() {
-
+Subject *World::getSubject(int x, int y) {
+    return grid[x][y];
 }
-
