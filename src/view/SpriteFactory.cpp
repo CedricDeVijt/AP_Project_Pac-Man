@@ -26,6 +26,7 @@ sf::Sprite SpriteFactory::createSprite(sf::IntRect textureRect, const sf::Vector
 sf::Sprite SpriteFactory::createGhost(GhostType type, const int alternative, const int posX, const int posY, const sf::Vector2f &scale) {
     const int offset_top_x=1;
     const int offset_top_y=4;
+    const int offset_fear_y=554;
     const int size=35;
     const int separator=15;
 
@@ -35,6 +36,7 @@ sf::Sprite SpriteFactory::createGhost(GhostType type, const int alternative, con
             x = offset_top_x;
             break;
         case GhostType::Pinky:
+        case GhostType::Fear:
             x = offset_top_x + size + separator;
             break;
         case GhostType::Inky:
@@ -46,7 +48,15 @@ sf::Sprite SpriteFactory::createGhost(GhostType type, const int alternative, con
         default:
             break;
     };
-    int y = offset_top_y + alternative * (size + separator);
+    int y;
+    switch (type) {
+        case GhostType::Fear:
+            y = offset_fear_y + alternative * (size + separator);
+            break;
+        default:
+            y = offset_top_y + alternative * (size + separator);
+            break;
+    }
     return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX, posY), scale);
 }
 
@@ -58,5 +68,27 @@ sf::Sprite SpriteFactory::createPacMan(const int alternative, const int posX, co
 
     int x = offset_top_x;
     int y = offset_top_y + alternative * (size + separator);
+    return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX, posY), scale);
+}
+
+
+sf::Sprite SpriteFactory::createFruit(const int alternative, const int posX, const int posY, const sf::Vector2f &scale) {
+    const int offset_top_x=601;
+    const int offset_top_y=3;
+    const int size=36;
+    const int separator=14;
+
+    int x = offset_top_x;
+    int y = offset_top_y + alternative * (size + separator);
+    return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX, posY), scale);
+}
+
+sf::Sprite SpriteFactory::createCoin(const int posX, const int posY, const sf::Vector2f &scale) {
+    const int offset_top_x=411;
+    const int offset_top_y=313;
+    const int size=16;
+
+    int x = offset_top_x;
+    int y = offset_top_y;
     return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX, posY), scale);
 }

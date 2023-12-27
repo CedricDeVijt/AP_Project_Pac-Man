@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 enum class GhostType {
-    Blinky, Pinky, Inky, Clyde
+    Blinky, Pinky, Inky, Clyde, Fear
 };
 
 
@@ -16,6 +16,8 @@ public:
 
     sf::Sprite createGhost(GhostType type, const int alternative, const int posX, const int posY, const sf::Vector2f &scale);
     sf::Sprite createPacMan(int alternative, const int posX, const int posY, const sf::Vector2f &scale);
+    sf::Sprite createFruit(int alternative, const int posX, const int posY, const sf::Vector2f &scale);
+    sf::Sprite createCoin(const int posX, const int posY, const sf::Vector2f &scale);
 
 private:
     sf::Texture texture;
