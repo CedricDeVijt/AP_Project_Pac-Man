@@ -158,9 +158,10 @@ void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
 
 
     SpriteFactory spriteFactory;
-    sf::Sprite sprite = spriteFactory.createGhost();
-
-    window->draw(sprite);
+    sf::Vector2f scale = sf::Vector2f(2, 2);
+    window->draw(spriteFactory.createGhost(GhostType::Clyde, 1, 200, 300, scale));
+    window->draw(spriteFactory.createGhost(GhostType::Pinky, 1, 300, 300, scale));
+    window->draw(spriteFactory.createPacMan(1, 300, 400, scale));
 
 
 }
