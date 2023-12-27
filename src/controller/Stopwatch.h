@@ -4,8 +4,17 @@
 #include <chrono>
 
 class Stopwatch {
+private:
+    // Private constructor to prevent external instantiation
     Stopwatch();
-    ~Stopwatch() = default;
+
+public:
+    // Static method to get the instance of the singleton
+    static Stopwatch& getInstance();
+
+    // Prevent copying and assignment
+    Stopwatch(const Stopwatch&) = delete;
+    Stopwatch& operator=(const Stopwatch&) = delete;
 
     void start();
     void stop();

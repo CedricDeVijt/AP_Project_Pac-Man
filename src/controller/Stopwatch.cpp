@@ -1,6 +1,14 @@
 #include "Stopwatch.h"
 
-Stopwatch::Stopwatch() : running(false) {}
+// Define the static instance of the singleton
+Stopwatch::Stopwatch() : running(false) {
+    // Constructor code, if needed
+}
+
+Stopwatch& Stopwatch::getInstance() {
+    static Stopwatch instance; // Guaranteed to be destroyed, instantiated on first use
+    return instance;
+}
 
 void Stopwatch::start() {
     if (!running) {
