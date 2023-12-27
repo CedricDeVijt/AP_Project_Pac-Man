@@ -5,7 +5,7 @@
 #include "../view/ConcreteFactory.h"
 
 
-Game::Game() : window(std::make_shared<sf::RenderWindow>(sf::VideoMode(1200, 1600), "Pac-Man",
+Game::Game() : window(std::make_shared<sf::RenderWindow>(sf::VideoMode(600, 800), "Pac-Man",
                                                          sf::Style::Titlebar | sf::Style::Close)),
                world(std::make_shared<World>(std::make_shared<ConcreteFactory>())),
                stateManager(std::make_shared<StateManager>()) {
@@ -20,7 +20,6 @@ void Game::run() {
     // Main game loop
     while (window->isOpen()) {
         sf::Event event;
-        shared_ptr<State> state;
         while (window->pollEvent(event)) {
             switch (event.type) {
                 case sf::Event::Closed:
@@ -28,14 +27,13 @@ void Game::run() {
                     break;
                 case sf::Event::KeyPressed:
                     // update met input
-                    state = stateManager->getCurrentState();
-                    state->processInput(event.key.code);
+                    stateManager->getCurrentState()->processInput(event.key.code);
                     break;
                 default:
                     break;
             }
         }
-        state = stateManager->getCurrentState();
+        shared_ptr<State> state = stateManager->getCurrentState();
         state->update();
         window->clear(sf::Color::Black);
         state->draw(window);
