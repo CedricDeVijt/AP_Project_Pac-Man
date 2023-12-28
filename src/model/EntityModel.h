@@ -7,9 +7,7 @@ class EntityModel : public Subject {
 public:
 //    virtual void update();
     std::tuple<double, double, double, double> getPosition();
-
     bool overlapsWith(EntityModel entityModel);
-
     void update();
 
 private:

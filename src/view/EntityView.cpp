@@ -32,40 +32,30 @@ CoinView::CoinView(std::tuple<double, double, double, double> position) : positi
 }
 
 void CoinView::update() {
-    std::cout << "CoinView::update() Coinview was updated\n";
+//    std::cout << "CoinView::update() Coinview was updated\n";
     // TODO do this properly using camera
     double x, y, size_x, size_y;
     std::tie(x, y, size_x, size_y) = position;
-    std::cout << "Creating coin at " << x <<", " << y <<"\n";
-    std::cout << "New position at " << 30*20 *(x+1) <<", " << 30*11 * (y+1) <<"\n";
+//    std::cout << "Creating coin at " << x <<", " << y <<"\n";
+//    std::cout << "New position at " << 30*20 *(x+1) <<", " << 30*11 * (y+1) <<"\n";
 
-//    sf::RectangleShape rectangle(sf::Vector2f(64, 64));
-    sf::RectangleShape rectangle(sf::Vector2f(60, 60));
-    // Set the position of the rectangle
-//    rectangle.setPosition(600*(x+1), 400*(y+1));
-    rectangle.setPosition(30*20*(x+1), 30*11*(y+1));
-    // Set the color of the rectangle (optional)
-    rectangle.setFillColor(sf::Color::Yellow);
-    window->draw(rectangle);
+    sf::Vector2f scale = sf::Vector2f(1.5, 1.5);
+    sf::Sprite sprite = SpriteFactory::getInstance().createCoin(30*20*(x+1), 30*11*(y+1), scale);
+    window->draw(sprite);
 }
 
 FruitView::FruitView(std::tuple<double, double, double, double> position) : position(position){
 }
 
 void FruitView::update() {
-    std::cout << "FruitView::update() Fruitview was updated\n";
+//    std::cout << "FruitView::update() Fruitview was updated\n";
     // TODO do this properly using camera
     double x, y, size_x, size_y;
     std::tie(x, y, size_x, size_y) = position;
-    std::cout << "Creating fruit at " << x <<", " << y <<"\n";
-    std::cout << "New position at " << 30*20 *(x+1) <<", " << 30*11 * (y+1) <<"\n";
+//    std::cout << "Creating fruit at " << x <<", " << y <<"\n";
+//    std::cout << "New position at " << 30*20 *(x+1) <<", " << 30*11 * (y+1) <<"\n";
 
-//    sf::RectangleShape rectangle(sf::Vector2f(64, 64));
-    sf::RectangleShape rectangle(sf::Vector2f(60, 60));
-    // Set the position of the rectangle
-//    rectangle.setPosition(600*(x+1), 400*(y+1));
-    rectangle.setPosition(30*20*(x+1), 30*11*(y+1));
-    // Set the color of the rectangle (optional)
-    rectangle.setFillColor(sf::Color::Red);
-    window->draw(rectangle);
+    sf::Vector2f scale = sf::Vector2f(1.5, 1.5);
+    sf::Sprite sprite = SpriteFactory::getInstance().createFruit(0, 30*20*(x+1), 30*11*(y+1), scale);
+    window->draw(sprite);
 }
