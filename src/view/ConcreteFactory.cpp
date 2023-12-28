@@ -1,21 +1,30 @@
 #include "ConcreteFactory.h"
+#include "EntityView.h"
 
-Ghost* ConcreteFactory::createGhost() {
-    return new Ghost();
+shared_ptr<Ghost> ConcreteFactory::createGhost(GhostType type, std::tuple<double, double, double, double> position) {
+    shared_ptr<Ghost> ghost = std::make_shared<Ghost>(type, position);
+    return ghost;
 }
 
-PacMan* ConcreteFactory::createPacMan() {
-    return new PacMan();
+shared_ptr<PacMan> ConcreteFactory::createPacMan() {
+    return std::make_shared<PacMan>();
 }
 
-Wall* ConcreteFactory::createWall(const WallType wallType) {
-    return new Wall(wallType);
+shared_ptr<Wall> ConcreteFactory::createWall(std::tuple<double, double, double, double> position) {
+    shared_ptr<Wall> wall = std::make_shared<Wall>();
+    shared_ptr<WallView> wallView = std::make_shared<WallView>(position);
+    wall->registerObserver(wallView);
+    return wall;
 }
 
-Coin* ConcreteFactory::createCoin() {
-    return new Coin();
+shared_ptr<Coin> ConcreteFactory::createCoin() {
+    return std::make_shared<Coin>();
 }
 
-Fruit* ConcreteFactory::createFruit() {
-    return new Fruit();
+shared_ptr<Fruit> ConcreteFactory::createFruit() {
+    return std::make_shared<Fruit>();
+}
+
+ConcreteFactory::ConcreteFactory(shared_ptr <sf::RenderWindow> window) {
+
 }
