@@ -11,7 +11,7 @@ World::World(shared_ptr<AbstractFactory> factory) {
             "wcwwcwcwwwwwwcwcwwcw",
             "wcwccccccccccccccwcw",
             "wcwcwwcww  wwcwwcwcw",
-            "wccccccw1234wccccccw",
+            "wPcccccw1234wccccccw",
             "wcwcwwcwwwwwwcwwcwcw",
             "wcwccccccccccccccwcw",
             "wcwwcwcwwwwwwcwcwwcw",
@@ -42,21 +42,36 @@ World::World(shared_ptr<AbstractFactory> factory) {
                 case 'f':
                     grid[i][j] = factory->createFruit(position);
                     break;
+                case '1':
+                    grid[i][j] = factory->createGhost(GhostType::Blinky, position);
+                    break;
+                case '2':
+                    grid[i][j] = factory->createGhost(GhostType::Pinky, position);
+                    break;
+                case '3':
+                    grid[i][j] = factory->createGhost(GhostType::Inky, position);
+                    break;
+                case '4':
+                    grid[i][j] = factory->createGhost(GhostType::Clyde, position);
+                    break;
+                case 'P':
+                    grid[i][j] = factory->createPacMan(position);
+                    break;
                 default:
                     break;
             }
         }
     }
 
-    // create PacMan
-    shared_ptr<PacMan> pacMan = factory->createPacMan();
-    pacMan->goHome();
-
-    // create Ghosts
-    shared_ptr<Ghost> pinky = factory->createGhost(GhostType::Pinky, std::make_tuple(8*size_x, 5* size_y, size_x, size_y));
-    shared_ptr<Ghost> clyde = factory->createGhost(GhostType::Clyde, std::make_tuple(9*size_x, 5* size_y, size_x, size_y));
-    shared_ptr<Ghost> inky = factory->createGhost(GhostType::Inky, std::make_tuple(10*size_x, 5* size_y, size_x, size_y));
-    shared_ptr<Ghost> blinky = factory->createGhost(GhostType::Blinky, std::make_tuple(11*size_x, 5* size_y, size_x, size_y));
+//    // create PacMan
+//    shared_ptr<PacMan> pacMan = factory->createPacMan();
+//    pacMan->goHome();
+//
+//    // create Ghosts
+//    shared_ptr<Ghost> pinky = factory->createGhost(GhostType::Pinky, std::make_tuple(8*size_x, 5* size_y, size_x, size_y));
+//    shared_ptr<Ghost> clyde = factory->createGhost(GhostType::Clyde, std::make_tuple(9*size_x, 5* size_y, size_x, size_y));
+//    shared_ptr<Ghost> inky = factory->createGhost(GhostType::Inky, std::make_tuple(10*size_x, 5* size_y, size_x, size_y));
+//    shared_ptr<Ghost> blinky = factory->createGhost(GhostType::Blinky, std::make_tuple(11*size_x, 5* size_y, size_x, size_y));
 
 //    std::cout << pinky.overlapsWith(clyde) << "\n";
 }

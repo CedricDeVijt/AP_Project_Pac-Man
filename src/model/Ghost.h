@@ -13,7 +13,6 @@ enum class GhostType {
 class Ghost : public EntityModel {
 public:
     Ghost(GhostType type, std::tuple<double, double, double, double> homePosition);
-    void setHome(std::tuple<double, double, double, double> position);
     void toFearMode();
 
 private:

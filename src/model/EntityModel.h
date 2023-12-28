@@ -10,7 +10,7 @@ public:
     bool overlapsWith(EntityModel entityModel);
     void update();
 
-private:
+protected:
     std::tuple<double, double, double, double> position;
 };
 

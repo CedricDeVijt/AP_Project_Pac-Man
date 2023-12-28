@@ -6,6 +6,7 @@
 
 class PacMan : public EntityModel {
 public:
+    PacMan(std::tuple<double, double, double, double> position);
     void goHome();
     void moveLeft();
     void moveRight();
@@ -13,7 +14,7 @@ public:
     void moveDown();
 
 private:
-
+    std::tuple<double, double, double, double> position;
 };
 
 

@@ -10,7 +10,7 @@ public:
     ~ConcreteFactory() = default;
 
     shared_ptr<Ghost> createGhost(GhostType type, std::tuple<double, double, double, double> position) final;
-    shared_ptr<PacMan> createPacMan() final;
+    shared_ptr<PacMan> createPacMan(std::tuple<double, double, double, double> position) final;
     shared_ptr<Wall> createWall(std::tuple<double, double, double, double> position) final;
     shared_ptr<Coin> createCoin(std::tuple<double, double, double, double> position) final;
     shared_ptr<Fruit>   createFruit(std::tuple<double, double, double, double> position) final;

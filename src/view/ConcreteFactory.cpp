@@ -3,11 +3,17 @@
 
 shared_ptr<Ghost> ConcreteFactory::createGhost(GhostType type, std::tuple<double, double, double, double> position) {
     shared_ptr<Ghost> ghost = std::make_shared<Ghost>(type, position);
+    shared_ptr<GhostView> ghostView = std::make_shared<GhostView>(type, position);
+    ghost->registerObserver(ghostView);
     return ghost;
+
 }
 
-shared_ptr<PacMan> ConcreteFactory::createPacMan() {
-    return std::make_shared<PacMan>();
+shared_ptr<PacMan> ConcreteFactory::createPacMan(std::tuple<double, double, double, double> position) {
+    shared_ptr<PacMan> pacMan = std::make_shared<PacMan>(position);
+    shared_ptr<PacManView> pacManView = std::make_shared<PacManView>(pacMan);
+    pacMan->registerObserver(pacManView);
+    return pacMan;
 }
 
 shared_ptr<Wall> ConcreteFactory::createWall(std::tuple<double, double, double, double> position) {

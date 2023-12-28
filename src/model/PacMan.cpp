@@ -5,3 +5,5 @@ void PacMan::goHome() {
 
     notifyObservers();
 }
+
+PacMan::PacMan(std::tuple<double, double, double, double> position) : position(position) {}
