@@ -1,5 +1,8 @@
 #include "State.h"
 #include "../view/SpriteFactory.h"
+#include "../model/World.h"
+#include "../view/ConcreteFactory.h"
+#include "../view/WindowSingleton.h"
 #include "../model/Score.h"
 
 
@@ -189,9 +192,15 @@ void MenuState::processInput(const sf::Keyboard::Key key) {
 }
 
 void MenuState::update() {
+
 }
 
-LevelState::LevelState(StateManager* stateManager) : State(stateManager) {
+LevelState::LevelState(StateManager *stateManager) : State(stateManager) {
+    // TODO verwijder window als parameter in de constructor en zoek window op waar nodig
+    shared_ptr<sf::RenderWindow> window = WindowSingleton::getInstance().getWindow();
+    shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>(window);
+    world = std::make_shared<World>(factory);
+    world->update();
 }
 
 void LevelState::toVictoryState() {
@@ -224,40 +233,40 @@ void LevelState::processInput(sf::Keyboard::Key key) {
 }
 
 void LevelState::update() {
+    world->update();
 }
 
 void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
-    // Load font
-    // TODO: Move this to a more appropriate place in window
 
     int score = 135;
     int livesRemaining = 3;
 
-    std::string scoreString = "Score: " + std::to_string(score);
-    std::string livesString = "Lives: " + std::to_string(livesRemaining);
-
+    // Load font
+    // TODO: Move this to a more appropriate place in window
     sf::Font font;
-
     if (!font.loadFromFile("resources/pixelFont.ttf")) {
         throw std::runtime_error("Error loading font");
     }
 
+    sf::Text scoreText("Score: " + std::to_string(score), font, 20);
+    scoreText.setPosition(20, 680);
+    window->draw(scoreText);
 
-    sf::Text title(scoreString, font, 20);
-    title.setPosition(100, 200);
-    window->draw(title);
 
-
-    sf::Text title2(livesString, font, 20);
-    title2.setPosition(400, 200);
-    window->draw(title2);
+    sf::Text livesText("# Lives Remaining: " + std::to_string(livesRemaining), font, 20);
+    livesText.setPosition(770, 680);
+    window->draw(livesText);
 
 
     SpriteFactory spriteFactory;
     sf::Vector2f scale = sf::Vector2f(2, 2);
     window->draw(spriteFactory.createGhost(GhostType::Clyde, 1, 200, 300, scale));
     window->draw(spriteFactory.createGhost(GhostType::Pinky, 1, 300, 300, scale));
+    window->draw(spriteFactory.createGhost(GhostType::Fear, 1, 400, 300, scale));
     window->draw(spriteFactory.createPacMan(1, 300, 400, scale));
+    window->draw(spriteFactory.createFruit(1, 500, 400, scale));
+    window->draw(spriteFactory.createFruit(2, 500, 300, scale));
+    window->draw(spriteFactory.createCoin(600, 350, scale));
 }
 
 PausedState::PausedState(StateManager* stateManager) : State(stateManager) {
@@ -279,18 +288,21 @@ void PausedState::processInput(sf::Keyboard::Key key) {
         case sf::Keyboard::Escape:
             toLevelState();
             break;
-        //        case sf::Keyboard::Enter:
-        //            toMenuState();
-        //            break;
+//        case sf::Keyboard::Enter:
+//            toMenuState();
+//            break;
         default:
             break;
     }
+
 }
 
 void PausedState::update() {
+
 }
 
 void PausedState::draw(shared_ptr<sf::RenderWindow> window) {
+
     // Load font
     // TODO: Move this to a more appropriate place in window
 
@@ -305,25 +317,29 @@ void PausedState::draw(shared_ptr<sf::RenderWindow> window) {
     sf::Text title("Paused", font, 20);
     title.setPosition(100, 200);
     window->draw(title);
+
+
 }
 
-VictoryState::VictoryState(StateManager* stateManager) : State(stateManager) {
-}
+VictoryState::VictoryState(StateManager *stateManager) : State(stateManager) {}
 
 void VictoryState::toLevelState() {
     createNewLevelState();
 }
 
 void VictoryState::processInput(sf::Keyboard::Key key) {
+
 }
 
 void VictoryState::update() {
+
 }
 
 void VictoryState::draw(shared_ptr<sf::RenderWindow> window) {
+
 }
 
-GameOverState::GameOverState(StateManager* stateManager) : State(stateManager) {
+GameOverState::GameOverState(StateManager *stateManager) : State(stateManager) {
 }
 
 void GameOverState::toMenuState() {
@@ -331,10 +347,13 @@ void GameOverState::toMenuState() {
 }
 
 void GameOverState::processInput(sf::Keyboard::Key key) {
+
 }
 
 void GameOverState::update() {
+
 }
 
 void GameOverState::draw(shared_ptr<sf::RenderWindow> window) {
+
 }

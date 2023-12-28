@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "StateManager.h"
+#include "../model/World.h"
 
 using std::shared_ptr;
 
@@ -60,6 +61,7 @@ private:
     void toPausedState();
 
     void toGameOverState();
+    shared_ptr<World> world;
 };
 
 class PausedState final : public State {
