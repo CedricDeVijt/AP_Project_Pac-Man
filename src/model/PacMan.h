@@ -5,6 +5,14 @@
 #include "EntityModel.h"
 
 class PacMan : public EntityModel {
+public:
+    void goHome();
+    void moveLeft();
+    void moveRight();
+    void moveUp();
+    void moveDown();
+
+private:
 
 };
 
