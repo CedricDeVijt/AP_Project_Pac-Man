@@ -4,14 +4,10 @@
 
 #include "EntityModel.h"
 
-enum WallType {
-    CTL, CTR, CBL, CBR, H, V, TU, TD
-};
 
 class Wall : public EntityModel {
-    WallType wallType;
 public:
-    explicit Wall (WallType wallType);
+    explicit Wall ();
 };
 
 
