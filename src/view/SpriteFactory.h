@@ -2,11 +2,7 @@
 #define AP_PROJECT_PAC_MAN_SPRITEFACTORY_H
 
 #include <SFML/Graphics.hpp>
-
-enum class GhostType {
-    Blinky, Pinky, Inky, Clyde, Fear
-};
-
+#include "../model/Ghost.h"
 
 class SpriteFactory {
 public:
