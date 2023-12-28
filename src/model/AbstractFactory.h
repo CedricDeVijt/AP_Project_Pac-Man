@@ -18,8 +18,8 @@ public:
     virtual shared_ptr<Ghost> createGhost(GhostType type, std::tuple<double, double, double, double> position) = 0;
     virtual shared_ptr<PacMan> createPacMan() = 0;
     virtual shared_ptr<Wall> createWall(std::tuple<double, double, double, double> position) = 0;
-    virtual shared_ptr<Coin> createCoin() = 0;
-    virtual shared_ptr<Fruit> createFruit() = 0;
+    virtual shared_ptr<Coin> createCoin(std::tuple<double, double, double, double> position) = 0;
+    virtual shared_ptr<Fruit> createFruit(std::tuple<double, double, double, double> position) = 0;
 
 };
 
