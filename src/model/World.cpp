@@ -11,7 +11,7 @@ World::World(shared_ptr<AbstractFactory> factory) {
             "wcwwcwcwwwwwwcwcwwcw",
             "wcwccccccccccccccwcw",
             "wcwcwwcww  wwcwwcwcw",
-            "wccccccw    wccccccw",
+            "wccccccw1234wccccccw",
             "wcwcwwcwwwwwwcwwcwcw",
             "wcwccccccccccccccwcw",
             "wcwwcwcwwwwwwcwcwwcw",
@@ -34,19 +34,16 @@ World::World(shared_ptr<AbstractFactory> factory) {
             std::tuple<double, double, double, double> position(position_x, position_y, size_x, size_y);
             switch (board[i][j]) {
                 case 'w':
-                    std::cout << board[i][j] << " is a Wall\n";
                     grid[i][j] = factory->createWall(position);
                     break;
                 case 'c':
-                    std::cout << board[i][j] << " is a Coin\n";
-                    grid[i][j] = factory->createCoin();
+                    grid[i][j] = factory->createCoin(position);
                     break;
                 case 'f':
-                    std::cout << board[i][j] << " is a Fruit\n";
-                    grid[i][j] = factory->createFruit();
+                    grid[i][j] = factory->createFruit(position);
                     break;
                 default:
-                    std::cout << board[i][j] << " is nothing\n";
+                    break;
             }
         }
     }

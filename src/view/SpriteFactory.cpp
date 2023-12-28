@@ -1,10 +1,16 @@
 #include "SpriteFactory.h"
 
+// Define the static instance of the singleton
 SpriteFactory::SpriteFactory() {
     // Load a texture (replace "your_image.png" with the actual filename)
     if (!texture.loadFromFile("resources/Sprites.png")) {
         throw std::runtime_error("Failed to load texture");
     }
+}
+
+SpriteFactory& SpriteFactory::getInstance() {
+    static SpriteFactory instance; // Guaranteed to be destroyed, instantiated on first use
+    return instance;
 }
 
 sf::Sprite SpriteFactory::createSprite(sf::IntRect textureRect, const sf::Vector2f &position, const sf::Vector2f &scale) {
