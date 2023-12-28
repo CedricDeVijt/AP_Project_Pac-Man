@@ -6,6 +6,7 @@ using std::shared_ptr;
 
 class ConcreteFactory final : public AbstractFactory{
 public:
+    ConcreteFactory() = default;
     ConcreteFactory(shared_ptr<sf::RenderWindow> window);
     ~ConcreteFactory() = default;
 
