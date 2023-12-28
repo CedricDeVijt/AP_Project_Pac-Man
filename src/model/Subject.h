@@ -16,6 +16,7 @@ public:
 private:
     std::vector<shared_ptr<Observer>> observers;
 
+protected:
     void notifyObservers();
 };
 
