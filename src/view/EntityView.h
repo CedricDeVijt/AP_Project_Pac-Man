@@ -3,6 +3,7 @@
 
 
 #include "../model/PacMan.h"
+#include "../model/Ghost.h"
 #include "WindowSingleton.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
@@ -14,18 +15,26 @@ protected:
     shared_ptr<sf::RenderWindow> window = WindowSingleton::getInstance().getWindow();
 };
 
-//class PacManView : public EntityView {
-//public:
-//    PacManView(shared_ptr<PacMan> pacMan);
-//
-//private:
-//    shared_ptr <PacMan> pacMan;
-//};
-//
-//class GhostView : public EntityView {
-//
-//};
-//
+class PacManView : public EntityView {
+public:
+    PacManView(shared_ptr<PacMan> pacMan);
+    void update() override ;
+private:
+    shared_ptr<PacMan> pacMan;
+};
+
+
+class GhostView : public EntityView {
+public:
+    GhostView(GhostType type, std::tuple<double, double, double, double> homePosition);
+    void update() override ;
+private:
+    GhostType type;
+    // TODO pull up to EntityView
+    std::tuple<double, double, double, double> homePosition;
+    std::tuple<double, double, double, double> position;
+};
+
 class CoinView : public EntityView {
 public:
     CoinView(std::tuple<double, double, double, double> position);
