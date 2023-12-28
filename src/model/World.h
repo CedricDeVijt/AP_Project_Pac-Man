@@ -16,18 +16,15 @@ public:
 
     void update();
 
-    Subject *getSubject(int x, int y);
+    void moveLeft();
+    void moveRight();
+    void moveUp();
+    void moveDown();
+
+//    Subject *getSubject(int x, int y);
 
 private:
-    Subject *grid[20][12];
-
-    // TODO change to shared_ptr
-    void setCoins(AbstractFactory *factory);
-
-    void setWalls(AbstractFactory *factory);
-
-    void setFruits(AbstractFactory *factory);
-
+    shared_ptr<EntityModel> grid[12][20];
 };
 
 

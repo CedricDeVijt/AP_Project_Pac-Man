@@ -1,52 +1,84 @@
 #include "World.h"
+#include <vector>
+#include <string>
+#include <iostream>
 
 World::World(shared_ptr<AbstractFactory> factory) {
-    setCoins(factory.get());
-    setWalls(factory.get());
-    setFruits(factory.get());
+
+    std::vector <std::string> board{
+            "wwwwwwwwwwwwwwwwwwww",
+            "wfcccwccccccccwccccw",
+            "wcwwcwcwwwwwwcwcwwcw",
+            "wcwccccccccccccccwcw",
+            "wcwcwwcww  wwcwwcwcw",
+            "wccccccw    wccccccw",
+            "wcwcwwcwwwwwwcwwcwcw",
+            "wcwccccccccccccccwcw",
+            "wcwwcwcwwwwwwcwcwwcw",
+            "wccccwccccccccwcccfw",
+            "wwwwwwwwwwwwwwwwwwww"
+    };
+    int items_x=board[0].length();
+    int items_y=board.size();
+
+    std::cout << "items x: " << items_x << "\n";
+    std::cout << "items y: " << items_y << "\n";
+
+    double size_x=2.0/items_x;
+    double size_y=2.0/items_y;
+
+    for (int i = 0; i < board.size(); i++) {
+        for (int j = 0; j < board[i].length(); j++) {
+            double position_x = j * size_x - 1.0;
+            double position_y = i * size_y - 1.0;
+            std::tuple<double, double, double, double> position(position_x, position_y, size_x, size_y);
+            switch (board[i][j]) {
+                case 'w':
+                    std::cout << board[i][j] << " is a Wall\n";
+                    grid[i][j] = factory->createWall(position);
+                    break;
+                case 'c':
+                    std::cout << board[i][j] << " is a Coin\n";
+                    grid[i][j] = factory->createCoin();
+                    break;
+                case 'f':
+                    std::cout << board[i][j] << " is a Fruit\n";
+                    grid[i][j] = factory->createFruit();
+                    break;
+                default:
+                    std::cout << board[i][j] << " is nothing\n";
+            }
+        }
+    }
+
+    // create PacMan
+    shared_ptr<PacMan> pacMan = factory->createPacMan();
+    pacMan->goHome();
+
+    // create Ghosts
+    shared_ptr<Ghost> pinky = factory->createGhost(GhostType::Pinky, std::make_tuple(8*size_x, 5* size_y, size_x, size_y));
+    shared_ptr<Ghost> clyde = factory->createGhost(GhostType::Clyde, std::make_tuple(9*size_x, 5* size_y, size_x, size_y));
+    shared_ptr<Ghost> inky = factory->createGhost(GhostType::Inky, std::make_tuple(10*size_x, 5* size_y, size_x, size_y));
+    shared_ptr<Ghost> blinky = factory->createGhost(GhostType::Blinky, std::make_tuple(11*size_x, 5* size_y, size_x, size_y));
+
+//    std::cout << pinky.overlapsWith(clyde) << "\n";
 }
 
-void World::setCoins(AbstractFactory* factory) {
-    for (int i = 0; i < 20; i++) {
-        for (int j = 0; j < 12; j++) {
-            grid[i][j] = factory->createCoin();
+void World::update() {
+    int grid_size_x = 20;
+    int grid_size_y = 11;
+
+    for (int i = 0; i < grid_size_y; i++) {
+        for (int j = 0; j < grid_size_x; j++) {
+            if (grid[i][j] != nullptr) {
+                grid[i][j]->update();
+            }
         }
     }
 }
 
-void World::setWalls(AbstractFactory* factory) {
-    // Set top walls
-    grid[0][0] = factory->createWall(CTL);
-    for (int i = 1; i < 19; i++) {
-        grid[i][0] = factory->createWall(H);
-    }
-    grid[19][0] = factory->createWall(CTR);
 
-    // Set bottom walls
-    grid[0][11] = factory->createWall(CBL);
-    for (int i = 1; i < 19; i++) {
-        grid[i][11] = factory->createWall(H);
-    }
-    grid[19][11] = factory->createWall(CBR);
 
-    // Set left walls
-    for (int i = 1; i < 11; i++) {
-        grid[0][i] = factory->createWall(V);
-    }
-
-    // Set right walls
-    for (int i = 1; i < 11; i++) {
-        grid[19][i] = factory->createWall(V);
-    }
-
-    // TODO Set other walls
-}
-
-void World::setFruits(AbstractFactory* factory) {
-    grid[1][1] = factory->createFruit();
-    grid[18][10] = factory->createFruit();
-}
-
-Subject *World::getSubject(int x, int y) {
-    return grid[x][y];
-}
+//Subject *World::getSubject(int x, int y) {
+//    return grid[x][y];
+//}
