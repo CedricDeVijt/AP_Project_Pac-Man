@@ -4,8 +4,22 @@
 
 #include "EntityModel.h"
 
-class Ghost : public EntityModel {
 
+enum class GhostType {
+    Blinky, Pinky, Inky, Clyde, Fear
+};
+
+
+class Ghost : public EntityModel {
+public:
+    Ghost(GhostType type, std::tuple<double, double, double, double> homePosition);
+    void setHome(std::tuple<double, double, double, double> position);
+    void toFearMode();
+
+private:
+    GhostType type;
+    bool isFearMode;
+    std::tuple<double, double, double, double> homePosition;
 };
 
 
