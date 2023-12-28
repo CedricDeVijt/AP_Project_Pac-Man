@@ -17,14 +17,20 @@ shared_ptr<Wall> ConcreteFactory::createWall(std::tuple<double, double, double, 
     return wall;
 }
 
-shared_ptr<Coin> ConcreteFactory::createCoin() {
-    return std::make_shared<Coin>();
+shared_ptr<Coin> ConcreteFactory::createCoin(std::tuple<double, double, double, double> position) {
+    shared_ptr<Coin> coin = std::make_shared<Coin>();
+    shared_ptr<CoinView> coinView = std::make_shared<CoinView>(position);
+    coin->registerObserver(coinView);
+    return coin;
 }
 
-shared_ptr<Fruit> ConcreteFactory::createFruit() {
-    return std::make_shared<Fruit>();
+shared_ptr<Fruit> ConcreteFactory::createFruit(std::tuple<double, double, double, double> position) {
+    shared_ptr<Fruit> fruit = std::make_shared<Fruit>();
+    shared_ptr<FruitView> fruitView = std::make_shared<FruitView>(position);
+    fruit->registerObserver(fruitView);
+    return fruit;
 }
 
-ConcreteFactory::ConcreteFactory(shared_ptr <sf::RenderWindow> window) {
+ConcreteFactory::ConcreteFactory() {
 
 }
