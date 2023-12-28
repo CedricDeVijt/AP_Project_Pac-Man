@@ -26,23 +26,31 @@ protected:
 //
 //};
 //
-//class CoinView : public EntityView {
-//
-//};
-
-class WallView : public EntityView {
+class CoinView : public EntityView {
 public:
-    WallView(std::tuple<double, double, double, double> position);
-
-    void update() override;
-
+    CoinView(std::tuple<double, double, double, double> position);
+    void update() override ;
 private:
     // TODO pull up to EntityView
     std::tuple<double, double, double, double> position;
 };
 
-//class FruitView : public EntityView {
-//
-//};
+class WallView : public EntityView {
+public:
+    WallView(std::tuple<double, double, double, double> position);
+    void update() override ;
+private:
+    // TODO pull up to EntityView
+    std::tuple<double, double, double, double> position;
+};
+
+class FruitView : public EntityView {
+public:
+    FruitView(std::tuple<double, double, double, double> position);
+    void update() override ;
+private:
+    // TODO pull up to EntityView
+    std::tuple<double, double, double, double> position;
+};
 
 #endif //AP_PROJECT_PAC_MAN_ENTITYVIEW_H
