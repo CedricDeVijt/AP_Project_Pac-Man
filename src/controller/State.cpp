@@ -84,7 +84,6 @@ void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
     window->draw(*sprite);
 
 
-
     // High scores
     std::vector<std::pair<std::string, int>> scores = Score::loadHighScores();
     sf::Font font;
@@ -94,16 +93,17 @@ void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
     }
 
 
-    sf::Text title("High Scores", font, 30);
-        title.setPosition(100, 200);
+    int spriteHeight = sprite->getGlobalBounds().height;
+    sf::Text title("High Scores", font, 40);
+        title.setPosition(100, spriteHeight + 20);
         window->draw(title);
 
     for (int i = 0; i < scores.size(); ++i) {
         sf::Text name(scores[i].first, font, 20);
-        name.setPosition(100, 300 + 30 * i);
+        name.setPosition(100, spriteHeight + 100 + 30 * i);
 
         sf::Text score(std::to_string(scores[i].second), font, 20);
-        score.setPosition(300, 300 + 30 * i);
+        score.setPosition(300, spriteHeight + 100 + 30 * i);
 
         window->draw(name);
         window->draw(score);
@@ -198,7 +198,7 @@ void MenuState::update() {
 LevelState::LevelState(StateManager *stateManager) : State(stateManager) {
     // TODO verwijder window als parameter in de constructor en zoek window op waar nodig
     shared_ptr<sf::RenderWindow> window = WindowSingleton::getInstance().getWindow();
-    shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>(window);
+    shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>();
     world = std::make_shared<World>(factory);
     world->update();
 }
@@ -258,15 +258,15 @@ void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
     window->draw(livesText);
 
 
-    SpriteFactory spriteFactory;
-    sf::Vector2f scale = sf::Vector2f(2, 2);
-    window->draw(spriteFactory.createGhost(GhostType::Clyde, 1, 200, 300, scale));
-    window->draw(spriteFactory.createGhost(GhostType::Pinky, 1, 300, 300, scale));
-    window->draw(spriteFactory.createGhost(GhostType::Fear, 1, 400, 300, scale));
-    window->draw(spriteFactory.createPacMan(1, 300, 400, scale));
-    window->draw(spriteFactory.createFruit(1, 500, 400, scale));
-    window->draw(spriteFactory.createFruit(2, 500, 300, scale));
-    window->draw(spriteFactory.createCoin(600, 350, scale));
+//    SpriteFactory& spriteFactory = SpriteFactory::getInstance();
+//    sf::Vector2f scale = sf::Vector2f(2, 2);
+//    window->draw(spriteFactory.createGhost(GhostType::Clyde, 1, 200, 300, scale));
+//    window->draw(spriteFactory.createGhost(GhostType::Pinky, 1, 300, 300, scale));
+//    window->draw(spriteFactory.createGhost(GhostType::Fear, 1, 400, 300, scale));
+//    window->draw(spriteFactory.createPacMan(1, 300, 400, scale));
+//    window->draw(spriteFactory.createFruit(1, 500, 400, scale));
+//    window->draw(spriteFactory.createFruit(2, 500, 300, scale));
+//    window->draw(spriteFactory.createCoin(600, 350, scale));
 }
 
 PausedState::PausedState(StateManager* stateManager) : State(stateManager) {
