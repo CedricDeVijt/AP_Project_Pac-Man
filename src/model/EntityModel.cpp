@@ -27,3 +27,11 @@ bool EntityModel::overlapsWith(EntityModel entityModel) {
 void EntityModel::update() {
     notifyObservers();
 }
+
+EntityModel::EntityModel() {
+
+}
+
+EntityModel::EntityModel(std::tuple<double, double, double, double> position) : position(position){
+
+}
