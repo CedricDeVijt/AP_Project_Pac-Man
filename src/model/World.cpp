@@ -5,7 +5,7 @@
 
 World::World(shared_ptr<AbstractFactory> factory) {
 
-    std::vector <std::string> board{
+    std::vector<std::string> board{
             "wwwwwwwwwwwwwwwwwwww",
             "wfcccwccccccccwccccw",
             "wcwwcwcwwwwwwcwcwwcw",
@@ -18,14 +18,14 @@ World::World(shared_ptr<AbstractFactory> factory) {
             "wccccwccccccccwcccfw",
             "wwwwwwwwwwwwwwwwwwww"
     };
-    int items_x=board[0].length();
-    int items_y=board.size();
+    int items_x = board[0].length();
+    int items_y = board.size();
 
     std::cout << "items x: " << items_x << "\n";
     std::cout << "items y: " << items_y << "\n";
 
-    double size_x=2.0/items_x;
-    double size_y=2.0/items_y;
+    double size_x = 2.0 / items_x;
+    double size_y = 2.0 / items_y;
 
     for (int i = 0; i < board.size(); i++) {
         for (int j = 0; j < board[i].length(); j++) {
@@ -55,7 +55,8 @@ World::World(shared_ptr<AbstractFactory> factory) {
                     grid[i][j] = factory->createGhost(GhostType::Clyde, position);
                     break;
                 case 'P':
-                    grid[i][j] = factory->createPacMan(position);
+                    pacMan = factory->createPacMan(position);
+                    grid[i][j] = pacMan;
                     break;
                 default:
                     break;
@@ -77,11 +78,11 @@ World::World(shared_ptr<AbstractFactory> factory) {
 }
 
 void World::update() {
-    int grid_size_x = 20;
-    int grid_size_y = 11;
+    const int grid_size_x = sizeof(grid) / sizeof(grid[0]);
+    const int grid_size_y = sizeof(grid[0]) / sizeof(grid[0][0]);
 
-    for (int i = 0; i < grid_size_y; i++) {
-        for (int j = 0; j < grid_size_x; j++) {
+    for (int i = 0; i < grid_size_x; i++) {
+        for (int j = 0; j < grid_size_y; j++) {
             if (grid[i][j] != nullptr) {
                 grid[i][j]->update();
             }
@@ -89,8 +90,6 @@ void World::update() {
     }
 }
 
-
-
-//Subject *World::getSubject(int x, int y) {
-//    return grid[x][y];
-//}
+void World::setDirectionPacMan(Direction direction) {
+    pacMan->setDirection(direction);
+}

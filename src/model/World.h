@@ -16,15 +16,15 @@ public:
 
     void update();
 
-    void moveLeft();
-    void moveRight();
-    void moveUp();
-    void moveDown();
+    void setDirectionPacMan(Direction direction);
 
 //    Subject *getSubject(int x, int y);
 
 private:
     shared_ptr<EntityModel> grid[12][20];
+    shared_ptr<PacMan> pacMan;
+
+
 };
 
 

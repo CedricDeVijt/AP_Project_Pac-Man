@@ -88,6 +88,26 @@ void PacManView::update() {
 //    std::cout << "New position at " << 30*20 *(x+1) <<", " << 30*11 * (y+1) <<"\n";
 
     sf::Vector2f scale = sf::Vector2f(1.5, 1.5);
-    sf::Sprite sprite = SpriteFactory::getInstance().createPacMan(1, 30*20*(x+1), 30*11*(y+1), scale);
+    sf::Sprite sprite;
+
+    switch (pacMan->getDirection()){
+        case Direction::UP:
+            sprite = SpriteFactory::getInstance().createPacMan(10, 30*20*(x+1), 30*11*(y+1), scale);
+            break;
+        case Direction::DOWN:
+            sprite = SpriteFactory::getInstance().createPacMan(4, 30*20*(x+1), 30*11*(y+1), scale);
+            break;
+        case Direction::LEFT:
+            sprite = SpriteFactory::getInstance().createPacMan(7, 30*20*(x+1), 30*11*(y+1), scale);
+            break;
+        case Direction::RIGHT:
+//            sprite = SpriteFactory::getInstance().createPacMan(1, 30*20*(x+1), 30*11*(y+1), scale);
+////            break;
+        case Direction::NONE:
+            sprite = SpriteFactory::getInstance().createPacMan(1, 30*20*(x+1), 30*11*(y+1), scale);
+            break;
+    }
+
+
     window->draw(sprite);
 }

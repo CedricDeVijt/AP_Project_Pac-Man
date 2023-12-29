@@ -4,17 +4,24 @@
 
 #include "EntityModel.h"
 
-class PacMan : public EntityModel {
-public:
-    PacMan(std::tuple<double, double, double, double> position);
-    void goHome();
-    void moveLeft();
-    void moveRight();
-    void moveUp();
-    void moveDown();
+enum Direction {
+    LEFT, RIGHT, UP, DOWN, NONE
+};
 
+
+class PacMan : public EntityModel {
 private:
-    std::tuple<double, double, double, double> position;
+    Direction direction;
+public:
+    explicit PacMan(std::tuple<double, double, double, double> position);
+
+    void update() final;
+
+    void setDirection(const Direction &direction);
+
+    Direction getDirection() const;
+
+    void goHome();
 };
 
 

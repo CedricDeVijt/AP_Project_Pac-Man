@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "State.h"
 #include "../view/SpriteFactory.h"
 #include "../model/World.h"
@@ -6,10 +8,10 @@
 #include "../model/Score.h"
 
 
-State::State(StateManager* stateManager) : stateManager(stateManager) {
+State::State(StateManager *stateManager) : stateManager(stateManager) {
 }
 
-MenuState::MenuState(StateManager* stateManager) : State(stateManager) {
+MenuState::MenuState(StateManager *stateManager) : State(stateManager) {
 }
 
 void State::createNewLevelState() {
@@ -95,8 +97,8 @@ void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
 
     int spriteHeight = sprite->getGlobalBounds().height;
     sf::Text title("High Scores", font, 40);
-        title.setPosition(100, spriteHeight + 20);
-        window->draw(title);
+    title.setPosition(100, spriteHeight + 20);
+    window->draw(title);
 
     for (int i = 0; i < scores.size(); ++i) {
         sf::Text name(scores[i].first, font, 20);
@@ -227,6 +229,22 @@ void LevelState::processInput(sf::Keyboard::Key key) {
         case sf::Keyboard::Escape:
             toPausedState();
             break;
+        case sf::Keyboard::Up:
+            world->setDirectionPacMan(Direction::UP);
+            std::cout << "UP" << std::endl;
+            break;
+        case sf::Keyboard::Down:
+            world->setDirectionPacMan(Direction::DOWN);
+            std::cout << "DOWN" << std::endl;
+            break;
+        case sf::Keyboard::Left:
+            world->setDirectionPacMan(Direction::LEFT);
+            std::cout << "LEFT" << std::endl;
+            break;
+        case sf::Keyboard::Right:
+            world->setDirectionPacMan(Direction::RIGHT);
+            std::cout << "RIGHT" << std::endl;
+            break;
         default:
             break;
     }
@@ -269,7 +287,7 @@ void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
 //    window->draw(spriteFactory.createCoin(600, 350, scale));
 }
 
-PausedState::PausedState(StateManager* stateManager) : State(stateManager) {
+PausedState::PausedState(StateManager *stateManager) : State(stateManager) {
 }
 
 void PausedState::toMenuState() {
