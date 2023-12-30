@@ -22,6 +22,9 @@ Ghost::Ghost(GhostType type, std::tuple<double, double, double, double> homePosi
             break;
         case GhostType::Clyde:
             direction = Direction::LEFT;
+            break;
+        default:
+            break;
     }
 }
 
