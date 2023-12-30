@@ -1,12 +1,11 @@
 #ifndef AP_PROJECT_PAC_MAN_PACMAN_H
 #define AP_PROJECT_PAC_MAN_PACMAN_H
 
+#include <vector>
+
 
 #include "EntityModel.h"
-
-enum Direction {
-    LEFT, RIGHT, UP, DOWN, NONE
-};
+#include "Direction.h"
 
 
 class PacMan : public EntityModel {
@@ -16,6 +15,7 @@ public:
     explicit PacMan(std::tuple<double, double, double, double> position);
 
     void update() final;
+    void update(const std::vector<Direction> &directions);
 
     void setDirection(const Direction &direction);
 

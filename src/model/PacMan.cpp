@@ -41,3 +41,26 @@ void PacMan::update() {
 Direction PacMan::getDirection() const {
     return direction;
 }
+
+void PacMan::update(const std::vector<Direction> &directions) {
+    double x, y, sizeX, sizeY;
+    std::tie(x, y, sizeX, sizeY) = position;
+
+    for (auto possibleDirection: directions) {
+        if (possibleDirection == LEFT and direction == LEFT) {
+            x -= 0.01;
+            break;
+        } else if (possibleDirection == RIGHT and direction == RIGHT) {
+            x += 0.01;
+            break;
+        } else if (possibleDirection == UP and direction == UP) {
+            y -= 0.01;
+            break;
+        } else if (possibleDirection == DOWN and direction == DOWN) {
+            y += 0.01;
+            break;
+        }
+    }
+    position = std::make_tuple(x, y, sizeX, sizeY);
+    notifyObservers();
+}
