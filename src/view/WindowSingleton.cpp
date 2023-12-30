@@ -2,7 +2,7 @@
 
 // Define the static instance of the singleton
 WindowSingleton::WindowSingleton() {
-   window = std::make_shared<sf::RenderWindow>(sf::VideoMode(1200, 800), "Pac-Man", sf::Style::Titlebar | sf::Style::Close);
+   window = std::make_shared<sf::RenderWindow>(sf::VideoMode(1200, 720), "Pac-Man", sf::Style::Titlebar | sf::Style::Close);
 }
 
 WindowSingleton& WindowSingleton::getInstance() {
