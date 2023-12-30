@@ -1,18 +1,25 @@
 #ifndef AP_PROJECT_PAC_MAN_ENTITYVIEW_H
 #define AP_PROJECT_PAC_MAN_ENTITYVIEW_H
 
+#include <memory>
+#include <SFML/Graphics.hpp>
 
+#include "../model/Collectable.h"
 #include "../model/PacMan.h"
 #include "../model/Ghost.h"
+#include "../model/Wall.h"
 #include "WindowSingleton.h"
-#include <SFML/Graphics.hpp>
-#include <memory>
+#include "SpriteFactory.h"
 
 using std::shared_ptr;
 
 class EntityView : public Observer {
 protected:
     shared_ptr<sf::RenderWindow> window = WindowSingleton::getInstance().getWindow();
+    SpriteFactory &spriteFactory = SpriteFactory::getInstance();
+    int toPixelX(double position);
+    int toPixelY(double position);
+    int getGridSize() const;
 };
 
 class PacManView : public EntityView {
@@ -26,40 +33,36 @@ private:
 
 class GhostView : public EntityView {
 public:
-    GhostView(GhostType type, std::tuple<double, double, double, double> homePosition);
+    GhostView(shared_ptr<Ghost> ghost);
     void update() override ;
 private:
-    GhostType type;
-    // TODO pull up to EntityView
-    std::tuple<double, double, double, double> homePosition;
-    std::tuple<double, double, double, double> position;
+    shared_ptr<Ghost> ghost;
+
 };
 
 class CoinView : public EntityView {
 public:
-    CoinView(std::tuple<double, double, double, double> position);
+    CoinView(shared_ptr<Coin> coin);
     void update() override ;
 private:
-    // TODO pull up to EntityView
-    std::tuple<double, double, double, double> position;
+    shared_ptr<Coin> coin;
 };
 
 class WallView : public EntityView {
 public:
-    WallView(std::tuple<double, double, double, double> position);
-    void update() override ;
+    WallView(shared_ptr <Wall> wall);
+    void update() override;
+
 private:
-    // TODO pull up to EntityView
-    std::tuple<double, double, double, double> position;
+    shared_ptr<Wall> wall;
 };
 
 class FruitView : public EntityView {
 public:
-    FruitView(std::tuple<double, double, double, double> position);
-    void update() override ;
+    FruitView(shared_ptr<Fruit> fruit);
+    void update() override;
 private:
-    // TODO pull up to EntityView
-    std::tuple<double, double, double, double> position;
+    shared_ptr<Fruit> fruit;
 };
 
 #endif //AP_PROJECT_PAC_MAN_ENTITYVIEW_H

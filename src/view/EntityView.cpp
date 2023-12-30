@@ -3,78 +3,87 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-//PacManView::PacManView(shared_ptr<PacMan> pacMan) {
-//
-//}
+int EntityView::getGridSize() const { return window->getSize().x / 20; }
 
-WallView::WallView(std::tuple<double, double, double, double> position) : position(position){
+int toPixel(double position, int canvasSize) {
+    return (position + 1) * canvasSize / 2.0;  // [-1, 1] -> [0, 2] -> [0, canvasSize]
+}
+
+int EntityView::toPixelX(double position) {
+    return toPixel(position, window->getSize().x);
+}
+
+int EntityView::toPixelY(double position) {
+    return toPixel(position, window->getSize().x * 11 / 20); // same aspect ratio for a 20 by 11 grid
+}
+
+
+WallView::WallView(shared_ptr<Wall> wall) : wall(wall){
 }
 
 void WallView::update() {
-//    std::cout << "WallView::update() Wallview was updated\n";
     // TODO do this properly using camera
     double x, y, size_x, size_y;
-    std::tie(x, y, size_x, size_y) = position;
-//    std::cout << "Creating wall at " << x <<", " << y <<"\n";
-//    std::cout << "New position at " << 30*20 *(x+1) <<", " << 30*11 * (y+1) <<"\n";
+    std::tie(x, y, size_x, size_y) = wall->getPosition();
+    int gridSize = getGridSize() +1;
+    int posX = toPixelX(x);
+    int posY = toPixelY(y);
 
-//    sf::RectangleShape rectangle(sf::Vector2f(64, 64));
-    sf::RectangleShape rectangle(sf::Vector2f(60, 60));
-    // Set the position of the rectangle
-//    rectangle.setPosition(600*(x+1), 400*(y+1));
-    rectangle.setPosition(30*20*(x+1), 30*11*(y+1));
-    // Set the color of the rectangle (optional)
+    sf::RectangleShape rectangle(sf::Vector2f(gridSize, gridSize));
+    rectangle.setPosition(posX, posY);
     rectangle.setFillColor(sf::Color::Blue);
     window->draw(rectangle);
 }
 
-CoinView::CoinView(std::tuple<double, double, double, double> position) : position(position){
+CoinView::CoinView(shared_ptr<Coin> coin) : coin(coin){
 }
 
 void CoinView::update() {
-//    std::cout << "CoinView::update() Coinview was updated\n";
     // TODO do this properly using camera
     double x, y, size_x, size_y;
-    std::tie(x, y, size_x, size_y) = position;
-//    std::cout << "Creating coin at " << x <<", " << y <<"\n";
-//    std::cout << "New position at " << 30*20 *(x+1) <<", " << 30*11 * (y+1) <<"\n";
+    std::tie(x, y, size_x, size_y) = coin->getPosition();
+    int gridSize = getGridSize();
+    int posX = toPixelX(x);
+    int posY = toPixelY(y);
 
-    sf::Vector2f scale = sf::Vector2f(1.5, 1.5);
-    sf::Sprite sprite = SpriteFactory::getInstance().createCoin(30*20*(x+1), 30*11*(y+1), scale);
-    window->draw(sprite);
+    window->draw(spriteFactory.createCoin(posX, posY, gridSize));
 }
 
-FruitView::FruitView(std::tuple<double, double, double, double> position) : position(position){
+FruitView::FruitView(shared_ptr<Fruit> fruit) : fruit(fruit){
 }
 
 void FruitView::update() {
-//    std::cout << "FruitView::update() Fruitview was updated\n";
     // TODO do this properly using camera
     double x, y, size_x, size_y;
-    std::tie(x, y, size_x, size_y) = position;
-//    std::cout << "Creating fruit at " << x <<", " << y <<"\n";
-//    std::cout << "New position at " << 30*20 *(x+1) <<", " << 30*11 * (y+1) <<"\n";
+    std::tie(x, y, size_x, size_y) = fruit->getPosition();
+    int gridSize = getGridSize();
+    int posX = toPixelX(x);
+    int posY = toPixelY(y);
 
-    sf::Vector2f scale = sf::Vector2f(1.5, 1.5);
-    sf::Sprite sprite = SpriteFactory::getInstance().createFruit(0, 30*20*(x+1), 30*11*(y+1), scale);
-    window->draw(sprite);
+    window->draw(spriteFactory.createFruit(0, posX, posY, gridSize));
 }
 
-GhostView::GhostView(GhostType type, std::tuple<double, double, double, double> homePosition) : type(type), homePosition(homePosition), position(homePosition) {
+GhostView::GhostView(shared_ptr<Ghost> ghost) : ghost(ghost) {
 }
 
 void GhostView::update() {
-//    std::cout << "GhostView::update() Ghostview was updated\n";
     // TODO do this properly using camera
     double x, y, size_x, size_y;
-    std::tie(x, y, size_x, size_y) = position;
-//    std::cout << "Creating ghost at " << x <<", " << y <<"\n";
-//    std::cout << "New position at " << 30*20 *(x+1) <<", " << 30*11 * (y+1) <<"\n";
+    std::tie(x, y, size_x, size_y) = ghost->getPosition();
+    int gridSize = getGridSize();
+    int posX = toPixelX(x);
+    int posY = toPixelY(y);
 
-    sf::Vector2f scale = sf::Vector2f(1.5, 1.5);
-    sf::Sprite sprite = SpriteFactory::getInstance().createGhost(type, 0, 30*20*(x+1), 30*11*(y+1), scale);
-    window->draw(sprite);
+    // TODO choose alternative to animate
+    int alternative = 0;
+
+    if (ghost->isFearMode()) {
+        window->draw(spriteFactory.createGhost(GhostType::Fear, alternative, posX, posY, gridSize));
+    } else {
+        window->draw(spriteFactory.createGhost(ghost->getType(), alternative, posX, posY, gridSize));
+    }
 }
+
 
 PacManView::PacManView(shared_ptr<PacMan> pacMan) : pacMan(pacMan) {
 }
