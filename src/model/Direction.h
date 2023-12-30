@@ -1,0 +1,10 @@
+#ifndef AP_PROJECT_PAC_MAN_DIRECTION_H
+#define AP_PROJECT_PAC_MAN_DIRECTION_H
+
+
+enum Direction {
+    LEFT, RIGHT, UP, DOWN, NONE
+};
+
+
+#endif //AP_PROJECT_PAC_MAN_DIRECTION_H

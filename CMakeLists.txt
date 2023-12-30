@@ -26,6 +26,7 @@ add_executable(AP_Project_Pac_Man
         src/controller/StateManager.cpp
         src/view/SpriteFactory.cpp
         src/view/WindowSingleton.cpp
+        src/model/Direction.cpp
 )
 # Find SFML
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
