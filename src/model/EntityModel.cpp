@@ -1,6 +1,4 @@
-//
-// Created by Cedric De Vijt on 25/11/2023.
-//
+#include <utility>
 
 #include "EntityModel.h"
 
@@ -28,10 +26,5 @@ void EntityModel::update() {
     notifyObservers();
 }
 
-EntityModel::EntityModel() {
 
-}
-
-EntityModel::EntityModel(std::tuple<double, double, double, double> position) : position(position){
-
-}
+EntityModel::EntityModel(std::tuple<double, double, double, double> position) : position(std::move(position)) {}

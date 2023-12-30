@@ -5,9 +5,7 @@
 
 class EntityModel : public Subject {
 public:
-    // TODO Remove
-    EntityModel();
-    EntityModel(std::tuple<double, double, double, double> position);
+    explicit EntityModel(std::tuple<double, double, double, double> position);
     std::tuple<double, double, double, double> getPosition();
     bool overlapsWith(EntityModel entityModel);
     virtual void update();
