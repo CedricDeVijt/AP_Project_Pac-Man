@@ -231,19 +231,15 @@ void LevelState::processInput(sf::Keyboard::Key key) {
             break;
         case sf::Keyboard::Up:
             world->setDirectionPacMan(Direction::UP);
-            std::cout << "UP" << std::endl;
             break;
         case sf::Keyboard::Down:
             world->setDirectionPacMan(Direction::DOWN);
-            std::cout << "DOWN" << std::endl;
             break;
         case sf::Keyboard::Left:
             world->setDirectionPacMan(Direction::LEFT);
-            std::cout << "LEFT" << std::endl;
             break;
         case sf::Keyboard::Right:
             world->setDirectionPacMan(Direction::RIGHT);
-            std::cout << "RIGHT" << std::endl;
             break;
         default:
             break;
