@@ -3,14 +3,14 @@
 #include <string>
 #include <iostream>
 
-World::World(shared_ptr<AbstractFactory> factory) {
+World::World(shared_ptr <AbstractFactory> factory, int level) {
 
-    std::vector<std::string> board{
+    std::vector <std::string> level_1 {
             "wwwwwwwwwwwwwwwwwwww",
             "wfcccwccccccccwccccw",
             "wcwwcwcwwwwwwcwcwwcw",
             "wcwccccccccccccccwcw",
-            "wcwcwwcww  wwcwwcwcw",
+            "wcwcwwcwwGGwwcwwcwcw",
             "wPcccccw1234wccccccw",
             "wcwcwwcwwwwwwcwwcwcw",
             "wcwccccccccccccccwcw",
@@ -18,6 +18,21 @@ World::World(shared_ptr<AbstractFactory> factory) {
             "wccccwccccccccwcccfw",
             "wwwwwwwwwwwwwwwwwwww"
     };
+    std::vector <std::string> level_2 {
+            "wwwwwwwwwwwwwwwwwwww",
+            "wfcccwccccccccwcccfw",
+            "wcwwcwcwcwwcwcwcwwcw",
+            "wcwccwcwccccwcwccwcw",
+            "wcwcwwcwwwwwwcwwcwcw",
+            "wPcccccw1234wccccccw",
+            "wwwcwcwwwccwwwcwcwww",
+            "wcccwccccccccccwcccw",
+            "wcwwwwcwwcwwwcwwwwcw",
+            "wcccfcccwccwccccfccw",
+            "wwwwwwwwwwwwwwwwwwww",
+    };
+    std::vector <std::string> board = (level % 2 == 0) ? level_1 : level_2;
+
     int items_x = board[0].length();
     int items_y = board.size();
 
@@ -100,7 +115,28 @@ std::vector<Direction> World::getPossibleDirections() {
     std::tie(x, y, sizeX, sizeY) = pacMan->getPosition();
     std::vector<Direction> possibleDirections;
 
+    for (auto &wall: walls) {
+        double wallX, wallY, wallSizeX, wallSizeY;
+        std::tie(wallX, wallY, wallSizeX, wallSizeY) = wall->getPosition();
 
-
-    return {RIGHT, LEFT, UP, DOWN};
+        if (x > wallX and x < wallX and y > wallY and y < wallY) {
+            if (x > wallX and x < wallX) {
+                if (y > wallY) {
+                    possibleDirections.push_back(UP);
+                }
+                if (y < wallY) {
+                    possibleDirections.push_back(DOWN);
+                }
+            }
+            if (y > wallY and y < wallY) {
+                if (x > wallX) {
+                    possibleDirections.push_back(LEFT);
+                }
+                if (x < wallX) {
+                    possibleDirections.push_back(RIGHT);
+                }
+            }
+        }
+    }
+    return {LEFT, RIGHT, UP, DOWN, NONE};
 }

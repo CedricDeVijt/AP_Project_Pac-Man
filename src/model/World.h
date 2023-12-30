@@ -11,7 +11,7 @@ using std::shared_ptr;
 
 class World {
 public:
-    explicit World(shared_ptr<AbstractFactory> factory);
+    explicit World(shared_ptr <AbstractFactory> factory, int level);
 
     ~World() = default;
 
