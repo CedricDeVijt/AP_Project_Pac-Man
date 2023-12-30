@@ -2,6 +2,7 @@
 #define AP_PROJECT_PAC_MAN_WORLD_H
 
 #include <memory>
+#include <vector>
 
 #include "AbstractFactory.h"
 #include "Subject.h"
@@ -16,12 +17,15 @@ public:
 
     void update();
 
-    void setDirectionPacMan(Direction direction);
+    void setDirectionPacMan(const Direction &direction);
 
 //    Subject *getSubject(int x, int y);
 
 private:
-    shared_ptr<EntityModel> grid[12][20];
+    std::vector<shared_ptr<Wall>> walls;
+    std::vector<shared_ptr<Coin>> coins;
+    std::vector<shared_ptr<Fruit>> fruits;
+    std::vector<shared_ptr<Ghost>> ghosts;
     shared_ptr<PacMan> pacMan;
 
 
