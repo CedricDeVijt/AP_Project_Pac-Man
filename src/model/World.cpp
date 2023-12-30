@@ -81,10 +81,26 @@ void World::update() {
         wall->update();
     }
 
-    pacMan->update();
+    pacMan->update(getPossibleDirections());
 
 }
 
 void World::setDirectionPacMan(const Direction &direction) {
-    pacMan->setDirection(direction);
+
+    for (auto possibleDirection: getPossibleDirections()) {
+        if (possibleDirection == direction) {
+            pacMan->setDirection(direction);
+            return;
+        }
+    }
+}
+
+std::vector<Direction> World::getPossibleDirections() {
+    double x, y, sizeX, sizeY;
+    std::tie(x, y, sizeX, sizeY) = pacMan->getPosition();
+    std::vector<Direction> possibleDirections;
+
+
+
+    return {RIGHT, LEFT, UP, DOWN};
 }

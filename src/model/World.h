@@ -19,7 +19,11 @@ public:
 
     void setDirectionPacMan(const Direction &direction);
 
-//    Subject *getSubject(int x, int y);
+private:
+    bool isCollidingWithWall(const shared_ptr<EntityModel> &entityModel);
+    bool isCollidingWithCoin(const shared_ptr<EntityModel> &entityModel);
+    bool isCollidingWithFruit(const shared_ptr<EntityModel> &entityModel);
+    bool isCollidingWithGhost(const shared_ptr<EntityModel> &entityModel);
 
 private:
     std::vector<shared_ptr<Wall>> walls;
@@ -29,6 +33,7 @@ private:
     shared_ptr<PacMan> pacMan;
 
 
+    std::vector<Direction> getPossibleDirections();
 };
 
 
