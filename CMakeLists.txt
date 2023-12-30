@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(AP_Project_Pac_Man
         main.cpp
         src/model/AbstractFactory.cpp
-        src/view/Camera.cpp
         src/model/Collectable.cpp
         src/model/EntityModel.cpp
         src/model/Ghost.cpp
@@ -14,24 +13,28 @@ add_executable(AP_Project_Pac_Man
         src/model/Random.cpp
         src/model/Observer.cpp
         src/model/Score.cpp
-        src/controller/Stopwatch.cpp
         src/model/Subject.cpp
         src/model/Wall.cpp
         src/model/World.cpp
+        src/model/Direction.cpp
 
         src/view/ConcreteFactory.cpp
         src/view/EntityView.cpp
+        src/view/Camera.cpp
+        src/view/SpriteFactory.cpp
+        src/view/SpriteFactory.h
+        src/view/WindowSingleton.cpp
+        src/view/SoundEffects.cpp
+
         src/controller/Game.cpp
         src/controller/State.cpp
         src/controller/StateManager.cpp
-        src/view/SpriteFactory.cpp
-        src/view/WindowSingleton.cpp
-        src/model/Direction.cpp
-)
+        src/controller/Stopwatch.cpp
+        )
 # Find SFML
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 if(SFML_FOUND)
-    target_link_libraries(AP_Project_Pac_Man sfml-graphics sfml-window sfml-system)
+    target_link_libraries(AP_Project_Pac_Man sfml-graphics sfml-window sfml-system sfml-audio)
 else()
     message(FATAL_ERROR "SFML not found")
 endif()
