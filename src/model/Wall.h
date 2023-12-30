@@ -7,7 +7,7 @@
 
 class Wall : public EntityModel {
 public:
-    explicit Wall ();
+    Wall(std::tuple<double, double, double, double> position);
 };
 
 

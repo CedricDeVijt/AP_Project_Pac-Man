@@ -1,3 +1,3 @@
 #include "Wall.h"
 
-Wall::Wall() {}
+Wall::Wall(std::tuple<double, double, double, double> position): EntityModel(position) {}
