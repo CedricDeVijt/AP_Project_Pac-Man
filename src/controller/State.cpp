@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "State.h"
 #include "../view/SpriteFactory.h"
 #include "../model/World.h"
@@ -31,32 +29,6 @@ void State::createNewMenuState() {
 void MenuState::toLevelState() {
     createNewLevelState();
 }
-
-// shared_ptr<sf::Sprite> pacManLogoSprite(const shared_ptr<sf::RenderWindow>& window) {
-//     const auto texture = std::make_shared<sf::Texture>();
-//     if (!texture->loadFromFile("resources/PacMan_Logo.png")) {
-//         // Handle texture loading error
-//         throw std::runtime_error("Error loading texture");
-//     }
-//
-//     // Create the sprite and set its texture
-//     const auto sprite = std::make_shared<sf::Sprite>(*texture);
-//
-//     // Set the sprite's origin and position to the top center of the window
-//     sprite->setOrigin(texture->getSize().x / 2, 0);
-//     sprite->setPosition(window->getSize().x / 2, 0);
-//
-//     const sf::FloatRect spriteBounds = sprite->getLocalBounds();
-//     sprite->setOrigin(spriteBounds.width / 2, 0);
-//
-//
-//     // Update the position and scale of the sprite based on window size
-//     sprite->setPosition(window->getSize().x / 2, 0);
-//     sprite->setScale(static_cast<float>(window->getSize().x) / spriteBounds.width,
-//                     static_cast<float>(window->getSize().x) / spriteBounds.width);
-//
-//     return sprite;
-// }
 
 void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
     // Pac-man logo
@@ -110,81 +82,6 @@ void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
         window->draw(name);
         window->draw(score);
     }
-
-
-
-    // Enter to start
-
-
-    //    // Declare arrays for names and scores
-    //    std::string names[5];
-    //    int scores[5];
-    //
-    //    // Generate sample names and scores
-    //    names[0] = "Alice";
-    //    scores[0] = 85;
-    //
-    //    names[1] = "Bob";
-    //    scores[1] = 92;
-    //
-    //    names[2] = "Charlie";
-    //    scores[2] = 78;
-    //
-    //    names[3] = "David";
-    //    scores[3] = 95;
-    //
-    //    names[4] = "Eve";
-    //    scores[4] = 88;
-    //
-    //    // TODO use window size to position text
-    //    // get window size
-    //    sf::Vector2u windowSize = window->getSize();
-    //    unsigned int windowWidth = windowSize.x;
-    //    unsigned int windowHeight = windowSize.y;
-    //
-    //    sf::Font pacManfont;
-    //    if (!pacManfont.loadFromFile("resources/pacManFont.ttf")) {
-    //        throw std::runtime_error("Error loading font");
-    //    }
-    //
-    //    sf::Text pacMan("Pac-Man", pacManfont, 75);
-    //
-    //    // Update the position of the title based on window size
-    //    sf::FloatRect titleBounds = pacMan.getLocalBounds();
-    //    pacMan.setPosition((window->getSize().x - titleBounds.width) / 2, 10);
-    //
-    //
-    //
-    //    window->draw(pacMan);
-    //
-    //
-    //
-    //    // Load font
-    //    // TODO: Move this to a more appropriate place in window
-    //    sf::Font font;
-    //
-    //    if (!font.loadFromFile("resources/pixelFont.ttf")) {
-    //        throw std::runtime_error("Error loading font");
-    //    }
-    //
-    //
-    //    sf::Text title("High Scores", font, 75);
-    //    title.setPosition(100, 200);
-    //    window->draw(title);
-    //
-    //
-    //
-    //    for (int i = 0; i < 5; ++i) {
-    //        sf::Text name(names[i], font, 20);
-    //        name.setPosition(100, 300 + 30 * i);
-    //
-    //        sf::Text score(std::to_string(scores[i]), font, 20);
-    //        score.setPosition(300, 300 + 30 * i);
-    //
-    //        window->draw(name);
-    //        window->draw(score);
-    //    }
-    //
 }
 
 void MenuState::processInput(const sf::Keyboard::Key key) {
@@ -198,10 +95,12 @@ void MenuState::update() {
 }
 
 LevelState::LevelState(StateManager *stateManager) : State(stateManager) {
+    // TODO increment level
+    int level = 0;
     // TODO verwijder window als parameter in de constructor en zoek window op waar nodig
     shared_ptr<sf::RenderWindow> window = WindowSingleton::getInstance().getWindow();
     shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>();
-    world = std::make_shared<World>(factory);
+    world = std::make_shared<World>(factory, level);
     world->update();
 }
 
@@ -270,17 +169,6 @@ void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
     sf::Text livesText("# Lives Remaining: " + std::to_string(livesRemaining), font, 20);
     livesText.setPosition(770, 680);
     window->draw(livesText);
-
-
-//    SpriteFactory& spriteFactory = SpriteFactory::getInstance();
-//    sf::Vector2f scale = sf::Vector2f(2, 2);
-//    window->draw(spriteFactory.createGhost(GhostType::Clyde, 1, 200, 300, scale));
-//    window->draw(spriteFactory.createGhost(GhostType::Pinky, 1, 300, 300, scale));
-//    window->draw(spriteFactory.createGhost(GhostType::Fear, 1, 400, 300, scale));
-//    window->draw(spriteFactory.createPacMan(1, 300, 400, scale));
-//    window->draw(spriteFactory.createFruit(1, 500, 400, scale));
-//    window->draw(spriteFactory.createFruit(2, 500, 300, scale));
-//    window->draw(spriteFactory.createCoin(600, 350, scale));
 }
 
 PausedState::PausedState(StateManager *stateManager) : State(stateManager) {
@@ -302,9 +190,6 @@ void PausedState::processInput(sf::Keyboard::Key key) {
         case sf::Keyboard::Escape:
             toLevelState();
             break;
-//        case sf::Keyboard::Enter:
-//            toMenuState();
-//            break;
         default:
             break;
     }
