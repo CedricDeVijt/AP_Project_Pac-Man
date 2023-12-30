@@ -12,7 +12,6 @@ using std::shared_ptr;
 class Game {
 private:
     shared_ptr<sf::RenderWindow> window;
-    shared_ptr<World> world;
     shared_ptr<StateManager> stateManager;
 public:
     Game();

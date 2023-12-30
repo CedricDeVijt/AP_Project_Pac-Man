@@ -1,14 +1,13 @@
 #include <iostream>
 #include "Game.h"
 #include "State.h"
-#include "../view/ConcreteFactory.h"
 #include "../view/WindowSingleton.h"
+#include "../view/SoundEffects.h"
 
 
-Game::Game() : world(std::make_shared<World>(std::make_shared<ConcreteFactory>())),
-               stateManager(std::make_shared<StateManager>()) {
+Game::Game() : stateManager(std::make_shared<StateManager>()) {
     window = WindowSingleton::getInstance().getWindow();
-    window->setFramerateLimit(60); // TODO remove this to improve speed
+    window->setFramerateLimit(60);
 }
 
 Game::~Game() {
@@ -16,6 +15,7 @@ Game::~Game() {
 }
 
 void Game::run() {
+    SoundEffects::getInstance().playOpeningSong();
     // Main game loop
     while (window->isOpen()) {
         // Event handling loop
