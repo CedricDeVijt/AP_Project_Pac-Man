@@ -89,34 +89,27 @@ PacManView::PacManView(shared_ptr<PacMan> pacMan) : pacMan(pacMan) {
 }
 
 void PacManView::update() {
-//    std::cout << "PacManView::update() PacManview was updated\n";
     // TODO do this properly using camera
     double x, y, size_x, size_y;
     std::tie(x, y, size_x, size_y) = pacMan->getPosition();
-//    std::cout << "Creating pacMan at " << x <<", " << y <<"\n";
-//    std::cout << "New position at " << 30*20 *(x+1) <<", " << 30*11 * (y+1) <<"\n";
+    int gridSize = getGridSize();
+    int posX = toPixelX(x);
+    int posY = toPixelY(y);
 
-    sf::Vector2f scale = sf::Vector2f(1.5, 1.5);
-    sf::Sprite sprite;
-
+    
     switch (pacMan->getDirection()){
         case Direction::UP:
-            sprite = SpriteFactory::getInstance().createPacMan(10, 30*20*(x+1), 30*11*(y+1), scale);
+            window->draw(SpriteFactory::getInstance().createPacMan(10, posX, posY, gridSize));
             break;
         case Direction::DOWN:
-            sprite = SpriteFactory::getInstance().createPacMan(4, 30*20*(x+1), 30*11*(y+1), scale);
+            window->draw(SpriteFactory::getInstance().createPacMan(4, posX, posY, gridSize));
             break;
         case Direction::LEFT:
-            sprite = SpriteFactory::getInstance().createPacMan(7, 30*20*(x+1), 30*11*(y+1), scale);
+            window->draw(SpriteFactory::getInstance().createPacMan(7, posX, posY, gridSize));
             break;
         case Direction::RIGHT:
-//            sprite = SpriteFactory::getInstance().createPacMan(1, 30*20*(x+1), 30*11*(y+1), scale);
-////            break;
         case Direction::NONE:
-            sprite = SpriteFactory::getInstance().createPacMan(1, 30*20*(x+1), 30*11*(y+1), scale);
+            window->draw(SpriteFactory::getInstance().createPacMan(1, posX, posY, gridSize));
             break;
     }
-
-
-    window->draw(sprite);
 }
