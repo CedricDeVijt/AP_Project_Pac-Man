@@ -69,3 +69,19 @@ std::vector<std::pair<std::string, int>> Score::loadHighScores() {
 
     return highScores;
 }
+
+void Score::pacManEatsCookie() {
+    currentScore +=1;
+}
+
+void Score::pacManCapturesGhost() {
+    currentScore +=50;
+}
+
+void Score::update() {
+
+}
+
+int Score::getCurrentScore() const {
+    return currentScore;
+}
