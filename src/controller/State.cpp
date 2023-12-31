@@ -95,12 +95,12 @@ void MenuState::update() {
 }
 
 LevelState::LevelState(StateManager *stateManager) : State(stateManager) {
+    // TODO this needs to be instantiated at a different level since we need to keep the score between levels
+    score = std::make_shared<Score>();
     // TODO increment level
     int level = 0;
-    // TODO verwijder window als parameter in de constructor en zoek window op waar nodig
-    shared_ptr<sf::RenderWindow> window = WindowSingleton::getInstance().getWindow();
     shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>();
-    world = std::make_shared<World>(factory, level);
+    world = std::make_shared<World>(factory, level, score);
     world->update();
 }
 
@@ -150,8 +150,6 @@ void LevelState::update() {
 }
 
 void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
-
-    int score = 135;
     int livesRemaining = 3;
 
     // Load font
@@ -161,7 +159,7 @@ void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
         throw std::runtime_error("Error loading font");
     }
 
-    sf::Text scoreText("Score: " + std::to_string(score), font, 20);
+    sf::Text scoreText("Score: " + std::to_string(score->getCurrentScore()), font, 20);
     scoreText.setPosition(20, 680);
     window->draw(scoreText);
 

@@ -5,6 +5,7 @@
 
 #include "StateManager.h"
 #include "../model/World.h"
+#include "../model/Score.h"
 
 using std::shared_ptr;
 
@@ -62,6 +63,7 @@ private:
 
     void toGameOverState();
     shared_ptr<World> world;
+    shared_ptr<Score> score;
 };
 
 class PausedState final : public State {
