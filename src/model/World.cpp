@@ -3,9 +3,9 @@
 #include <string>
 #include <iostream>
 
-World::World(shared_ptr <AbstractFactory> factory, int level) {
+World::World(shared_ptr<AbstractFactory> factory, int level, shared_ptr<Score> score) : score(score) {
 
-    std::vector <std::string> level_1 {
+    std::vector<std::string> level_1{
             "wwwwwwwwwwwwwwwwwwww",
             "wfcccwccccccccwccccw",
             "wcwwcwcwwwwwwcwcwwcw",
@@ -18,7 +18,7 @@ World::World(shared_ptr <AbstractFactory> factory, int level) {
             "wccccwccccccccwcccfw",
             "wwwwwwwwwwwwwwwwwwww"
     };
-    std::vector <std::string> level_2 {
+    std::vector<std::string> level_2{
             "wwwwwwwwwwwwwwwwwwww",
             "wfcccwccccccccwcccfw",
             "wcwwcwcwcwwcwcwcwwcw",
@@ -31,7 +31,7 @@ World::World(shared_ptr <AbstractFactory> factory, int level) {
             "wcccfcccwccwccccfccw",
             "wwwwwwwwwwwwwwwwwwww",
     };
-    std::vector <std::string> board = (level % 2 == 0) ? level_1 : level_2;
+    std::vector<std::string> board = (level % 2 == 0) ? level_1 : level_2;
 
     int items_x = board[0].length();
     int items_y = board.size();
@@ -84,6 +84,11 @@ void World::update() {
         ghost->update();
     }
 
+    pacMan->update(getPossibleDirections(0.1));
+
+    collect(coins);
+    collect(fruits);
+
     for (auto &coin: coins) {
         coin->update();
     }
@@ -96,47 +101,94 @@ void World::update() {
         wall->update();
     }
 
-    pacMan->update(getPossibleDirections());
 
+}
+
+void World::collect(std::vector<std::shared_ptr<Coin>>& collectables) {
+    // Define the condition for removal (overlap with PacMan)
+    auto condition = [this](const std::shared_ptr<Collectable>& collectable) {
+        return collectable->overlapsWith(pacMan, 0.9);
+    };
+    // Use std::remove_if to move elements that satisfy the condition to the end
+    auto newEnd = std::remove_if(collectables.begin(), collectables.end(), condition);
+    // before removing, do something
+    for (auto it = newEnd; it != collectables.end(); ++it) {
+        score->pacManEatsCookie();
+    }
+    // Use vector's erase member function to erase the elements from newEnd to the end
+    collectables.erase(newEnd, collectables.end());
+}
+
+
+void World::collect(std::vector<std::shared_ptr<Fruit>>& collectables) {
+    // Define the condition for removal (overlap with PacMan)
+    auto condition = [this](const std::shared_ptr<Collectable>& collectable) {
+        return collectable->overlapsWith(pacMan, 0.9);
+    };
+    // Use std::remove_if to move elements that satisfy the condition to the end
+    auto newEnd = std::remove_if(collectables.begin(), collectables.end(), condition);
+    // before removing, do something
+    for (auto it = newEnd; it != collectables.end(); ++it) {
+        for (auto ghost: ghosts) {
+            ghost->toFearMode();
+            score->pacManCapturesGhost();
+        }
+    }
+    // Use vector's erase member function to erase the elements from newEnd to the end
+    collectables.erase(newEnd, collectables.end());
 }
 
 void World::setDirectionPacMan(const Direction &direction) {
-
-    for (auto possibleDirection: getPossibleDirections()) {
-        if (possibleDirection == direction) {
-            pacMan->setDirection(direction);
-            return;
-        }
-    }
+   pacMan->setTargetDirection(direction);
 }
 
-std::vector<Direction> World::getPossibleDirections() {
+std::vector<Direction> World::getPossibleDirections(double tolerance) {
+    // Get PacMan's current position and size
     double x, y, sizeX, sizeY;
     std::tie(x, y, sizeX, sizeY) = pacMan->getPosition();
-    std::vector<Direction> possibleDirections;
 
-    for (auto &wall: walls) {
+    double toleranceX = sizeX * tolerance;
+    double toleranceY = sizeY * tolerance;
+
+    // Initialize possible directions with all directions initially
+    std::vector<Direction> possibleDirections = {LEFT, RIGHT, UP, DOWN};
+
+    // Check if PacMan collides with the wall
+    for (auto &wall : walls) {
+        // Get wall's position and size
         double wallX, wallY, wallSizeX, wallSizeY;
         std::tie(wallX, wallY, wallSizeX, wallSizeY) = wall->getPosition();
 
-        if (x > wallX and x < wallX and y > wallY and y < wallY) {
-            if (x > wallX and x < wallX) {
-                if (y > wallY) {
-                    possibleDirections.push_back(UP);
-                }
-                if (y < wallY) {
-                    possibleDirections.push_back(DOWN);
-                }
-            }
-            if (y > wallY and y < wallY) {
-                if (x > wallX) {
-                    possibleDirections.push_back(LEFT);
-                }
-                if (x < wallX) {
-                    possibleDirections.push_back(RIGHT);
-                }
+
+        // Check UP DOWN, reduce width of box
+        // Check for collision along the X-axis
+        bool collisionX = x + toleranceX < wallX + wallSizeX && x + sizeX - toleranceX > wallX;
+        bool collisionY = y - toleranceY < wallY + wallSizeY && y + sizeY + toleranceY > wallY;
+        // If there is a collision along both axes, PacMan cannot move in that direction
+        if (collisionX && collisionY) {
+            if (y < wallY) {
+                possibleDirections.erase(std::remove(possibleDirections.begin(), possibleDirections.end(), DOWN), possibleDirections.end());
+            } else if (y + sizeY > wallY + wallSizeY) {
+                possibleDirections.erase(std::remove(possibleDirections.begin(), possibleDirections.end(), UP), possibleDirections.end());
             }
         }
+
+        // Check LEFT & RIGHT, reduce Height of box
+        // Check for collision along the X-axis and Y-axis
+        collisionX = x - toleranceX < wallX + wallSizeX && x + sizeX + toleranceX> wallX;
+        collisionY = y + toleranceY < wallY + wallSizeY && y + sizeY - toleranceY > wallY;
+        // If there is a collision along both axes, PacMan cannot move in that direction
+        if (collisionX && collisionY) {
+            // Remove the corresponding direction from the possible directions
+            if (x < wallX) {
+                possibleDirections.erase(std::remove(possibleDirections.begin(), possibleDirections.end(), RIGHT), possibleDirections.end());
+            } else if (x + sizeX > wallX + wallSizeX) {
+                possibleDirections.erase(std::remove(possibleDirections.begin(), possibleDirections.end(), LEFT), possibleDirections.end());
+            }
+        }
+
     }
-    return {LEFT, RIGHT, UP, DOWN, NONE};
+
+    // Return the updated list of possible directions after checking for collisions with walls
+    return possibleDirections;
 }

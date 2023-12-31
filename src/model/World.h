@@ -6,12 +6,13 @@
 
 #include "AbstractFactory.h"
 #include "Subject.h"
+#include "Score.h"
 
 using std::shared_ptr;
 
 class World {
 public:
-    explicit World(shared_ptr <AbstractFactory> factory, int level);
+    explicit World(shared_ptr<AbstractFactory> factory, int level, shared_ptr<Score> score);
 
     ~World() = default;
 
@@ -20,20 +21,17 @@ public:
     void setDirectionPacMan(const Direction &direction);
 
 private:
-    bool isCollidingWithWall(const shared_ptr<EntityModel> &entityModel);
-    bool isCollidingWithCoin(const shared_ptr<EntityModel> &entityModel);
-    bool isCollidingWithFruit(const shared_ptr<EntityModel> &entityModel);
-    bool isCollidingWithGhost(const shared_ptr<EntityModel> &entityModel);
-
-private:
     std::vector<shared_ptr<Wall>> walls;
     std::vector<shared_ptr<Coin>> coins;
     std::vector<shared_ptr<Fruit>> fruits;
     std::vector<shared_ptr<Ghost>> ghosts;
     shared_ptr<PacMan> pacMan;
+    shared_ptr<Score> score;
 
 
-    std::vector<Direction> getPossibleDirections();
+    std::vector<Direction> getPossibleDirections(double tolerance);
+    void collect(std::vector<std::shared_ptr<Coin>>& coins);
+    void collect(std::vector<std::shared_ptr<Fruit>>& fruits);
 };
 
 
