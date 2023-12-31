@@ -17,7 +17,7 @@ public:
     static SpriteFactory& getInstance();
 
     sf::Sprite createGhost(GhostType type, const int alternative, const int posX, const int posY, const int gridSize);
-    sf::Sprite createPacMan(int alternative, const int posX, const int posY, const sf::Vector2f &scale);
+    sf::Sprite createPacMan(int alternative, const int posX, const int posY, const int gridSize);
     sf::Sprite createFruit(int alternative, const int posX, const int posY, const int gridSize);
     sf::Sprite createCoin(const int posX, const int posY, const int gridSize);
 

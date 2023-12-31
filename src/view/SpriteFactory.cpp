@@ -8,12 +8,13 @@ SpriteFactory::SpriteFactory() {
     }
 }
 
-SpriteFactory& SpriteFactory::getInstance() {
+SpriteFactory &SpriteFactory::getInstance() {
     static SpriteFactory instance; // Guaranteed to be destroyed, instantiated on first use
     return instance;
 }
 
-sf::Sprite SpriteFactory::createSprite(sf::IntRect textureRect, const sf::Vector2f &position, const sf::Vector2f &scale) {
+sf::Sprite
+SpriteFactory::createSprite(sf::IntRect textureRect, const sf::Vector2f &position, const sf::Vector2f &scale) {
     // Create a sprite and set its texture and texture rectangle
     sf::Sprite sprite;
     sprite.setTexture(texture);
@@ -28,13 +29,13 @@ sf::Sprite SpriteFactory::createSprite(sf::IntRect textureRect, const sf::Vector
 }
 
 
-
-sf::Sprite SpriteFactory::createGhost(GhostType type, const int alternative, const int posX, const int posY, const int gridSize) {
-    const int offset_top_x=1;
-    const int offset_top_y=4;
-    const int offset_fear_y=554;
-    const int size=35;
-    const int separator=15;
+sf::Sprite
+SpriteFactory::createGhost(GhostType type, const int alternative, const int posX, const int posY, const int gridSize) {
+    const int offset_top_x = 1;
+    const int offset_top_y = 4;
+    const int offset_fear_y = 554;
+    const int size = 35;
+    const int separator = 15;
 
     int margin = 10;
     double scaleFactor = gridSize / static_cast<double>(size + margin);
@@ -49,10 +50,10 @@ sf::Sprite SpriteFactory::createGhost(GhostType type, const int alternative, con
             x = offset_top_x + size + separator;
             break;
         case GhostType::Inky:
-            x = offset_top_x + 2*(size + separator);
+            x = offset_top_x + 2 * (size + separator);
             break;
         case GhostType::Clyde:
-            x = offset_top_x + 3*(size + separator);
+            x = offset_top_x + 3 * (size + separator);
             break;
         default:
             break;
@@ -66,44 +67,51 @@ sf::Sprite SpriteFactory::createGhost(GhostType type, const int alternative, con
             y = offset_top_y + alternative * (size + separator);
             break;
     }
-    return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX + margin/2, posY + margin/2), sf::Vector2f(scaleFactor, scaleFactor));
+    return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX + margin / 2, posY + margin / 2),
+                        sf::Vector2f(scaleFactor, scaleFactor));
 }
 
-sf::Sprite SpriteFactory::createPacMan(const int alternative, const int posX, const int posY, const sf::Vector2f &scale) {
-    const int offset_top_x=853;
-    const int offset_top_y=5;
-    const int size=33;
-    const int separator=17;
+sf::Sprite SpriteFactory::createPacMan(const int alternative, const int posX, const int posY, const int gridSize) {
+    const int offset_top_x = 853;
+    const int offset_top_y = 5;
+    const int size = 33;
+    const int separator = 17;
+
+    int margin = 10;
+    double scaleFactor = gridSize / static_cast<double>(size + margin);
 
     int x = offset_top_x;
     int y = offset_top_y + alternative * (size + separator);
-    return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX, posY), scale);
+    return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX + margin / 2, posY + margin / 2),
+                        sf::Vector2f(scaleFactor, scaleFactor));
 }
 
 
 sf::Sprite SpriteFactory::createFruit(const int alternative, const int posX, const int posY, const int gridSize) {
-    const int offset_top_x=601;
-    const int offset_top_y=3;
-    const int size=36;
-    const int separator=14;
+    const int offset_top_x = 601;
+    const int offset_top_y = 3;
+    const int size = 36;
+    const int separator = 14;
     int margin = 20;
 
     int x = offset_top_x;
     int y = offset_top_y + alternative * (size + separator);
 
     double scaleFactor = gridSize / static_cast<double>(size + margin);
-    return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX + margin/2, posY + margin/2), sf::Vector2f(scaleFactor, scaleFactor));
+    return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX + margin / 2, posY + margin / 2),
+                        sf::Vector2f(scaleFactor, scaleFactor));
 }
 
 sf::Sprite SpriteFactory::createCoin(const int posX, const int posY, const int gridSize) {
-    const int offset_top_x=411;
-    const int offset_top_y=313;
-    const int size=16;
+    const int offset_top_x = 411;
+    const int offset_top_y = 313;
+    const int size = 16;
     int margin = 50;
 
     int x = offset_top_x;
     int y = offset_top_y;
 
     double scaleFactor = gridSize / static_cast<double>(size + margin);
-    return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX + margin/2, posY + margin/2), sf::Vector2f(scaleFactor, scaleFactor));
+    return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX + margin / 2, posY + margin / 2),
+                        sf::Vector2f(scaleFactor, scaleFactor));
 }
