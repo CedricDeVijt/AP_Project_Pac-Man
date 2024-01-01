@@ -62,6 +62,9 @@ private:
     void toPausedState();
 
     void toGameOverState();
+
+    void toLevelState();
+
     shared_ptr<World> world;
     shared_ptr<Score> score;
 };

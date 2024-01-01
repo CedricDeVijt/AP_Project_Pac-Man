@@ -14,10 +14,13 @@ MenuState::MenuState(StateManager *stateManager) : State(stateManager) {
 }
 
 void State::createNewLevelState() {
+    Stopwatch::getInstance().start();
     shared_ptr<State> levelState = std::make_shared<LevelState>(stateManager);
     stateManager->pushState(levelState);
 
     // TODO: Add code to start the level
+    levelState;
+    levelState.incrementLevel();
 }
 
 void State::createNewMenuState() {
@@ -28,7 +31,6 @@ void State::createNewMenuState() {
 }
 
 void MenuState::toLevelState() {
-    Stopwatch::getInstance().start();
     createNewLevelState();
 }
 
@@ -149,6 +151,11 @@ void LevelState::processInput(sf::Keyboard::Key key) {
 
 void LevelState::update() {
     world->update();
+    if (world->isAllLevelsComplete()) {
+        toVictoryState();
+    } else if (world->isLevelComplete()) {
+        toLevelState();
+    }
 }
 
 void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
@@ -169,6 +176,11 @@ void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
     sf::Text livesText("# Lives Remaining: " + std::to_string(livesRemaining), font, 20);
     livesText.setPosition(770, 680);
     window->draw(livesText);
+}
+void LevelState::toLevelState() {
+    Stopwatch::getInstance().restart();
+    Stopwatch::getInstance().start();
+    createNewLevelState();
 }
 
 PausedState::PausedState(StateManager *stateManager) : State(stateManager) {
@@ -235,6 +247,20 @@ void VictoryState::update() {
 }
 
 void VictoryState::draw(shared_ptr<sf::RenderWindow> window) {
+    // Load font
+    // TODO: Move this to a more appropriate place in window
+
+
+    sf::Font font;
+
+    if (!font.loadFromFile("resources/pixelFont.ttf")) {
+        throw std::runtime_error("Error loading font");
+    }
+
+
+    sf::Text title("Paused", font, 20);
+    title.setPosition(100, 200);
+    window->draw(title);
 
 }
 
