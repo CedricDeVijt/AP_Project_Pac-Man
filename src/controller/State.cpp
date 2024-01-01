@@ -14,7 +14,6 @@ MenuState::MenuState(StateManager *stateManager) : State(stateManager) {
 }
 
 void State::createNewLevelState() {
-    Stopwatch::getInstance().start();
     shared_ptr<State> levelState = std::make_shared<LevelState>(stateManager);
     stateManager->pushState(levelState);
 
@@ -104,6 +103,8 @@ LevelState::LevelState(StateManager *stateManager) : State(stateManager) {
     int level = 0;
     shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>();
     world = std::make_shared<World>(factory, level, score);
+    // start the clock
+    Stopwatch::getInstance().start();
     world->update();
 }
 
@@ -158,8 +159,6 @@ void LevelState::update() {
 }
 
 void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
-    int livesRemaining = 3;
-
     // Load font
     // TODO: Move this to a more appropriate place in window
     sf::Font font;
@@ -172,17 +171,18 @@ void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
     window->draw(scoreText);
 
 
-    sf::Text livesText("# Lives Remaining: " + std::to_string(livesRemaining), font, 20);
+    sf::Text livesText("# Lives Remaining: " + std::to_string(score->getLivesRemaining()), font, 20);
     livesText.setPosition(770, 680);
     window->draw(livesText);
 }
 void LevelState::toLevelState() {
     Stopwatch::getInstance().restart();
-    Stopwatch::getInstance().start();
+//    Stopwatch::getInstance().start();
     createNewLevelState();
 }
 
 PausedState::PausedState(StateManager *stateManager) : State(stateManager) {
+    Stopwatch::getInstance().pause();
 }
 
 void PausedState::toMenuState() {
@@ -192,8 +192,7 @@ void PausedState::toMenuState() {
 void PausedState::toLevelState() {
     shared_ptr<State> levelState = stateManager->popState();
     stateManager->pushState(levelState);
-
-    // TODO: Add code to resume the level
+    Stopwatch::getInstance().unPause();
 }
 
 void PausedState::processInput(sf::Keyboard::Key key) {

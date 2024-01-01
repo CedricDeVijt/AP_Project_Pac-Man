@@ -17,15 +17,18 @@ public:
     Stopwatch& operator=(const Stopwatch&) = delete;
 
     void start();
-    void stop();
+//    void stop();
     void restart();
     void tick();
+    void pause();
+    void unPause();
 
     double getDeltaTime();
 
 private:
-    std::chrono::time_point<std::chrono::high_resolution_clock> previous_time;
-    bool running;
+    std::chrono::high_resolution_clock::time_point previousTime, tickTime, startTime, pauseTime;
+    std::chrono::microseconds deltaTime, pauseDuration;
+    bool running = false;
 };
 
 
