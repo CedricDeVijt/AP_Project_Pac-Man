@@ -6,6 +6,7 @@ class Observer {
 public:
     Observer();
 
+    // TODO use Events like EntityModelChanged, EntityModelDestroyed?,
     virtual void update() = 0;
 
     virtual ~Observer() = default;
