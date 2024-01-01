@@ -1,5 +1,8 @@
 #include "Stopwatch.h"
 
+#include <iostream>
+
+
 // Define the static instance of the singleton
 Stopwatch::Stopwatch() : running(false) {
     // Constructor code, if needed
@@ -12,29 +15,31 @@ Stopwatch& Stopwatch::getInstance() {
 
 void Stopwatch::start() {
     if (!running) {
+        previous_time = std::chrono::high_resolution_clock::now();
         running = true;
-        startTime = Clock::now();
-        previousTime = startTime;
+    } else {
+        std::cerr << "Clock is already running.\n";
     }
 }
 
 void Stopwatch::stop() {
     if (running) {
-        previousTime = Clock::now();
         running = false;
+    } else {
+        std::cerr << "Clock is already stopped.\n";
     }
 }
 
-void Stopwatch::reset() {
-    startTime = Clock::now();
-    previousTime = startTime;
+void Stopwatch::restart() {
+    previous_time = std::chrono::high_resolution_clock::now();
+    running = true;
 }
 
 double Stopwatch::getDeltaTime() {
     if (running) {
-        auto currentTime = Clock::now();
-        auto deltaTime = std::chrono::duration_cast<std::chrono::duration<double>>(currentTime - previousTime);
-        previousTime = currentTime;
+        auto current_time = std::chrono::high_resolution_clock::now();
+        auto deltaTime = std::chrono::duration<double>(current_time - previous_time);
+        previous_time = current_time;
         return deltaTime.count();
     } else {
         return 0.0;

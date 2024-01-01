@@ -18,18 +18,13 @@ public:
 
     void start();
     void stop();
-    void reset();
+    void restart();
 
     double getDeltaTime();
 
 private:
-    using Clock = std::chrono::high_resolution_clock;
-    using TimePoint = std::chrono::time_point<Clock>;
-
-    TimePoint startTime;
-    TimePoint previousTime;
+    std::chrono::time_point<std::chrono::high_resolution_clock> previous_time;
     bool running;
-
 };
 
 
