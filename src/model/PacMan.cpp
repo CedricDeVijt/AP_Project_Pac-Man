@@ -57,7 +57,6 @@ void PacMan::update(const std::vector<Direction> &directions) {
 
     // take a step in the direction
     double stepX = 30*deltaTime;
-    std::cout << stepX << std::endl;
     double stepY = stepX *22/11; // compensate for grid aspect ratio
     double x, y, sizeX, sizeY;
     std::tie(x, y, sizeX, sizeY) = position;
