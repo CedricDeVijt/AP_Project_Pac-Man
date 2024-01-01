@@ -12,20 +12,19 @@ class PacMan : public EntityModel {
 private:
     Direction direction;
     Direction targetDirection = Direction::NONE;
-    void nudgeToGrid();
+    std::tuple<double, double, double, double> homePosition;
+    int lives = 3;
 public:
     explicit PacMan(std::tuple<double, double, double, double> position);
 
-//    void update() final;
     void update(const std::vector<Direction> &directions);
 
     void setTargetDirection(const Direction &direction);
 
     Direction getDirection() const;
 
-    void goHome();
-
-
+    void die();
+    void captureGhost();
 };
 
 
