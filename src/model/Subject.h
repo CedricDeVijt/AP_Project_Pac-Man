@@ -8,15 +8,26 @@
 
 using std::shared_ptr;
 
+/**
+ * @class Subject
+ * @brief A class representing the subject in the observer pattern.
+ */
 class Subject {
 public:
+    /**
+     * @brief Registers an observer to receive updates from the subject.
+     * @param observer The observer to register.
+     */
     void registerObserver(shared_ptr<Observer> observer);
 
-private:
-    std::vector<shared_ptr<Observer>> observers;
-
 protected:
+    /**
+     * @brief Notifies all registered observers.
+     */
     void notifyObservers();
+
+private:
+    std::vector<shared_ptr<Observer>> observers;  ///< List of registered observers.
 };
 
 #endif // AP_PROJECT_PAC_MAN_SUBJECT_H

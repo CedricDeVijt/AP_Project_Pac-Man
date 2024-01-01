@@ -23,19 +23,3 @@ std::ostream& operator<<(std::ostream& os, const Direction& dir) {
     }
     return os;
 }
-
-// Direction oppositeDirection(Direction dir) {
-//     switch (dir) {
-//         case LEFT:
-//             return RIGHT;
-//         case RIGHT:
-//             return LEFT;
-//         case UP:
-//             return DOWN;
-//         case DOWN:
-//             return UP;
-//         case NONE:
-//             return NONE;
-//     }
-// }
-//
