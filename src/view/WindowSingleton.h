@@ -5,16 +5,27 @@
 
 using std::shared_ptr;
 
+/**
+ * @class WindowSingleton
+ * @brief A singleton class managing the application's SFML window.
+ */
 class WindowSingleton {
 private:
     // Private constructor to prevent external instantiation
     WindowSingleton();
-    shared_ptr<sf::RenderWindow> window;
+    shared_ptr<sf::RenderWindow> window; ///< The SFML window instance.
 
 public:
-    // Static method to get the instance of the singleton
+    /**
+     * @brief Retrieves the instance of the WindowSingleton.
+     * @return The instance of the WindowSingleton.
+     */
     static WindowSingleton& getInstance();
 
+    /**
+     * @brief Gets the SFML window instance.
+     * @return A shared pointer to the SFML window.
+     */
     shared_ptr<sf::RenderWindow> getWindow();
 
     // Prevent copying and assignment
