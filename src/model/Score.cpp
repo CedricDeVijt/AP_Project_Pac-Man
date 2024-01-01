@@ -6,7 +6,6 @@
 
 
 #include "Score.h"
-
 void Score::saveScore(std::string name, int score) {
     auto scores = loadHighScores();
     scores.emplace_back(name, score);
@@ -53,12 +52,6 @@ std::vector<std::pair<std::string, int>> Score::loadHighScores() {
             std::getline(iss, name, ',');
             std::getline(iss, score, ',');
             highScores.emplace_back(name, std::stoi(score));
-//
-//            if (iss >> name >> score) {
-//            } else {
-//                // Handle parsing error if needed
-//                throw std::runtime_error("Error parsing high scores file");
-//            }
         }
 
         file.close();
@@ -70,12 +63,16 @@ std::vector<std::pair<std::string, int>> Score::loadHighScores() {
     return highScores;
 }
 
-void Score::pacManEatsCookie() {
+void Score::pacManCapturesCoin(){
     currentScore +=1;
 }
 
 void Score::pacManCapturesGhost() {
     currentScore +=50;
+}
+
+void Score::pacManCapturedByGhost() {
+    livesRemaining -=1;
 }
 
 void Score::update() {
@@ -85,3 +82,9 @@ void Score::update() {
 int Score::getCurrentScore() const {
     return currentScore;
 }
+
+int Score::getLivesRemaining() const {
+    return livesRemaining;
+}
+
+
