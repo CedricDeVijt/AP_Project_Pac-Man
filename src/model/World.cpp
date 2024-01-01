@@ -95,6 +95,15 @@ World::World(shared_ptr<AbstractFactory> factory, int level, shared_ptr<Score> s
 
 void World::update() {
     Stopwatch::getInstance().tick();
+
+    for (auto &coin: coins) {
+        coin->update();
+    }
+
+    for (auto &fruit: fruits) {
+        fruit->update();
+    }
+
     for (auto &ghost: ghosts) {
         if (ghost->overlapsWith(pacMan)) {
             if (ghost->isFearMode()) {
@@ -113,14 +122,6 @@ void World::update() {
     pacMan->update(getPossibleDirections(pacMan, 0.1));
     collect(coins);
     collect(fruits);
-
-    for (auto &coin: coins) {
-        coin->update();
-    }
-
-    for (auto &fruit: fruits) {
-        fruit->update();
-    }
 
     for (auto &wall: walls) {
         wall->update();
