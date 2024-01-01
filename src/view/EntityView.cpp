@@ -74,13 +74,14 @@ void GhostView::update() {
     int posX = toPixelX(x);
     int posY = toPixelY(y);
 
-    // TODO choose alternative to animate
-    int alternative = 0;
+    // TODO base on time
+    int variants[] = {0,1};
+    int variant = variants[((posX + posY)*2 / gridSize) % 2];
 
     if (ghost->isFearMode()) {
-        window->draw(spriteFactory.createGhost(GhostType::Fear, alternative, posX, posY, gridSize));
+        window->draw(spriteFactory.createGhost(GhostType::Fear, variant, posX, posY, gridSize));
     } else {
-        window->draw(spriteFactory.createGhost(ghost->getType(), alternative, posX, posY, gridSize));
+        window->draw(spriteFactory.createGhost(ghost->getType(), variant, posX, posY, gridSize));
     }
 }
 
@@ -96,20 +97,24 @@ void PacManView::update() {
     int posX = toPixelX(x);
     int posY = toPixelY(y);
 
-    
+    // animate PacMan by choosing a different variant dependent on the position (really should be based on time)
+    // TODO base on time
+    int variants[] = {0,1,2,1};
+    int variant = variants[((posX + posY)*2 / gridSize) % 4];
+
     switch (pacMan->getDirection()){
         case Direction::UP:
-            window->draw(SpriteFactory::getInstance().createPacMan(10, posX, posY, gridSize));
+            window->draw(SpriteFactory::getInstance().createPacMan(9 + variant, posX, posY, gridSize));
             break;
         case Direction::DOWN:
-            window->draw(SpriteFactory::getInstance().createPacMan(4, posX, posY, gridSize));
+            window->draw(SpriteFactory::getInstance().createPacMan(3 + variant, posX, posY, gridSize));
             break;
         case Direction::LEFT:
-            window->draw(SpriteFactory::getInstance().createPacMan(7, posX, posY, gridSize));
+            window->draw(SpriteFactory::getInstance().createPacMan(6 + variant, posX, posY, gridSize));
             break;
         case Direction::RIGHT:
         case Direction::NONE:
-            window->draw(SpriteFactory::getInstance().createPacMan(1, posX, posY, gridSize));
+            window->draw(SpriteFactory::getInstance().createPacMan(0 + variant, posX, posY, gridSize));
             break;
     }
 }
