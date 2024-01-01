@@ -7,6 +7,7 @@
 
 Game::Game() : stateManager(std::make_shared<StateManager>()) {
     window = WindowSingleton::getInstance().getWindow();
+    window->setFramerateLimit(60);
 }
 
 Game::~Game() {
