@@ -20,6 +20,9 @@ public:
 
     void setDirectionPacMan(const Direction &direction);
 
+    bool isLevelComplete();
+    bool isAllLevelsComplete();
+
 private:
     std::vector<shared_ptr<Wall>> walls;
     std::vector<shared_ptr<Coin>> coins;
@@ -27,7 +30,7 @@ private:
     std::vector<shared_ptr<Ghost>> ghosts;
     shared_ptr<PacMan> pacMan;
     shared_ptr<Score> score;
-
+    int level;
 
     std::vector<Direction> getPossibleDirections(double tolerance);
     void collect(std::vector<std::shared_ptr<Coin>>& coins);
