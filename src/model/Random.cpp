@@ -12,8 +12,8 @@ Random& Random::getInstance() {
     return instance;
 }
 
-int Random::getRandomNumber() {
-    // Generate a random number between 1 and 100
-    std::uniform_int_distribution<int> distribution(1, 100);
+int Random::getRandomNumber(int max) {
+    // Generate a random number between 0 and max value
+    std::uniform_int_distribution<int> distribution(0, max);
     return distribution(generator);
 }

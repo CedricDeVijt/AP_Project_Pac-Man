@@ -12,7 +12,7 @@ public:
     static Random& getInstance();
 
     // Member function of the singleton
-    int getRandomNumber();
+    int getRandomNumber(int max);
 
     // Prevent copying and assignment
     Random(const Random&) = delete;
