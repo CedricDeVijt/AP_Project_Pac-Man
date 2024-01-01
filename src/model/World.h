@@ -32,7 +32,7 @@ private:
     shared_ptr<Score> score;
     int level;
 
-    std::vector<Direction> getPossibleDirections(double tolerance);
+    std::vector<Direction> getPossibleDirections(std::shared_ptr<EntityModel> entityModel, double tolerance);
     void collect(std::vector<std::shared_ptr<Coin>>& coins);
     void collect(std::vector<std::shared_ptr<Fruit>>& fruits);
 };
