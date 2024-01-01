@@ -19,8 +19,7 @@ void State::createNewLevelState() {
     stateManager->pushState(levelState);
 
     // TODO: Add code to start the level
-    levelState;
-    levelState.incrementLevel();
+//    levelState.incrementLevel();
 }
 
 void State::createNewMenuState() {
