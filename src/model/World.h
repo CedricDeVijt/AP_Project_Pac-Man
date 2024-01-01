@@ -50,13 +50,13 @@ public:
     bool isAllLevelsComplete();
 
 private:
-    std::vector<shared_ptr<Wall>> walls; ///< Vector of walls in the game.
-    std::vector<shared_ptr<Coin>> coins; ///< Vector of coins in the game.
+    std::vector<shared_ptr<Wall>> walls;   ///< Vector of walls in the game.
+    std::vector<shared_ptr<Coin>> coins;   ///< Vector of coins in the game.
     std::vector<shared_ptr<Fruit>> fruits; ///< Vector of fruits in the game.
     std::vector<shared_ptr<Ghost>> ghosts; ///< Vector of ghosts in the game.
-    shared_ptr<PacMan> pacMan; ///< The PacMan character.
-    shared_ptr<Score> score; ///< The score object to track game score and lives.
-    int level;  ///< The current level of the game.
+    shared_ptr<PacMan> pacMan;             ///< The PacMan character.
+    shared_ptr<Score> score;               ///< The score object to track game score and lives.
+    int level;                             ///< The current level of the game.
 
     /**
      * @brief Gets the possible directions for an entity based on its current position and size.

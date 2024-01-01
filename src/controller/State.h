@@ -72,9 +72,9 @@ public:
     explicit MenuState(StateManager* stateManager);
 
     /**
-    * @brief Processes input events for the MenuState.
-    * Transitions to LevelState on Enter key press.
-    * @param key The key that was pressed.
+     * @brief Processes input events for the MenuState.
+     * Transitions to LevelState on Enter key press.
+     * @param key The key that was pressed.
      */
     void processInput(sf::Keyboard::Key key) override;
 
@@ -123,9 +123,9 @@ public:
     void update() override;
 
     /**
-    * @brief Draws the LevelState on the given window.
-    * Displays the current score and remaining lives.
-    * @param window Shared pointer to the SFML RenderWindow.
+     * @brief Draws the LevelState on the given window.
+     * Displays the current score and remaining lives.
+     * @param window Shared pointer to the SFML RenderWindow.
      */
     void draw(shared_ptr<sf::RenderWindow> window) override;
 
@@ -151,7 +151,7 @@ private:
     void toLevelState();
 
     shared_ptr<World> world; ///< Pointer to the game world.
-    shared_ptr<Score> score;  ///< Pointer to the game score.
+    shared_ptr<Score> score; ///< Pointer to the game score.
 };
 
 /**

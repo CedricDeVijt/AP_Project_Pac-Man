@@ -57,7 +57,7 @@ public:
     int getLivesRemaining() const;
 
 private:
-    int currentScore = 0; ///< The current score.
+    int currentScore = 0;   ///< The current score.
     int livesRemaining = 3; ///< The remaining lives.
 };
 

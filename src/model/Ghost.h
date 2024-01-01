@@ -76,13 +76,13 @@ public:
     void update(const std::vector<Direction>& directions, std::tuple<double, double, double, double> pacManPosition);
 
 private:
-    GhostType type; ///< The type of the ghost.
-    bool fearMode; ///< Flag indicating whether the ghost is in fear mode.
-    bool chaseMode; ///< Flag indicating whether the ghost is in chase mode.
-    bool waitMode; ///< Flag indicating whether the ghost is in wait mode.
+    GhostType type;            ///< The type of the ghost.
+    bool fearMode;             ///< Flag indicating whether the ghost is in fear mode.
+    bool chaseMode;            ///< Flag indicating whether the ghost is in chase mode.
+    bool waitMode;             ///< Flag indicating whether the ghost is in wait mode.
     bool hasLeftStartingPoint; ///< Flag indicating whether the ghost has left its starting point.
     std::tuple<double, double, double, double> homePosition; ///< The home position of the ghost.
-    Direction direction = Direction::NONE; ///< The current direction of the ghost.
+    Direction direction = Direction::NONE;                   ///< The current direction of the ghost.
 
     // TODO use stopwatch
     int timer = 0; ///< Timer used for controlling wait mode.

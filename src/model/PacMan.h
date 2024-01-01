@@ -12,10 +12,10 @@
  */
 class PacMan : public EntityModel {
 private:
-    Direction direction; ///< Current direction of Pac-Man.
-    Direction targetDirection = Direction::NONE; ///< Target direction set by the player.
+    Direction direction;                                     ///< Current direction of Pac-Man.
+    Direction targetDirection = Direction::NONE;             ///< Target direction set by the player.
     std::tuple<double, double, double, double> homePosition; ///< Starting position of Pac-Man.
-    int lives = 3; ///< Number of lives remaining for Pac-Man.
+    int lives = 3;                                           ///< Number of lives remaining for Pac-Man.
 
 public:
     /**

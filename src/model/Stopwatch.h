@@ -21,7 +21,6 @@ public:
      */
     static Stopwatch& getInstance();
 
-
     /**
      * @brief Starts the stopwatch.
      */

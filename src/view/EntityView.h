@@ -43,7 +43,6 @@ protected:
     int getGridSize() const;
 };
 
-
 /**
  * @class PacManView
  * @brief Visual representation of the PacMan entity.

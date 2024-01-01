@@ -27,7 +27,7 @@ protected:
     void notifyObservers();
 
 private:
-    std::vector<shared_ptr<Observer>> observers;  ///< List of registered observers.
+    std::vector<shared_ptr<Observer>> observers; ///< List of registered observers.
 };
 
 #endif // AP_PROJECT_PAC_MAN_SUBJECT_H
