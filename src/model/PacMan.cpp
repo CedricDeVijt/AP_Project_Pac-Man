@@ -1,7 +1,9 @@
 #include "PacMan.h"
 #include <cmath>
 #include <vector>
-#include <algorithm>
+#include <iostream>
+
+#include "Stopwatch.h"
 
 void PacMan::goHome() {
     // TODO implement
@@ -50,8 +52,11 @@ void PacMan::update(const std::vector<Direction> &directions) {
         nudgeToGrid();
     }
 
+    auto deltaTime = Stopwatch::getInstance().getDeltaTime();
+
     // take a step in the direction
-    double stepX = 0.01;
+    double stepX = 30*deltaTime;
+    std::cout << stepX << std::endl;
     double stepY = stepX *22/11; // compensate for grid aspect ratio
     double x, y, sizeX, sizeY;
     std::tie(x, y, sizeX, sizeY) = position;

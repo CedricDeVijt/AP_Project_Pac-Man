@@ -4,6 +4,7 @@
 #include "../view/ConcreteFactory.h"
 #include "../view/WindowSingleton.h"
 #include "../model/Score.h"
+#include "../model/Stopwatch.h"
 
 
 State::State(StateManager *stateManager) : stateManager(stateManager) {
@@ -27,6 +28,7 @@ void State::createNewMenuState() {
 }
 
 void MenuState::toLevelState() {
+    Stopwatch::getInstance().start();
     createNewLevelState();
 }
 

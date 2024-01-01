@@ -19,6 +19,7 @@ public:
     void start();
     void stop();
     void restart();
+    void tick();
 
     double getDeltaTime();
 

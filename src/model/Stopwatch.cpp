@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+// TODO change std::cerr to throw exceptions
 
 // Define the static instance of the singleton
 Stopwatch::Stopwatch() : running(false) {
@@ -39,9 +40,17 @@ double Stopwatch::getDeltaTime() {
     if (running) {
         auto current_time = std::chrono::high_resolution_clock::now();
         auto deltaTime = std::chrono::duration<double>(current_time - previous_time);
-        previous_time = current_time;
         return deltaTime.count();
     } else {
         return 0.0;
     }
+}
+
+void Stopwatch::tick() {
+    if (running) {
+        previous_time = std::chrono::high_resolution_clock::now();
+    } else {
+        std::cerr << "Clock is stopped.\n";
+    }
+
 }

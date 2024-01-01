@@ -17,6 +17,7 @@ add_executable(AP_Project_Pac_Man
         src/model/Wall.cpp
         src/model/World.cpp
         src/model/Direction.cpp
+        src/model/Stopwatch.cpp
 
         src/view/ConcreteFactory.cpp
         src/view/EntityView.cpp
@@ -29,7 +30,6 @@ add_executable(AP_Project_Pac_Man
         src/controller/Game.cpp
         src/controller/State.cpp
         src/controller/StateManager.cpp
-        src/controller/Stopwatch.cpp
         )
 # Find SFML
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)

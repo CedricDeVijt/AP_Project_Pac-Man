@@ -1,4 +1,5 @@
 #include "World.h"
+#include "Stopwatch.h"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -36,8 +37,8 @@ World::World(shared_ptr<AbstractFactory> factory, int level, shared_ptr<Score> s
     int items_x = board[0].length();
     int items_y = board.size();
 
-    std::cout << "items x: " << items_x << "\n";
-    std::cout << "items y: " << items_y << "\n";
+//    std::cout << "items x: " << items_x << "\n";
+//    std::cout << "items y: " << items_y << "\n";
 
     double size_x = 2.0 / items_x;
     double size_y = 2.0 / items_y;
@@ -80,6 +81,7 @@ World::World(shared_ptr<AbstractFactory> factory, int level, shared_ptr<Score> s
 }
 
 void World::update() {
+    Stopwatch::getInstance().tick();
     for (auto &ghost: ghosts) {
         ghost->update();
     }
