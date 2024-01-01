@@ -18,4 +18,4 @@ public:
     explicit Fruit(std::tuple<double, double, double, double> position);
 };
 
-#endif //AP_PROJECT_PAC_MAN_COLLECTABLE_H
+#endif // AP_PROJECT_PAC_MAN_COLLECTABLE_H

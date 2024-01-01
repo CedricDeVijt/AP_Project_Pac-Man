@@ -1,7 +1,7 @@
 #ifndef AP_PROJECT_PAC_MAN_WINDOWSINGLETON_H
 #define AP_PROJECT_PAC_MAN_WINDOWSINGLETON_H
-#include <memory>
 #include <SFML/Graphics.hpp>
+#include <memory>
 
 using std::shared_ptr;
 
@@ -22,4 +22,4 @@ public:
     WindowSingleton& operator=(const WindowSingleton&) = delete;
 };
 
-#endif //AP_PROJECT_PAC_MAN_WINDOWSINGLETON_H
+#endif // AP_PROJECT_PAC_MAN_WINDOWSINGLETON_H

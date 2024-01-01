@@ -1,28 +1,19 @@
 #include "PacMan.h"
 #include "Stopwatch.h"
-#include <vector>
 #include <algorithm>
 #include <iostream>
+#include <vector>
 
+void PacMan::setTargetDirection(const Direction& direction) { targetDirection = direction; }
 
-
-void PacMan::setTargetDirection(const Direction &direction){
-    targetDirection = direction;
-}
-
-
-
-PacMan::PacMan(std::tuple<double, double, double, double> position) : EntityModel(position){
+PacMan::PacMan(std::tuple<double, double, double, double> position) : EntityModel(position) {
     homePosition = position;
     direction = NONE;
 }
 
+Direction PacMan::getDirection() const { return direction; }
 
-Direction PacMan::getDirection() const {
-    return direction;
-}
-
-void PacMan::update(const std::vector<Direction> &directions) {
+void PacMan::update(const std::vector<Direction>& directions) {
     // if not dead
     if (lives != 0) {
         // Check if we can take the target direction, if so take the new direction and align back to the grid
@@ -41,7 +32,7 @@ void PacMan::update(const std::vector<Direction> &directions) {
 
 void PacMan::die() {
     // remove one life
-    lives -=1;
+    lives -= 1;
 
     // go back to starting point
     position = homePosition;

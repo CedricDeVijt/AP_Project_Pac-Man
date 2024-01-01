@@ -8,13 +8,13 @@ SpriteFactory::SpriteFactory() {
     }
 }
 
-SpriteFactory &SpriteFactory::getInstance() {
+SpriteFactory& SpriteFactory::getInstance() {
     static SpriteFactory instance; // Guaranteed to be destroyed, instantiated on first use
     return instance;
 }
 
-sf::Sprite
-SpriteFactory::createSprite(sf::IntRect textureRect, const sf::Vector2f &position, const sf::Vector2f &scale) {
+sf::Sprite SpriteFactory::createSprite(sf::IntRect textureRect, const sf::Vector2f& position,
+                                       const sf::Vector2f& scale) {
     // Create a sprite and set its texture and texture rectangle
     sf::Sprite sprite;
     sprite.setTexture(texture);
@@ -25,12 +25,12 @@ SpriteFactory::createSprite(sf::IntRect textureRect, const sf::Vector2f &positio
     // Set the scale of the sprite
     sprite.setScale(scale);
 
-    return sprite;;
+    return sprite;
+    ;
 }
 
-
-sf::Sprite
-SpriteFactory::createGhost(GhostType type, const int alternative, const int posX, const int posY, const int gridSize) {
+sf::Sprite SpriteFactory::createGhost(GhostType type, const int alternative, const int posX, const int posY,
+                                      const int gridSize) {
     const int offset_top_x = 1;
     const int offset_top_y = 4;
     const int offset_fear_y = 554;
@@ -42,30 +42,30 @@ SpriteFactory::createGhost(GhostType type, const int alternative, const int posX
 
     int x;
     switch (type) {
-        case GhostType::Blinky:
-            x = offset_top_x;
-            break;
-        case GhostType::Pinky:
-        case GhostType::Fear:
-            x = offset_top_x + size + separator;
-            break;
-        case GhostType::Inky:
-            x = offset_top_x + 2 * (size + separator);
-            break;
-        case GhostType::Clyde:
-            x = offset_top_x + 3 * (size + separator);
-            break;
-        default:
-            break;
+    case GhostType::Blinky:
+        x = offset_top_x;
+        break;
+    case GhostType::Pinky:
+    case GhostType::Fear:
+        x = offset_top_x + size + separator;
+        break;
+    case GhostType::Inky:
+        x = offset_top_x + 2 * (size + separator);
+        break;
+    case GhostType::Clyde:
+        x = offset_top_x + 3 * (size + separator);
+        break;
+    default:
+        break;
     };
     int y;
     switch (type) {
-        case GhostType::Fear:
-            y = offset_fear_y + alternative * (size + separator);
-            break;
-        default:
-            y = offset_top_y + alternative * (size + separator);
-            break;
+    case GhostType::Fear:
+        y = offset_fear_y + alternative * (size + separator);
+        break;
+    default:
+        y = offset_top_y + alternative * (size + separator);
+        break;
     }
     return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX + margin / 2, posY + margin / 2),
                         sf::Vector2f(scaleFactor, scaleFactor));
@@ -85,7 +85,6 @@ sf::Sprite SpriteFactory::createPacMan(const int alternative, const int posX, co
     return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX + margin / 2, posY + margin / 2),
                         sf::Vector2f(scaleFactor, scaleFactor));
 }
-
 
 sf::Sprite SpriteFactory::createFruit(const int alternative, const int posX, const int posY, const int gridSize) {
     const int offset_top_x = 601;

@@ -17,7 +17,7 @@ public:
     Stopwatch& operator=(const Stopwatch&) = delete;
 
     void start();
-//    void stop();
+    //    void stop();
     void restart();
     void tick();
     void pause();
@@ -31,5 +31,4 @@ private:
     bool running = false;
 };
 
-
-#endif //AP_PROJECT_PAC_MAN_STOPWATCH_H
+#endif // AP_PROJECT_PAC_MAN_STOPWATCH_H

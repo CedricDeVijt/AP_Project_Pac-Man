@@ -1,15 +1,12 @@
 #ifndef AP_PROJECT_PAC_MAN_GHOST_H
 #define AP_PROJECT_PAC_MAN_GHOST_H
 
-
-#include "EntityModel.h"
 #include "Direction.h"
-#include <tuple>
+#include "EntityModel.h"
 #include <iostream>
+#include <tuple>
 
-enum class GhostType {
-    Blinky, Pinky, Inky, Clyde, Fear
-};
+enum class GhostType { Blinky, Pinky, Inky, Clyde, Fear };
 
 std::ostream& operator<<(std::ostream& os, const GhostType& ghostType);
 
@@ -22,7 +19,7 @@ public:
     bool isFearMode() const;
     bool isChaseMode() const;
     bool isWaitMode() const;
-    void update(const std::vector<Direction> &directions, std::tuple<double, double, double, double> pacManPosition);
+    void update(const std::vector<Direction>& directions, std::tuple<double, double, double, double> pacManPosition);
 
 private:
     GhostType type;
@@ -36,15 +33,14 @@ private:
     // TODO use stopwatch
     int timer = 0;
 
-    bool atCornerOrIntersection(const std::vector <Direction> &possibleDirections) const;
+    bool atCornerOrIntersection(const std::vector<Direction>& possibleDirections) const;
 
-    Direction getDirectionWithMinmumManhattanDistance(const std::vector <Direction> &possibleDirections,
-                                                      const std::tuple<double, double, double, double> &pacManPosition);
-    Direction getDirectionWithMaximumManhattanDistance(const std::vector <Direction> &possibleDirections,
-                                                      const std::tuple<double, double, double, double> &pacManPosition);
-    bool atDeadEnd(const std::vector <Direction> &directions)  const;
+    Direction getDirectionWithMinmumManhattanDistance(const std::vector<Direction>& possibleDirections,
+                                                      const std::tuple<double, double, double, double>& pacManPosition);
+    Direction getDirectionWithMaximumManhattanDistance(
+        const std::vector<Direction>& possibleDirections,
+        const std::tuple<double, double, double, double>& pacManPosition);
+    bool atDeadEnd(const std::vector<Direction>& directions) const;
+};
 
-    };
-
-
-#endif //AP_PROJECT_PAC_MAN_GHOST_H
+#endif // AP_PROJECT_PAC_MAN_GHOST_H

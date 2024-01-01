@@ -4,8 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 
-#include "StateManager.h"
 #include "../model/World.h"
+#include "StateManager.h"
 
 using std::shared_ptr;
 
@@ -13,6 +13,7 @@ class Game {
 private:
     shared_ptr<sf::RenderWindow> window;
     shared_ptr<StateManager> stateManager;
+
 public:
     Game();
 
@@ -21,5 +22,4 @@ public:
     void run();
 };
 
-
-#endif //AP_PROJECT_PAC_MAN_GAME_H
+#endif // AP_PROJECT_PAC_MAN_GAME_H

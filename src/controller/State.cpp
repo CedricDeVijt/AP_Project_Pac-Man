@@ -1,24 +1,21 @@
 #include "State.h"
-#include "../view/SpriteFactory.h"
-#include "../model/World.h"
-#include "../view/ConcreteFactory.h"
-#include "../view/WindowSingleton.h"
 #include "../model/Score.h"
 #include "../model/Stopwatch.h"
+#include "../model/World.h"
+#include "../view/ConcreteFactory.h"
+#include "../view/SpriteFactory.h"
+#include "../view/WindowSingleton.h"
 
+State::State(StateManager* stateManager) : stateManager(stateManager) {}
 
-State::State(StateManager *stateManager) : stateManager(stateManager) {
-}
-
-MenuState::MenuState(StateManager *stateManager) : State(stateManager) {
-}
+MenuState::MenuState(StateManager* stateManager) : State(stateManager) {}
 
 void State::createNewLevelState() {
     shared_ptr<State> levelState = std::make_shared<LevelState>(stateManager);
     stateManager->pushState(levelState);
 
     // TODO: Add code to start the level
-//    levelState.incrementLevel();
+    //    levelState.incrementLevel();
 }
 
 void State::createNewMenuState() {
@@ -28,9 +25,7 @@ void State::createNewMenuState() {
     // TODO: Add code to show menu screen
 }
 
-void MenuState::toLevelState() {
-    createNewLevelState();
-}
+void MenuState::toLevelState() { createNewLevelState(); }
 
 void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
     // Pac-man logo
@@ -51,14 +46,12 @@ void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
     const sf::FloatRect spriteBounds = sprite->getLocalBounds();
     sprite->setOrigin(spriteBounds.width / 2, 0);
 
-
     // Update the position and scale of the sprite based on window size
     sprite->setPosition(window->getSize().x / 2, 0);
     sprite->setScale(static_cast<float>(window->getSize().x) / spriteBounds.width,
                      static_cast<float>(window->getSize().x) / spriteBounds.width);
 
     window->draw(*sprite);
-
 
     // High scores
     std::vector<std::pair<std::string, int>> scores = Score::loadHighScores();
@@ -67,7 +60,6 @@ void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
     if (!font.loadFromFile("resources/pixelFont.ttf")) {
         throw std::runtime_error("Error loading font");
     }
-
 
     int spriteHeight = sprite->getGlobalBounds().height;
     sf::Text title("High Scores", font, 40);
@@ -92,11 +84,9 @@ void MenuState::processInput(const sf::Keyboard::Key key) {
     }
 }
 
-void MenuState::update() {
+void MenuState::update() {}
 
-}
-
-LevelState::LevelState(StateManager *stateManager) : State(stateManager) {
+LevelState::LevelState(StateManager* stateManager) : State(stateManager) {
     // TODO this needs to be instantiated at a different level since we need to keep the score between levels
     score = std::make_shared<Score>();
     // TODO increment level
@@ -129,23 +119,23 @@ void LevelState::toGameOverState() {
 
 void LevelState::processInput(sf::Keyboard::Key key) {
     switch (key) {
-        case sf::Keyboard::Escape:
-            toPausedState();
-            break;
-        case sf::Keyboard::Up:
-            world->setDirectionPacMan(Direction::UP);
-            break;
-        case sf::Keyboard::Down:
-            world->setDirectionPacMan(Direction::DOWN);
-            break;
-        case sf::Keyboard::Left:
-            world->setDirectionPacMan(Direction::LEFT);
-            break;
-        case sf::Keyboard::Right:
-            world->setDirectionPacMan(Direction::RIGHT);
-            break;
-        default:
-            break;
+    case sf::Keyboard::Escape:
+        toPausedState();
+        break;
+    case sf::Keyboard::Up:
+        world->setDirectionPacMan(Direction::UP);
+        break;
+    case sf::Keyboard::Down:
+        world->setDirectionPacMan(Direction::DOWN);
+        break;
+    case sf::Keyboard::Left:
+        world->setDirectionPacMan(Direction::LEFT);
+        break;
+    case sf::Keyboard::Right:
+        world->setDirectionPacMan(Direction::RIGHT);
+        break;
+    default:
+        break;
     }
 }
 
@@ -170,24 +160,19 @@ void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
     scoreText.setPosition(20, 680);
     window->draw(scoreText);
 
-
     sf::Text livesText("# Lives Remaining: " + std::to_string(score->getLivesRemaining()), font, 20);
     livesText.setPosition(770, 680);
     window->draw(livesText);
 }
 void LevelState::toLevelState() {
     Stopwatch::getInstance().restart();
-//    Stopwatch::getInstance().start();
+    //    Stopwatch::getInstance().start();
     createNewLevelState();
 }
 
-PausedState::PausedState(StateManager *stateManager) : State(stateManager) {
-    Stopwatch::getInstance().pause();
-}
+PausedState::PausedState(StateManager* stateManager) : State(stateManager) { Stopwatch::getInstance().pause(); }
 
-void PausedState::toMenuState() {
-    createNewMenuState();
-}
+void PausedState::toMenuState() { createNewMenuState(); }
 
 void PausedState::toLevelState() {
     shared_ptr<State> levelState = stateManager->popState();
@@ -197,86 +182,61 @@ void PausedState::toLevelState() {
 
 void PausedState::processInput(sf::Keyboard::Key key) {
     switch (key) {
-        case sf::Keyboard::Escape:
-            toLevelState();
-            break;
-        default:
-            break;
+    case sf::Keyboard::Escape:
+        toLevelState();
+        break;
+    default:
+        break;
     }
-
 }
 
-void PausedState::update() {
-
-}
+void PausedState::update() {}
 
 void PausedState::draw(shared_ptr<sf::RenderWindow> window) {
 
     // Load font
     // TODO: Move this to a more appropriate place in window
 
-
     sf::Font font;
 
     if (!font.loadFromFile("resources/pixelFont.ttf")) {
         throw std::runtime_error("Error loading font");
     }
 
-
     sf::Text title("Paused", font, 20);
     title.setPosition(100, 200);
     window->draw(title);
-
-
 }
 
-VictoryState::VictoryState(StateManager *stateManager) : State(stateManager) {}
+VictoryState::VictoryState(StateManager* stateManager) : State(stateManager) {}
 
-void VictoryState::toLevelState() {
-    createNewLevelState();
-}
+void VictoryState::toLevelState() { createNewLevelState(); }
 
-void VictoryState::processInput(sf::Keyboard::Key key) {
+void VictoryState::processInput(sf::Keyboard::Key key) {}
 
-}
-
-void VictoryState::update() {
-
-}
+void VictoryState::update() {}
 
 void VictoryState::draw(shared_ptr<sf::RenderWindow> window) {
     // Load font
     // TODO: Move this to a more appropriate place in window
 
-
     sf::Font font;
 
     if (!font.loadFromFile("resources/pixelFont.ttf")) {
         throw std::runtime_error("Error loading font");
     }
 
-
     sf::Text title("Paused", font, 20);
     title.setPosition(100, 200);
     window->draw(title);
-
 }
 
-GameOverState::GameOverState(StateManager *stateManager) : State(stateManager) {
-}
+GameOverState::GameOverState(StateManager* stateManager) : State(stateManager) {}
 
-void GameOverState::toMenuState() {
-    createNewMenuState();
-}
+void GameOverState::toMenuState() { createNewMenuState(); }
 
-void GameOverState::processInput(sf::Keyboard::Key key) {
+void GameOverState::processInput(sf::Keyboard::Key key) {}
 
-}
+void GameOverState::update() {}
 
-void GameOverState::update() {
-
-}
-
-void GameOverState::draw(shared_ptr<sf::RenderWindow> window) {
-
-}
+void GameOverState::draw(shared_ptr<sf::RenderWindow> window) {}

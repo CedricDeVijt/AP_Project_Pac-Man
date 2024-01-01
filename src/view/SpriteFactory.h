@@ -1,8 +1,8 @@
 #ifndef AP_PROJECT_PAC_MAN_SPRITEFACTORY_H
 #define AP_PROJECT_PAC_MAN_SPRITEFACTORY_H
 
-#include <SFML/Graphics.hpp>
 #include "../model/Ghost.h"
+#include <SFML/Graphics.hpp>
 
 class SpriteFactory {
 private:
@@ -10,7 +10,7 @@ private:
     SpriteFactory();
     ~SpriteFactory() = default;
     sf::Texture texture;
-    sf::Sprite createSprite(sf::IntRect textureRect, const sf::Vector2f &position, const sf::Vector2f &scale);
+    sf::Sprite createSprite(sf::IntRect textureRect, const sf::Vector2f& position, const sf::Vector2f& scale);
 
 public:
     // Static method to get the instance of the singleton
@@ -24,8 +24,6 @@ public:
     // Prevent copying and assignment
     SpriteFactory(const SpriteFactory&) = delete;
     SpriteFactory& operator=(const SpriteFactory&) = delete;
-
 };
 
-
-#endif //AP_PROJECT_PAC_MAN_SPRITEFACTORY_H
+#endif // AP_PROJECT_PAC_MAN_SPRITEFACTORY_H

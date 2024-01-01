@@ -24,4 +24,4 @@ private:
     std::default_random_engine generator;
 };
 
-#endif //AP_PROJECT_PAC_MAN_RANDOM_H
+#endif // AP_PROJECT_PAC_MAN_RANDOM_H

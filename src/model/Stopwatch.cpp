@@ -13,22 +13,22 @@ Stopwatch& Stopwatch::getInstance() {
 }
 
 void Stopwatch::start() {
-//    if (!running) {
-        previousTime = std::chrono::high_resolution_clock::now();
-        pauseDuration = std::chrono::microseconds(0);
-        running = true;
-//    } else {
-//        throw std::runtime_error("Clock is already running");
-//    }
+    //    if (!running) {
+    previousTime = std::chrono::high_resolution_clock::now();
+    pauseDuration = std::chrono::microseconds(0);
+    running = true;
+    //    } else {
+    //        throw std::runtime_error("Clock is already running");
+    //    }
 }
 
-//void Stopwatch::stop() {
-//    if (running) {
-//        running = false;
-//    } else {
-//        std::cerr << "Clock is already stopped.\n";
-//    }
-//}
+// void Stopwatch::stop() {
+//     if (running) {
+//         running = false;
+//     } else {
+//         std::cerr << "Clock is already stopped.\n";
+//     }
+// }
 //
 void Stopwatch::restart() {
     previousTime = std::chrono::high_resolution_clock::now();
@@ -36,7 +36,7 @@ void Stopwatch::restart() {
     running = true;
 }
 //
-//double Stopwatch::getGameTime() {
+// double Stopwatch::getGameTime() {
 //    if (running) {
 //        const std::chrono::high_resolution_clock::time_point &now = std::chrono::high_resolution_clock::now();
 //        deltaTime = std::chrono::duration_cast<std::chrono::microseconds>(now - startTime);
@@ -79,8 +79,8 @@ void Stopwatch::pause() {
 void Stopwatch::unPause() {
     std::cout << "unPause\n";
     if (!running) {
-//        const std::chrono::high_resolution_clock::time_point &now = std::chrono::high_resolution_clock::now();
-//        pauseDuration += std::chrono::duration_cast<std::chrono::microseconds>(now - pauseTime));
+        //        const std::chrono::high_resolution_clock::time_point &now = std::chrono::high_resolution_clock::now();
+        //        pauseDuration += std::chrono::duration_cast<std::chrono::microseconds>(now - pauseTime));
         running = true;
         tick();
     } else {

@@ -1,13 +1,12 @@
 #ifndef AP_PROJECT_PAC_MAN_SUBJECT_H
 #define AP_PROJECT_PAC_MAN_SUBJECT_H
 
-#include <vector>
 #include <memory>
+#include <vector>
 
 #include "Observer.h"
 
 using std::shared_ptr;
-
 
 class Subject {
 public:
@@ -20,5 +19,4 @@ protected:
     void notifyObservers();
 };
 
-
-#endif //AP_PROJECT_PAC_MAN_SUBJECT_H
+#endif // AP_PROJECT_PAC_MAN_SUBJECT_H

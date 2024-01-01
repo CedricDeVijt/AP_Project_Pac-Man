@@ -1,39 +1,39 @@
 #include "Ghost.h"
 #include "EntityModel.h"
 #include "Random.h"
+#include <algorithm>
 #include <cmath>
+#include <iostream>
 #include <limits>
 #include <vector>
-#include <algorithm>
-#include <iostream>
 
 std::ostream& operator<<(std::ostream& os, const GhostType& ghostType) {
     switch (ghostType) {
-        case GhostType::Blinky:
-            os << "Blinky";
-            break;
-        case GhostType::Pinky:
-            os << "Pinky";
-            break;
-        case GhostType::Inky:
-            os << "Inky";
-            break;
-        case GhostType::Clyde:
-            os << "Clyde";
-            break;
-        case GhostType::Fear:
-            os << "Fear";
-            break;
-        default:
-            os << "UNKNOWN";
-            break;
+    case GhostType::Blinky:
+        os << "Blinky";
+        break;
+    case GhostType::Pinky:
+        os << "Pinky";
+        break;
+    case GhostType::Inky:
+        os << "Inky";
+        break;
+    case GhostType::Clyde:
+        os << "Clyde";
+        break;
+    case GhostType::Fear:
+        os << "Fear";
+        break;
+    default:
+        os << "UNKNOWN";
+        break;
     }
     return os;
 }
 
 // TODO enum for modes?
 Ghost::Ghost(GhostType type, std::tuple<double, double, double, double> homePosition)
-        : type(type), homePosition(homePosition) , EntityModel(homePosition){
+    : type(type), homePosition(homePosition), EntityModel(homePosition) {
     // start in waitmode
     fearMode = false;
     chaseMode = false;
@@ -43,7 +43,6 @@ Ghost::Ghost(GhostType type, std::tuple<double, double, double, double> homePosi
     nudgeToGrid();
     // TODO set startTime Wait Mode
 }
-
 
 void Ghost::capturedByPacMan() {
     // go back to initial position and start chasing
@@ -60,22 +59,13 @@ void Ghost::toFearMode() {
     // TODO set startTime Fear Mode
 }
 
-bool Ghost::isFearMode() const {
-    return fearMode;
-}
+bool Ghost::isFearMode() const { return fearMode; }
 
-bool Ghost::isChaseMode() const {
-    return chaseMode;
-}
+bool Ghost::isChaseMode() const { return chaseMode; }
 
-bool Ghost::isWaitMode() const {
-    return waitMode;
-}
+bool Ghost::isWaitMode() const { return waitMode; }
 
-GhostType Ghost::getType() const {
-    return type;
-}
-
+GhostType Ghost::getType() const { return type; }
 
 double manhattanDistance(std::tuple<double, double, double, double> a, std::tuple<double, double, double, double> b) {
     double a_x, a_y, b_x, b_y;
@@ -85,7 +75,8 @@ double manhattanDistance(std::tuple<double, double, double, double> a, std::tupl
     return std::abs(a_x - b_x) + std::abs(a_y - b_y);
 }
 
-void Ghost::update(const std::vector<Direction> &possibleDirections, std::tuple<double, double, double, double> pacManPosition) {
+void Ghost::update(const std::vector<Direction>& possibleDirections,
+                   std::tuple<double, double, double, double> pacManPosition) {
     std::cout << "updating " << type << ": ";
     if (isWaitMode()) {
         // TODO use StopWatch
@@ -126,9 +117,9 @@ void Ghost::update(const std::vector<Direction> &possibleDirections, std::tuple<
                     std::cout << "go manhattan \n";
                     manhattanDirection = getDirectionWithMaximumManhattanDistance(possibleDirections, pacManPosition);
                 }
-//                if (manhattanDirection != direction) {
-//                    nudgeToGrid();
-//                }
+                //                if (manhattanDirection != direction) {
+                //                    nudgeToGrid();
+                //                }
                 direction = manhattanDirection;
             }
         } else {
@@ -142,11 +133,12 @@ void Ghost::update(const std::vector<Direction> &possibleDirections, std::tuple<
     notifyObservers();
 }
 
-Direction Ghost::getDirectionWithMinmumManhattanDistance(const std::vector <Direction> &possibleDirections,
-                                                         const std::tuple<double, double, double, double> &pacManPosition) {
+Direction Ghost::getDirectionWithMinmumManhattanDistance(
+    const std::vector<Direction>& possibleDirections,
+    const std::tuple<double, double, double, double>& pacManPosition) {
     double minDistance = std::numeric_limits<double>::max();
     Direction minDirection = NONE;
-    for (auto possibleDirection: possibleDirections) {
+    for (auto possibleDirection : possibleDirections) {
         std::tuple<double, double, double, double> nextPosition = step(possibleDirection, position);
         double distance = manhattanDistance(nextPosition, pacManPosition);
         if (distance < minDistance) {
@@ -157,11 +149,12 @@ Direction Ghost::getDirectionWithMinmumManhattanDistance(const std::vector <Dire
     return minDirection;
 }
 
-Direction Ghost::getDirectionWithMaximumManhattanDistance(const std::vector <Direction> &possibleDirections,
-                                                         const std::tuple<double, double, double, double> &pacManPosition) {
+Direction Ghost::getDirectionWithMaximumManhattanDistance(
+    const std::vector<Direction>& possibleDirections,
+    const std::tuple<double, double, double, double>& pacManPosition) {
     double maxDistance = std::numeric_limits<double>::min();
     Direction maxDirection = NONE;
-    for (auto possibleDirection: possibleDirections) {
+    for (auto possibleDirection : possibleDirections) {
         std::tuple<double, double, double, double> nextPosition = step(possibleDirection, position);
         double distance = manhattanDistance(nextPosition, pacManPosition);
         if (distance > maxDistance) {
@@ -172,7 +165,7 @@ Direction Ghost::getDirectionWithMaximumManhattanDistance(const std::vector <Dir
     return maxDirection;
 }
 
-bool Ghost::atCornerOrIntersection(const std::vector <Direction> &directions) const {
+bool Ghost::atCornerOrIntersection(const std::vector<Direction>& directions) const {
     // Check if "up" or "down" is present
     bool hasUpDown = std::find(directions.begin(), directions.end(), Direction::UP) != directions.end() ||
                      std::find(directions.begin(), directions.end(), Direction::DOWN) != directions.end();
@@ -185,6 +178,4 @@ bool Ghost::atCornerOrIntersection(const std::vector <Direction> &directions) co
     return hasUpDown && hasLeftRight;
 }
 
-bool Ghost::atDeadEnd(const std::vector <Direction> &directions) const {
-    return (directions.size() == 1);
-}
+bool Ghost::atDeadEnd(const std::vector<Direction>& directions) const { return (directions.size() == 1); }

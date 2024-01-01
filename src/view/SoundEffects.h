@@ -7,15 +7,14 @@
 
 using std::shared_ptr;
 
-
 class SoundEffects {
 private:
     // Private constructor to prevent external instantiation
     SoundEffects();
     std::map<std::string, shared_ptr<sf::SoundBuffer>> soundMap;
     sf::Sound sound;
-    sf::SoundBuffer bufferEatingCherry, bufferEatingGhost, bufferExtraLife, bufferIntermission, bufferOpeningSong, bufferSiren, bufferWakaWaka;
-
+    sf::SoundBuffer bufferEatingCherry, bufferEatingGhost, bufferExtraLife, bufferIntermission, bufferOpeningSong,
+        bufferSiren, bufferWakaWaka;
 
 public:
     // Static method to get the instance of the singleton
@@ -32,7 +31,7 @@ public:
     SoundEffects(const SoundEffects&) = delete;
     SoundEffects& operator=(const SoundEffects&) = delete;
 
-    void play(const sf::SoundBuffer &buffer);
+    void play(const sf::SoundBuffer& buffer);
 };
 
-#endif //AP_PROJECT_PAC_MAN_SOUNDEFFECTS_H
+#endif // AP_PROJECT_PAC_MAN_SOUNDEFFECTS_H

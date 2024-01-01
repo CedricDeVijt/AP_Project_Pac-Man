@@ -1,9 +1,9 @@
 #ifndef AP_PROJECT_PAC_MAN_SCORE_H
 #define AP_PROJECT_PAC_MAN_SCORE_H
 
-#include <vector>
-#include <string>
 #include "Observer.h"
+#include <string>
+#include <vector>
 
 class Score : public Observer {
 public:
@@ -13,7 +13,7 @@ public:
     void pacManCapturesGhost();
     void pacManCapturedByGhost();
 
-    void update() override ;
+    void update() override;
 
     int getCurrentScore() const;
     int getLivesRemaining() const;
@@ -21,8 +21,6 @@ public:
 private:
     int currentScore = 0;
     int livesRemaining = 3;
-
 };
 
-
-#endif //AP_PROJECT_PAC_MAN_SCORE_H
+#endif // AP_PROJECT_PAC_MAN_SCORE_H

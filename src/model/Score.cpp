@@ -1,9 +1,8 @@
+#include <algorithm>
 #include <fstream>
 #include <sstream>
-#include <vector>
-#include <algorithm>
 #include <stdexcept>
-
+#include <vector>
 
 #include "Score.h"
 void Score::saveScore(std::string name, int score) {
@@ -11,7 +10,7 @@ void Score::saveScore(std::string name, int score) {
     scores.emplace_back(name, score);
 
     // sort the scores
-    std::sort(scores.begin(), scores.end(), [](const auto &a, const auto &b) {
+    std::sort(scores.begin(), scores.end(), [](const auto& a, const auto& b) {
         return a.second > b.second; // Sort in descending order based on scores
     });
 
@@ -27,7 +26,7 @@ void Score::saveScore(std::string name, int score) {
         throw std::runtime_error("Error opening high scores file");
     } else {
         file << "Name, Score\n";
-        for (const auto &scorePair: scores) {
+        for (const auto& scorePair : scores) {
             file << scorePair.first << ", " << scorePair.second << "\n";
         }
         file.close();
@@ -63,28 +62,14 @@ std::vector<std::pair<std::string, int>> Score::loadHighScores() {
     return highScores;
 }
 
-void Score::pacManCapturesCoin(){
-    currentScore +=1;
-}
+void Score::pacManCapturesCoin() { currentScore += 1; }
 
-void Score::pacManCapturesGhost() {
-    currentScore +=50;
-}
+void Score::pacManCapturesGhost() { currentScore += 50; }
 
-void Score::pacManCapturedByGhost() {
-    livesRemaining -=1;
-}
+void Score::pacManCapturedByGhost() { livesRemaining -= 1; }
 
-void Score::update() {
+void Score::update() {}
 
-}
+int Score::getCurrentScore() const { return currentScore; }
 
-int Score::getCurrentScore() const {
-    return currentScore;
-}
-
-int Score::getLivesRemaining() const {
-    return livesRemaining;
-}
-
-
+int Score::getLivesRemaining() const { return livesRemaining; }

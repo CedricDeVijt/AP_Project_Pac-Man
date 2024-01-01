@@ -6,7 +6,6 @@ shared_ptr<Ghost> ConcreteFactory::createGhost(GhostType type, std::tuple<double
     shared_ptr<GhostView> ghostView = std::make_shared<GhostView>(ghost);
     ghost->registerObserver(ghostView);
     return ghost;
-
 }
 
 shared_ptr<PacMan> ConcreteFactory::createPacMan(std::tuple<double, double, double, double> position) {
@@ -37,6 +36,4 @@ shared_ptr<Fruit> ConcreteFactory::createFruit(std::tuple<double, double, double
     return fruit;
 }
 
-ConcreteFactory::ConcreteFactory() {
-
-}
+ConcreteFactory::ConcreteFactory() {}

@@ -5,8 +5,8 @@
 #include <vector>
 
 #include "AbstractFactory.h"
-#include "Subject.h"
 #include "Score.h"
+#include "Subject.h"
 
 using std::shared_ptr;
 
@@ -18,7 +18,7 @@ public:
 
     void update();
 
-    void setDirectionPacMan(const Direction &direction);
+    void setDirectionPacMan(const Direction& direction);
 
     bool isLevelComplete();
     bool isAllLevelsComplete();
@@ -37,5 +37,4 @@ private:
     void collect(std::vector<std::shared_ptr<Fruit>>& fruits);
 };
 
-
-#endif //AP_PROJECT_PAC_MAN_WORLD_H
+#endif // AP_PROJECT_PAC_MAN_WORLD_H

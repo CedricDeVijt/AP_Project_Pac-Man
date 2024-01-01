@@ -1,6 +1,6 @@
 #include "src/controller/Game.h"
 
-int main(){
+int main() {
     Game game;
     game.run();
 }

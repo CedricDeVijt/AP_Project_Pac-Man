@@ -2,8 +2,8 @@
 #define AP_PROJECT_PAC_MAN_STATEMANAGER_H
 
 #include <SFML/Graphics.hpp>
-#include <stack>
 #include <memory>
+#include <stack>
 
 using std::shared_ptr;
 
@@ -23,5 +23,4 @@ public:
     shared_ptr<State> popState();
 };
 
-
-#endif //AP_PROJECT_PAC_MAN_STATEMANAGER_H
+#endif // AP_PROJECT_PAC_MAN_STATEMANAGER_H
