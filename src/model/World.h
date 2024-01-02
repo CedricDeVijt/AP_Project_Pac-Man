@@ -49,6 +49,12 @@ public:
      */
     bool isAllLevelsComplete();
 
+    /**
+     * @brief Checks if game is over
+     * @return True if all lives of pacman are exhausted, false otherwise.
+     */
+    bool isGameOver();
+
 private:
     std::vector<shared_ptr<Wall>> walls;   ///< Vector of walls in the game.
     std::vector<shared_ptr<Coin>> coins;   ///< Vector of coins in the game.
