@@ -18,7 +18,7 @@ private:
     std::map<std::string, shared_ptr<sf::SoundBuffer>> soundMap;
     sf::Sound sound;
     sf::SoundBuffer bufferEatingCherry, bufferEatingGhost, bufferExtraLife, bufferIntermission, bufferOpeningSong,
-        bufferSiren, bufferWakaWaka;
+        bufferSiren, bufferWakaWaka, bufferGameOver, bufferVictory;
 
 public:
     // Static method to get the instance of the singleton
@@ -60,6 +60,16 @@ public:
     void playWakaWaka();
 
     /**
+     * @brief Plays the victory sound effect.
+     */
+    void playVictory();
+
+    /**
+     * @brief Plays the game over sound effect.
+     */
+    void playGameOver();
+
+    /**
      * @brief Plays a given sound buffer.
      * @param buffer The sound buffer to be played.
      */
@@ -68,6 +78,11 @@ public:
     // Prevent copying and assignment
     SoundEffects(const SoundEffects&) = delete;
     SoundEffects& operator=(const SoundEffects&) = delete;
+
+    /**
+     * @brief Stop any sound that is playing.
+     */
+    void stop();
 };
 
 #endif // AP_PROJECT_PAC_MAN_SOUNDEFFECTS_H

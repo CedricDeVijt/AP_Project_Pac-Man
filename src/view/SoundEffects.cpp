@@ -1,15 +1,17 @@
 #include "SoundEffects.h"
 
 SoundEffects::SoundEffects() {
-    if (!bufferOpeningSong.loadFromFile("resources/sound/Pacman_Dies.wav") ||
-        !bufferEatingCherry.loadFromFile("resources/sound/Pacman_Eating_Cherry.wav") ||
-        !bufferEatingGhost.loadFromFile("resources/sound/Pacman_Eating_Ghost.wav") ||
-        !bufferExtraLife.loadFromFile("resources/sound/Pacman_Extra_Live.wav") ||
-        !bufferIntermission.loadFromFile("resources/sound/Pacman_Intermission.wav") ||
-        !bufferOpeningSong.loadFromFile("resources/sound/Pacman_Opening_Song.wav") ||
-        !bufferSiren.loadFromFile("resources/sound/Pacman_Siren.wav") ||
-        !bufferWakaWaka.loadFromFile("resources/sound/Pacman_Waka_Waka.wav")) {
-        throw std::runtime_error("Failed to load sound file");
+    if (!bufferOpeningSong.loadFromFile("resources/sounds/Pacman_Dies.wav") ||
+        !bufferEatingCherry.loadFromFile("resources/sounds/Pacman_Eating_Cherry.wav") ||
+        !bufferEatingGhost.loadFromFile("resources/sounds/Pacman_Eating_Ghost.wav") ||
+        !bufferExtraLife.loadFromFile("resources/sounds/Pacman_Extra_Live.wav") ||
+        !bufferIntermission.loadFromFile("resources/sounds/Pacman_Intermission.wav") ||
+        !bufferOpeningSong.loadFromFile("resources/sounds/Pacman_Opening_Song.wav") ||
+        !bufferSiren.loadFromFile("resources/sounds/Pacman_Siren.wav") ||
+        !bufferWakaWaka.loadFromFile("resources/sounds/Pacman_Waka_Waka.wav") ||
+        !bufferGameOver.loadFromFile("resources/sounds/Pacman_Game_Over.wav") ||
+        !bufferVictory.loadFromFile("resources/sounds/Pacman_Victory.wav") ) {
+        throw std::runtime_error("Failed to load sounds file");
     }
 }
 
@@ -26,9 +28,14 @@ void SoundEffects::playIntermission() { play(bufferIntermission); }
 void SoundEffects::playOpeningSong() { play(bufferOpeningSong); }
 void SoundEffects::playSiren() { play(bufferSiren); }
 void SoundEffects::playWakaWaka() { play(bufferWakaWaka); }
+void SoundEffects::playVictory() { play(bufferVictory); }
+void SoundEffects::playGameOver() { play(bufferGameOver); }
 
 void SoundEffects::play(const sf::SoundBuffer& buffer) {
     sound.setBuffer(buffer);
-    // TODO enable
     sound.play();
+}
+
+void SoundEffects::stop() {
+    sound.stop();
 }
