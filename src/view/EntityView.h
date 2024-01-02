@@ -19,22 +19,8 @@ using std::shared_ptr;
  */
 class EntityView : public Observer {
 protected:
-    shared_ptr<sf::RenderWindow> window = WindowSingleton::getInstance().getWindow();
-    SpriteFactory& spriteFactory = SpriteFactory::getInstance();
-
-    /**
-     * @brief Converts normalized coordinates to pixel coordinates on the X-axis.
-     * @param position The normalized position on the X-axis.
-     * @return The pixel position on the X-axis.
-     */
-    int toPixelX(double position);
-
-    /**
-     * @brief Converts normalized coordinates to pixel coordinates on the Y-axis.
-     * @param position The normalized position on the Y-axis.
-     * @return The pixel position on the Y-axis.
-     */
-    int toPixelY(double position);
+    shared_ptr <sf::RenderWindow> window = WindowSingleton::getInstance().getWindow();
+    SpriteFactory &spriteFactory = SpriteFactory::getInstance();
 
     /**
      * @brief Gets the grid size based on the window size.
@@ -53,7 +39,7 @@ public:
      * @brief Constructs a PacManView object.
      * @param pacMan The PacMan entity to be visualized.
      */
-    PacManView(shared_ptr<PacMan> pacMan);
+    PacManView(shared_ptr <PacMan> pacMan);
 
     /**
      * @brief Updates the visual representation of PacMan.
@@ -61,7 +47,7 @@ public:
     void update() override;
 
 private:
-    shared_ptr<PacMan> pacMan;
+    shared_ptr <PacMan> pacMan;
 };
 
 /**
@@ -74,7 +60,7 @@ public:
      * @brief Constructs a GhostView object.
      * @param ghost The Ghost entity to be visualized.
      */
-    GhostView(shared_ptr<Ghost> ghost);
+    GhostView(shared_ptr <Ghost> ghost);
 
     /**
      * @brief Updates the visual representation of Ghost.
@@ -82,7 +68,7 @@ public:
     void update() override;
 
 private:
-    shared_ptr<Ghost> ghost;
+    shared_ptr <Ghost> ghost;
 };
 
 /**
@@ -95,7 +81,7 @@ public:
      * @brief Constructs a CoinView object.
      * @param coin The Coin entity to be visualized.
      */
-    CoinView(shared_ptr<Coin> coin);
+    CoinView(shared_ptr <Coin> coin);
 
     /**
      * @brief Updates the visual representation of Coin.
@@ -103,7 +89,7 @@ public:
     void update() override;
 
 private:
-    shared_ptr<Coin> coin;
+    shared_ptr <Coin> coin;
 };
 
 /**
@@ -116,7 +102,7 @@ public:
      * @brief Constructs a WallView object.
      * @param wall The Wall entity to be visualized.
      */
-    WallView(shared_ptr<Wall> wall);
+    WallView(shared_ptr <Wall> wall);
 
     /**
      * @brief Updates the visual representation of Wall.
@@ -124,7 +110,7 @@ public:
     void update() override;
 
 private:
-    shared_ptr<Wall> wall;
+    shared_ptr <Wall> wall;
 };
 
 /**
@@ -137,7 +123,7 @@ public:
      * @brief Constructs a FruitView object.
      * @param fruit The Fruit entity to be visualized.
      */
-    FruitView(shared_ptr<Fruit> fruit);
+    FruitView(shared_ptr <Fruit> fruit);
 
     /**
      * @brief Updates the visual representation of Fruit.
@@ -145,7 +131,7 @@ public:
     void update() override;
 
 private:
-    shared_ptr<Fruit> fruit;
+    shared_ptr <Fruit> fruit;
 };
 
 #endif // AP_PROJECT_PAC_MAN_ENTITYVIEW_H
