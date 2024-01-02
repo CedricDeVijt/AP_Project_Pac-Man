@@ -3,10 +3,11 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 void PacMan::setTargetDirection(const Direction& direction) { targetDirection = direction; }
 
-PacMan::PacMan(std::tuple<double, double, double, double> position) : EntityModel(position) {
+PacMan::PacMan(std::tuple<double, double, double, double> position, int level) : EntityModel(position), level(level) {
     homePosition = position;
     direction = NONE;
 }
@@ -14,6 +15,9 @@ PacMan::PacMan(std::tuple<double, double, double, double> position) : EntityMode
 Direction PacMan::getDirection() const { return direction; }
 
 void PacMan::update(const std::vector<Direction>& directions) {
+    // determine the acceleration for the given level
+    double acceleration = std::pow(accelerator, level);
+
     // if not dead
     if (lives != 0) {
         // Check if we can take the target direction, if so take the new direction and align back to the grid
@@ -21,10 +25,10 @@ void PacMan::update(const std::vector<Direction>& directions) {
             direction = targetDirection;
             targetDirection = NONE;
             nudgeToGrid();
-            position = step(direction, position);
+            position = step(direction, position, acceleration);
         } else if (std::find(directions.begin(), directions.end(), direction) != directions.end()) {
             // keep on going in the direction we were travelling if we can
-            position = step(direction, position);
+            position = step(direction, position, acceleration);
         }
     }
     notifyObservers();
@@ -42,4 +46,8 @@ void PacMan::die() {
 
 void PacMan::captureGhost() {
     // TODO
+}
+
+bool PacMan::isDead() {
+    return lives == 0;
 }

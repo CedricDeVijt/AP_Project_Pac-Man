@@ -16,13 +16,17 @@ private:
     Direction targetDirection = Direction::NONE;             ///< Target direction set by the player.
     std::tuple<double, double, double, double> homePosition; ///< Starting position of Pac-Man.
     int lives = 3;                                           ///< Number of lives remaining for Pac-Man.
+    int level = 0;                                           ///< The level of the current game
+    const double accelerator = 1.1;                          ///< The accelerator factor used to speed up the movements of the ghost
+
 
 public:
     /**
      * @brief Constructor for the PacMan class.
      * @param position The initial position of Pac-Man.
+     * @param level The level of the game.
      */
-    explicit PacMan(std::tuple<double, double, double, double> position);
+    explicit PacMan(std::tuple<double, double, double, double> position, int level);
 
     /**
      * @brief Updates the state of Pac-Man based on the available directions.
@@ -53,6 +57,12 @@ public:
      * @details To be implemented.
      */
     void captureGhost();
+
+    /**
+     * @brief checks if Pac-Man is dead.
+     * @return True if all lives of Pac-Man are exhausted, false otherwise.
+     */
+    bool isDead();
 };
 
 #endif // AP_PROJECT_PAC_MAN_PACMAN_H

@@ -32,8 +32,8 @@ std::ostream& operator<<(std::ostream& os, const GhostType& ghostType) {
 }
 
 // TODO enum for modes?
-Ghost::Ghost(GhostType type, std::tuple<double, double, double, double> homePosition)
-    : type(type), homePosition(homePosition), EntityModel(homePosition) {
+Ghost::Ghost(GhostType type, std::tuple<double, double, double, double> homePosition, int level)
+    : type(type), homePosition(homePosition), level(level), EntityModel(homePosition) {
     // start in waitmode
     fearMode = false;
     chaseMode = false;
@@ -128,7 +128,9 @@ void Ghost::update(const std::vector<Direction>& possibleDirections,
     } else {
         std::cout << "****************************************************Funky Stae\n";
     }
-    position = step(direction, position);
+    // determine the acceleration for the given level
+    double acceleration = std::pow(accelerator, level);
+    position = step(direction, position, acceleration);
 
     notifyObservers();
 }
@@ -139,7 +141,7 @@ Direction Ghost::getDirectionWithMinmumManhattanDistance(
     double minDistance = std::numeric_limits<double>::max();
     Direction minDirection = NONE;
     for (auto possibleDirection : possibleDirections) {
-        std::tuple<double, double, double, double> nextPosition = step(possibleDirection, position);
+        std::tuple<double, double, double, double> nextPosition = step(possibleDirection, position, accelerator);
         double distance = manhattanDistance(nextPosition, pacManPosition);
         if (distance < minDistance) {
             minDistance = distance;
@@ -155,7 +157,7 @@ Direction Ghost::getDirectionWithMaximumManhattanDistance(
     double maxDistance = std::numeric_limits<double>::min();
     Direction maxDirection = NONE;
     for (auto possibleDirection : possibleDirections) {
-        std::tuple<double, double, double, double> nextPosition = step(possibleDirection, position);
+        std::tuple<double, double, double, double> nextPosition = step(possibleDirection, position, accelerator);
         double distance = manhattanDistance(nextPosition, pacManPosition);
         if (distance > maxDistance) {
             maxDistance = distance;

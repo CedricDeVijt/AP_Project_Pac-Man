@@ -31,8 +31,9 @@ public:
      * @brief Constructor for the Ghost class.
      * @param type The type of the ghost.
      * @param homePosition A tuple representing the home position (x, y, width, height) of the ghost.
+     * @param level The level of the game.
      */
-    Ghost(GhostType type, std::tuple<double, double, double, double> homePosition);
+    Ghost(GhostType type, std::tuple<double, double, double, double> homePosition, int level);
 
     /**
      * @brief Gets the type of the ghost.
@@ -85,7 +86,10 @@ private:
     Direction direction = Direction::NONE;                   ///< The current direction of the ghost.
 
     // TODO use stopwatch
-    int timer = 0; ///< Timer used for controlling wait mode.
+    int timer = 0;                  ///< Timer used for controlling wait mode.
+    int level = 0;                  ///< The level of the current game
+    const double accelerator = 1.1; ///< The accelerator factor used to speed up the movements of the ghost
+
 
     /**
      * @brief Checks if the ghost is at a corner or intersection.
