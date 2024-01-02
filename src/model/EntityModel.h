@@ -57,10 +57,11 @@ protected:
      * @brief Calculates the position after taking a step in a given direction.
      * @param direction The direction of the step.
      * @param startPosition A reference to the starting position.
+     * @param accelerator The factor that determines the relevant acceleration to take into account
      * @return A tuple representing the new position after the step.
      */
     std::tuple<double, double, double, double> step(Direction direction,
-                                                    std::tuple<double, double, double, double>& startPosition);
+                                                    std::tuple<double, double, double, double>& startPosition, double accelerator);
 };
 
 #endif // AP_PROJECT_PAC_MAN_ENTITYMODEL_H

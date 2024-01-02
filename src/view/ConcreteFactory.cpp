@@ -2,14 +2,14 @@
 #include "EntityView.h"
 
 shared_ptr<Ghost> ConcreteFactory::createGhost(GhostType type, std::tuple<double, double, double, double> position) {
-    shared_ptr<Ghost> ghost = std::make_shared<Ghost>(type, position);
+    shared_ptr<Ghost> ghost = std::make_shared<Ghost>(type, position, level);
     shared_ptr<GhostView> ghostView = std::make_shared<GhostView>(ghost);
     ghost->registerObserver(ghostView);
     return ghost;
 }
 
 shared_ptr<PacMan> ConcreteFactory::createPacMan(std::tuple<double, double, double, double> position) {
-    shared_ptr<PacMan> pacMan = std::make_shared<PacMan>(position);
+    shared_ptr<PacMan> pacMan = std::make_shared<PacMan>(position, level);
     shared_ptr<PacManView> pacManView = std::make_shared<PacManView>(pacMan);
     pacMan->registerObserver(pacManView);
     return pacMan;
@@ -36,4 +36,7 @@ shared_ptr<Fruit> ConcreteFactory::createFruit(std::tuple<double, double, double
     return fruit;
 }
 
-ConcreteFactory::ConcreteFactory() {}
+ConcreteFactory::ConcreteFactory(int level): level(level){
+
+}
+

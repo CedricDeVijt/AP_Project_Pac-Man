@@ -13,8 +13,9 @@ class ConcreteFactory final : public AbstractFactory {
 public:
     /**
      * @brief Constructs a ConcreteFactory object.
+     * @param type The level of the game.
      */
-    ConcreteFactory();
+    ConcreteFactory(int level);
     ~ConcreteFactory() = default;
 
     /**
@@ -52,6 +53,9 @@ public:
      * @return A shared pointer to the created Fruit.
      */
     shared_ptr<Fruit> createFruit(std::tuple<double, double, double, double> position) final;
+
+private:
+    int level = 0; ///< The level of the current game
 };
 
 #endif // AP_PROJECT_PAC_MAN_CONCRETEFACTORY_H
