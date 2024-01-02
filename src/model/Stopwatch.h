@@ -32,7 +32,7 @@ public:
     void restart();
 
     /**
-     * @brief Measures the time elapsed since the last tick.
+     * @brief Moves the tick time forward to the current time.
      */
     void tick();
 
@@ -47,7 +47,7 @@ public:
     void unPause();
 
     /**
-     * @brief Gets the time elapsed since the last tick in microseconds.
+     * @brief Gets the time elapsed between the last two ticks in microseconds.
      * @return The delta time in microseconds.
      */
     double getDeltaTime();
