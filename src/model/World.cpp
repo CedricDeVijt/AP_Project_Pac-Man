@@ -1,5 +1,6 @@
 #include "World.h"
 #include "Stopwatch.h"
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <vector>
