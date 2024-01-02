@@ -1,9 +1,14 @@
 #include "SpriteFactory.h"
+#include "WindowSingleton.h"
 
+// TODO return std::shared_ptr<sf::Sprite> for all create methods??  Why does the createSprite not go out of scope?
 // Define the static instance of the singleton
 SpriteFactory::SpriteFactory() {
     // Load a texture (replace "your_image.png" with the actual filename)
-    if (!texture.loadFromFile("resources/Sprites.png")) {
+    if (!texture.loadFromFile("resources/sprites/Sprites.png")) {
+        throw std::runtime_error("Failed to load texture");
+    }
+    if (!levelTexture.loadFromFile("resources/sprites/PacMan_Logo.png")) {
         throw std::runtime_error("Failed to load texture");
     }
 }
@@ -26,7 +31,6 @@ sf::Sprite SpriteFactory::createSprite(sf::IntRect textureRect, const sf::Vector
     sprite.setScale(scale);
 
     return sprite;
-    ;
 }
 
 sf::Sprite SpriteFactory::createGhost(GhostType type, const int alternative, const int posX, const int posY,
@@ -113,4 +117,23 @@ sf::Sprite SpriteFactory::createCoin(const int posX, const int posY, const int g
     double scaleFactor = gridSize / static_cast<double>(size + margin);
     return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX + margin / 2, posY + margin / 2),
                         sf::Vector2f(scaleFactor, scaleFactor));
+}
+
+
+sf::Sprite SpriteFactory::createLogo() {
+    sf::Sprite sprite;
+    sprite.setTexture(levelTexture);
+    sprite.setOrigin(texture.getSize().x / 2, 0);
+    auto window = WindowSingleton::getInstance().getWindow();
+    sprite.setPosition(window->getSize().x / 2, 0);
+
+    const sf::FloatRect spriteBounds = sprite.getLocalBounds();
+    sprite.setOrigin(spriteBounds.width / 2, 0);
+
+    // Update the position and scale of the sprite based on window size
+    sprite.setPosition(window->getSize().x / 2, 0);
+    sprite.setScale(static_cast<float>(window->getSize().x) / spriteBounds.width,
+                     static_cast<float>(window->getSize().x) / spriteBounds.width);
+
+    return sprite;
 }

@@ -6,14 +6,14 @@
 
 /**
  * @class SpriteFactory
- * @brief Handles the creation of sprites for different game entities.
+ * @brief Handles the loading and creation of sprites for different game entities.
  */
 class SpriteFactory {
 private:
     // Private constructor to prevent external instantiation
     SpriteFactory();
     ~SpriteFactory() = default;
-    sf::Texture texture;
+    sf::Texture texture, levelTexture;
 
     /**
      * @brief Creates an SFML sprite with specified properties.
@@ -67,6 +67,9 @@ public:
      * @return The created coin sprite.
      */
     sf::Sprite createCoin(const int posX, const int posY, const int gridSize);
+
+    // TODO doc
+    sf::Sprite createLogo();
 
     // Prevent copying and assignment
     SpriteFactory(const SpriteFactory&) = delete;
