@@ -8,7 +8,7 @@ project(AP_Project_Pac-Man)
 set(CMAKE_CXX_STANDARD 14)
 
 # Include the game logic library CMake file
-include(CMakeLists_Model.txt)
+include(src/model/CMakeLists.txt)
 
 # Create the executable and link with the library
 add_executable(AP_Project_Pac_Man
