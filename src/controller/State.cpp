@@ -3,66 +3,36 @@
 #include "../model/Stopwatch.h"
 #include "../model/World.h"
 #include "../view/ConcreteFactory.h"
+#include "../view/FontFactory.h"
 #include "../view/SpriteFactory.h"
 #include "../view/WindowSingleton.h"
+#include "../view/SoundEffects.h"
 
 State::State(StateManager* stateManager) : stateManager(stateManager) {}
 
 MenuState::MenuState(StateManager* stateManager) : State(stateManager) {}
 
-void State::createNewLevelState() {
-    shared_ptr<State> levelState = std::make_shared<LevelState>(stateManager);
-    stateManager->pushState(levelState);
-
-    // TODO: Add code to start the level
-    //    levelState.incrementLevel();
-}
-
 void State::createNewMenuState() {
     shared_ptr<State> menuState = std::make_shared<MenuState>(stateManager);
     stateManager->pushState(menuState);
-
-    // TODO: Add code to show menu screen
 }
 
-void MenuState::toLevelState() { createNewLevelState(); }
+void MenuState::toLevelState() {
+    shared_ptr<State> levelState = std::make_shared<LevelState>(stateManager);
+    stateManager->pushState(levelState);
+    SoundEffects::getInstance().stop();
+}
 
 void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
-    // Pac-man logo
-    // // TODO in separate function + make sure texture doesn't deletes itself
-    const auto texture = std::make_shared<sf::Texture>();
-    if (!texture->loadFromFile("resources/PacMan_Logo.png")) {
-        // Handle texture loading error
-        throw std::runtime_error("Error loading texture");
-    }
-
-    // Create the sprite and set its texture
-    const auto sprite = std::make_shared<sf::Sprite>(*texture);
-
-    // Set the sprite's origin and position to the top center of the window
-    sprite->setOrigin(texture->getSize().x / 2, 0);
-    sprite->setPosition(window->getSize().x / 2, 0);
-
-    const sf::FloatRect spriteBounds = sprite->getLocalBounds();
-    sprite->setOrigin(spriteBounds.width / 2, 0);
-
-    // Update the position and scale of the sprite based on window size
-    sprite->setPosition(window->getSize().x / 2, 0);
-    sprite->setScale(static_cast<float>(window->getSize().x) / spriteBounds.width,
-                     static_cast<float>(window->getSize().x) / spriteBounds.width);
-
-    window->draw(*sprite);
+    sf::Sprite sprite = SpriteFactory::getInstance().createLogo();
+    window->draw(sprite);
 
     // High scores
     std::vector<std::pair<std::string, int>> scores = Score::loadHighScores();
-    sf::Font font;
+    sf::Font font = FontFactory::getInstance().getPixelFont();
 
-    if (!font.loadFromFile("resources/pixelFont.ttf")) {
-        throw std::runtime_error("Error loading font");
-    }
-
-    int spriteHeight = sprite->getGlobalBounds().height;
     sf::Text title("High Scores", font, 40);
+    int spriteHeight = sprite.getGlobalBounds().height;
     title.setPosition(100, spriteHeight + 20);
     window->draw(title);
 
@@ -76,6 +46,11 @@ void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
         window->draw(name);
         window->draw(score);
     }
+
+    // draw the instructions
+    sf::Text instructions("Press Enter to play", font, 15);
+    centerHorizontally(instructions, window->getSize().y - 50);
+    window->draw(instructions);
 }
 
 void MenuState::processInput(const sf::Keyboard::Key key) {
@@ -86,12 +61,18 @@ void MenuState::processInput(const sf::Keyboard::Key key) {
 
 void MenuState::update() {}
 
-LevelState::LevelState(StateManager* stateManager) : State(stateManager) {
-    // TODO this needs to be instantiated at a different level since we need to keep the score between levels
+LevelState::LevelState(StateManager *stateManager) : State(stateManager) {
     score = std::make_shared<Score>();
-    // TODO increment level
-    int level = 0;
-    shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>();
+    level = 0;
+    shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>(level);
+    world = std::make_shared<World>(factory, level, score);
+    // start the clock
+    Stopwatch::getInstance().start();
+    world->update();
+}
+
+LevelState::LevelState(StateManager *stateManager, int level, shared_ptr <Score> score) : State(stateManager), level(level), score(score) {
+    shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>(level);
     world = std::make_shared<World>(factory, level, score);
     // start the clock
     Stopwatch::getInstance().start();
@@ -101,8 +82,7 @@ LevelState::LevelState(StateManager* stateManager) : State(stateManager) {
 void LevelState::toVictoryState() {
     shared_ptr<State> victoryState = std::make_shared<VictoryState>(stateManager);
     stateManager->pushState(victoryState);
-
-    // TODO: Add code to show victory screen
+    SoundEffects::getInstance().playVictory();
 }
 
 void LevelState::toPausedState() {
@@ -113,8 +93,14 @@ void LevelState::toPausedState() {
 void LevelState::toGameOverState() {
     shared_ptr<State> gameOverState = std::make_shared<GameOverState>(stateManager);
     stateManager->pushState(gameOverState);
+    SoundEffects::getInstance().playGameOver();
+}
 
-    // TODO: Add code to show game over screen
+void LevelState::toIntermissionState() {
+    shared_ptr<State> intermissionState = std::make_shared<IntermissionState>(stateManager, level);
+    stateManager->pushState(intermissionState);
+    SoundEffects::getInstance().playIntermission();
+
 }
 
 void LevelState::processInput(sf::Keyboard::Key key) {
@@ -141,33 +127,36 @@ void LevelState::processInput(sf::Keyboard::Key key) {
 
 void LevelState::update() {
     world->update();
-    if (world->isAllLevelsComplete()) {
+    if (world->isGameOver()) {
+        toGameOverState();
+    } else if (world->isAllLevelsComplete()) {
         toVictoryState();
     } else if (world->isLevelComplete()) {
-        toLevelState();
+        toIntermissionState();
     }
 }
 
 void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
-    // Load font
-    // TODO: Move this to a more appropriate place in window
-    sf::Font font;
-    if (!font.loadFromFile("resources/pixelFont.ttf")) {
-        throw std::runtime_error("Error loading font");
-    }
-
+    sf::Font font = FontFactory::getInstance().getPixelFont();
     sf::Text scoreText("Score: " + std::to_string(score->getCurrentScore()), font, 20);
-    scoreText.setPosition(20, 680);
-    window->draw(scoreText);
-
     sf::Text livesText("# Lives Remaining: " + std::to_string(score->getLivesRemaining()), font, 20);
-    livesText.setPosition(770, 680);
+
+    const int textMargin = 30;
+    const int textPosY = window->getSize().y -scoreText.getGlobalBounds().height - textMargin;
+    scoreText.setPosition(textMargin, textPosY);
+    window->draw(scoreText);
+    livesText.setPosition(window->getSize().x - livesText.getGlobalBounds().width - textMargin, textPosY);
     window->draw(livesText);
 }
-void LevelState::toLevelState() {
+
+void LevelState::toNextLevelState() {
+    // remove old level state
+    stateManager->popState();
+
+    // push new level state
+    shared_ptr<State> levelState = std::make_shared<LevelState>(stateManager, ++level, score);
+    stateManager->pushState(levelState);
     Stopwatch::getInstance().restart();
-    //    Stopwatch::getInstance().start();
-    createNewLevelState();
 }
 
 PausedState::PausedState(StateManager* stateManager) : State(stateManager) { Stopwatch::getInstance().pause(); }
@@ -182,7 +171,7 @@ void PausedState::toLevelState() {
 
 void PausedState::processInput(sf::Keyboard::Key key) {
     switch (key) {
-    case sf::Keyboard::Escape:
+    case sf::Keyboard::Enter:
         toLevelState();
         break;
     default:
@@ -193,50 +182,146 @@ void PausedState::processInput(sf::Keyboard::Key key) {
 void PausedState::update() {}
 
 void PausedState::draw(shared_ptr<sf::RenderWindow> window) {
+    // draw the logo
+    sf::Sprite sprite = SpriteFactory::getInstance().createLogo();
+    window->draw(sprite);
 
-    // Load font
-    // TODO: Move this to a more appropriate place in window
-
-    sf::Font font;
-
-    if (!font.loadFromFile("resources/pixelFont.ttf")) {
-        throw std::runtime_error("Error loading font");
-    }
-
-    sf::Text title("Paused", font, 20);
-    title.setPosition(100, 200);
+    // draw the title
+    sf::Font font = FontFactory::getInstance().getPixelFont();
+    sf::Text title("Game Paused", font, 50);
+    centerHorizontally(title, sprite.getGlobalBounds().height + 70);
     window->draw(title);
+
+    // draw the instructions
+    sf::Text instructions("Press Escape to continue", font, 15);
+    centerHorizontally(instructions, window->getSize().y - 100);
+    window->draw(instructions);
 }
+
 
 VictoryState::VictoryState(StateManager* stateManager) : State(stateManager) {}
 
-void VictoryState::toLevelState() { createNewLevelState(); }
+void VictoryState::toLevelState() {
+    stateManager->popState();  // back to level state
+    stateManager->popState();  // back to menu state
+    SoundEffects::getInstance().stop();
+}
 
-void VictoryState::processInput(sf::Keyboard::Key key) {}
+void VictoryState::processInput(sf::Keyboard::Key key) {
+    switch (key) {
+        case sf::Keyboard::Enter:
+            toLevelState();
+            break;
+        default:
+            break;
+    }
+}
 
 void VictoryState::update() {}
 
 void VictoryState::draw(shared_ptr<sf::RenderWindow> window) {
-    // Load font
-    // TODO: Move this to a more appropriate place in window
+    // draw the logo
+    sf::Sprite sprite = SpriteFactory::getInstance().createLogo();
+    window->draw(sprite);
 
-    sf::Font font;
-
-    if (!font.loadFromFile("resources/pixelFont.ttf")) {
-        throw std::runtime_error("Error loading font");
-    }
-
-    sf::Text title("Paused", font, 20);
-    title.setPosition(100, 200);
+    // draw the title
+    sf::Font font = FontFactory::getInstance().getPacManFont();
+    sf::Text title("Victory !!!", font, 50);
+    centerHorizontally(title, sprite.getGlobalBounds().height + 70);
     window->draw(title);
+
+    // draw the instructions
+    sf::Text instructions("Press Enter to continue", font, 15);
+    centerHorizontally(instructions, window->getSize().y - 100);
+    window->draw(instructions);
 }
 
 GameOverState::GameOverState(StateManager* stateManager) : State(stateManager) {}
 
 void GameOverState::toMenuState() { createNewMenuState(); }
 
-void GameOverState::processInput(sf::Keyboard::Key key) {}
+void GameOverState::processInput(sf::Keyboard::Key key) {
+    switch (key) {
+        case sf::Keyboard::Enter:
+            toNewGameState();
+            break;
+        default:
+            break;
+    }
+}
 
 void GameOverState::update() {}
 
-void GameOverState::draw(shared_ptr<sf::RenderWindow> window) {}
+void GameOverState::draw(shared_ptr<sf::RenderWindow> window) {
+    // draw the logo
+    sf::Sprite sprite = SpriteFactory::getInstance().createLogo();
+    window->draw(sprite);
+
+    // draw the title
+    sf::Font pacManFont = FontFactory::getInstance().getPacManFont();
+    sf::Text title("Game Over", pacManFont, 50);
+    centerHorizontally(title, sprite.getGlobalBounds().height + 70);
+    window->draw(title);
+
+    // draw the instructions
+    sf::Font pixelFont = FontFactory::getInstance().getPixelFont();
+    sf::Text instructions("Press Enter to start a new game", pixelFont, 15);
+    centerHorizontally(instructions, window->getSize().y - 100);
+    window->draw(instructions);
+}
+
+void GameOverState::toNewGameState() {
+    // pop the GameOverState state from the stack
+    stateManager->popState();
+    // pop the LevelState state from the stack
+    stateManager->popState();
+    // we should now be at the MenuState
+}
+
+void State::centerHorizontally(sf::Text &title, int posY) const {
+    auto window = WindowSingleton::getInstance().getWindow();
+    int titleWidth = title.getGlobalBounds().width;
+    title.setPosition((window->getSize().x - titleWidth) / 2, posY);
+}
+
+IntermissionState::IntermissionState(StateManager* stateManager, int level) : State(stateManager), level(level){}
+
+void IntermissionState::toNextLevelState() {
+    // pop the intermission state from the stack
+    stateManager->popState();
+
+    // create the next LevelState
+    std::shared_ptr<LevelState> state = std::dynamic_pointer_cast<LevelState>(stateManager->getCurrentState());
+    state->toNextLevelState();
+    SoundEffects::getInstance().stop();
+}
+
+void IntermissionState::processInput(sf::Keyboard::Key key) {
+    switch (key) {
+        case sf::Keyboard::Enter:
+            toNextLevelState();
+            break;
+        default:
+            break;
+    }
+}
+
+void IntermissionState::update() {}
+
+void IntermissionState::draw(shared_ptr<sf::RenderWindow> window) {
+    // draw the logo
+    sf::Sprite sprite = SpriteFactory::getInstance().createLogo();
+    window->draw(sprite);
+
+    // draw the title
+    sf::Font font = FontFactory::getInstance().getPixelFont();
+    std::string titleText = "Level " + std::to_string(level) + " Completed";
+    sf::Text title(titleText, font, 50);
+    centerHorizontally(title, sprite.getGlobalBounds().height + 70);
+    window->draw(title);
+
+    // draw the instructions
+    sf::Text instructions("Press Enter to continue", font, 15);
+    centerHorizontally(instructions, window->getSize().y - 100);
+    window->draw(instructions);
+}
