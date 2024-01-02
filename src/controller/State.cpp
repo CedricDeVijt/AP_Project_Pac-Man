@@ -171,7 +171,7 @@ void PausedState::toLevelState() {
 
 void PausedState::processInput(sf::Keyboard::Key key) {
     switch (key) {
-    case sf::Keyboard::Enter:
+    case sf::Keyboard::Escape:
         toLevelState();
         break;
     default:
