@@ -1,12 +1,10 @@
 #ifndef AP_PROJECT_PAC_MAN_ABSTRACTFACTORY_H
 #define AP_PROJECT_PAC_MAN_ABSTRACTFACTORY_H
 
-#include "../view/SpriteFactory.h"
 #include "Collectable.h"
 #include "Ghost.h"
 #include "PacMan.h"
 #include "Wall.h"
-#include <SFML/Graphics.hpp>
 #include <memory>
 using std::shared_ptr;
 
