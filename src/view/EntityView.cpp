@@ -1,16 +1,16 @@
 #include "EntityView.h"
-#include "SpriteFactory.h"
 #include "Camera.h"
+#include "SpriteFactory.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
 int EntityView::getGridSize() const { return window->getSize().x / 20; }
 
-WallView::WallView(shared_ptr <Wall> wall) : wall(wall) {}
+WallView::WallView(shared_ptr<Wall> wall) : wall(wall) {}
 
 void WallView::processEvent(EventType eventType) {
     if (eventType == EventType::TICK) {
-        int gridSize = getGridSize() + 1;  // +1 since rounding effects might leave a small gap otherwise
+        int gridSize = getGridSize() + 1; // +1 since rounding effects might leave a small gap otherwise
         int posX, posY;
         std::tie(posX, posY) = Camera::toPixelCoordinates(wall->getPosition());
 
@@ -21,7 +21,7 @@ void WallView::processEvent(EventType eventType) {
     }
 }
 
-CoinView::CoinView(shared_ptr <Coin> coin) : coin(coin) {}
+CoinView::CoinView(shared_ptr<Coin> coin) : coin(coin) {}
 
 void CoinView::processEvent(EventType eventType) {
     if (eventType == EventType::TICK) {
@@ -33,7 +33,7 @@ void CoinView::processEvent(EventType eventType) {
     }
 }
 
-FruitView::FruitView(shared_ptr <Fruit> fruit) : fruit(fruit) {}
+FruitView::FruitView(shared_ptr<Fruit> fruit) : fruit(fruit) {}
 
 void FruitView::processEvent(EventType eventType) {
     if (eventType == EventType::TICK) {
@@ -45,7 +45,7 @@ void FruitView::processEvent(EventType eventType) {
     }
 }
 
-GhostView::GhostView(shared_ptr <Ghost> ghost) : ghost(ghost) {}
+GhostView::GhostView(shared_ptr<Ghost> ghost) : ghost(ghost) {}
 
 void GhostView::processEvent(EventType eventType) {
     if (eventType == EventType::TICK) {
@@ -65,10 +65,10 @@ void GhostView::processEvent(EventType eventType) {
     }
 }
 
-PacManView::PacManView(shared_ptr <PacMan> pacMan) : pacMan(pacMan) {}
+PacManView::PacManView(shared_ptr<PacMan> pacMan) : pacMan(pacMan) {}
 
 void PacManView::processEvent(EventType eventType) {
-    if (eventType == EventType::TICK){
+    if (eventType == EventType::TICK) {
         int gridSize = getGridSize();
         int posX, posY;
         std::tie(posX, posY) = Camera::toPixelCoordinates(pacMan->getPosition());
@@ -78,19 +78,19 @@ void PacManView::processEvent(EventType eventType) {
         int variant = variants[((posX + posY) * 2 / gridSize) % 4];
 
         switch (pacMan->getDirection()) {
-            case Direction::UP:
-                window->draw(SpriteFactory::getInstance().createPacMan(9 + variant, posX, posY, gridSize));
-                break;
-            case Direction::DOWN:
-                window->draw(SpriteFactory::getInstance().createPacMan(3 + variant, posX, posY, gridSize));
-                break;
-            case Direction::LEFT:
-                window->draw(SpriteFactory::getInstance().createPacMan(6 + variant, posX, posY, gridSize));
-                break;
-            case Direction::RIGHT:
-            case Direction::NONE:
-                window->draw(SpriteFactory::getInstance().createPacMan(0 + variant, posX, posY, gridSize));
-                break;
+        case Direction::UP:
+            window->draw(SpriteFactory::getInstance().createPacMan(9 + variant, posX, posY, gridSize));
+            break;
+        case Direction::DOWN:
+            window->draw(SpriteFactory::getInstance().createPacMan(3 + variant, posX, posY, gridSize));
+            break;
+        case Direction::LEFT:
+            window->draw(SpriteFactory::getInstance().createPacMan(6 + variant, posX, posY, gridSize));
+            break;
+        case Direction::RIGHT:
+        case Direction::NONE:
+            window->draw(SpriteFactory::getInstance().createPacMan(0 + variant, posX, posY, gridSize));
+            break;
         }
     }
 }

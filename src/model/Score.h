@@ -42,14 +42,14 @@ public:
     int getLivesRemaining() const;
 
 private:
-    int currentScore = 0;   ///< The current score.
-    int livesRemaining = 3; ///< The remaining lives.
+    int currentScore = 0;         ///< The current score.
+    int livesRemaining = 3;       ///< The remaining lives.
     double timeToReduceScore = 0; ///< The remaining time until the score is reduced by one.
 
-    static const int POINTS_TICK  = -1;  ///< the number of points losts with each tick
-    static const int POINTS_COIN  = 1;   ///< the number of points scored when a coin is captured
-    static const int POINTS_FRUIT = 10;  ///< the number of points scored when a fruit is captured
-    static const int POINTS_GHOST = 50;  ///< the number of points scored when a ghost is captured
+    static const int POINTS_TICK = -1;  ///< the number of points losts with each tick
+    static const int POINTS_COIN = 1;   ///< the number of points scored when a coin is captured
+    static const int POINTS_FRUIT = 10; ///< the number of points scored when a fruit is captured
+    static const int POINTS_GHOST = 50; ///< the number of points scored when a ghost is captured
 };
 
 #endif // AP_PROJECT_PAC_MAN_SCORE_H

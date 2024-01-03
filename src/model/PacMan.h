@@ -17,8 +17,7 @@ private:
     std::tuple<double, double, double, double> homePosition; ///< Starting position of Pac-Man.
     int lives = 3;                                           ///< Number of lives remaining for Pac-Man.
     int level = 0;                                           ///< The level of the current game
-    const double accelerator = 1.1;                          ///< The accelerator factor used to speed up the movements of the ghost
-
+    const double accelerator = 1.1; ///< The accelerator factor used to speed up the movements of the ghost
 
 public:
     /**

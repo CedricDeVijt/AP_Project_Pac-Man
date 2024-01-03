@@ -18,7 +18,7 @@ class StateManager;
 class State {
 
 protected:
-    StateManager *stateManager; ///< Pointer to the StateManager managing the game states.
+    StateManager* stateManager; ///< Pointer to the StateManager managing the game states.
 
     /**
      * @brief Creates a new LevelState and adds it to the state stack.
@@ -31,20 +31,19 @@ protected:
      */
     void createNewMenuState();
 
-
     /**
      * @brief Centers a text horizontally in the middle of a window
      * @param text the text to center.
      * @param posY the vertical position.
      */
-    void centerHorizontally(sf::Text &text, int posY) const;
+    void centerHorizontally(sf::Text& text, int posY) const;
 
 public:
     /**
      * @brief Constructor for the State class.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit State(StateManager *stateManager);
+    explicit State(StateManager* stateManager);
 
     /**
      * @brief Virtual destructor for the State class.
@@ -66,7 +65,7 @@ public:
      * @brief Draws the state on the given window.
      * @param window Shared pointer to the SFML RenderWindow.
      */
-    virtual void draw(shared_ptr <sf::RenderWindow> window) = 0;
+    virtual void draw(shared_ptr<sf::RenderWindow> window) = 0;
 };
 
 /**
@@ -79,7 +78,7 @@ public:
      * @brief Constructor for the MenuState class.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit MenuState(StateManager *stateManager);
+    explicit MenuState(StateManager* stateManager);
 
     /**
      * @brief Processes input events for the MenuState.
@@ -98,7 +97,7 @@ public:
      * Displays the Pac-man logo and high scores.
      * @param window Shared pointer to the SFML RenderWindow.
      */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
+    void draw(shared_ptr<sf::RenderWindow> window) override;
 
 private:
     /**
@@ -117,7 +116,7 @@ public:
      * @brief Constructor for the LevelState class.  Creates a world of level 0.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit LevelState(StateManager *stateManager);
+    explicit LevelState(StateManager* stateManager);
 
     /**
      * @brief Constructor for the LevelState class.  Creates a world with given level and score.
@@ -125,7 +124,7 @@ public:
      * @param level The level of the game
      * @param score The object containing the current score info
      */
-    explicit LevelState(StateManager *stateManager, int level, shared_ptr <Score> score);
+    explicit LevelState(StateManager* stateManager, int level, shared_ptr<Score> score);
 
     /**
      * @brief Processes input events for the LevelState.
@@ -145,7 +144,7 @@ public:
      * Displays the current score and remaining lives.
      * @param window Shared pointer to the SFML RenderWindow.
      */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
+    void draw(shared_ptr<sf::RenderWindow> window) override;
 
     /**
      * @brief creates a LevelState that corresponds to the next level in the game.
@@ -153,7 +152,6 @@ public:
     void toNextLevelState();
 
 private:
-
     /**
      * @brief Transitions to VictoryState.
      */
@@ -174,9 +172,9 @@ private:
      */
     void toIntermissionState();
 
-    shared_ptr <World> world; ///< Pointer to the game world.
-    shared_ptr <Score> score; ///< Pointer to the game score.
-    int level;                ///< The current level of the game
+    shared_ptr<World> world; ///< Pointer to the game world.
+    shared_ptr<Score> score; ///< Pointer to the game score.
+    int level;               ///< The current level of the game
 };
 
 /**
@@ -189,7 +187,7 @@ public:
      * @brief Constructor for the PausedState class.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit PausedState(StateManager *stateManager);
+    explicit PausedState(StateManager* stateManager);
 
     /**
      * @brief Processes input events for the PausedState.
@@ -207,7 +205,7 @@ public:
      * @brief Draws the PausedState on the given window.
      * @param window Shared pointer to the SFML RenderWindow.
      */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
+    void draw(shared_ptr<sf::RenderWindow> window) override;
 
 private:
     /**
@@ -219,7 +217,6 @@ private:
      * @brief Transitions to LevelState.
      */
     void toLevelState();
-
 };
 
 /**
@@ -232,7 +229,7 @@ public:
      * @brief Constructor for the VictoryState class.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit VictoryState(StateManager *stateManager);
+    explicit VictoryState(StateManager* stateManager);
 
     /**
      * @brief Processes input events for the VictoryState.
@@ -250,7 +247,7 @@ public:
      * @brief Draws the VictoryState on the given window.
      * @param window Shared pointer to the SFML RenderWindow.
      */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
+    void draw(shared_ptr<sf::RenderWindow> window) override;
 
 private:
     /**
@@ -269,7 +266,7 @@ public:
      * @brief Constructor for the GameOverState class.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit GameOverState(StateManager *stateManager);
+    explicit GameOverState(StateManager* stateManager);
 
     /**
      * @brief Processes input events for the GameOverState.
@@ -287,7 +284,7 @@ public:
      * @brief Draws the GameOverState on the given window.
      * @param window Shared pointer to the SFML RenderWindow.
      */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
+    void draw(shared_ptr<sf::RenderWindow> window) override;
 
 private:
     /**
@@ -309,7 +306,7 @@ public:
      * @param stateManager Pointer to the StateManager managing the game states.
      * @param level The level that just has been completed.
      */
-    explicit IntermissionState(StateManager *stateManager, int level);
+    explicit IntermissionState(StateManager* stateManager, int level);
 
     /**
      * @brief Processes input events for the IntermissionState.
@@ -327,7 +324,7 @@ public:
      * @brief Draws the IntermissionState on the given window.
      * @param window Shared pointer to the SFML RenderWindow.
      */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
+    void draw(shared_ptr<sf::RenderWindow> window) override;
 
 private:
     /**

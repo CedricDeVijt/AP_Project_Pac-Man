@@ -2,8 +2,7 @@
 
 #include <iostream>
 
-Stopwatch::Stopwatch() : running(false) {
-}
+Stopwatch::Stopwatch() : running(false) {}
 
 Stopwatch& Stopwatch::getInstance() {
     static Stopwatch instance; // Guaranteed to be destroyed, instantiated on first use

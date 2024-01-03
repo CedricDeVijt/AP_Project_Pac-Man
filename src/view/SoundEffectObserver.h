@@ -13,5 +13,4 @@ public:
     void processEvent(EventType eventType) override;
 };
 
-
-#endif //GAMELOGICLIB_SOUNDEFFECTOBSERVER_H
+#endif // GAMELOGICLIB_SOUNDEFFECTOBSERVER_H

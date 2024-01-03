@@ -52,8 +52,9 @@ void EntityModel::nudgeToGrid() {
 EntityModel::EntityModel(std::tuple<double, double, double, double> position) : position(std::move(position)) {}
 
 // calculate the position after taking a step in a direction
-std::tuple<double, double, double, double>
-EntityModel::step(Direction direction, std::tuple<double, double, double, double> &startPosition, double accelerator) {
+std::tuple<double, double, double, double> EntityModel::step(Direction direction,
+                                                             std::tuple<double, double, double, double>& startPosition,
+                                                             double accelerator) {
     // calculate step in each direction
     auto deltaTime = Stopwatch::getInstance().getDeltaTime();
     std::cout << "deltaTime = " << deltaTime << "\n";
@@ -69,7 +70,7 @@ EntityModel::step(Direction direction, std::tuple<double, double, double, double
     } else if (direction == UP) {
         y -= stepY;
     } else if (direction == DOWN) {
-            y += stepY;
+        y += stepY;
     }
     return std::make_tuple(x, y, sizeX, sizeY);
 }

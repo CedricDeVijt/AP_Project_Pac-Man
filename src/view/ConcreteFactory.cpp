@@ -37,7 +37,4 @@ shared_ptr<Fruit> ConcreteFactory::createFruit(std::tuple<double, double, double
     return fruit;
 }
 
-ConcreteFactory::ConcreteFactory(int level): level(level){
-
-}
-
+ConcreteFactory::ConcreteFactory(int level) : level(level) {}

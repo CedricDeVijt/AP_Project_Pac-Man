@@ -4,9 +4,9 @@
 #include "../model/World.h"
 #include "../view/ConcreteFactory.h"
 #include "../view/FontFactory.h"
+#include "../view/SoundEffects.h"
 #include "../view/SpriteFactory.h"
 #include "../view/WindowSingleton.h"
-#include "../view/SoundEffects.h"
 
 State::State(StateManager* stateManager) : stateManager(stateManager) {}
 
@@ -61,7 +61,7 @@ void MenuState::processInput(const sf::Keyboard::Key key) {
 
 void MenuState::update() {}
 
-LevelState::LevelState(StateManager *stateManager) : State(stateManager) {
+LevelState::LevelState(StateManager* stateManager) : State(stateManager) {
     score = std::make_shared<Score>();
     level = 0;
     shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>(level);
@@ -71,7 +71,8 @@ LevelState::LevelState(StateManager *stateManager) : State(stateManager) {
     world->update();
 }
 
-LevelState::LevelState(StateManager *stateManager, int level, shared_ptr <Score> score) : State(stateManager), level(level), score(score) {
+LevelState::LevelState(StateManager* stateManager, int level, shared_ptr<Score> score)
+    : State(stateManager), level(level), score(score) {
     shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>(level);
     world = std::make_shared<World>(factory, level, score);
     // start the clock
@@ -100,7 +101,6 @@ void LevelState::toIntermissionState() {
     shared_ptr<State> intermissionState = std::make_shared<IntermissionState>(stateManager, level);
     stateManager->pushState(intermissionState);
     SoundEffects::getInstance().playIntermission();
-
 }
 
 void LevelState::processInput(sf::Keyboard::Key key) {
@@ -142,7 +142,7 @@ void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
     sf::Text livesText("# Lives Remaining: " + std::to_string(score->getLivesRemaining()), font, 20);
 
     const int textMargin = 30;
-    const int textPosY = window->getSize().y -scoreText.getGlobalBounds().height - textMargin;
+    const int textPosY = window->getSize().y - scoreText.getGlobalBounds().height - textMargin;
     scoreText.setPosition(textMargin, textPosY);
     window->draw(scoreText);
     livesText.setPosition(window->getSize().x - livesText.getGlobalBounds().width - textMargin, textPosY);
@@ -198,22 +198,21 @@ void PausedState::draw(shared_ptr<sf::RenderWindow> window) {
     window->draw(instructions);
 }
 
-
 VictoryState::VictoryState(StateManager* stateManager) : State(stateManager) {}
 
 void VictoryState::toLevelState() {
-    stateManager->popState();  // back to level state
-    stateManager->popState();  // back to menu state
+    stateManager->popState(); // back to level state
+    stateManager->popState(); // back to menu state
     SoundEffects::getInstance().stop();
 }
 
 void VictoryState::processInput(sf::Keyboard::Key key) {
     switch (key) {
-        case sf::Keyboard::Enter:
-            toLevelState();
-            break;
-        default:
-            break;
+    case sf::Keyboard::Enter:
+        toLevelState();
+        break;
+    default:
+        break;
     }
 }
 
@@ -242,11 +241,11 @@ void GameOverState::toMenuState() { createNewMenuState(); }
 
 void GameOverState::processInput(sf::Keyboard::Key key) {
     switch (key) {
-        case sf::Keyboard::Enter:
-            toNewGameState();
-            break;
-        default:
-            break;
+    case sf::Keyboard::Enter:
+        toNewGameState();
+        break;
+    default:
+        break;
     }
 }
 
@@ -278,13 +277,13 @@ void GameOverState::toNewGameState() {
     // we should now be at the MenuState
 }
 
-void State::centerHorizontally(sf::Text &title, int posY) const {
+void State::centerHorizontally(sf::Text& title, int posY) const {
     auto window = WindowSingleton::getInstance().getWindow();
     int titleWidth = title.getGlobalBounds().width;
     title.setPosition((window->getSize().x - titleWidth) / 2, posY);
 }
 
-IntermissionState::IntermissionState(StateManager* stateManager, int level) : State(stateManager), level(level){}
+IntermissionState::IntermissionState(StateManager* stateManager, int level) : State(stateManager), level(level) {}
 
 void IntermissionState::toNextLevelState() {
     // pop the intermission state from the stack
@@ -298,11 +297,11 @@ void IntermissionState::toNextLevelState() {
 
 void IntermissionState::processInput(sf::Keyboard::Key key) {
     switch (key) {
-        case sf::Keyboard::Enter:
-            toNextLevelState();
-            break;
-        default:
-            break;
+    case sf::Keyboard::Enter:
+        toNextLevelState();
+        break;
+    default:
+        break;
     }
 }
 

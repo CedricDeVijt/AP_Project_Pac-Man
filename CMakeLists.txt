@@ -32,8 +32,8 @@ target_link_libraries(AP_Project_Pac_Man GameLogicLib)
 
 # Find SFML
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
-if(SFML_FOUND)
+if (SFML_FOUND)
     target_link_libraries(AP_Project_Pac_Man sfml-graphics sfml-window sfml-system sfml-audio)
-else()
+else ()
     message(FATAL_ERROR "SFML not found")
-endif()
+endif ()

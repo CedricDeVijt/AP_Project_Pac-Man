@@ -29,7 +29,6 @@ private:
      * @return The pixel position on the Y-axis.
      */
     static int toPixelY(double position);
-
 };
 
 #endif // AP_PROJECT_PAC_MAN_CAMERA_H

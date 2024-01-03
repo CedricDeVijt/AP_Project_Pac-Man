@@ -119,7 +119,6 @@ sf::Sprite SpriteFactory::createCoin(const int posX, const int posY, const int g
                         sf::Vector2f(scaleFactor, scaleFactor));
 }
 
-
 sf::Sprite SpriteFactory::createLogo() {
     sf::Sprite sprite;
     sprite.setTexture(levelTexture);
@@ -133,7 +132,7 @@ sf::Sprite SpriteFactory::createLogo() {
     // Update the position and scale of the sprite based on window size
     sprite.setPosition(window->getSize().x / 2, 0);
     sprite.setScale(static_cast<float>(window->getSize().x) / spriteBounds.width,
-                     static_cast<float>(window->getSize().x) / spriteBounds.width);
+                    static_cast<float>(window->getSize().x) / spriteBounds.width);
 
     return sprite;
 }

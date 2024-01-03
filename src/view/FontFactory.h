@@ -17,7 +17,6 @@ private:
     ~FontFactory() = default;
     sf::Font pixelFont, pacManFont;
 
-
 public:
     // Static method to get the instance of the singleton
     static FontFactory& getInstance();

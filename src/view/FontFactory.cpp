@@ -16,11 +16,6 @@ FontFactory& FontFactory::getInstance() {
     return instance;
 }
 
-sf::Font FontFactory::getPixelFont() {
-    return pixelFont;
-}
+sf::Font FontFactory::getPixelFont() { return pixelFont; }
 
-sf::Font FontFactory::getPacManFont() {
-    return pacManFont;
-}
-
+sf::Font FontFactory::getPacManFont() { return pacManFont; }
