@@ -10,10 +10,10 @@ enum Direction { LEFT, RIGHT, UP, DOWN, NONE };
 
 /**
  * @brief Gets the opposite direction of the given direction.
- * @param dir The input direction.
+ * @param direction The input direction.
  * @return The opposite direction.
  */
-Direction oppositeDirection(Direction dir);
+Direction oppositeDirection(Direction direction);
 
 /**
  * @brief Overloaded output stream operator for Direction enum.

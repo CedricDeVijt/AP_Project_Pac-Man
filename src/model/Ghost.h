@@ -47,6 +47,11 @@ public:
     void capturedByPacMan();
 
     /**
+     * @brief Go back to home position.
+     */
+    void goHome();
+
+    /**
      * @brief Switches the ghost to fear mode.
      */
     void toFearMode();
@@ -56,12 +61,6 @@ public:
      * @return True if the ghost is in fear mode, false otherwise.
      */
     bool isFearMode() const;
-
-    /**
-     * @brief Checks if the ghost is in chase mode.
-     * @return True if the ghost is in chase mode, false otherwise.
-     */
-    bool isChaseMode() const;
 
     /**
      * @brief Checks if the ghost is in wait mode.
@@ -78,15 +77,11 @@ public:
 
 private:
     GhostType type;            ///< The type of the ghost.
-    bool fearMode;             ///< Flag indicating whether the ghost is in fear mode.
-    bool chaseMode;            ///< Flag indicating whether the ghost is in chase mode.
-    bool waitMode;             ///< Flag indicating whether the ghost is in wait mode.
-    bool hasLeftStartingPoint; ///< Flag indicating whether the ghost has left its starting point.
     std::tuple<double, double, double, double> homePosition; ///< The home position of the ghost.
     Direction direction = Direction::NONE;                   ///< The current direction of the ghost.
 
-    // TODO use stopwatch
-    int timer = 0;                  ///< Timer used for controlling wait mode.
+    double waitTime;                ///< The remaining time before the ghost can start moving.
+    double fearWaitTime;                ///< The remaining time before the ghost leaves fear mode.
     int level = 0;                  ///< The level of the current game
     const double accelerator = 1.1; ///< The accelerator factor used to speed up the movements of the ghost
 
@@ -123,6 +118,14 @@ private:
      * @return True if the ghost is at a dead end, false otherwise.
      */
     bool atDeadEnd(const std::vector<Direction>& directions) const;
+
+    /**
+     * @brief Checks if the ghost has left his starting point.
+     * @return True if the ghost has left the starting point, false otherwise.
+     */
+    bool hasLeftStartingPoint() const;
+
+    Direction getRandomDirection(const std::vector <Direction> &possibleDirections) const;
 };
 
 #endif // AP_PROJECT_PAC_MAN_GHOST_H
