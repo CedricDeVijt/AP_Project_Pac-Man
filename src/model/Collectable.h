@@ -39,7 +39,16 @@ public:
      * @brief Constructor for the Fruit class.
      * @param position A tuple representing the position (x, y, width, height) of the fruit entity.
      */
-    explicit Fruit(std::tuple<double, double, double, double> position);
+    explicit Fruit(std::tuple<double, double, double, double> position, int alternative);
+
+    /**
+     * @brief The type of fruit.
+     * @return the integer representation of the alternative.
+     */
+    int getAlternative() const;
+
+private:
+    int alternative; ///< The type of fruit
 };
 
 #endif // AP_PROJECT_PAC_MAN_COLLECTABLE_H

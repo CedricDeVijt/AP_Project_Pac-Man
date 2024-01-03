@@ -1,5 +1,6 @@
 #include "ConcreteFactory.h"
 #include "EntityView.h"
+#include "Random.h"
 
 shared_ptr<Ghost> ConcreteFactory::createGhost(GhostType type, std::tuple<double, double, double, double> position) {
     shared_ptr<Ghost> ghost = std::make_shared<Ghost>(type, position, level);
@@ -30,7 +31,7 @@ shared_ptr<Coin> ConcreteFactory::createCoin(std::tuple<double, double, double, 
 }
 
 shared_ptr<Fruit> ConcreteFactory::createFruit(std::tuple<double, double, double, double> position) {
-    shared_ptr<Fruit> fruit = std::make_shared<Fruit>(position);
+    shared_ptr<Fruit> fruit = std::make_shared<Fruit>(position, Random::getInstance().getRandomNumber(7));
     shared_ptr<FruitView> fruitView = std::make_shared<FruitView>(fruit);
     fruit->registerObserver(fruitView);
     return fruit;
