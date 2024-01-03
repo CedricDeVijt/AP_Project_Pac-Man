@@ -19,3 +19,12 @@ int Camera::toPixelY(double position) {
     int canvasHeight = window->getSize().x * 11 / 20; // same aspect ratio for a 20 by 11 grid
     return toPixelValue(position, canvasHeight);
 }
+
+std::tuple<int, int> Camera::toPixelCoordinates(std::tuple<double, double, double, double> position) {
+    double x, y;
+    std::tie(x, y, std::ignore, std::ignore) = position;
+    int posX = toPixelX(x);
+    int posY = toPixelY(y);
+
+    return {posX, posY};
+}
