@@ -9,17 +9,24 @@ World::World(shared_ptr <AbstractFactory> factory, int level, shared_ptr <Score>
     std::vector <std::vector<std::string>> maizes;
 
     maizes.push_back({
-                             "wwwwwwwwwwwwwwwwwwww", "wfcccwccccccccwccccw", "wcwwcwcwwwwwwcwcwwcw",
-                             "wcwccccccccccccccwcw", "wcwcwwcwwGGwwcwwcwcw", "wPcccccw1234wccccccw",
+                             "wwwwwwwwwwwwwwwwwwww", "wPcccwccccccccwcccfw", "wcwwcwcwwwwwwcwcwwcw",
+                             "wcwccccccccccccccwcw", "wcwcwwcwwGGwwcwwcwcw", "wccccccw1234wccccccw",
                              "wcwcwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw", "wcwwcwcwwwwwwcwcwwcw",
-                             "wccccwccccccccwcccfw", "wwwwwwwwwwwwwwwwwwww"
+                             "wfcccwccccccccwcccfw", "wwwwwwwwwwwwwwwwwwww"
                      });
 
     maizes.push_back({
                              "wwwwwwwwwwwwwwwwwwww", "wfcccwccccccccwcccfw", "wcwwcwcwcwwcwcwcwwcw",
-                             "wcwccwcwccccwcwccwcw", "wcwcwwcwwwwwwcwwcwcw", "wPcccccw1234wccccccw",
+                             "wcwccwcwccccwcwccwcw", "wcwcwwcwwwwwwcwwcwcw", "wccccccw1234wccccccw",
                              "wwwcwcwwwccwwwcwcwww", "wcccwccccccccccwcccw", "wcwwwwcwwcwwwcwwwwcw",
-                             "wcccfcccwccwccccfccw", "wwwwwwwwwwwwwwwwwwww"
+                             "wPccfcccwccwccccfccw", "wwwwwwwwwwwwwwwwwwww"
+                     });
+
+    maizes.push_back({
+                             "wwwwwwwwwwwwwwwwwwww", "wPcccwfcccccccwcccfw", "wcwwcwcwwwwwwcwcwwcw",
+                             "wcwccccccccccccccwcw", "wcccwwcwwGGwwcwwcwcw", "wcwwwccw1234wccwwwcw",
+                             "wcccwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw", "wcwwcwcwwwwwwcwcwwcw",
+                             "wfcccwcccfccccwcccfw", "wwwwwwwwwwwwwwwwwwww"
                      });
 
     //    std::vector<std::string> tst_level{
@@ -35,7 +42,7 @@ World::World(shared_ptr <AbstractFactory> factory, int level, shared_ptr <Score>
     //            "                    ",
     //            "                    ",
     //    };
-    std::vector <std::string> board = maizes[level % 2];
+    std::vector <std::string> board = maizes[level % maizes.size()];
 
     int items_x = board[0].length();
     int items_y = board.size();
@@ -78,17 +85,23 @@ World::World(shared_ptr <AbstractFactory> factory, int level, shared_ptr <Score>
             }
         }
     }
+
+    // register pacMan and all ghost to the Observer Score
+    pacMan->registerObserver(score);
+    for (auto &ghost : ghosts) {
+        ghost->registerObserver(score);
+    }
 }
 
 void World::update() {
     Stopwatch::getInstance().tick();
 
     for (auto &coin : coins) {
-        coin->update();
+        coin->processEvent(EventType::TICK);
     }
 
     for (auto &fruit : fruits) {
-        fruit->update();
+        fruit->processEvent(EventType::TICK);
     }
 
     for (auto &ghost : ghosts) {
@@ -96,10 +109,11 @@ void World::update() {
             if (ghost->isFearMode()) {
                 pacMan->captureGhost();
                 ghost->capturedByPacMan();
-                score->pacManCapturesGhost();
             } else {
                 pacMan->die();
-                score->pacManCapturedByGhost();
+                for (auto &g : ghosts) {
+                    g->goHome();
+                }
             }
         }
         const std::vector <Direction> &possibleDirections = getPossibleDirections(ghost, 0.1);
@@ -111,7 +125,7 @@ void World::update() {
     collect(fruits);
 
     for (auto &wall : walls) {
-        wall->update();
+        wall->processEvent(EventType::TICK);
     }
 }
 
@@ -124,7 +138,7 @@ void World::collect(std::vector <std::shared_ptr<Coin>> &collectables) {
     auto newEnd = std::remove_if(collectables.begin(), collectables.end(), condition);
     // before removing, do something
     for (auto it = newEnd; it != collectables.end(); ++it) {
-        score->pacManCapturesCoin();
+        pacMan->captureCoin();
     }
     // Use vector's erase member function to erase the elements from newEnd to the end
     collectables.erase(newEnd, collectables.end());
@@ -137,9 +151,10 @@ void World::collect(std::vector <std::shared_ptr<Fruit>> &collectables) {
     };
     // Use std::remove_if to move elements that satisfy the condition to the end
     auto newEnd = std::remove_if(collectables.begin(), collectables.end(), condition);
-    // before removing, do something
+    // before removing the fruit, put the ghosts to fear mode
     for (auto it = newEnd; it != collectables.end(); ++it) {
-        for (auto ghost : ghosts) {
+        pacMan->captureFruit();
+        for (const auto& ghost : ghosts) {
             ghost->toFearMode();
         }
     }
@@ -203,15 +218,11 @@ std::vector <Direction> World::getPossibleDirections(std::shared_ptr <EntityMode
 }
 
 bool World::isLevelComplete() {
-    return coins.size() < 70;
-
-    // TODO put back
-    //    return coins.empty();
+    return coins.empty();
 }
 
 bool World::isAllLevelsComplete() {
-    std::cout << "*********isAllLevelsComplete level=" << level << " isLevelComplete=" << isLevelComplete() << "\n";
-    return isLevelComplete() && (level == 1);
+    return isLevelComplete() && (level == 2);
 }
 
 bool World::isGameOver() {
