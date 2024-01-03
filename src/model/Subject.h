@@ -24,7 +24,7 @@ protected:
     /**
      * @brief Notifies all registered observers.
      */
-    void notifyObservers();
+    void notifyObservers(EventType eventType);
 
 private:
     std::vector<shared_ptr<Observer>> observers; ///< List of registered observers.
