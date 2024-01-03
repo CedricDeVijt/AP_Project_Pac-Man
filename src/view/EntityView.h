@@ -42,9 +42,10 @@ public:
     PacManView(shared_ptr <PacMan> pacMan);
 
     /**
-     * @brief Updates the visual representation of PacMan.
+     * @brief processes the event.
+     * @param eventType The type of event that occurred.
      */
-    void update() override;
+    void processEvent(EventType eventType) override;
 
 private:
     shared_ptr <PacMan> pacMan;
@@ -63,9 +64,10 @@ public:
     GhostView(shared_ptr <Ghost> ghost);
 
     /**
-     * @brief Updates the visual representation of Ghost.
+     * @brief processes the event.
+     * @param eventType The type of event that occurred.
      */
-    void update() override;
+    void processEvent(EventType eventType) override;
 
 private:
     shared_ptr <Ghost> ghost;
@@ -84,9 +86,10 @@ public:
     CoinView(shared_ptr <Coin> coin);
 
     /**
-     * @brief Updates the visual representation of Coin.
+     * @brief processes the event.
+     * @param eventType The type of event that occurred.
      */
-    void update() override;
+    void processEvent(EventType eventType) override;
 
 private:
     shared_ptr <Coin> coin;
@@ -105,9 +108,10 @@ public:
     WallView(shared_ptr <Wall> wall);
 
     /**
-     * @brief Updates the visual representation of Wall.
+     * @brief processes the event.
+     * @param eventType The type of event that occurred.
      */
-    void update() override;
+    void processEvent(EventType eventType) override;
 
 private:
     shared_ptr <Wall> wall;
@@ -126,9 +130,10 @@ public:
     FruitView(shared_ptr <Fruit> fruit);
 
     /**
-     * @brief Updates the visual representation of Fruit.
+     * @brief processes the event.
+     * @param eventType The type of event that occurred.
      */
-    void update() override;
+    void processEvent(EventType eventType) override;
 
 private:
     shared_ptr <Fruit> fruit;

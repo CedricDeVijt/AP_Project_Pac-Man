@@ -42,8 +42,9 @@ public:
 
     /**
      * @brief Updates the entity and notifies observers.
+     * @param eventType The eventType to process.
      */
-    virtual void update();
+    virtual void processEvent(EventType eventType);
 
 protected:
     std::tuple<double, double, double, double> position; ///< The current position (x, y, width, height) of the entity.

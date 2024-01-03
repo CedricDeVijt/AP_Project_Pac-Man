@@ -31,7 +31,7 @@ void PacMan::update(const std::vector<Direction>& directions) {
             position = step(direction, position, acceleration);
         }
     }
-    notifyObservers();
+    notifyObservers(TICK);
 }
 
 void PacMan::die() {
@@ -41,11 +41,19 @@ void PacMan::die() {
     // go back to starting point
     position = homePosition;
     direction = NONE;
-    notifyObservers();
+    notifyObservers(PACMAN_DIES);
 }
 
 void PacMan::captureGhost() {
-    // TODO
+    notifyObservers(PACMAN_CAPTURES_GHOST);
+}
+
+void PacMan::captureFruit() {
+    notifyObservers(PACMAN_CAPTURES_FRUIT);
+}
+
+void PacMan::captureCoin() {
+    notifyObservers(PACMAN_CAPTURES_COIN);
 }
 
 bool PacMan::isDead() {

@@ -1,6 +1,10 @@
 #ifndef AP_PROJECT_PAC_MAN_OBSERVER_H
 #define AP_PROJECT_PAC_MAN_OBSERVER_H
 
+enum EventType {
+    PACMAN_CAPTURES_GHOST, PACMAN_CAPTURES_FRUIT, PACMAN_CAPTURES_COIN, PACMAN_DIES, TICK
+};
+
 /**
  * @class Observer
  * @brief Represents an observer in the observer design pattern.
@@ -21,8 +25,9 @@ public:
     /**
      * @brief Pure virtual function to be implemented by concrete observers.
      * @details This function is called when the observed subject changes its state.
+     * @param eventType The type of event that occurred
      */
-    virtual void update() = 0;
+    virtual void processEvent(EventType eventType) = 0;
 };
 
 #endif // AP_PROJECT_PAC_MAN_OBSERVER_H

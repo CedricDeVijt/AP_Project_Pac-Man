@@ -59,6 +59,18 @@ public:
     void captureGhost();
 
     /**
+     * @brief Handles the capture of fruit by Pac-Man.
+     * @details To be implemented.
+     */
+    void captureFruit();
+
+    /**
+     * @brief Handles the capture of a coin by Pac-Man.
+     * @details To be implemented.
+     */
+    void captureCoin();
+
+    /**
      * @brief checks if Pac-Man is dead.
      * @return True if all lives of Pac-Man are exhausted, false otherwise.
      */

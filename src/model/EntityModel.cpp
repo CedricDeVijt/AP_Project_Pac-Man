@@ -29,7 +29,7 @@ bool EntityModel::overlapsWith(shared_ptr<EntityModel> entityModel, double perce
     return overlapX && overlapY;
 }
 
-void EntityModel::update() { notifyObservers(); }
+void EntityModel::processEvent(EventType eventType) { notifyObservers(eventType); }
 
 double roundToClosestMultiple(double value, double multiple) {
     // Calculate the rounded result to the nearest integer
