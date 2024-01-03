@@ -5,6 +5,8 @@
 #include <vector>
 
 #include "Score.h"
+#include "Stopwatch.h"
+
 void Score::saveScore(std::string name, int score) {
     auto scores = loadHighScores();
     scores.emplace_back(name, score);
@@ -62,13 +64,36 @@ std::vector<std::pair<std::string, int>> Score::loadHighScores() {
     return highScores;
 }
 
-void Score::pacManCapturesCoin() { currentScore += 1; }
-
-void Score::pacManCapturesGhost() { currentScore += 50; }
-
-void Score::pacManCapturedByGhost() { livesRemaining -= 1; }
-
-void Score::update() {}
+void Score::processEvent(EventType eventType) {
+    switch (eventType) {
+        case TICK:
+            // in each update cycle this method will be called 5 times (for packman and each of the ghosts), therfore
+            // we need to divide by 5
+            timeToReduceScore -= Stopwatch::getInstance().getDeltaTime() / 5;
+            if (timeToReduceScore < 0) {
+                timeToReduceScore = 2 * Stopwatch::SECOND;
+                currentScore += POINTS_TICK;
+                if (currentScore <0) {
+                    currentScore = 0;
+                }
+            }
+            break;
+        case PACMAN_CAPTURES_COIN:
+            currentScore += POINTS_COIN;
+            break;
+        case PACMAN_CAPTURES_FRUIT:
+            currentScore += POINTS_FRUIT;
+            break;
+        case PACMAN_CAPTURES_GHOST:
+            currentScore += POINTS_GHOST;
+            break;
+        case PACMAN_DIES:
+            livesRemaining -= 1;
+            break;
+        default:
+            break;
+    }
+}
 
 int Score::getCurrentScore() const { return currentScore; }
 

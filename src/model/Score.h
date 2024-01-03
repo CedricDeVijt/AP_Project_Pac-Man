@@ -25,24 +25,9 @@ public:
     static std::vector<std::pair<std::string, int>> loadHighScores();
 
     /**
-     * @brief Increments the score when PacMan captures a coin.
-     */
-    void pacManCapturesCoin();
-
-    /**
-     * @brief Increments the score when PacMan captures a ghost.
-     */
-    void pacManCapturesGhost();
-
-    /**
-     * @brief Decrements the remaining lives when PacMan is captured by a ghost.
-     */
-    void pacManCapturedByGhost();
-
-    /**
      * @brief Overrides the update method from the Observer class.
      */
-    void update() override;
+    void processEvent(EventType eventType) override;
 
     /**
      * @brief Gets the current score.
@@ -59,6 +44,12 @@ public:
 private:
     int currentScore = 0;   ///< The current score.
     int livesRemaining = 3; ///< The remaining lives.
+    double timeToReduceScore = 0; ///< The remaining time until the score is reduced by one.
+
+    static const int POINTS_TICK  = -1;  ///< the number of points losts with each tick
+    static const int POINTS_COIN  = 1;   ///< the number of points scored when a coin is captured
+    static const int POINTS_FRUIT = 10;  ///< the number of points scored when a fruit is captured
+    static const int POINTS_GHOST = 50;  ///< the number of points scored when a ghost is captured
 };
 
 #endif // AP_PROJECT_PAC_MAN_SCORE_H
