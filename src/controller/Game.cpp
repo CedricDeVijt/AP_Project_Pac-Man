@@ -2,14 +2,11 @@
 #include "../view/SoundEffects.h"
 #include "../view/WindowSingleton.h"
 #include "State.h"
-#include <iostream>
 
 Game::Game() : stateManager(std::make_shared<StateManager>()) {
     window = WindowSingleton::getInstance().getWindow();
     window->setFramerateLimit(60);
 }
-
-Game::~Game() { window->close(); }
 
 void Game::run() {
     SoundEffects::getInstance().playOpeningSong();
@@ -36,7 +33,7 @@ void Game::run() {
         window->clear(sf::Color::Black);
 
         // Get the current state and update/draw it
-        shared_ptr<State> state = stateManager->getCurrentState();
+        const shared_ptr<State> state = stateManager->getCurrentState();
         state->update();
         state->draw(window);
 

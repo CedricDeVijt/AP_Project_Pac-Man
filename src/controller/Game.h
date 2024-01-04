@@ -4,7 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 
-#include "../model/World.h"
 #include "StateManager.h"
 
 using std::shared_ptr;
@@ -16,7 +15,7 @@ using std::shared_ptr;
 class Game {
 private:
     shared_ptr<sf::RenderWindow> window;   ///< The main game window.
-    shared_ptr<StateManager> stateManager; ///< Manages the game states.
+    const shared_ptr<StateManager> stateManager; ///< Manages the game states.
 
 public:
     /**
@@ -27,7 +26,7 @@ public:
     /**
      * @brief Destructor for the Game class.
      */
-    ~Game();
+    ~Game() = default;
 
     /**
      * @brief Runs the main game loop.
