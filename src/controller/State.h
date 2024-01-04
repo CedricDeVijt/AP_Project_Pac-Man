@@ -170,7 +170,7 @@ private:
 
     shared_ptr <World> world; ///< Pointer to the game world.
     shared_ptr <Score> score; ///< Pointer to the game score.
-    int level;                ///< The current level of the game
+    int level = 0;                ///< The current level of the game
 };
 
 /**

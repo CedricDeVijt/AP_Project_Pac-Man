@@ -8,7 +8,7 @@
 #include <utility>
 #include <vector>
 
-std::tuple<double, double, double, double> EntityModel::getPosition() { return position; }
+std::tuple<double, double, double, double> EntityModel::getPosition() const { return position; }
 
 bool EntityModel::overlapsWith(const shared_ptr<EntityModel>& entityModel) const { return overlapsWith(entityModel, 0.0); }
 

@@ -104,7 +104,7 @@ void World::update() {
         fruit->processEvent(EventType::TICK);
     }
 
-    for (auto &ghost : ghosts) {
+    for (const auto &ghost : ghosts) {
         if (ghost->overlapsWith(pacMan)) {
             if (ghost->isFearMode()) {
                 pacMan->captureGhost();

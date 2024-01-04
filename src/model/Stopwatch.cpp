@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-Stopwatch::Stopwatch() : running(false) {}
-
 Stopwatch& Stopwatch::getInstance() {
     static Stopwatch instance;
     return instance;

@@ -7,8 +7,7 @@
 
 void PacMan::setTargetDirection(const Direction& direction) { targetDirection = direction; }
 
-PacMan::PacMan(const std::tuple<double, double, double, double>& position, const int level) : EntityModel(position), level(level) {
-    homePosition = position;
+PacMan::PacMan(const std::tuple<double, double, double, double>& position, const int level) : EntityModel(position), homePosition(position), level(level) {
     direction = NONE;
 }
 

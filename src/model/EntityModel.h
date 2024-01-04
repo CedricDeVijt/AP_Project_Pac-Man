@@ -23,7 +23,7 @@ public:
      * @brief Gets the current position of the entity.
      * @return A tuple representing the current position (x, y, width, height) of the entity.
      */
-    std::tuple<double, double, double, double> getPosition();
+    std::tuple<double, double, double, double> getPosition() const;
 
     /**
      * @brief Checks if the entity overlaps with another entity.

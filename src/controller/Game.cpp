@@ -3,7 +3,7 @@
 #include "../view/WindowSingleton.h"
 #include "State.h"
 
-Game::Game() : stateManager(std::make_shared<StateManager>()) {
+Game::Game(){
     window = WindowSingleton::getInstance().getWindow();
     window->setFramerateLimit(60);
 }

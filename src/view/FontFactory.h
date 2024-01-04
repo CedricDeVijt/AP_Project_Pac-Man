@@ -19,8 +19,8 @@ public:
     // Static method to get the instance of the singleton
     static FontFactory& getInstance();
 
-    sf::Font getPixelFont();
-    sf::Font getPacManFont();
+    sf::Font getPixelFont() const;
+    sf::Font getPacManFont() const;
 
     // Prevent copying and assignment
     FontFactory(const FontFactory&) = delete;

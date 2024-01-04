@@ -13,7 +13,7 @@ public:
      * @brief Constructor for the Collectable class.
      * @param position A tuple representing the position (x, y, width, height) of the collectable entity.
      */
-    explicit Collectable(std::tuple<double, double, double, double> position);
+    explicit Collectable(const std::tuple<double, double, double, double>& position);
 };
 
 /**
@@ -26,7 +26,7 @@ public:
      * @brief Constructor for the Coin class.
      * @param position A tuple representing the position (x, y, width, height) of the coin entity.
      */
-    explicit Coin(std::tuple<double, double, double, double> position);
+    explicit Coin(const std::tuple<double, double, double, double>& position);
 };
 
 /**
@@ -40,7 +40,7 @@ public:
      * @param position A tuple representing the position (x, y, width, height) of the fruit entity.
      * @param alternative The type of fruit.
      */
-    explicit Fruit(std::tuple<double, double, double, double> position, int alternative);
+    explicit Fruit(const std::tuple<double, double, double, double>& position, int alternative);
 
     /**
      * @brief The type of fruit.

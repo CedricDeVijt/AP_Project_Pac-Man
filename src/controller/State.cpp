@@ -32,7 +32,7 @@ void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
     const sf::Font font = FontFactory::getInstance().getPixelFont();
 
     sf::Text title("High Scores", font, 40);
-    const int spriteHeight = static_cast<int>(sprite.getGlobalBounds().height);
+    const auto spriteHeight = static_cast<int>(sprite.getGlobalBounds().height);
     title.setPosition(100, spriteHeight + 20);
     window->draw(title);
 
@@ -63,7 +63,6 @@ void MenuState::update() {}
 
 LevelState::LevelState(StateManager *stateManager) : State(stateManager) {
     score = std::make_shared<Score>();
-    level = 0;
     auto factory = std::make_shared<ConcreteFactory>(level);
     world = std::make_shared<World>(factory, level, score);
     // start the clock

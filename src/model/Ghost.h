@@ -81,10 +81,10 @@ private:
     std::tuple<double, double, double, double> homePosition; ///< The home position of the ghost.
     Direction direction = Direction::NONE;                   ///< The current direction of the ghost.
 
-    double waitTime;                ///< The remaining time before the ghost can start moving.
+    double waitTime{0};                ///< The remaining time before the ghost can start moving.
     double fearWaitTime;                ///< The remaining time before the ghost leaves fear mode.
-    int level = 0;                  ///< The level of the current game
-    const double accelerator = 1.1; ///< The accelerator factor used to speed up the movements of the ghost
+    int level{0};                  ///< The level of the current game
+    const double accelerator{1.1}; ///< The accelerator factor used to speed up the movements of the ghost
 
 
     /**

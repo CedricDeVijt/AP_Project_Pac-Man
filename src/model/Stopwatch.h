@@ -13,7 +13,7 @@ private:
     /**
      * @brief Private constructor to prevent external instantiation.
      */
-    Stopwatch();
+    Stopwatch() = default;
 
 public:
     /**
