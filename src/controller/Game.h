@@ -33,7 +33,7 @@ public:
      * This function handles the main game loop, including event processing, updating,
      * and rendering.
      */
-    void run();
+    void run() const;
 };
 
 #endif // AP_PROJECT_PAC_MAN_GAME_H
