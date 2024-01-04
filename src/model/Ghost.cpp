@@ -4,10 +4,10 @@
 #include "Stopwatch.h"
 #include <algorithm>
 #include <cmath>
-#include <functional>
 #include <iostream>
 #include <limits>
 #include <vector>
+#include <functional>
 
 std::ostream& operator<<(std::ostream& os, const GhostType& ghostType) {
     switch (ghostType) {
@@ -26,33 +26,30 @@ std::ostream& operator<<(std::ostream& os, const GhostType& ghostType) {
     case GhostType::Fear:
         os << "Fear";
         break;
-    default:
-        os << "UNKNOWN";
-        break;
     }
     return os;
 }
 
-// TODO enum for modes?
-Ghost::Ghost(GhostType type, std::tuple<double, double, double, double> homePosition, int level)
+Ghost::Ghost(const GhostType type, const std::tuple<double, double, double, double> homePosition, const int level)
     : type(type), homePosition(homePosition), level(level), EntityModel(homePosition) {
     // set the wait time for the fear mode
     fearWaitTime = 0.0;
 
     // set the appropiate wait time for each of the ghosts
     switch (type) {
-    case GhostType::Blinky:
-        waitTime = 5 * Stopwatch::SECOND;
-        break;
-    case GhostType::Clyde:
-        waitTime = 10 * Stopwatch::SECOND;
-        break;
-    default:
-        waitTime = -1.0; // no waiting
-        break;
+        case GhostType::Blinky:
+            waitTime = 5 * Stopwatch::SECOND;
+            break;
+        case GhostType::Clyde:
+            waitTime = 10 * Stopwatch::SECOND;
+            break;
+        default:
+            waitTime = -1.0; // no waiting
+            break;
     }
     direction = Direction::NONE;
     nudgeToGrid();
+
 }
 
 void Ghost::capturedByPacMan() {
@@ -60,11 +57,17 @@ void Ghost::capturedByPacMan() {
     position = homePosition;
 }
 
-void Ghost::toFearMode() { fearWaitTime = 5 * Stopwatch::SECOND; }
+void Ghost::toFearMode() {
+    fearWaitTime = 5 * Stopwatch::SECOND;
+}
 
-bool Ghost::isFearMode() const { return fearWaitTime > 0; }
+bool Ghost::isFearMode() const {
+    return fearWaitTime > 0;
+}
 
-bool Ghost::isWaitMode() const { return waitTime > 0.0; }
+bool Ghost::isWaitMode() const {
+    return waitTime > 0.0;
+}
 
 GhostType Ghost::getType() const { return type; }
 
@@ -77,7 +80,7 @@ double manhattanDistance(std::tuple<double, double, double, double> a, std::tupl
 }
 
 void Ghost::update(const std::vector<Direction>& possibleDirections,
-                   std::tuple<double, double, double, double> pacManPosition) {
+                   const std::tuple<double, double, double, double> pacManPosition) {
     std::cout << "updating " << type << ": ";
     // update fear mode if needed
     if (isFearMode()) {
@@ -96,20 +99,20 @@ void Ghost::update(const std::vector<Direction>& possibleDirections,
 
             // if we have not left the starting point yet, travel in our previous direction until we reach a corner
             // or intersection
-            //        } else if (!hasLeftStartingPoint()) {
-            //            std::cout << "has not left starting point \n";
-            //            if (atCornerOrIntersection(possibleDirections)) {
-            //                direction = getRandomDirection(possibleDirections);
-            //            }
+//        } else if (!hasLeftStartingPoint()) {
+//            std::cout << "has not left starting point \n";
+//            if (atCornerOrIntersection(possibleDirections)) {
+//                direction = getRandomDirection(possibleDirections);
+//            }
         }
 
-        // return if at a deadend
+            // return if at a deadend
         else if (atDeadEnd(possibleDirections)) {
             std::cout << "at dead end\n";
             direction = possibleDirections[0];
         }
 
-        // determine a new direction if we are at a corner or intersecion
+            // determine a new direction if we are at a corner or intersecion
         else if (atCornerOrIntersection(possibleDirections)) {
             std::cout << "at corner or intersection: ";
             // decide with probability p=0.5 to take random or manhattan direction
@@ -138,7 +141,8 @@ void Ghost::update(const std::vector<Direction>& possibleDirections,
     notifyObservers(TICK);
 }
 
-Direction Ghost::getRandomDirection(const std::vector<Direction>& possibleDirections) const {
+Direction Ghost::getRandomDirection(
+        const std::vector <Direction> &possibleDirections) const {
     // determine random direction among possible directions
     // modified algorithm to not go back
     if (possibleDirections.size() == 1) {
@@ -150,7 +154,7 @@ Direction Ghost::getRandomDirection(const std::vector<Direction>& possibleDirect
                 directions.push_back(pd);
             }
         }
-        int random = Random::getInstance().getRandomNumber(directions.size() - 1);
+        int random = Random::getInstance().getRandomNumber(directions.size()-1);
         Direction randomDirection = directions[random];
         return randomDirection;
     }
@@ -159,11 +163,15 @@ Direction Ghost::getRandomDirection(const std::vector<Direction>& possibleDirect
 Direction Ghost::getDirectionWithMinmumManhattanDistance(
     const std::vector<Direction>& possibleDirections,
     const std::tuple<double, double, double, double>& pacManPosition) {
+    // initialisation
     double minDistance = std::numeric_limits<double>::max();
     Direction minDirection = NONE;
+    // check each possible direction against what we previously had
     for (auto possibleDirection : possibleDirections) {
-        std::tuple<double, double, double, double> nextPosition = step(possibleDirection, position, accelerator);
-        double distance = manhattanDistance(nextPosition, pacManPosition);
+        const std::tuple<double, double, double, double> nextPosition = step(possibleDirection, position, accelerator);
+        // calculate the manhattan distance from the position to where pacman is
+        const double distance = manhattanDistance(nextPosition, pacManPosition);
+        // update the current result with the better value
         if (distance < minDistance) {
             minDistance = distance;
             minDirection = possibleDirection;
@@ -175,11 +183,14 @@ Direction Ghost::getDirectionWithMinmumManhattanDistance(
 Direction Ghost::getDirectionWithMaximumManhattanDistance(
     const std::vector<Direction>& possibleDirections,
     const std::tuple<double, double, double, double>& pacManPosition) {
+    // initialisation
     double maxDistance = std::numeric_limits<double>::min();
     Direction maxDirection = NONE;
+    // check each possible direction against what we previously had
     for (auto possibleDirection : possibleDirections) {
         std::tuple<double, double, double, double> nextPosition = step(possibleDirection, position, accelerator);
         double distance = manhattanDistance(nextPosition, pacManPosition);
+        // update the current result with the better value
         if (distance > maxDistance) {
             maxDistance = distance;
             maxDirection = possibleDirection;
@@ -187,24 +198,6 @@ Direction Ghost::getDirectionWithMaximumManhattanDistance(
     }
     return maxDirection;
 }
-//
-// Direction Ghost::getDirectionWithManhattanDistance(
-//        const std::vector<Direction>& possibleDirections,
-//        const std::tuple<double, double, double, double>& pacManPosition, const std::function<bool(double, double)>&
-//        compareFunction) {
-//    double extremumDistance = std::numeric_limits<double>::max();
-//    Direction extremumDirection = NONE;
-//    for (auto possibleDirection : possibleDirections) {
-//        std::tuple<double, double, double, double> nextPosition = step(possibleDirection, position, accelerator);
-//        double distance = manhattanDistance(nextPosition, pacManPosition);
-//        if (compareFunction(distance, extremumDistance)) {
-//            extremumDistance = distance;
-//            extremumDirection = possibleDirection;
-//        }
-//    }
-//    return extremumDirection;
-//}
-//
 
 bool Ghost::atCornerOrIntersection(const std::vector<Direction>& directions) const {
     // Check if "up" or "down" is present
@@ -221,6 +214,10 @@ bool Ghost::atCornerOrIntersection(const std::vector<Direction>& directions) con
 
 bool Ghost::atDeadEnd(const std::vector<Direction>& directions) const { return (directions.size() == 1); }
 
-bool Ghost::hasLeftStartingPoint() const { return manhattanDistance(homePosition, position) > 0.2; }
+bool Ghost::hasLeftStartingPoint() const {
+    return manhattanDistance(homePosition, position) > 0.2;
+}
 
-void Ghost::goHome() { position = homePosition; }
+void Ghost::goHome() {
+    position = homePosition;
+}

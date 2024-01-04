@@ -5,20 +5,29 @@
 #include <string>
 #include <vector>
 
-World::World(shared_ptr<AbstractFactory> factory, int level, shared_ptr<Score> score) : level(level), score(score) {
-    std::vector<std::vector<std::string>> maizes;
+World::World(shared_ptr <AbstractFactory> factory, int level, shared_ptr <Score> score) : level(level), score(score) {
+    std::vector <std::vector<std::string>> maizes;
 
-    maizes.push_back({"wwwwwwwwwwwwwwwwwwww", "wPcccwccccccccwcccfw", "wcwwcwcwwwwwwcwcwwcw", "wcwccccccccccccccwcw",
-                      "wcwcwwcwwGGwwcwwcwcw", "wccccccw1234wccccccw", "wcwcwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw",
-                      "wcwwcwcwwwwwwcwcwwcw", "wfcccwccccccccwcccfw", "wwwwwwwwwwwwwwwwwwww"});
+    maizes.push_back({
+                             "wwwwwwwwwwwwwwwwwwww", "wPcccwccccccccwcccfw", "wcwwcwcwwwwwwcwcwwcw",
+                             "wcwccccccccccccccwcw", "wcwcwwcwwGGwwcwwcwcw", "wccccccw1234wccccccw",
+                             "wcwcwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw", "wcwwcwcwwwwwwcwcwwcw",
+                             "wfcccwccccccccwcccfw", "wwwwwwwwwwwwwwwwwwww"
+                     });
 
-    maizes.push_back({"wwwwwwwwwwwwwwwwwwww", "wfcccwccccccccwcccfw", "wcwwcwcwcwwcwcwcwwcw", "wcwccwcwccccwcwccwcw",
-                      "wcwcwwcwwwwwwcwwcwcw", "wccccccw1234wccccccw", "wwwcwcwwwccwwwcwcwww", "wcccwccccccccccwcccw",
-                      "wcwwwwcwwcwwwcwwwwcw", "wPccfcccwccwccccfccw", "wwwwwwwwwwwwwwwwwwww"});
+    maizes.push_back({
+                             "wwwwwwwwwwwwwwwwwwww", "wfcccwccccccccwcccfw", "wcwwcwcwcwwcwcwcwwcw",
+                             "wcwccwcwccccwcwccwcw", "wcwcwwcwwwwwwcwwcwcw", "wccccccw1234wccccccw",
+                             "wwwcwcwwwccwwwcwcwww", "wcccwccccccccccwcccw", "wcwwwwcwwcwwwcwwwwcw",
+                             "wPccfcccwccwccccfccw", "wwwwwwwwwwwwwwwwwwww"
+                     });
 
-    maizes.push_back({"wwwwwwwwwwwwwwwwwwww", "wPcccwfcccccccwcccfw", "wcwwcwcwwwwwwcwcwwcw", "wcwccccccccccccccwcw",
-                      "wcccwwcwwGGwwcwwcwcw", "wcwwwccw1234wccwwwcw", "wcccwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw",
-                      "wcwwcwcwwwwwwcwcwwcw", "wfcccwcccfccccwcccfw", "wwwwwwwwwwwwwwwwwwww"});
+    maizes.push_back({
+                             "wwwwwwwwwwwwwwwwwwww", "wPcccwfcccccccwcccfw", "wcwwcwcwwwwwwcwcwwcw",
+                             "wcwccccccccccccccwcw", "wcccwwcwwGGwwcwwcwcw", "wcwwwccw1234wccwwwcw",
+                             "wcccwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw", "wcwwcwcwwwwwwcwcwwcw",
+                             "wfcccwcccfccccwcccfw", "wwwwwwwwwwwwwwwwwwww"
+                     });
 
     //    std::vector<std::string> tst_level{
     //            "                    ",
@@ -33,7 +42,7 @@ World::World(shared_ptr<AbstractFactory> factory, int level, shared_ptr<Score> s
     //            "                    ",
     //            "                    ",
     //    };
-    std::vector<std::string> board = maizes[level % maizes.size()];
+    std::vector <std::string> board = maizes[level % maizes.size()];
 
     int items_x = board[0].length();
     int items_y = board.size();
@@ -47,39 +56,39 @@ World::World(shared_ptr<AbstractFactory> factory, int level, shared_ptr<Score> s
             double position_y = i * size_y - 1.0;
             std::tuple<double, double, double, double> position(position_x, position_y, size_x, size_y);
             switch (board[i][j]) {
-            case 'w':
-                walls.push_back(factory->createWall(position));
-                break;
-            case 'c':
-                coins.push_back(factory->createCoin(position));
-                break;
-            case 'f':
-                fruits.push_back(factory->createFruit(position));
-                break;
-            case '1':
-                ghosts.push_back(factory->createGhost(GhostType::Blinky, position));
-                break;
-            case '2':
-                ghosts.push_back(factory->createGhost(GhostType::Pinky, position));
-                break;
-            case '3':
-                ghosts.push_back(factory->createGhost(GhostType::Inky, position));
-                break;
-            case '4':
-                ghosts.push_back(factory->createGhost(GhostType::Clyde, position));
-                break;
-            case 'P':
-                pacMan = factory->createPacMan(position);
-                break;
-            default:
-                break;
+                case 'w':
+                    walls.push_back(factory->createWall(position));
+                    break;
+                case 'c':
+                    coins.push_back(factory->createCoin(position));
+                    break;
+                case 'f':
+                    fruits.push_back(factory->createFruit(position));
+                    break;
+                case '1':
+                    ghosts.push_back(factory->createGhost(GhostType::Blinky, position));
+                    break;
+                case '2':
+                    ghosts.push_back(factory->createGhost(GhostType::Pinky, position));
+                    break;
+                case '3':
+                    ghosts.push_back(factory->createGhost(GhostType::Inky, position));
+                    break;
+                case '4':
+                    ghosts.push_back(factory->createGhost(GhostType::Clyde, position));
+                    break;
+                case 'P':
+                    pacMan = factory->createPacMan(position);
+                    break;
+                default:
+                    break;
             }
         }
     }
 
     // register pacMan and all ghost to the Observer Score
     pacMan->registerObserver(score);
-    for (auto& ghost : ghosts) {
+    for (auto &ghost : ghosts) {
         ghost->registerObserver(score);
     }
 }
@@ -87,27 +96,27 @@ World::World(shared_ptr<AbstractFactory> factory, int level, shared_ptr<Score> s
 void World::update() {
     Stopwatch::getInstance().tick();
 
-    for (auto& coin : coins) {
+    for (auto &coin : coins) {
         coin->processEvent(EventType::TICK);
     }
 
-    for (auto& fruit : fruits) {
+    for (auto &fruit : fruits) {
         fruit->processEvent(EventType::TICK);
     }
 
-    for (auto& ghost : ghosts) {
+    for (auto &ghost : ghosts) {
         if (ghost->overlapsWith(pacMan)) {
             if (ghost->isFearMode()) {
                 pacMan->captureGhost();
                 ghost->capturedByPacMan();
             } else {
                 pacMan->die();
-                for (auto& g : ghosts) {
+                for (auto &g : ghosts) {
                     g->goHome();
                 }
             }
         }
-        const std::vector<Direction>& possibleDirections = getPossibleDirections(ghost, 0.1);
+        const std::vector <Direction> &possibleDirections = getPossibleDirections(ghost, 0.1);
         ghost->update(possibleDirections, pacMan->getPosition());
     }
 
@@ -115,14 +124,14 @@ void World::update() {
     collect(coins);
     collect(fruits);
 
-    for (auto& wall : walls) {
+    for (auto &wall : walls) {
         wall->processEvent(EventType::TICK);
     }
 }
 
-void World::collect(std::vector<std::shared_ptr<Coin>>& collectables) {
+void World::collect(std::vector <std::shared_ptr<Coin>> &collectables) {
     // Define the condition for removal (overlap with PacMan)
-    auto condition = [this](const std::shared_ptr<Collectable>& collectable) {
+    auto condition = [this](const std::shared_ptr <Collectable> &collectable) {
         return collectable->overlapsWith(pacMan, 0.9);
     };
     // Use std::remove_if to move elements that satisfy the condition to the end
@@ -135,9 +144,9 @@ void World::collect(std::vector<std::shared_ptr<Coin>>& collectables) {
     collectables.erase(newEnd, collectables.end());
 }
 
-void World::collect(std::vector<std::shared_ptr<Fruit>>& collectables) {
+void World::collect(std::vector <std::shared_ptr<Fruit>> &collectables) {
     // Define the condition for removal (overlap with PacMan)
-    auto condition = [this](const std::shared_ptr<Collectable>& collectable) {
+    auto condition = [this](const std::shared_ptr <Collectable> &collectable) {
         return collectable->overlapsWith(pacMan, 0.9);
     };
     // Use std::remove_if to move elements that satisfy the condition to the end
@@ -145,7 +154,7 @@ void World::collect(std::vector<std::shared_ptr<Fruit>>& collectables) {
     // before removing the fruit, put the ghosts to fear mode
     for (auto it = newEnd; it != collectables.end(); ++it) {
         pacMan->captureFruit();
-        for (const auto& ghost : ghosts) {
+        for (auto ghost : ghosts) {
             ghost->toFearMode();
         }
     }
@@ -153,9 +162,9 @@ void World::collect(std::vector<std::shared_ptr<Fruit>>& collectables) {
     collectables.erase(newEnd, collectables.end());
 }
 
-void World::setDirectionPacMan(const Direction& direction) { pacMan->setTargetDirection(direction); }
+void World::setDirectionPacMan(const Direction &direction) { pacMan->setTargetDirection(direction); }
 
-std::vector<Direction> World::getPossibleDirections(std::shared_ptr<EntityModel> entityModel, double tolerance) {
+std::vector <Direction> World::getPossibleDirections(std::shared_ptr <EntityModel> entityModel, double tolerance) {
     // Get the current position and size of the entity
     double x, y, sizeX, sizeY;
     std::tie(x, y, sizeX, sizeY) = entityModel->getPosition();
@@ -164,10 +173,10 @@ std::vector<Direction> World::getPossibleDirections(std::shared_ptr<EntityModel>
     double toleranceY = sizeY * tolerance;
 
     // Initialize possible directions with all directions initially
-    std::vector<Direction> possibleDirections = {LEFT, RIGHT, UP, DOWN};
+    std::vector <Direction> possibleDirections = {LEFT, RIGHT, UP, DOWN};
 
     // Check if entity collides with the wall
-    for (auto& wall : walls) {
+    for (auto &wall : walls) {
         // Get wall's position and size
         double wallX, wallY, wallSizeX, wallSizeY;
         std::tie(wallX, wallY, wallSizeX, wallSizeY) = wall->getPosition();
@@ -208,8 +217,14 @@ std::vector<Direction> World::getPossibleDirections(std::shared_ptr<EntityModel>
     return possibleDirections;
 }
 
-bool World::isLevelComplete() { return coins.empty(); }
+bool World::isLevelComplete() {
+    return coins.empty();
+}
 
-bool World::isAllLevelsComplete() { return isLevelComplete() && (level == 2); }
+bool World::isAllLevelsComplete() {
+    return isLevelComplete() && (level == 2);
+}
 
-bool World::isGameOver() { return pacMan->isDead(); }
+bool World::isGameOver() {
+    return pacMan->isDead();
+}

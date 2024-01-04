@@ -32,7 +32,7 @@ void Game::run() {
                 break;
             }
         }
-        // Clear the window with a black background
+        // Clear the window by setting a black background
         window->clear(sf::Color::Black);
 
         // Get the current state and update/draw it

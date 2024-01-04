@@ -1,9 +1,9 @@
 #include "PacMan.h"
 #include "Stopwatch.h"
 #include <algorithm>
-#include <cmath>
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 void PacMan::setTargetDirection(const Direction& direction) { targetDirection = direction; }
 
@@ -44,10 +44,18 @@ void PacMan::die() {
     notifyObservers(PACMAN_DIES);
 }
 
-void PacMan::captureGhost() { notifyObservers(PACMAN_CAPTURES_GHOST); }
+void PacMan::captureGhost() {
+    notifyObservers(PACMAN_CAPTURES_GHOST);
+}
 
-void PacMan::captureFruit() { notifyObservers(PACMAN_CAPTURES_FRUIT); }
+void PacMan::captureFruit() {
+    notifyObservers(PACMAN_CAPTURES_FRUIT);
+}
 
-void PacMan::captureCoin() { notifyObservers(PACMAN_CAPTURES_COIN); }
+void PacMan::captureCoin() {
+    notifyObservers(PACMAN_CAPTURES_COIN);
+}
 
-bool PacMan::isDead() { return lives == 0; }
+bool PacMan::isDead() {
+    return lives == 0;
+}

@@ -15,7 +15,7 @@ public:
      * @brief Constructs a ConcreteFactory object.
      * @param type The level of the game.
      */
-    ConcreteFactory(int level);
+    ConcreteFactory(const int level);
     ~ConcreteFactory() = default;
 
     /**
@@ -24,35 +24,35 @@ public:
      * @param position The position of the Ghost.
      * @return A shared pointer to the created Ghost.
      */
-    shared_ptr<Ghost> createGhost(GhostType type, std::tuple<double, double, double, double> position) final;
+    shared_ptr<Ghost> createGhost(const GhostType type, std::tuple<double, double, double, double> position) final;
 
     /**
      * @brief Creates a PacMan object with the specified position.
      * @param position The position of PacMan.
      * @return A shared pointer to the created PacMan.
      */
-    shared_ptr<PacMan> createPacMan(std::tuple<double, double, double, double> position) final;
+    shared_ptr<PacMan> createPacMan(const std::tuple<double, double, double, double> position) final;
 
     /**
      * @brief Creates a Wall object with the specified position.
      * @param position The position of the Wall.
      * @return A shared pointer to the created Wall.
      */
-    shared_ptr<Wall> createWall(std::tuple<double, double, double, double> position) final;
+    shared_ptr<Wall> createWall(const std::tuple<double, double, double, double> position) final;
 
     /**
      * @brief Creates a Coin object with the specified position.
      * @param position The position of the Coin.
      * @return A shared pointer to the created Coin.
      */
-    shared_ptr<Coin> createCoin(std::tuple<double, double, double, double> position) final;
+    shared_ptr<Coin> createCoin(const std::tuple<double, double, double, double> position) final;
 
     /**
      * @brief Creates a Fruit object with the specified position.
      * @param position The position of the Fruit.
      * @return A shared pointer to the created Fruit.
      */
-    shared_ptr<Fruit> createFruit(std::tuple<double, double, double, double> position) final;
+    shared_ptr<Fruit> createFruit(const std::tuple<double, double, double, double> position) final;
 
 private:
     int level = 0; ///< The level of the current game

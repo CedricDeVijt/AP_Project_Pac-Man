@@ -3,6 +3,7 @@
 
 #include <chrono>
 
+
 /**
  * @class Stopwatch
  * @brief A singleton class for measuring time and calculating delta time.
@@ -60,7 +61,7 @@ public:
 
 private:
     std::chrono::high_resolution_clock::time_point previousTime, tickTime, startTime, pauseTime;
-    std::chrono::microseconds deltaTime{}, pauseDuration{};
+    std::chrono::microseconds deltaTime, pauseDuration;
     bool running = false;
 };
 

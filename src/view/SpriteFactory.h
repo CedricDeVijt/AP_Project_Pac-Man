@@ -68,7 +68,10 @@ public:
      */
     sf::Sprite createCoin(const int posX, const int posY, const int gridSize);
 
-    // TODO doc
+    /**
+     * @brief Creates a logo sprite.
+     * @return The created logo sprite.
+     */
     sf::Sprite createLogo();
 
     // Prevent copying and assignment

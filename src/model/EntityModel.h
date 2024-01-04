@@ -62,8 +62,7 @@ protected:
      * @return A tuple representing the new position after the step.
      */
     std::tuple<double, double, double, double> step(Direction direction,
-                                                    std::tuple<double, double, double, double>& startPosition,
-                                                    double accelerator);
+                                                    std::tuple<double, double, double, double>& startPosition, double accelerator);
 };
 
 #endif // AP_PROJECT_PAC_MAN_ENTITYMODEL_H

@@ -1,7 +1,9 @@
 #ifndef AP_PROJECT_PAC_MAN_OBSERVER_H
 #define AP_PROJECT_PAC_MAN_OBSERVER_H
 
-enum EventType { PACMAN_CAPTURES_GHOST, PACMAN_CAPTURES_FRUIT, PACMAN_CAPTURES_COIN, PACMAN_DIES, TICK };
+enum EventType {
+    PACMAN_CAPTURES_GHOST, PACMAN_CAPTURES_FRUIT, PACMAN_CAPTURES_COIN, PACMAN_DIES, TICK
+};
 
 /**
  * @class Observer
@@ -19,7 +21,6 @@ public:
      */
     virtual ~Observer() = default;
 
-    // TODO use Events like EntityModelChanged, EntityModelDestroyed?,
     /**
      * @brief Pure virtual function to be implemented by concrete observers.
      * @details This function is called when the observed subject changes its state.

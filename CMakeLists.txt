@@ -21,11 +21,16 @@ add_executable(AP_Project_Pac_Man
         src/view/WindowSingleton.cpp
         src/view/SoundEffects.cpp
         src/view/SoundEffectObserver.cpp
+        src/view/GhostView.cpp
+        src/view/FruitView.cpp
+        src/view/WallView.cpp
+        src/view/CoinView.cpp
+        src/view/PacManView.cpp
 
         src/controller/Game.cpp
         src/controller/State.cpp
         src/controller/StateManager.cpp
-)
+        )
 
 # Link the executable with the game logic library
 target_link_libraries(AP_Project_Pac_Man GameLogicLib)
