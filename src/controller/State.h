@@ -31,7 +31,7 @@ protected:
      * @param text the text to center.
      * @param posY the vertical position.
      */
-    void centerHorizontally(sf::Text &text, int posY) const;
+    static void centerHorizontally(sf::Text &text, int posY);
 
 public:
     /**
@@ -119,7 +119,7 @@ public:
      * @param level The level of the game
      * @param score The object containing the current score info
      */
-    explicit LevelState(StateManager *stateManager, int level, shared_ptr <Score> score);
+    explicit LevelState(StateManager *stateManager, int level, const shared_ptr <Score>& score);
 
     /**
      * @brief Processes input events for the LevelState.
@@ -212,7 +212,7 @@ private:
     /**
      * @brief Transitions to LevelState.
      */
-    void toLevelState();
+    void toLevelState() const;
 
 };
 
@@ -250,7 +250,7 @@ private:
     /**
      * @brief Transitions to MenuState.
      */
-    void toLevelState();
+    void toLevelState() const;
 };
 
 /**
@@ -289,7 +289,7 @@ private:
      */
     void toMenuState();
 
-    void toNewGameState();
+    void toNewGameState() const;
 };
 
 /**
@@ -327,7 +327,7 @@ private:
     /**
      * @brief Transitions to MenuState.
      */
-    void toNextLevelState();
+    void toNextLevelState() const;
 
     int level; ///< The value of the level that just has been completed
 };

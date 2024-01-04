@@ -25,7 +25,7 @@ std::ostream& operator<<(std::ostream& os, const GhostType& ghostType);
  * @class Ghost
  * @brief Represents a ghost entity in the game with specific behavior and movement.
  */
-class Ghost : public EntityModel {
+class Ghost final : public EntityModel {
 public:
     /**
      * @brief Constructor for the Ghost class.
@@ -33,7 +33,7 @@ public:
      * @param homePosition A tuple representing the home position (x, y, width, height) of the ghost.
      * @param level The level of the game.
      */
-    Ghost(const GhostType type, const std::tuple<double, double, double, double> homePosition, const int level);
+    Ghost(GhostType type, const std::tuple<double, double, double, double>& homePosition, int level);
 
     /**
      * @brief Gets the type of the ghost.
@@ -70,10 +70,11 @@ public:
 
     /**
      * @brief Updates the ghost's state and position based on the game rules.
-     * @param possibleDirections A vector of possible directions the ghost can move in.
+     * @param directions A vector of possible directions the ghost can move in.
      * @param pacManPosition A tuple representing the current position (x, y, width, height) of PacMan.
      */
-    void update(const std::vector<Direction>& directions, const std::tuple<double, double, double, double> pacManPosition);
+    void update(const std::vector<Direction>& directions,
+                const std::tuple<double, double, double, double>& pacManPosition);
 
 private:
     GhostType type;            ///< The type of the ghost.
@@ -88,10 +89,10 @@ private:
 
     /**
      * @brief Checks if the ghost is at a corner or intersection.
-     * @param directions A vector of possible directions the ghost can move in.
+     * @param possibleDirections A vector of possible directions the ghost can move in.
      * @return True if the ghost is at a corner or intersection, false otherwise.
      */
-    bool atCornerOrIntersection(const std::vector<Direction>& possibleDirections) const;
+    static bool atCornerOrIntersection(const std::vector<Direction>& possibleDirections);
 
     /**
      * @brief Gets the direction with the minimum Manhattan distance to PacMan.
@@ -100,7 +101,7 @@ private:
      * @return The direction with the minimum Manhattan distance.
      */
     Direction getDirectionWithMinmumManhattanDistance(const std::vector<Direction>& possibleDirections,
-                                                      const std::tuple<double, double, double, double>& pacManPosition);
+                                                      const std::tuple<double, double, double, double>& pacManPosition) const;
 
     /**
      * @brief Gets the direction with the maximum Manhattan distance to PacMan.
@@ -110,14 +111,14 @@ private:
      */
     Direction getDirectionWithMaximumManhattanDistance(
         const std::vector<Direction>& possibleDirections,
-        const std::tuple<double, double, double, double>& pacManPosition);
+        const std::tuple<double, double, double, double>& pacManPosition) const;
 
     /**
      * @brief Checks if the ghost is at a dead end.
      * @param directions A vector of possible directions the ghost can move in.
      * @return True if the ghost is at a dead end, false otherwise.
      */
-    bool atDeadEnd(const std::vector<Direction>& directions) const;
+    static bool atDeadEnd(const std::vector<Direction>& directions);
 
     /**
      * @brief Checks if the ghost has left his starting point.

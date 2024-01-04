@@ -14,7 +14,7 @@ using std::shared_ptr;
  */
 class Game {
 private:
-    shared_ptr<sf::RenderWindow> window;   ///< The main game window.
+    shared_ptr<sf::RenderWindow> window;         ///< The main game window.
     const shared_ptr<StateManager> stateManager; ///< Manages the game states.
 
 public:
@@ -30,6 +30,8 @@ public:
 
     /**
      * @brief Runs the main game loop.
+     * This function handles the main game loop, including event processing, updating,
+     * and rendering.
      */
     void run();
 };

@@ -10,7 +10,7 @@
  * @class PacMan
  * @brief Represents the Pac-Man entity in the game.
  */
-class PacMan : public EntityModel {
+class PacMan final : public EntityModel {
 private:
     Direction direction;                                     ///< Current direction of Pac-Man.
     Direction targetDirection = Direction::NONE;             ///< Target direction set by the player.
@@ -26,7 +26,7 @@ public:
      * @param position The initial position of Pac-Man.
      * @param level The level of the game.
      */
-    explicit PacMan(std::tuple<double, double, double, double> position, int level);
+    explicit PacMan(const std::tuple<double, double, double, double>& position, int level);
 
     /**
      * @brief Updates the state of Pac-Man based on the available directions.
@@ -74,7 +74,7 @@ public:
      * @brief checks if Pac-Man is dead.
      * @return True if all lives of Pac-Man are exhausted, false otherwise.
      */
-    bool isDead();
+    bool isDead() const;
 };
 
 #endif // AP_PROJECT_PAC_MAN_PACMAN_H

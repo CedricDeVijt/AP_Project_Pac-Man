@@ -1,4 +1,6 @@
 #include "CoinView.h"
+
+#include <utility>
 #include "EntityView.h"
 #include "../model/Ghost.h"
 #include "../model/Collectable.h"
@@ -10,11 +12,11 @@
 #include "Camera.h"
 
 
-CoinView::CoinView(shared_ptr <Coin> coin) : coin(coin) {}
+CoinView::CoinView(shared_ptr <Coin> coin) : coin(std::move(coin)) {}
 
 void CoinView::processEvent(EventType eventType) {
     if (eventType == EventType::TICK) {
-        int gridSize = getGridSize();
+        const int gridSize = getGridSize();
         int posX, posY;
         std::tie(posX, posY) = Camera::toPixelCoordinates(coin->getPosition());
 

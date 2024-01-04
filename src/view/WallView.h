@@ -15,13 +15,13 @@
  * @class WallView
  * @brief Visual representation of the Wall entity.
  */
-class WallView : public EntityView {
+class WallView final : public EntityView {
 public:
     /**
      * @brief Constructs a WallView object.
      * @param wall The Wall entity to be visualized.
      */
-    WallView(shared_ptr <Wall> wall);
+    explicit WallView(shared_ptr <Wall> wall);
 
     /**
      * @brief processes the event.

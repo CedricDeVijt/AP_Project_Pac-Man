@@ -6,6 +6,6 @@ Pac-Man game written in C++ using SFML
 
 run shell script `run.sh` to compile and run the game
 
-# Dependancies
+# Dependencies
 
 - [SFML Libraries](http://sfml-dev.org)

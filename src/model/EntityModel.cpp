@@ -10,10 +10,10 @@
 
 std::tuple<double, double, double, double> EntityModel::getPosition() { return position; }
 
-bool EntityModel::overlapsWith(shared_ptr<EntityModel> entityModel) { return overlapsWith(entityModel, 0.0); }
+bool EntityModel::overlapsWith(const shared_ptr<EntityModel>& entityModel) const { return overlapsWith(entityModel, 0.0); }
 
 // check if there is an overlap between the 2 entities with a given percentage overlap
-bool EntityModel::overlapsWith(shared_ptr<EntityModel> entityModel, double percentage) {
+bool EntityModel::overlapsWith(const shared_ptr<EntityModel>& entityModel, double percentage) const {
     // Extracting coordinates and sizes from tuples
     double x1, y1, sizeX1, sizeY1;
     std::tie(x1, y1, sizeX1, sizeY1) = position;
@@ -22,8 +22,8 @@ bool EntityModel::overlapsWith(shared_ptr<EntityModel> entityModel, double perce
     std::tie(x2, y2, sizeX2, sizeY2) = entityModel->position;
 
     // Check for overlap along both axes
-    bool overlapX = (x1 < (x2 + sizeX2 * (1 - percentage))) && ((x1 + sizeX1 * (1 - percentage)) > x2);
-    bool overlapY = (y1 < (y2 + sizeY2 * (1 - percentage))) && ((y1 + sizeY1 * (1 - percentage)) > y2);
+    const bool overlapX = (x1 < (x2 + sizeX2 * (1 - percentage))) && ((x1 + sizeX1 * (1 - percentage)) > x2);
+    const bool overlapY = (y1 < (y2 + sizeY2 * (1 - percentage))) && ((y1 + sizeY1 * (1 - percentage)) > y2);
 
     // The rectangles overlap if they intersect along both axes
     return overlapX && overlapY;
@@ -33,10 +33,10 @@ void EntityModel::processEvent(EventType eventType) { notifyObservers(eventType)
 
 double roundToClosestMultiple(double value, double multiple) {
     // Calculate the rounded result to the nearest integer
-    double roundedValue = std::round(value / multiple);
+    const double roundedValue = std::round(value / multiple);
 
     // Multiply by the multiple to get the closest multiple
-    double result = roundedValue * multiple;
+    const double result = roundedValue * multiple;
 
     return result;
 }
@@ -53,12 +53,12 @@ EntityModel::EntityModel(std::tuple<double, double, double, double> position) : 
 
 // calculate the position after taking a step in a direction
 std::tuple<double, double, double, double>
-EntityModel::step(Direction direction, std::tuple<double, double, double, double> &startPosition, double accelerator) {
+EntityModel::step(Direction direction, const std::tuple<double, double, double, double> &startPosition, double accelerator) {
     // calculate step in each direction
-    auto deltaTime = Stopwatch::getInstance().getDeltaTime();
+    const auto deltaTime = Stopwatch::getInstance().getDeltaTime();
     std::cout << "deltaTime = " << deltaTime << "\n";
-    double stepX = SPEED * deltaTime * accelerator;
-    double stepY = stepX * 22 / 11; // compensate for grid aspect ratio
+    const double stepX = SPEED * deltaTime * accelerator;
+    const double stepY = stepX * 22 / 11; // compensate for grid aspect ratio
 
     double x, y, sizeX, sizeY;
     std::tie(x, y, sizeX, sizeY) = startPosition;

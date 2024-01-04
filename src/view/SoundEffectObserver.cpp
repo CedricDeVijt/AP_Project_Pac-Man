@@ -1,7 +1,7 @@
 #include "SoundEffectObserver.h"
 #include "SoundEffects.h"
 
-void SoundEffectObserver::processEvent(EventType eventType) {
+void SoundEffectObserver::processEvent(const EventType eventType) {
     switch (eventType) {
         case PACMAN_CAPTURES_COIN:
             SoundEffects::getInstance().playWakaWaka();

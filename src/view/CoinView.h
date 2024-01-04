@@ -16,13 +16,13 @@
  * @class CoinView
  * @brief Visual representation of the Coin entity.
  */
-class CoinView : public EntityView {
+class CoinView final : public EntityView {
 public:
     /**
      * @brief Constructs a CoinView object.
      * @param coin The Coin entity to be visualized.
      */
-    CoinView(shared_ptr <Coin> coin);
+    explicit CoinView(shared_ptr <Coin> coin);
 
     /**
      * @brief processes the event.

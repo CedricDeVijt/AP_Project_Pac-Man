@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-World::World(shared_ptr <AbstractFactory> factory, int level, shared_ptr <Score> score) : level(level), score(score) {
+World::World(const shared_ptr<AbstractFactory>& factory, int level, const shared_ptr<Score>& score) : score(score), level(level) {
     std::vector <std::vector<std::string>> maizes;
 
     maizes.push_back({
@@ -42,10 +42,10 @@ World::World(shared_ptr <AbstractFactory> factory, int level, shared_ptr <Score>
     //            "                    ",
     //            "                    ",
     //    };
-    std::vector <std::string> board = maizes[level % maizes.size()];
+    const std::vector<std::string> board = maizes[level % maizes.size()];
 
-    int items_x = board[0].length();
-    int items_y = board.size();
+    const int items_x = board[0].length();
+    const int items_y = board.size();
 
     double size_x = 2.0 / items_x;
     double size_y = 2.0 / items_y;
@@ -54,7 +54,7 @@ World::World(shared_ptr <AbstractFactory> factory, int level, shared_ptr <Score>
         for (int j = 0; j < board[i].length(); j++) {
             double position_x = j * size_x - 1.0;
             double position_y = i * size_y - 1.0;
-            std::tuple<double, double, double, double> position(position_x, position_y, size_x, size_y);
+            const std::tuple<double, double, double, double> position(position_x, position_y, size_x, size_y);
             switch (board[i][j]) {
                 case 'w':
                     walls.push_back(factory->createWall(position));
@@ -88,7 +88,7 @@ World::World(shared_ptr <AbstractFactory> factory, int level, shared_ptr <Score>
 
     // register pacMan and all ghost to the Observer Score
     pacMan->registerObserver(score);
-    for (auto &ghost : ghosts) {
+    for (const auto &ghost : ghosts) {
         ghost->registerObserver(score);
     }
 }
@@ -96,11 +96,11 @@ World::World(shared_ptr <AbstractFactory> factory, int level, shared_ptr <Score>
 void World::update() {
     Stopwatch::getInstance().tick();
 
-    for (auto &coin : coins) {
+    for (const auto &coin : coins) {
         coin->processEvent(EventType::TICK);
     }
 
-    for (auto &fruit : fruits) {
+    for (const auto &fruit : fruits) {
         fruit->processEvent(EventType::TICK);
     }
 
@@ -111,7 +111,7 @@ void World::update() {
                 ghost->capturedByPacMan();
             } else {
                 pacMan->die();
-                for (auto &g : ghosts) {
+                for (const auto &g : ghosts) {
                     g->goHome();
                 }
             }
@@ -124,18 +124,18 @@ void World::update() {
     collect(coins);
     collect(fruits);
 
-    for (auto &wall : walls) {
+    for (const auto &wall : walls) {
         wall->processEvent(EventType::TICK);
     }
 }
 
-void World::collect(std::vector <std::shared_ptr<Coin>> &collectables) {
+void World::collect(std::vector <std::shared_ptr<Coin>> &collectables) const {
     // Define the condition for removal (overlap with PacMan)
     auto condition = [this](const std::shared_ptr <Collectable> &collectable) {
         return collectable->overlapsWith(pacMan, 0.9);
     };
     // Use std::remove_if to move elements that satisfy the condition to the end
-    auto newEnd = std::remove_if(collectables.begin(), collectables.end(), condition);
+    const auto newEnd = std::remove_if(collectables.begin(), collectables.end(), condition);
     // before removing, do something
     for (auto it = newEnd; it != collectables.end(); ++it) {
         pacMan->captureCoin();
@@ -144,17 +144,17 @@ void World::collect(std::vector <std::shared_ptr<Coin>> &collectables) {
     collectables.erase(newEnd, collectables.end());
 }
 
-void World::collect(std::vector <std::shared_ptr<Fruit>> &collectables) {
+void World::collect(std::vector <std::shared_ptr<Fruit>> &collectables) const {
     // Define the condition for removal (overlap with PacMan)
     auto condition = [this](const std::shared_ptr <Collectable> &collectable) {
         return collectable->overlapsWith(pacMan, 0.9);
     };
     // Use std::remove_if to move elements that satisfy the condition to the end
-    auto newEnd = std::remove_if(collectables.begin(), collectables.end(), condition);
+    const auto newEnd = std::remove_if(collectables.begin(), collectables.end(), condition);
     // before removing the fruit, put the ghosts to fear mode
     for (auto it = newEnd; it != collectables.end(); ++it) {
         pacMan->captureFruit();
-        for (auto ghost : ghosts) {
+        for (const auto& ghost : ghosts) {
             ghost->toFearMode();
         }
     }
@@ -162,15 +162,15 @@ void World::collect(std::vector <std::shared_ptr<Fruit>> &collectables) {
     collectables.erase(newEnd, collectables.end());
 }
 
-void World::setDirectionPacMan(const Direction &direction) { pacMan->setTargetDirection(direction); }
+void World::setDirectionPacMan(const Direction &direction) const { pacMan->setTargetDirection(direction); }
 
-std::vector <Direction> World::getPossibleDirections(std::shared_ptr <EntityModel> entityModel, double tolerance) {
+std::vector <Direction> World::getPossibleDirections(const std::shared_ptr<EntityModel>& entityModel, double tolerance) const {
     // Get the current position and size of the entity
     double x, y, sizeX, sizeY;
     std::tie(x, y, sizeX, sizeY) = entityModel->getPosition();
 
-    double toleranceX = sizeX * tolerance;
-    double toleranceY = sizeY * tolerance;
+    const double toleranceX = sizeX * tolerance;
+    const double toleranceY = sizeY * tolerance;
 
     // Initialize possible directions with all directions initially
     std::vector <Direction> possibleDirections = {LEFT, RIGHT, UP, DOWN};
@@ -217,14 +217,14 @@ std::vector <Direction> World::getPossibleDirections(std::shared_ptr <EntityMode
     return possibleDirections;
 }
 
-bool World::isLevelComplete() {
+bool World::isLevelComplete() const {
     return coins.empty();
 }
 
-bool World::isAllLevelsComplete() {
+bool World::isAllLevelsComplete() const {
     return isLevelComplete() && (level == 2);
 }
 
-bool World::isGameOver() {
+bool World::isGameOver() const {
     return pacMan->isDead();
 }

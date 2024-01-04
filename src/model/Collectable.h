@@ -20,7 +20,7 @@ public:
  * @class Coin
  * @brief Represents a coin collectable entity in the game.
  */
-class Coin : public Collectable {
+class Coin final : public Collectable {
 public:
     /**
      * @brief Constructor for the Coin class.
@@ -33,11 +33,12 @@ public:
  * @class Fruit
  * @brief Represents a fruit collectable entity in the game.
  */
-class Fruit : public Collectable {
+class Fruit final : public Collectable {
 public:
     /**
      * @brief Constructor for the Fruit class.
      * @param position A tuple representing the position (x, y, width, height) of the fruit entity.
+     * @param alternative The type of fruit.
      */
     explicit Fruit(std::tuple<double, double, double, double> position, int alternative);
 

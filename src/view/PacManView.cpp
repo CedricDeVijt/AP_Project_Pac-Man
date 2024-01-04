@@ -5,19 +5,20 @@
 #include "Camera.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <utility>
 
 
-PacManView::PacManView(shared_ptr <PacMan> pacMan) : pacMan(pacMan) {}
+PacManView::PacManView(shared_ptr <PacMan> pacMan) : pacMan(std::move(pacMan)) {}
 
 void PacManView::processEvent(EventType eventType) {
-    if (eventType == EventType::TICK){
-        int gridSize = getGridSize();
+    if (eventType == EventType::TICK) {
+        const int gridSize = getGridSize();
         int posX, posY;
         std::tie(posX, posY) = Camera::toPixelCoordinates(pacMan->getPosition());
 
         // animate PacMan by choosing a different variant dependent on the position
-        int variants[] = {0, 1, 2, 1};
-        int variant = variants[((posX + posY) * 2 / gridSize) % 4];
+        constexpr int variants[] = {0, 1, 2, 1};
+        const int variant = variants[((posX + posY) * 2 / gridSize) % 4];
 
         switch (pacMan->getDirection()) {
             case Direction::UP:
