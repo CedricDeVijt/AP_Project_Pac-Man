@@ -44,15 +44,15 @@ void PacMan::die() {
     notifyObservers(PACMAN_DIES);
 }
 
-void PacMan::captureGhost() {
+void PacMan::captureGhost() const {
     notifyObservers(PACMAN_CAPTURES_GHOST);
 }
 
-void PacMan::captureFruit() {
+void PacMan::captureFruit() const {
     notifyObservers(PACMAN_CAPTURES_FRUIT);
 }
 
-void PacMan::captureCoin() {
+void PacMan::captureCoin() const {
     notifyObservers(PACMAN_CAPTURES_COIN);
 }
 

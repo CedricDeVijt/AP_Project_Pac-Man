@@ -82,7 +82,6 @@ double manhattanDistance(const std::tuple<double, double, double, double>& a,
 
 void Ghost::update(const std::vector<Direction>& directions,
                    const std::tuple<double, double, double, double>& pacManPosition) {
-    std::cout << "updating " << type << ": ";
     // update fear mode if needed
     if (isFearMode()) {
         // decrease wait time
@@ -97,43 +96,29 @@ void Ghost::update(const std::vector<Direction>& directions,
         // if we have not defined a direction yet, choose a random one out of the possible directions
         if (direction == Direction::NONE) {
             direction = getRandomDirection(directions);
-
-            // if we have not left the starting point yet, travel in our previous direction until we reach a corner
-            // or intersection
-//        } else if (!hasLeftStartingPoint()) {
-//            std::cout << "has not left starting point \n";
-//            if (atCornerOrIntersection(possibleDirections)) {
-//                direction = getRandomDirection(possibleDirections);
-//            }
         }
 
             // return if at a deadend
         else if (atDeadEnd(directions)) {
-            std::cout << "at dead end\n";
             direction = directions[0];
         }
 
             // determine a new direction if we are at a corner or intersecion
         else if (atCornerOrIntersection(directions)) {
-            std::cout << "at corner or intersection: ";
             // decide with probability p=0.5 to take random or manhattan direction
             if (Random::getInstance().getRandomNumber(100) < 50) {
-                std::cout << "go random \n";
                 direction = getRandomDirection(directions);
             } else {
                 // determine direction of minimum/maximum manhattan distance based on fear setting
                 Direction manhattanDirection;
                 if (isFearMode()) {
-                    std::cout << "go manhattan in fear mode\n";
                     manhattanDirection = getDirectionWithMaximumManhattanDistance(directions, pacManPosition);
                 } else {
-                    std::cout << "go manhattan \n";
                     manhattanDirection = getDirectionWithMinmumManhattanDistance(directions, pacManPosition);
                 }
                 direction = manhattanDirection;
             }
         } else {
-            std::cout << "go in same direction as previous\n";
         }
     }
     // determine the acceleration for the given level

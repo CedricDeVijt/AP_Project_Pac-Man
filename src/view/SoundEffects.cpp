@@ -10,7 +10,7 @@ SoundEffects::SoundEffects() {
         !bufferSiren.loadFromFile("resources/sounds/Pacman_Siren.wav") ||
         !bufferWakaWaka.loadFromFile("resources/sounds/Pacman_Waka_Waka.wav") ||
         !bufferGameOver.loadFromFile("resources/sounds/Pacman_Game_Over.wav") ||
-        !bufferVictory.loadFromFile("resources/sounds/Pacman_Victory.wav") ) {
+        !bufferVictory.loadFromFile("resources/sounds/Pacman_Victory.wav")) {
         throw std::runtime_error("Failed to load sounds file");
     }
 }
@@ -36,6 +36,4 @@ void SoundEffects::play(const sf::SoundBuffer& buffer) {
     sound.play();
 }
 
-void SoundEffects::stop() {
-    sound.stop();
-}
+void SoundEffects::stop() { sound.stop(); }

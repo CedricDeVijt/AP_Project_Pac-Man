@@ -1,14 +1,13 @@
 
 #include "PacManView.h"
+#include "Camera.h"
 #include "EntityView.h"
 #include "SpriteFactory.h"
-#include "Camera.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <utility>
 
-
-PacManView::PacManView(shared_ptr <PacMan> pacMan) : pacMan(std::move(pacMan)) {}
+PacManView::PacManView(shared_ptr<PacMan> pacMan) : pacMan(std::move(pacMan)) {}
 
 void PacManView::processEvent(EventType eventType) {
     if (eventType == EventType::TICK) {
@@ -21,19 +20,19 @@ void PacManView::processEvent(EventType eventType) {
         const int variant = variants[((posX + posY) * 2 / gridSize) % 4];
 
         switch (pacMan->getDirection()) {
-            case Direction::UP:
-                window->draw(SpriteFactory::getInstance().createPacMan(9 + variant, posX, posY, gridSize));
-                break;
-            case Direction::DOWN:
-                window->draw(SpriteFactory::getInstance().createPacMan(3 + variant, posX, posY, gridSize));
-                break;
-            case Direction::LEFT:
-                window->draw(SpriteFactory::getInstance().createPacMan(6 + variant, posX, posY, gridSize));
-                break;
-            case Direction::RIGHT:
-            case Direction::NONE:
-                window->draw(SpriteFactory::getInstance().createPacMan(0 + variant, posX, posY, gridSize));
-                break;
+        case Direction::UP:
+            window->draw(SpriteFactory::getInstance().createPacMan(9 + variant, posX, posY, gridSize));
+            break;
+        case Direction::DOWN:
+            window->draw(SpriteFactory::getInstance().createPacMan(3 + variant, posX, posY, gridSize));
+            break;
+        case Direction::LEFT:
+            window->draw(SpriteFactory::getInstance().createPacMan(6 + variant, posX, posY, gridSize));
+            break;
+        case Direction::RIGHT:
+        case Direction::NONE:
+            window->draw(SpriteFactory::getInstance().createPacMan(0 + variant, posX, posY, gridSize));
+            break;
         }
     }
 }

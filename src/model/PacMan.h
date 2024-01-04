@@ -56,19 +56,19 @@ public:
      * @brief Handles the capture of a ghost by Pac-Man.
      * @details To be implemented.
      */
-    void captureGhost();
+    void captureGhost() const;
 
     /**
      * @brief Handles the capture of fruit by Pac-Man.
      * @details To be implemented.
      */
-    void captureFruit();
+    void captureFruit() const;
 
     /**
      * @brief Handles the capture of a coin by Pac-Man.
      * @details To be implemented.
      */
-    void captureCoin();
+    void captureCoin() const;
 
     /**
      * @brief checks if Pac-Man is dead.

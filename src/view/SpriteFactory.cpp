@@ -81,7 +81,8 @@ sf::Sprite SpriteFactory::createGhost(GhostType type, const int alternative, con
                         sf::Vector2f(scaleFactor, scaleFactor));
 }
 
-sf::Sprite SpriteFactory::createPacMan(const int alternative, const int posX, const int posY, const int gridSize) const {
+sf::Sprite SpriteFactory::createPacMan(const int alternative, const int posX, const int posY,
+                                       const int gridSize) const {
     // offsets for finding the appropriate sprite in the image file
     constexpr int offset_top_x = 853;
     constexpr int offset_top_y = 5;

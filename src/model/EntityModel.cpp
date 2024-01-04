@@ -56,7 +56,6 @@ std::tuple<double, double, double, double>
 EntityModel::step(Direction direction, const std::tuple<double, double, double, double> &startPosition, double accelerator) {
     // calculate step in each direction
     const auto deltaTime = Stopwatch::getInstance().getDeltaTime();
-    std::cout << "deltaTime = " << deltaTime << "\n";
     const double stepX = SPEED * deltaTime * accelerator;
     const double stepY = stepX * 22 / 11; // compensate for grid aspect ratio
 

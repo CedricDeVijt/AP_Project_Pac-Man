@@ -40,7 +40,6 @@ void Stopwatch::tick() {
 }
 
 void Stopwatch::pause() {
-    std::cout << "Pause\n";
     if (running) {
         pauseTime = std::chrono::high_resolution_clock::now();
         running = false;
@@ -50,7 +49,6 @@ void Stopwatch::pause() {
 }
 
 void Stopwatch::unPause() {
-    std::cout << "unPause\n";
     if (!running) {
         running = true;
         tick();

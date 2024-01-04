@@ -1,17 +1,17 @@
 
 #include "WallView.h"
+#include "Camera.h"
 #include "EntityView.h"
 #include "SpriteFactory.h"
-#include "Camera.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <utility>
 
-WallView::WallView(shared_ptr <Wall> wall) : wall(std::move(wall)) {}
+WallView::WallView(shared_ptr<Wall> wall) : wall(std::move(wall)) {}
 
 void WallView::processEvent(EventType eventType) {
     if (eventType == EventType::TICK) {
-        const int gridSize = getGridSize() + 1;  // +1 since rounding effects might leave a small gap otherwise
+        const int gridSize = getGridSize() + 1; // +1 since rounding effects might leave a small gap otherwise
         int posX, posY;
         std::tie(posX, posY) = Camera::toPixelCoordinates(wall->getPosition());
 
@@ -21,4 +21,3 @@ void WallView::processEvent(EventType eventType) {
         window->draw(rectangle);
     }
 }
-

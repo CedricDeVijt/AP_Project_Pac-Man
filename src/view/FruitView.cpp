@@ -1,14 +1,14 @@
 #include "FruitView.h"
 
-#include <utility>
-#include "EntityView.h"
-#include "../model/Ghost.h"
 #include "../model/Collectable.h"
+#include "../model/Ghost.h"
+#include "Camera.h"
+#include "EntityView.h"
 #include "SpriteFactory.h"
 #include "WindowSingleton.h"
-#include "Camera.h"
+#include <utility>
 
-FruitView::FruitView(shared_ptr <Fruit> fruit) : fruit(std::move(fruit)) {}
+FruitView::FruitView(shared_ptr<Fruit> fruit) : fruit(std::move(fruit)) {}
 
 void FruitView::processEvent(EventType eventType) {
     if (eventType == EventType::TICK) {
@@ -19,4 +19,3 @@ void FruitView::processEvent(EventType eventType) {
         window->draw(spriteFactory.createFruit(fruit->getAlternative(), posX, posY, gridSize));
     }
 }
-

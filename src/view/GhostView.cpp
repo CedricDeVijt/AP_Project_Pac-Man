@@ -1,12 +1,12 @@
 #include "GhostView.h"
 
-#include <utility>
-#include "EntityView.h"
 #include "../model/Ghost.h"
+#include "Camera.h"
+#include "EntityView.h"
 #include "SpriteFactory.h"
 #include "WindowSingleton.h"
-#include "Camera.h"
-GhostView::GhostView(shared_ptr <Ghost> ghost) : ghost(std::move(ghost)) {}
+#include <utility>
+GhostView::GhostView(shared_ptr<Ghost> ghost) : ghost(std::move(ghost)) {}
 
 void GhostView::processEvent(EventType eventType) {
     if (eventType == EventType::TICK) {
