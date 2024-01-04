@@ -5,7 +5,7 @@
 #include "Subject.h"
 #include <tuple>
 
-static const double SPEED = 2.0 / 4000000; // full screen = [-1 1] in 4 seconds (expressed as microseconds)
+static constexpr double SPEED = 2.0 / 4000000; // full screen = [-1 1] in 4 seconds (expressed as microseconds)
 
 /**
  * @class EntityModel
@@ -30,7 +30,7 @@ public:
      * @param entityModel A shared pointer to another entity.
      * @return True if there is an overlap, false otherwise.
      */
-    bool overlapsWith(shared_ptr<EntityModel> entityModel);
+    bool overlapsWith(const shared_ptr<EntityModel>& entityModel) const;
 
     /**
      * @brief Checks if the entity overlaps with another entity with a given percentage overlap.
@@ -38,7 +38,7 @@ public:
      * @param percentage The required percentage overlap.
      * @return True if there is an overlap, false otherwise.
      */
-    bool overlapsWith(shared_ptr<EntityModel> entityModel, double percentage);
+    bool overlapsWith(const shared_ptr<EntityModel>& entityModel, double percentage) const;
 
     /**
      * @brief Updates the entity and notifies observers.
@@ -61,8 +61,7 @@ protected:
      * @param accelerator The factor that determines the relevant acceleration to take into account
      * @return A tuple representing the new position after the step.
      */
-    std::tuple<double, double, double, double> step(Direction direction,
-                                                    std::tuple<double, double, double, double>& startPosition, double accelerator);
+    static std::tuple<double, double, double, double> step(Direction direction, const std::tuple<double, double, double, double>& startPosition, double accelerator);
 };
 
 #endif // AP_PROJECT_PAC_MAN_ENTITYMODEL_H

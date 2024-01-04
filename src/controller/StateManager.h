@@ -38,7 +38,7 @@ public:
      * @brief Pushes a new state onto the stack.
      * @param state A shared pointer to the state to be pushed onto the stack.
      */
-    void pushState(shared_ptr<State> state);
+    void pushState(const shared_ptr<State>& state);
 
     /**
      * @brief Pops the top state from the stack.

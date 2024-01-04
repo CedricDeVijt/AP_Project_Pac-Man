@@ -13,7 +13,7 @@ public:
      * @param position The normalized position
      * @return The pixel positions on the X and Y-axis.
      */
-    static std::tuple<int, int> toPixelCoordinates(std::tuple<double, double, double, double> position);
+    static std::tuple<int, int> toPixelCoordinates(const std::tuple<double, double, double, double>& position);
 
 private:
     /**

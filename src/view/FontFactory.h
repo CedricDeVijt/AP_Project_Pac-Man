@@ -1,7 +1,6 @@
 #ifndef AP_PROJECT_PAC_MAN_FontFactory_H
 #define AP_PROJECT_PAC_MAN_FontFactory_H
 
-#include "../model/Ghost.h"
 #include <SFML/Graphics.hpp>
 
 /**

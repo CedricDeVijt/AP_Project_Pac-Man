@@ -8,7 +8,7 @@ Game::Game() : stateManager(std::make_shared<StateManager>()) {
     window->setFramerateLimit(60);
 }
 
-void Game::run() {
+void Game::run() const {
     SoundEffects::getInstance().playOpeningSong();
     // Main game loop
     while (window->isOpen()) {

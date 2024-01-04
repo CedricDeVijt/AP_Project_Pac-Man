@@ -7,7 +7,7 @@
 
 void PacMan::setTargetDirection(const Direction& direction) { targetDirection = direction; }
 
-PacMan::PacMan(std::tuple<double, double, double, double> position, int level) : EntityModel(position), level(level) {
+PacMan::PacMan(const std::tuple<double, double, double, double>& position, const int level) : EntityModel(position), level(level) {
     homePosition = position;
     direction = NONE;
 }
@@ -16,7 +16,7 @@ Direction PacMan::getDirection() const { return direction; }
 
 void PacMan::update(const std::vector<Direction>& directions) {
     // determine the acceleration for the given level
-    double acceleration = std::pow(accelerator, level);
+    const double acceleration = std::pow(accelerator, level);
 
     // if not dead
     if (lives != 0) {
@@ -56,6 +56,6 @@ void PacMan::captureCoin() {
     notifyObservers(PACMAN_CAPTURES_COIN);
 }
 
-bool PacMan::isDead() {
+bool PacMan::isDead() const {
     return lives == 0;
 }

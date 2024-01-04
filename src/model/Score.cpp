@@ -7,7 +7,7 @@
 #include "Score.h"
 #include "Stopwatch.h"
 
-void Score::saveScore(std::string name, int score) {
+void Score::saveScore(const std::string& name, int score) {
     auto scores = loadHighScores();
     scores.emplace_back(name, score);
 

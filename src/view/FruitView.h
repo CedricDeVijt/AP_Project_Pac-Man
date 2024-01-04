@@ -22,7 +22,7 @@ public:
      * @brief Constructs a FruitView object.
      * @param fruit The Fruit entity to be visualized.
      */
-    FruitView(shared_ptr <Fruit> fruit);
+    explicit FruitView(shared_ptr <Fruit> fruit);
 
     /**
      * @brief processes the event.

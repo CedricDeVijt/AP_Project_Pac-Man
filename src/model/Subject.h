@@ -14,17 +14,18 @@ using std::shared_ptr;
  */
 class Subject {
 public:
+    virtual ~Subject() = default;
     /**
      * @brief Registers an observer to receive updates from the subject.
      * @param observer The observer to register.
      */
-    void registerObserver(shared_ptr<Observer> observer);
+    void registerObserver(const shared_ptr<Observer>& observer);
 
 protected:
     /**
      * @brief Notifies all registered observers.
      */
-    void notifyObservers(EventType eventType);
+    void notifyObservers(EventType eventType) const;
 
 private:
     std::vector<shared_ptr<Observer>> observers; ///< List of registered observers.

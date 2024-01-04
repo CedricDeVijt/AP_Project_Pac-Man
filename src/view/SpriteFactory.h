@@ -22,7 +22,7 @@ private:
      * @param scale The scale of the sprite.
      * @return The created SFML sprite.
      */
-    sf::Sprite createSprite(sf::IntRect textureRect, const sf::Vector2f& position, const sf::Vector2f& scale);
+    sf::Sprite createSprite(sf::IntRect textureRect, const sf::Vector2f& position, const sf::Vector2f& scale) const;
 
 public:
     // Static method to get the instance of the singleton
@@ -37,7 +37,7 @@ public:
      * @param gridSize The size of the grid cell.
      * @return The created ghost sprite.
      */
-    sf::Sprite createGhost(GhostType type, const int alternative, const int posX, const int posY, const int gridSize);
+    sf::Sprite createGhost(GhostType type, int alternative, int posX, int posY, int gridSize) const;
 
     /**
      * @brief Creates a Pac-Man sprite based on alternative, position, and grid size.
@@ -47,7 +47,7 @@ public:
      * @param gridSize The size of the grid cell.
      * @return The created Pac-Man sprite.
      */
-    sf::Sprite createPacMan(int alternative, const int posX, const int posY, const int gridSize);
+    sf::Sprite createPacMan(int alternative, int posX, int posY, int gridSize) const;
 
     /**
      * @brief Creates a fruit sprite based on alternative, position, and grid size.
@@ -57,7 +57,7 @@ public:
      * @param gridSize The size of the grid cell.
      * @return The created fruit sprite.
      */
-    sf::Sprite createFruit(int alternative, const int posX, const int posY, const int gridSize);
+    sf::Sprite createFruit(int alternative, int posX, int posY, int gridSize) const;
 
     /**
      * @brief Creates a coin sprite based on position and grid size.
@@ -66,13 +66,13 @@ public:
      * @param gridSize The size of the grid cell.
      * @return The created coin sprite.
      */
-    sf::Sprite createCoin(const int posX, const int posY, const int gridSize);
+    sf::Sprite createCoin(int posX, int posY, int gridSize) const;
 
     /**
      * @brief Creates a logo sprite.
      * @return The created logo sprite.
      */
-    sf::Sprite createLogo();
+    sf::Sprite createLogo() const;
 
     // Prevent copying and assignment
     SpriteFactory(const SpriteFactory&) = delete;

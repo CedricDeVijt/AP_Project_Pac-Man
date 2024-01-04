@@ -51,17 +51,17 @@ public:
      * @brief Gets the time elapsed between the last two ticks in microseconds.
      * @return The delta time in microseconds.
      */
-    double getDeltaTime();
+    double getDeltaTime() const;
 
     // Prevent copying and assignment
     Stopwatch(const Stopwatch&) = delete;
     Stopwatch& operator=(const Stopwatch&) = delete;
 
-    static const int SECOND = 1000000;
+    static constexpr int SECOND = 1000000;
 
 private:
     std::chrono::high_resolution_clock::time_point previousTime, tickTime, startTime, pauseTime;
-    std::chrono::microseconds deltaTime, pauseDuration;
+    std::chrono::microseconds deltaTime{}, pauseDuration{};
     bool running = false;
 };
 

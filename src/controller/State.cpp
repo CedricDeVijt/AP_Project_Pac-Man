@@ -13,26 +13,26 @@ State::State(StateManager* stateManager) : stateManager(stateManager) {}
 MenuState::MenuState(StateManager* stateManager) : State(stateManager) {}
 
 void State::createNewMenuState() {
-    shared_ptr<State> menuState = std::make_shared<MenuState>(stateManager);
+    const shared_ptr<State> menuState = std::make_shared<MenuState>(stateManager);
     stateManager->pushState(menuState);
 }
 
 void MenuState::toLevelState() {
-    shared_ptr<State> levelState = std::make_shared<LevelState>(stateManager);
+    const shared_ptr<State> levelState = std::make_shared<LevelState>(stateManager);
     stateManager->pushState(levelState);
     SoundEffects::getInstance().stop();
 }
 
 void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
-    sf::Sprite sprite = SpriteFactory::getInstance().createLogo();
+    const sf::Sprite sprite = SpriteFactory::getInstance().createLogo();
     window->draw(sprite);
 
     // High scores
-    std::vector<std::pair<std::string, int>> scores = Score::loadHighScores();
-    sf::Font font = FontFactory::getInstance().getPixelFont();
+    const std::vector<std::pair<std::string, int>> scores = Score::loadHighScores();
+    const sf::Font font = FontFactory::getInstance().getPixelFont();
 
     sf::Text title("High Scores", font, 40);
-    int spriteHeight = sprite.getGlobalBounds().height;
+    const int spriteHeight = static_cast<int>(sprite.getGlobalBounds().height);
     title.setPosition(100, spriteHeight + 20);
     window->draw(title);
 
@@ -64,15 +64,15 @@ void MenuState::update() {}
 LevelState::LevelState(StateManager *stateManager) : State(stateManager) {
     score = std::make_shared<Score>();
     level = 0;
-    shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>(level);
+    auto factory = std::make_shared<ConcreteFactory>(level);
     world = std::make_shared<World>(factory, level, score);
     // start the clock
     Stopwatch::getInstance().start();
     world->update();
 }
 
-LevelState::LevelState(StateManager *stateManager, int level, shared_ptr <Score> score) : State(stateManager), level(level), score(score) {
-    shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>(level);
+LevelState::LevelState(StateManager *stateManager, int level, const shared_ptr <Score>& score) : State(stateManager), score(score), level(level) {
+    auto factory = std::make_shared<ConcreteFactory>(level);
     world = std::make_shared<World>(factory, level, score);
     // start the clock
     Stopwatch::getInstance().start();
@@ -80,24 +80,24 @@ LevelState::LevelState(StateManager *stateManager, int level, shared_ptr <Score>
 }
 
 void LevelState::toVictoryState() {
-    shared_ptr<State> victoryState = std::make_shared<VictoryState>(stateManager);
+    const shared_ptr<State> victoryState = std::make_shared<VictoryState>(stateManager);
     stateManager->pushState(victoryState);
     SoundEffects::getInstance().playVictory();
 }
 
 void LevelState::toPausedState() {
-    shared_ptr<State> pausedState = std::make_shared<PausedState>(stateManager);
+    const shared_ptr<State> pausedState = std::make_shared<PausedState>(stateManager);
     stateManager->pushState(pausedState);
 }
 
 void LevelState::toGameOverState() {
-    shared_ptr<State> gameOverState = std::make_shared<GameOverState>(stateManager);
+    const shared_ptr<State> gameOverState = std::make_shared<GameOverState>(stateManager);
     stateManager->pushState(gameOverState);
     SoundEffects::getInstance().playGameOver();
 }
 
 void LevelState::toIntermissionState() {
-    shared_ptr<State> intermissionState = std::make_shared<IntermissionState>(stateManager, level);
+    const shared_ptr<State> intermissionState = std::make_shared<IntermissionState>(stateManager, level);
     stateManager->pushState(intermissionState);
     SoundEffects::getInstance().playIntermission();
 
@@ -137,11 +137,11 @@ void LevelState::update() {
 }
 
 void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
-    sf::Font font = FontFactory::getInstance().getPixelFont();
+    const sf::Font font = FontFactory::getInstance().getPixelFont();
     sf::Text scoreText("Score: " + std::to_string(score->getCurrentScore()), font, 20);
     sf::Text livesText("# Lives Remaining: " + std::to_string(score->getLivesRemaining()), font, 20);
 
-    const int textMargin = 30;
+    constexpr int textMargin = 30;
     const int textPosY = window->getSize().y -scoreText.getGlobalBounds().height - textMargin;
     scoreText.setPosition(textMargin, textPosY);
     window->draw(scoreText);
@@ -154,7 +154,7 @@ void LevelState::toNextLevelState() {
     stateManager->popState();
 
     // push new level state
-    shared_ptr<State> levelState = std::make_shared<LevelState>(stateManager, ++level, score);
+    const shared_ptr<State> levelState = std::make_shared<LevelState>(stateManager, ++level, score);
     stateManager->pushState(levelState);
     Stopwatch::getInstance().restart();
 }
@@ -163,8 +163,8 @@ PausedState::PausedState(StateManager* stateManager) : State(stateManager) { Sto
 
 void PausedState::toMenuState() { createNewMenuState(); }
 
-void PausedState::toLevelState() {
-    shared_ptr<State> levelState = stateManager->popState();
+void PausedState::toLevelState() const {
+    const shared_ptr<State> levelState = stateManager->popState();
     stateManager->pushState(levelState);
     Stopwatch::getInstance().unPause();
 }
@@ -183,11 +183,11 @@ void PausedState::update() {}
 
 void PausedState::draw(shared_ptr<sf::RenderWindow> window) {
     // draw the logo
-    sf::Sprite sprite = SpriteFactory::getInstance().createLogo();
+    const sf::Sprite sprite = SpriteFactory::getInstance().createLogo();
     window->draw(sprite);
 
     // draw the title
-    sf::Font font = FontFactory::getInstance().getPixelFont();
+    const sf::Font font = FontFactory::getInstance().getPixelFont();
     sf::Text title("Game Paused", font, 50);
     centerHorizontally(title, sprite.getGlobalBounds().height + 70);
     window->draw(title);
@@ -201,7 +201,7 @@ void PausedState::draw(shared_ptr<sf::RenderWindow> window) {
 
 VictoryState::VictoryState(StateManager* stateManager) : State(stateManager) {}
 
-void VictoryState::toLevelState() {
+void VictoryState::toLevelState() const {
     stateManager->popState();  // back to level state
     stateManager->popState();  // back to menu state
     SoundEffects::getInstance().stop();
@@ -221,11 +221,11 @@ void VictoryState::update() {}
 
 void VictoryState::draw(shared_ptr<sf::RenderWindow> window) {
     // draw the logo
-    sf::Sprite sprite = SpriteFactory::getInstance().createLogo();
+    const sf::Sprite sprite = SpriteFactory::getInstance().createLogo();
     window->draw(sprite);
 
     // draw the title
-    sf::Font font = FontFactory::getInstance().getPacManFont();
+    const sf::Font font = FontFactory::getInstance().getPacManFont();
     sf::Text title("Victory !!!", font, 50);
     centerHorizontally(title, sprite.getGlobalBounds().height + 70);
     window->draw(title);
@@ -270,7 +270,7 @@ void GameOverState::draw(shared_ptr<sf::RenderWindow> window) {
     window->draw(instructions);
 }
 
-void GameOverState::toNewGameState() {
+void GameOverState::toNewGameState() const {
     // pop the GameOverState state from the stack
     stateManager->popState();
     // pop the LevelState state from the stack
@@ -278,20 +278,20 @@ void GameOverState::toNewGameState() {
     // we should now be at the MenuState
 }
 
-void State::centerHorizontally(sf::Text &title, int posY) const {
-    auto window = WindowSingleton::getInstance().getWindow();
-    int titleWidth = title.getGlobalBounds().width;
+void State::centerHorizontally(sf::Text &title, int posY) {
+    const auto window = WindowSingleton::getInstance().getWindow();
+    const int titleWidth = title.getGlobalBounds().width;
     title.setPosition((window->getSize().x - titleWidth) / 2, posY);
 }
 
 IntermissionState::IntermissionState(StateManager* stateManager, int level) : State(stateManager), level(level){}
 
-void IntermissionState::toNextLevelState() {
+void IntermissionState::toNextLevelState() const {
     // pop the intermission state from the stack
     stateManager->popState();
 
     // create the next LevelState
-    std::shared_ptr<LevelState> state = std::dynamic_pointer_cast<LevelState>(stateManager->getCurrentState());
+    const std::shared_ptr<LevelState> state = std::dynamic_pointer_cast<LevelState>(stateManager->getCurrentState());
     state->toNextLevelState();
     SoundEffects::getInstance().stop();
 }
@@ -310,12 +310,12 @@ void IntermissionState::update() {}
 
 void IntermissionState::draw(shared_ptr<sf::RenderWindow> window) {
     // draw the logo
-    sf::Sprite sprite = SpriteFactory::getInstance().createLogo();
+    const sf::Sprite sprite = SpriteFactory::getInstance().createLogo();
     window->draw(sprite);
 
     // draw the title
-    sf::Font font = FontFactory::getInstance().getPixelFont();
-    std::string titleText = "Level " + std::to_string(level) + " Completed";
+    const sf::Font font = FontFactory::getInstance().getPixelFont();
+    const std::string titleText = "Level " + std::to_string(level) + " Completed";
     sf::Text title(titleText, font, 50);
     centerHorizontally(title, sprite.getGlobalBounds().height + 70);
     window->draw(title);
