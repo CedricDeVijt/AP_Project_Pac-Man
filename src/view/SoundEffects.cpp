@@ -33,7 +33,6 @@ void SoundEffects::playGameOver() { play(bufferGameOver); }
 
 void SoundEffects::play(const sf::SoundBuffer& buffer) {
     sound.setBuffer(buffer);
-    // TODO reenable
     sound.play();
 }
 

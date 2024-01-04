@@ -33,7 +33,6 @@ public:
     Random& operator=(const Random&) = delete;
 
 private:
-    // TODO mersenne
     std::default_random_engine generator; ///< Random number generator engine.
 };
 

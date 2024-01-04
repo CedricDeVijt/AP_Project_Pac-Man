@@ -4,8 +4,6 @@
 #include "../model/Ghost.h"
 #include <SFML/Graphics.hpp>
 
-// TODO documentation
-
 /**
  * @class FontFactory
  * @brief Handles the loading and creation of fonts.
