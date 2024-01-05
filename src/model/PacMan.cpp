@@ -1,13 +1,14 @@
 #include "PacMan.h"
 #include "Stopwatch.h"
 #include <algorithm>
+#include <cmath>
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 void PacMan::setTargetDirection(const Direction& direction) { targetDirection = direction; }
 
-PacMan::PacMan(const std::tuple<double, double, double, double>& position, const int level) : EntityModel(position), homePosition(position), level(level) {
+PacMan::PacMan(const std::tuple<double, double, double, double>& position, const int level)
+    : EntityModel(position), homePosition(position), level(level) {
     direction = NONE;
 }
 
@@ -43,18 +44,10 @@ void PacMan::die() {
     notifyObservers(PACMAN_DIES);
 }
 
-void PacMan::captureGhost() const {
-    notifyObservers(PACMAN_CAPTURES_GHOST);
-}
+void PacMan::captureGhost() const { notifyObservers(PACMAN_CAPTURES_GHOST); }
 
-void PacMan::captureFruit() const {
-    notifyObservers(PACMAN_CAPTURES_FRUIT);
-}
+void PacMan::captureFruit() const { notifyObservers(PACMAN_CAPTURES_FRUIT); }
 
-void PacMan::captureCoin() const {
-    notifyObservers(PACMAN_CAPTURES_COIN);
-}
+void PacMan::captureCoin() const { notifyObservers(PACMAN_CAPTURES_COIN); }
 
-bool PacMan::isDead() const {
-    return lives == 0;
-}
+bool PacMan::isDead() const { return lives == 0; }

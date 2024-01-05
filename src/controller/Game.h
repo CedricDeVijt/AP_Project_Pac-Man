@@ -14,7 +14,7 @@ using std::shared_ptr;
  */
 class Game {
 private:
-    shared_ptr<sf::RenderWindow> window;         ///< The main game window.
+    shared_ptr<sf::RenderWindow> window;                                            ///< The main game window.
     const shared_ptr<StateManager> stateManager = std::make_shared<StateManager>(); ///< Manages the game states.
 
 public:

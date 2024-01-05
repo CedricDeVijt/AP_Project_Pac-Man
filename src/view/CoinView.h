@@ -1,13 +1,11 @@
 
 #ifndef GAMELOGICLIB_COINVIEW_H
 #define GAMELOGICLIB_COINVIEW_H
-#include "EntityView.h"
+#include "../util/Singleton.h"
 #include "Collectable.h"
+#include "EntityView.h"
 #include "SpriteFactory.h"
 #include "Window.h"
-#include "../util/Singleton.h"
-
-
 
 /**
  * @class CoinView
@@ -19,7 +17,7 @@ public:
      * @brief Constructs a CoinView object.
      * @param coin The Coin entity to be visualized.
      */
-    explicit CoinView(shared_ptr <Coin> coin);
+    explicit CoinView(shared_ptr<Coin> coin);
 
     /**
      * @brief processes the event.
@@ -28,9 +26,7 @@ public:
     void processEvent(EventType eventType) override;
 
 private:
-    shared_ptr <Coin> coin;
+    shared_ptr<Coin> coin;
 };
 
-
-
-#endif //GAMELOGICLIB_COINVIEW_H
+#endif // GAMELOGICLIB_COINVIEW_H

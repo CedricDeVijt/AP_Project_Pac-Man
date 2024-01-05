@@ -1,10 +1,9 @@
 
 #include "GameOverState.h"
+#include "../util/Singleton.h"
+#include "../view/FontFactory.h"
 #include "../view/SoundEffects.h"
 #include "../view/SpriteFactory.h"
-#include "../view/FontFactory.h"
-#include "../util/Singleton.h"
-
 
 GameOverState::GameOverState(StateManager* stateManager) : State(stateManager) {
     // stop any background sound that was playing
@@ -15,11 +14,11 @@ GameOverState::GameOverState(StateManager* stateManager) : State(stateManager) {
 
 void GameOverState::processInput(sf::Keyboard::Key key) {
     switch (key) {
-        case sf::Keyboard::Enter:
-            toNewGameState();
-            break;
-        default:
-            break;
+    case sf::Keyboard::Enter:
+        toNewGameState();
+        break;
+    default:
+        break;
     }
 }
 

@@ -5,35 +5,23 @@
 #include <vector>
 
 World::World(const shared_ptr<AbstractFactory>& factory, int level) : level(level) {
-    std::vector <std::vector<std::string>> maizes;
+    std::vector<std::vector<std::string>> maizes;
 
-    maizes.push_back({
-                             "wwwwwwwwwwwwwwwwwwww", "wPcccwccccccccwcccfw", "wcwwcwcwwwwwwcwcwwcw",
-                             "wcwccccccccccccccwcw", "wcwcwwcwwGGwwcwwcwcw", "wccccccw1234wccccccw",
-                             "wcwcwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw", "wcwwcwcwwwwwwcwcwwcw",
-                             "wfcccwccccccccwcccfw", "wwwwwwwwwwwwwwwwwwww"
-                     });
+    maizes.push_back({"wwwwwwwwwwwwwwwwwwww", "wPcccwccccccccwcccfw", "wcwwcwcwwwwwwcwcwwcw", "wcwccccccccccccccwcw",
+                      "wcwcwwcwwGGwwcwwcwcw", "wccccccw1234wccccccw", "wcwcwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw",
+                      "wcwwcwcwwwwwwcwcwwcw", "wfcccwccccccccwcccfw", "wwwwwwwwwwwwwwwwwwww"});
 
-    maizes.push_back({
-                             "wwwwwwwwwwwwwwwwwwww", "wfcccwccccccccwcccfw", "wcwwcwcwcwwcwcwcwwcw",
-                             "wcwccwcwccccwcwccwcw", "wcwcwwcwwwwwwcwwcwcw", "wccccccw1234wccccccw",
-                             "wwwcwcwwwccwwwcwcwww", "wcccwccccccccccwcccw", "wcwwwwcwwcwwwcwwwwcw",
-                             "wPccfcccwccwccccfccw", "wwwwwwwwwwwwwwwwwwww"
-                     });
+    maizes.push_back({"wwwwwwwwwwwwwwwwwwww", "wfcccwccccccccwcccfw", "wcwwcwcwcwwcwcwcwwcw", "wcwccwcwccccwcwccwcw",
+                      "wcwcwwcwwwwwwcwwcwcw", "wccccccw1234wccccccw", "wwwcwcwwwccwwwcwcwww", "wcccwccccccccccwcccw",
+                      "wcwwwwcwwcwwwcwwwwcw", "wPccfcccwccwccccfccw", "wwwwwwwwwwwwwwwwwwww"});
 
-    maizes.push_back({
-                             "wwwwwwwwwwwwwwwwwwww", "wPcccwfcccccccwcccfw", "wcwwcwcwwwwwwcwcwwcw",
-                             "wcwccccccccccccccwcw", "wcccwwcwwGGwwcwwcwcw", "wcwwwccw1234wccwwwcw",
-                             "wcccwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw", "wcwwcwcwwwwwwcwcwwcw",
-                             "wfcccwcccfccccwcccfw", "wwwwwwwwwwwwwwwwwwww"
-                     });
+    maizes.push_back({"wwwwwwwwwwwwwwwwwwww", "wPcccwfcccccccwcccfw", "wcwwcwcwwwwwwcwcwwcw", "wcwccccccccccccccwcw",
+                      "wcccwwcwwGGwwcwwcwcw", "wcwwwccw1234wccwwwcw", "wcccwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw",
+                      "wcwwcwcwwwwwwcwcwwcw", "wfcccwcccfccccwcccfw", "wwwwwwwwwwwwwwwwwwww"});
 
-    maizes.push_back({
-                             "wwwwwwwwwwwwwwwwwwww", "wfcccwccccccccwcccfw", "wcwwcwcw1234wcwcwwcw",
-                             "wcwccccccccccccccwcw", "wcwcwwcwwwwwwcwwcwcw", "wcccfccccwccccccfccw",
-                             "wcwcwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw", "wcwwcwcwwwwwwcwcwwcw",
-                             "wfcccwPcccccccwcccfw", "wwwwwwwwwwwwwwwwwwww"
-                     });
+    maizes.push_back({"wwwwwwwwwwwwwwwwwwww", "wfcccwccccccccwcccfw", "wcwwcwcw1234wcwcwwcw", "wcwccccccccccccccwcw",
+                      "wcwcwwcwwwwwwcwwcwcw", "wcccfccccwccccccfccw", "wcwcwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw",
+                      "wcwwcwcwwwwwwcwcwwcw", "wfcccwPcccccccwcccfw", "wwwwwwwwwwwwwwwwwwww"});
 
     const std::vector<std::string> board = maizes[level % maizes.size()];
 
@@ -49,32 +37,32 @@ World::World(const shared_ptr<AbstractFactory>& factory, int level) : level(leve
             double position_y = i * size_y - 1.0;
             const std::tuple<double, double, double, double> position(position_x, position_y, size_x, size_y);
             switch (board[i][j]) {
-                case 'w':
-                    walls.push_back(factory->createWall(position));
-                    break;
-                case 'c':
-                    coins.push_back(factory->createCoin(position));
-                    break;
-                case 'f':
-                    fruits.push_back(factory->createFruit(position));
-                    break;
-                case '1':
-                    ghosts.push_back(factory->createGhost(GhostType::Blinky, position));
-                    break;
-                case '2':
-                    ghosts.push_back(factory->createGhost(GhostType::Pinky, position));
-                    break;
-                case '3':
-                    ghosts.push_back(factory->createGhost(GhostType::Inky, position));
-                    break;
-                case '4':
-                    ghosts.push_back(factory->createGhost(GhostType::Clyde, position));
-                    break;
-                case 'P':
-                    pacMan = factory->createPacMan(position);
-                    break;
-                default:
-                    break;
+            case 'w':
+                walls.push_back(factory->createWall(position));
+                break;
+            case 'c':
+                coins.push_back(factory->createCoin(position));
+                break;
+            case 'f':
+                fruits.push_back(factory->createFruit(position));
+                break;
+            case '1':
+                ghosts.push_back(factory->createGhost(GhostType::Blinky, position));
+                break;
+            case '2':
+                ghosts.push_back(factory->createGhost(GhostType::Pinky, position));
+                break;
+            case '3':
+                ghosts.push_back(factory->createGhost(GhostType::Inky, position));
+                break;
+            case '4':
+                ghosts.push_back(factory->createGhost(GhostType::Clyde, position));
+                break;
+            case 'P':
+                pacMan = factory->createPacMan(position);
+                break;
+            default:
+                break;
             }
         }
     }
@@ -83,27 +71,27 @@ World::World(const shared_ptr<AbstractFactory>& factory, int level) : level(leve
 void World::update() {
     Stopwatch::getInstance().tick();
 
-    for (const auto &coin : coins) {
+    for (const auto& coin : coins) {
         coin->processEvent(EventType::TICK);
     }
 
-    for (const auto &fruit : fruits) {
+    for (const auto& fruit : fruits) {
         fruit->processEvent(EventType::TICK);
     }
 
-    for (const auto &ghost : ghosts) {
+    for (const auto& ghost : ghosts) {
         if (ghost->overlapsWith(pacMan)) {
             if (ghost->isFearMode()) {
                 pacMan->captureGhost();
                 ghost->capturedByPacMan();
             } else {
                 pacMan->die();
-                for (const auto &g : ghosts) {
+                for (const auto& g : ghosts) {
                     g->goHome();
                 }
             }
         }
-        const std::vector <Direction> &possibleDirections = getPossibleDirections(ghost, 0.1);
+        const std::vector<Direction>& possibleDirections = getPossibleDirections(ghost, 0.1);
         ghost->update(possibleDirections, pacMan->getPosition());
     }
 
@@ -111,14 +99,14 @@ void World::update() {
     collect(coins);
     collect(fruits);
 
-    for (const auto &wall : walls) {
+    for (const auto& wall : walls) {
         wall->processEvent(EventType::TICK);
     }
 }
 
-void World::collect(std::vector <std::shared_ptr<Coin>> &collectables) const {
+void World::collect(std::vector<std::shared_ptr<Coin>>& collectables) const {
     // Define the condition for removal (overlap with PacMan)
-    auto condition = [this](const std::shared_ptr <Collectable> &collectable) {
+    auto condition = [this](const std::shared_ptr<Collectable>& collectable) {
         return collectable->overlapsWith(pacMan, 0.9);
     };
     // Use std::remove_if to move elements that satisfy the condition to the end
@@ -131,9 +119,9 @@ void World::collect(std::vector <std::shared_ptr<Coin>> &collectables) const {
     collectables.erase(newEnd, collectables.end());
 }
 
-void World::collect(std::vector <std::shared_ptr<Fruit>> &collectables) const {
+void World::collect(std::vector<std::shared_ptr<Fruit>>& collectables) const {
     // Define the condition for removal (overlap with PacMan)
-    auto condition = [this](const std::shared_ptr <Collectable> &collectable) {
+    auto condition = [this](const std::shared_ptr<Collectable>& collectable) {
         return collectable->overlapsWith(pacMan, 0.9);
     };
     // Use std::remove_if to move elements that satisfy the condition to the end
@@ -149,9 +137,10 @@ void World::collect(std::vector <std::shared_ptr<Fruit>> &collectables) const {
     collectables.erase(newEnd, collectables.end());
 }
 
-void World::setDirectionPacMan(const Direction &direction) const { pacMan->setTargetDirection(direction); }
+void World::setDirectionPacMan(const Direction& direction) const { pacMan->setTargetDirection(direction); }
 
-std::vector <Direction> World::getPossibleDirections(const std::shared_ptr<EntityModel>& entityModel, double tolerance) const {
+std::vector<Direction> World::getPossibleDirections(const std::shared_ptr<EntityModel>& entityModel,
+                                                    double tolerance) const {
     // Get the current position and size of the entity
     double x, y, sizeX, sizeY;
     std::tie(x, y, sizeX, sizeY) = entityModel->getPosition();
@@ -160,10 +149,10 @@ std::vector <Direction> World::getPossibleDirections(const std::shared_ptr<Entit
     const double toleranceY = sizeY * tolerance;
 
     // Initialize possible directions with all directions initially
-    std::vector <Direction> possibleDirections = {LEFT, RIGHT, UP, DOWN};
+    std::vector<Direction> possibleDirections = {LEFT, RIGHT, UP, DOWN};
 
     // Check if entity collides with the wall
-    for (auto &wall : walls) {
+    for (auto& wall : walls) {
         // Get wall's position and size
         double wallX, wallY, wallSizeX, wallSizeY;
         std::tie(wallX, wallY, wallSizeX, wallSizeY) = wall->getPosition();
@@ -204,22 +193,16 @@ std::vector <Direction> World::getPossibleDirections(const std::shared_ptr<Entit
     return possibleDirections;
 }
 
-bool World::isLevelComplete() const {
-    return coins.empty();
-}
+bool World::isLevelComplete() const { return coins.empty(); }
 
-bool World::isAllLevelsComplete() const {
-    return isLevelComplete() && (level == 3);
-}
+bool World::isAllLevelsComplete() const { return isLevelComplete() && (level == 3); }
 
-bool World::isGameOver() const {
-    return pacMan->isDead();
-}
+bool World::isGameOver() const { return pacMan->isDead(); }
 
 void World::registerObserver(const shared_ptr<Observer>& observer) {
     // register pacMan and all ghost to the observer
     pacMan->registerObserver(observer);
-    for (const auto &ghost : ghosts) {
+    for (const auto& ghost : ghosts) {
         ghost->registerObserver(observer);
     }
 }

@@ -1,6 +1,6 @@
 #include "StateManager.h"
-#include "State.h"
 #include "MenuState.h"
+#include "State.h"
 
 StateManager::StateManager() { stateStack.push(std::make_shared<MenuState>(this)); }
 

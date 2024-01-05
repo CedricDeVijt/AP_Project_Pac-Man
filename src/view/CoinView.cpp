@@ -1,14 +1,13 @@
 #include "CoinView.h"
 
-#include <utility>
-#include "EntityView.h"
+#include "Camera.h"
 #include "Collectable.h"
+#include "EntityView.h"
 #include "SpriteFactory.h"
 #include "Window.h"
-#include "Camera.h"
+#include <utility>
 
-
-CoinView::CoinView(shared_ptr <Coin> coin) : coin(std::move(coin)) {}
+CoinView::CoinView(shared_ptr<Coin> coin) : coin(std::move(coin)) {}
 
 void CoinView::processEvent(EventType eventType) {
     if (eventType == EventType::TICK) {
@@ -19,4 +18,3 @@ void CoinView::processEvent(EventType eventType) {
         window->draw(spriteFactory.createCoin(posX, posY, gridSize));
     }
 }
-

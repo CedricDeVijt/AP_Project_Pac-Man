@@ -2,10 +2,8 @@
 #ifndef GAMELOGICLIB_GAMEOVERSTATE_H
 #define GAMELOGICLIB_GAMEOVERSTATE_H
 
-
-
-#include "StateManager.h"
 #include "State.h"
+#include "StateManager.h"
 /**
  * @class GameOverState
  * @brief Represents the game over state of the game.
@@ -16,7 +14,7 @@ public:
      * @brief Constructor for the GameOverState class.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit GameOverState(StateManager *stateManager);
+    explicit GameOverState(StateManager* stateManager);
 
     /**
      * @brief Processes input events for the GameOverState.
@@ -34,7 +32,7 @@ public:
      * @brief Draws the GameOverState on the given window.
      * @param window Shared pointer to the SFML RenderWindow.
      */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
+    void draw(shared_ptr<sf::RenderWindow> window) override;
 
 private:
     /**
@@ -45,7 +43,4 @@ private:
     void toNewGameState() const;
 };
 
-
-
-
-#endif //GAMELOGICLIB_GAMEOVERSTATE_H
+#endif // GAMELOGICLIB_GAMEOVERSTATE_H

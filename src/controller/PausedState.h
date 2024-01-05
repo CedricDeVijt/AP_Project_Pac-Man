@@ -2,8 +2,6 @@
 #ifndef GAMELOGICLIB_PAUSEDSTATE_H
 #define GAMELOGICLIB_PAUSEDSTATE_H
 
-
-
 #include "State.h"
 /**
  * @class PausedState
@@ -15,7 +13,7 @@ public:
      * @brief Constructor for the PausedState class.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit PausedState(StateManager *stateManager);
+    explicit PausedState(StateManager* stateManager);
 
     /**
      * @brief Processes input events for the PausedState.
@@ -33,7 +31,7 @@ public:
      * @brief Draws the PausedState on the given window.
      * @param window Shared pointer to the SFML RenderWindow.
      */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
+    void draw(shared_ptr<sf::RenderWindow> window) override;
 
 private:
     /**
@@ -45,10 +43,6 @@ private:
      * @brief Transitions to LevelState.
      */
     void toLevelState() const;
-
 };
 
-
-
-
-#endif //GAMELOGICLIB_PAUSEDSTATE_H
+#endif // GAMELOGICLIB_PAUSEDSTATE_H

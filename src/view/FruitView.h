@@ -1,11 +1,9 @@
 
 #ifndef GAMELOGICLIB_FRUITVIEW_H
 #define GAMELOGICLIB_FRUITVIEW_H
-#include "EntityView.h"
 #include "Collectable.h"
+#include "EntityView.h"
 #include "Window.h"
-
-
 
 /**
  * @class FruitView
@@ -17,7 +15,7 @@ public:
      * @brief Constructs a FruitView object.
      * @param fruit The Fruit entity to be visualized.
      */
-    explicit FruitView(shared_ptr <Fruit> fruit);
+    explicit FruitView(shared_ptr<Fruit> fruit);
 
     /**
      * @brief processes the event.
@@ -26,8 +24,7 @@ public:
     void processEvent(EventType eventType) override;
 
 private:
-    shared_ptr <Fruit> fruit;
+    shared_ptr<Fruit> fruit;
 };
 
-
-#endif //GAMELOGICLIB_FRUITVIEW_H
+#endif // GAMELOGICLIB_FRUITVIEW_H

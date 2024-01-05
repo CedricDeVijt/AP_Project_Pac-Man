@@ -1,8 +1,8 @@
 #include "GhostView.h"
 
-#include "Ghost.h"
 #include "Camera.h"
 #include "EntityView.h"
+#include "Ghost.h"
 #include "SpriteFactory.h"
 #include "Window.h"
 #include <utility>

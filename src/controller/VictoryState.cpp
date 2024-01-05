@@ -1,9 +1,9 @@
 
 #include "VictoryState.h"
+#include "../util/Singleton.h"
+#include "../view/FontFactory.h"
 #include "../view/SoundEffects.h"
 #include "../view/SpriteFactory.h"
-#include "../view/FontFactory.h"
-#include "../util/Singleton.h"
 
 VictoryState::VictoryState(StateManager* stateManager, int score) : State(stateManager), score(score) {
     // stop any background sound that was playing
@@ -14,8 +14,8 @@ VictoryState::VictoryState(StateManager* stateManager, int score) : State(stateM
 
 void VictoryState::toMenuState() const {
     // get the correct state
-    stateManager->popState();  // back to level state
-    stateManager->popState();  // back to menu state
+    stateManager->popState(); // back to level state
+    stateManager->popState(); // back to menu state
 
     // prepare for the menu state
     Singleton<SoundEffects>::getInstance().stop();
@@ -24,11 +24,11 @@ void VictoryState::toMenuState() const {
 
 void VictoryState::processInput(sf::Keyboard::Key key) {
     switch (key) {
-        case sf::Keyboard::Enter:
-            toMenuState();
-            break;
-        default:
-            break;
+    case sf::Keyboard::Enter:
+        toMenuState();
+        break;
+    default:
+        break;
     }
 }
 

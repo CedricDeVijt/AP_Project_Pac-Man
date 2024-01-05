@@ -14,7 +14,7 @@ public:
      * @brief Constructs a GhostView object.
      * @param ghost The Ghost entity to be visualized.
      */
-    explicit GhostView(shared_ptr <Ghost> ghost);
+    explicit GhostView(shared_ptr<Ghost> ghost);
 
     /**
      * @brief processes the event.
@@ -23,8 +23,7 @@ public:
     void processEvent(EventType eventType) override;
 
 private:
-    shared_ptr <Ghost> ghost;
+    shared_ptr<Ghost> ghost;
 };
 
-
-#endif //GAMELOGICLIB_GHOSTVIEW_H
+#endif // GAMELOGICLIB_GHOSTVIEW_H

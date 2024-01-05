@@ -77,15 +77,14 @@ public:
                 const std::tuple<double, double, double, double>& pacManPosition);
 
 private:
-    GhostType type;            ///< The type of the ghost.
+    GhostType type;                                          ///< The type of the ghost.
     std::tuple<double, double, double, double> homePosition; ///< The home position of the ghost.
     Direction direction = Direction::NONE;                   ///< The current direction of the ghost.
 
-    double waitTime{0};                ///< The remaining time before the ghost can start moving.
-    double fearWaitTime;                ///< The remaining time before the ghost leaves fear mode.
+    double waitTime{0};            ///< The remaining time before the ghost can start moving.
+    double fearWaitTime;           ///< The remaining time before the ghost leaves fear mode.
     int level{0};                  ///< The level of the current game
     const double accelerator{1.1}; ///< The accelerator factor used to speed up the movements of the ghost
-
 
     /**
      * @brief Checks if the ghost is at a corner or intersection.
@@ -100,8 +99,9 @@ private:
      * @param pacManPosition A tuple representing the current position (x, y, width, height) of PacMan.
      * @return The direction with the minimum Manhattan distance.
      */
-    Direction getDirectionWithMinmumManhattanDistance(const std::vector<Direction>& possibleDirections,
-                                                      const std::tuple<double, double, double, double>& pacManPosition) const;
+    Direction getDirectionWithMinmumManhattanDistance(
+        const std::vector<Direction>& possibleDirections,
+        const std::tuple<double, double, double, double>& pacManPosition) const;
 
     /**
      * @brief Gets the direction with the maximum Manhattan distance to PacMan.
@@ -126,7 +126,7 @@ private:
      */
     bool hasLeftStartingPoint() const;
 
-    Direction getRandomDirection(const std::vector <Direction> &possibleDirections) const;
+    Direction getRandomDirection(const std::vector<Direction>& possibleDirections) const;
 };
 
 #endif // AP_PROJECT_PAC_MAN_GHOST_H

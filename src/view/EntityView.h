@@ -4,9 +4,9 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 
+#include "../util/Singleton.h"
 #include "SpriteFactory.h"
 #include "Window.h"
-#include "../util/Singleton.h"
 
 using std::shared_ptr;
 
@@ -16,8 +16,8 @@ using std::shared_ptr;
  */
 class EntityView : public Observer {
 protected:
-    shared_ptr <sf::RenderWindow> window = Singleton<Window>::getInstance().getWindow();
-    SpriteFactory &spriteFactory = Singleton<SpriteFactory>::getInstance();
+    shared_ptr<sf::RenderWindow> window = Singleton<Window>::getInstance().getWindow();
+    SpriteFactory& spriteFactory = Singleton<SpriteFactory>::getInstance();
 
     /**
      * @brief Gets the grid size based on the window size.
@@ -25,7 +25,5 @@ protected:
      */
     int getGridSize() const;
 };
-
-
 
 #endif // AP_PROJECT_PAC_MAN_ENTITYVIEW_H

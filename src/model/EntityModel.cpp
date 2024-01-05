@@ -10,7 +10,9 @@
 
 std::tuple<double, double, double, double> EntityModel::getPosition() const { return position; }
 
-bool EntityModel::overlapsWith(const shared_ptr<EntityModel>& entityModel) const { return overlapsWith(entityModel, 0.0); }
+bool EntityModel::overlapsWith(const shared_ptr<EntityModel>& entityModel) const {
+    return overlapsWith(entityModel, 0.0);
+}
 
 // check if there is an overlap between the 2 entities with a given percentage overlap
 bool EntityModel::overlapsWith(const shared_ptr<EntityModel>& entityModel, double percentage) const {
@@ -52,8 +54,8 @@ void EntityModel::nudgeToGrid() {
 EntityModel::EntityModel(std::tuple<double, double, double, double> position) : position(std::move(position)) {}
 
 // calculate the position after taking a step in a direction
-std::tuple<double, double, double, double>
-EntityModel::step(Direction direction, const std::tuple<double, double, double, double> &startPosition, double accelerator) {
+std::tuple<double, double, double, double> EntityModel::step(
+    Direction direction, const std::tuple<double, double, double, double>& startPosition, double accelerator) {
     // calculate step in each direction
     const auto deltaTime = Stopwatch::getInstance().getDeltaTime();
     const double stepX = SPEED * deltaTime * accelerator;
@@ -68,7 +70,7 @@ EntityModel::step(Direction direction, const std::tuple<double, double, double, 
     } else if (direction == UP) {
         y -= stepY;
     } else if (direction == DOWN) {
-            y += stepY;
+        y += stepY;
     }
     return std::make_tuple(x, y, sizeX, sizeY);
 }

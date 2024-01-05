@@ -3,7 +3,6 @@
 
 #include <chrono>
 
-
 /**
  * @class Stopwatch
  * @brief A singleton class for measuring time and calculating delta time.

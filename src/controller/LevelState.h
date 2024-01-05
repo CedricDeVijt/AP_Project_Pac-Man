@@ -2,9 +2,9 @@
 #ifndef GAMELOGICLIB_LEVELSTATE_H
 #define GAMELOGICLIB_LEVELSTATE_H
 
-#include "World.h"
 #include "Score.h"
 #include "State.h"
+#include "World.h"
 
 /**
  * @class LevelState
@@ -16,7 +16,7 @@ public:
      * @brief Constructor for the LevelState class.  Creates a world of level 0.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit LevelState(StateManager *stateManager);
+    explicit LevelState(StateManager* stateManager);
 
     /**
      * @brief Constructor for the LevelState class.  Creates a world with given level and score.
@@ -24,7 +24,7 @@ public:
      * @param level The level of the game
      * @param score The object containing the current score info
      */
-    explicit LevelState(StateManager *stateManager, int level, const shared_ptr <Score>& score);
+    explicit LevelState(StateManager* stateManager, int level, const shared_ptr<Score>& score);
 
     /**
      * @brief Processes input events for the LevelState.
@@ -44,7 +44,7 @@ public:
      * Displays the current score and remaining lives.
      * @param window Shared pointer to the SFML RenderWindow.
      */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
+    void draw(shared_ptr<sf::RenderWindow> window) override;
 
     /**
      * @brief creates a LevelState that corresponds to the next level in the game.
@@ -52,7 +52,6 @@ public:
     void toNextLevelState();
 
 private:
-
     /**
      * @brief Transitions to VictoryState.
      */
@@ -73,11 +72,9 @@ private:
      */
     void toIntermissionState();
 
-    shared_ptr <World> world; ///< Pointer to the game world.
-    shared_ptr <Score> score; ///< Pointer to the game score.
-    int level = 0;                ///< The current level of the game
+    shared_ptr<World> world; ///< Pointer to the game world.
+    shared_ptr<Score> score; ///< Pointer to the game score.
+    int level = 0;           ///< The current level of the game
 };
 
-
-
-#endif //GAMELOGICLIB_LEVELSTATE_H
+#endif // GAMELOGICLIB_LEVELSTATE_H

@@ -1,9 +1,9 @@
 #include "FruitView.h"
 
-#include "Collectable.h"
-#include "Camera.h"
-#include "Window.h"
 #include "../util/Singleton.h"
+#include "Camera.h"
+#include "Collectable.h"
+#include "Window.h"
 #include <utility>
 
 FruitView::FruitView(shared_ptr<Fruit> fruit) : fruit(std::move(fruit)) {}

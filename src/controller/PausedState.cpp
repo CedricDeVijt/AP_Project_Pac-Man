@@ -1,10 +1,10 @@
 #include "PausedState.h"
-#include "StateManager.h"
-#include "Stopwatch.h"
-#include "../view/SpriteFactory.h"
+#include "../util/Singleton.h"
 #include "../view/FontFactory.h"
 #include "../view/SoundEffects.h"
-#include "../util/Singleton.h"
+#include "../view/SpriteFactory.h"
+#include "StateManager.h"
+#include "Stopwatch.h"
 
 PausedState::PausedState(StateManager* stateManager) : State(stateManager) {
     Stopwatch::getInstance().pause();
@@ -22,11 +22,11 @@ void PausedState::toLevelState() const {
 
 void PausedState::processInput(sf::Keyboard::Key key) {
     switch (key) {
-        case sf::Keyboard::Escape:
-            toLevelState();
-            break;
-        default:
-            break;
+    case sf::Keyboard::Escape:
+        toLevelState();
+        break;
+    default:
+        break;
     }
 }
 
@@ -48,5 +48,3 @@ void PausedState::draw(shared_ptr<sf::RenderWindow> window) {
     centerHorizontally(instructions, window->getSize().y - 100);
     window->draw(instructions);
 }
-
-

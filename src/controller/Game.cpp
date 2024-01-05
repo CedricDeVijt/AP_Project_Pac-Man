@@ -2,11 +2,11 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "../view/Window.h"
 #include "../util/Singleton.h"
+#include "../view/Window.h"
 #include "State.h"
 
-Game::Game(){
+Game::Game() {
     window = Singleton<Window>::getInstance().getWindow();
     window->setFramerateLimit(60);
 }

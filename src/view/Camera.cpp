@@ -1,6 +1,6 @@
 #include "Camera.h"
-#include "Window.h"
 #include "../util/Singleton.h"
+#include "Window.h"
 
 int toPixelValue(double position, int canvasSize) {
     // move origin [-1, 1] -> [0, 2]

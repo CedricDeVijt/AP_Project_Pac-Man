@@ -2,10 +2,8 @@
 #ifndef GAMELOGICLIB_INTERMISSIONSTATE_H
 #define GAMELOGICLIB_INTERMISSIONSTATE_H
 
-
-
-#include "StateManager.h"
 #include "State.h"
+#include "StateManager.h"
 /**
  * @class IntermissionState
  * @brief Represents the intermission state between two levels.
@@ -17,7 +15,7 @@ public:
      * @param stateManager Pointer to the StateManager managing the game states.
      * @param level The level that just has been completed.
      */
-    explicit IntermissionState(StateManager *stateManager, int level);
+    explicit IntermissionState(StateManager* stateManager, int level);
 
     /**
      * @brief Processes input events for the IntermissionState.
@@ -35,7 +33,7 @@ public:
      * @brief Draws the IntermissionState on the given window.
      * @param window Shared pointer to the SFML RenderWindow.
      */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
+    void draw(shared_ptr<sf::RenderWindow> window) override;
 
 private:
     /**
@@ -46,6 +44,4 @@ private:
     int level; ///< The value of the level that just has been completed
 };
 
-
-
-#endif //GAMELOGICLIB_INTERMISSIONSTATE_H
+#endif // GAMELOGICLIB_INTERMISSIONSTATE_H

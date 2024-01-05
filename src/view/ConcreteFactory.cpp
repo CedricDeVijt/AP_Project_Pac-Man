@@ -1,15 +1,14 @@
 #include "ConcreteFactory.h"
-#include "EntityView.h"
-#include "Random.h"
 #include "CoinView.h"
+#include "EntityView.h"
 #include "FruitView.h"
 #include "GhostView.h"
 #include "PacManView.h"
+#include "Random.h"
 #include "WallView.h"
 
-
-
-shared_ptr<Ghost> ConcreteFactory::createGhost(const GhostType type, const std::tuple<double, double, double, double> position) {
+shared_ptr<Ghost> ConcreteFactory::createGhost(const GhostType type,
+                                               const std::tuple<double, double, double, double> position) {
     auto ghost = std::make_shared<Ghost>(type, position, level);
     const auto ghostView = std::make_shared<GhostView>(ghost);
     ghost->registerObserver(ghostView);
@@ -44,7 +43,4 @@ shared_ptr<Fruit> ConcreteFactory::createFruit(const std::tuple<double, double, 
     return fruit;
 }
 
-ConcreteFactory::ConcreteFactory(const int level): level(level){
-
-}
-
+ConcreteFactory::ConcreteFactory(const int level) : level(level) {}

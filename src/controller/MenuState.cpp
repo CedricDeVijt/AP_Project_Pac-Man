@@ -1,18 +1,16 @@
 #include "MenuState.h"
-#include "State.h"
-#include "LevelState.h"
-#include "../view/FontFactory.h"
-#include "../view/SpriteFactory.h"
 #include "../util/Singleton.h"
+#include "../view/FontFactory.h"
 #include "../view/SoundEffects.h"
+#include "../view/SpriteFactory.h"
+#include "LevelState.h"
+#include "State.h"
 
 MenuState::MenuState(StateManager* stateManager) : State(stateManager) {
     Singleton<SoundEffects>::getInstance().playOpeningSong();
 }
 
-void MenuState::toLevelState() {
-    stateManager->pushState(std::make_shared<LevelState>(stateManager));
-}
+void MenuState::toLevelState() { stateManager->pushState(std::make_shared<LevelState>(stateManager)); }
 
 void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
     window->draw(Singleton<SpriteFactory>::getInstance().createLogo());
@@ -22,7 +20,8 @@ void MenuState::draw(shared_ptr<sf::RenderWindow> window) {
     const sf::Font font = Singleton<FontFactory>::getInstance().getPixelFont();
 
     sf::Text title("High Scores", font, 40);
-    const auto spriteHeight = static_cast<int>(Singleton<SpriteFactory>::getInstance().createLogo().getGlobalBounds().height);
+    const auto spriteHeight =
+        static_cast<int>(Singleton<SpriteFactory>::getInstance().createLogo().getGlobalBounds().height);
     title.setPosition(100, spriteHeight + 20);
     window->draw(title);
 
@@ -50,7 +49,3 @@ void MenuState::processInput(const sf::Keyboard::Key key) {
 }
 
 void MenuState::update() {}
-
-
-
-

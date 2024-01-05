@@ -55,11 +55,10 @@ public:
     bool isGameOver() const;
 
     /**
-    * @brief Registers an observer to receive updates from the entities in the world.
-    * @param observer The observer to register.
-    */
+     * @brief Registers an observer to receive updates from the entities in the world.
+     * @param observer The observer to register.
+     */
     void registerObserver(const shared_ptr<Observer>& observer);
-
 
 private:
     std::vector<shared_ptr<Wall>> walls;   ///< Vector of walls in the game.
@@ -75,7 +74,8 @@ private:
      * @param tolerance The tolerance factor for collision detection.
      * @return A vector of possible directions.
      */
-    std::vector<Direction> getPossibleDirections(const std::shared_ptr<EntityModel>& entityModel, double tolerance) const;
+    std::vector<Direction> getPossibleDirections(const std::shared_ptr<EntityModel>& entityModel,
+                                                 double tolerance) const;
 
     /**
      * @brief Collects coins that overlap with PacMan and updates the score.

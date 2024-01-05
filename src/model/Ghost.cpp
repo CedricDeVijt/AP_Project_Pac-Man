@@ -4,10 +4,10 @@
 #include "Stopwatch.h"
 #include <algorithm>
 #include <cmath>
+#include <functional>
 #include <iostream>
 #include <limits>
 #include <vector>
-#include <functional>
 
 std::ostream& operator<<(std::ostream& os, const GhostType& ghostType) {
     switch (ghostType) {
@@ -37,19 +37,18 @@ Ghost::Ghost(const GhostType type, const std::tuple<double, double, double, doub
 
     // set the appropiate wait time for each of the ghosts
     switch (type) {
-        case GhostType::Blinky:
-            waitTime = 5 * Stopwatch::SECOND;
-            break;
-        case GhostType::Clyde:
-            waitTime = 10 * Stopwatch::SECOND;
-            break;
-        default:
-            waitTime = -1.0; // no waiting
-            break;
+    case GhostType::Blinky:
+        waitTime = 5 * Stopwatch::SECOND;
+        break;
+    case GhostType::Clyde:
+        waitTime = 10 * Stopwatch::SECOND;
+        break;
+    default:
+        waitTime = -1.0; // no waiting
+        break;
     }
     direction = Direction::NONE;
     nudgeToGrid();
-
 }
 
 void Ghost::capturedByPacMan() {
@@ -57,17 +56,11 @@ void Ghost::capturedByPacMan() {
     position = homePosition;
 }
 
-void Ghost::toFearMode() {
-    fearWaitTime = 5 * Stopwatch::SECOND;
-}
+void Ghost::toFearMode() { fearWaitTime = 5 * Stopwatch::SECOND; }
 
-bool Ghost::isFearMode() const {
-    return fearWaitTime > 0;
-}
+bool Ghost::isFearMode() const { return fearWaitTime > 0; }
 
-bool Ghost::isWaitMode() const {
-    return waitTime > 0.0;
-}
+bool Ghost::isWaitMode() const { return waitTime > 0.0; }
 
 GhostType Ghost::getType() const { return type; }
 
@@ -98,12 +91,12 @@ void Ghost::update(const std::vector<Direction>& directions,
             direction = getRandomDirection(directions);
         }
 
-            // return if at a deadend
+        // return if at a deadend
         else if (atDeadEnd(directions)) {
             direction = directions[0];
         }
 
-            // determine a new direction if we are at a corner or intersecion
+        // determine a new direction if we are at a corner or intersecion
         else if (atCornerOrIntersection(directions)) {
             // decide with probability p=0.5 to take random or manhattan direction
             if (Random::getInstance().getRandomNumber(100) < 50) {
@@ -122,13 +115,12 @@ void Ghost::update(const std::vector<Direction>& directions,
         }
     }
     // determine the acceleration for the given level
-    const double acceleration = std::pow(accelerator, level)*0.8;
+    const double acceleration = std::pow(accelerator, level) * 0.8;
     position = step(direction, position, acceleration);
     notifyObservers(TICK);
 }
 
-Direction Ghost::getRandomDirection(
-        const std::vector <Direction> &possibleDirections) const {
+Direction Ghost::getRandomDirection(const std::vector<Direction>& possibleDirections) const {
     // determine random direction among possible directions
     // modified algorithm to not go back
     if (possibleDirections.size() == 1) {
@@ -188,11 +180,11 @@ Direction Ghost::getDirectionWithMaximumManhattanDistance(
 bool Ghost::atCornerOrIntersection(const std::vector<Direction>& directions) {
     // Check if "up" or "down" is present
     const bool hasUpDown = std::find(directions.begin(), directions.end(), Direction::UP) != directions.end() ||
-                     std::find(directions.begin(), directions.end(), Direction::DOWN) != directions.end();
+                           std::find(directions.begin(), directions.end(), Direction::DOWN) != directions.end();
 
     // Check if "left" or "right" is present
     const bool hasLeftRight = std::find(directions.begin(), directions.end(), Direction::LEFT) != directions.end() ||
-                        std::find(directions.begin(), directions.end(), Direction::RIGHT) != directions.end();
+                              std::find(directions.begin(), directions.end(), Direction::RIGHT) != directions.end();
 
     // Return true if one of "up" or "down" is present AND one of "left" or "right" is present
     return hasUpDown && hasLeftRight;
@@ -200,10 +192,6 @@ bool Ghost::atCornerOrIntersection(const std::vector<Direction>& directions) {
 
 bool Ghost::atDeadEnd(const std::vector<Direction>& directions) { return (directions.size() == 1); }
 
-bool Ghost::hasLeftStartingPoint() const {
-    return manhattanDistance(homePosition, position) > 0.2;
-}
+bool Ghost::hasLeftStartingPoint() const { return manhattanDistance(homePosition, position) > 0.2; }
 
-void Ghost::goHome() {
-    position = homePosition;
-}
+void Ghost::goHome() { position = homePosition; }

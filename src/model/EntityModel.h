@@ -61,7 +61,8 @@ protected:
      * @param accelerator The factor that determines the relevant acceleration to take into account
      * @return A tuple representing the new position after the step.
      */
-    static std::tuple<double, double, double, double> step(Direction direction, const std::tuple<double, double, double, double>& startPosition, double accelerator);
+    static std::tuple<double, double, double, double> step(
+        Direction direction, const std::tuple<double, double, double, double>& startPosition, double accelerator);
 };
 
 #endif // AP_PROJECT_PAC_MAN_ENTITYMODEL_H

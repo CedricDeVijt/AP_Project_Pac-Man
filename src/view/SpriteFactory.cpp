@@ -1,6 +1,6 @@
 #include "SpriteFactory.h"
-#include "Window.h"
 #include "../util/Singleton.h"
+#include "Window.h"
 
 // Define the static instance of the singleton
 SpriteFactory::SpriteFactory() {

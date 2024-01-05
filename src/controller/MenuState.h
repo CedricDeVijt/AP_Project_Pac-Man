@@ -2,8 +2,6 @@
 #ifndef GAMELOGICLIB_MENUSTATE_H
 #define GAMELOGICLIB_MENUSTATE_H
 
-
-
 #include "State.h"
 /**
  * @class MenuState
@@ -15,7 +13,7 @@ public:
      * @brief Constructor for the MenuState class.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit MenuState(StateManager *stateManager);
+    explicit MenuState(StateManager* stateManager);
 
     /**
      * @brief Processes input events for the MenuState.
@@ -34,7 +32,7 @@ public:
      * Displays the Pac-man logo and high scores.
      * @param window Shared pointer to the SFML RenderWindow.
      */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
+    void draw(shared_ptr<sf::RenderWindow> window) override;
 
 private:
     /**
@@ -43,8 +41,4 @@ private:
     void toLevelState();
 };
 
-
-
-
-
-#endif //GAMELOGICLIB_MENUSTATE_H
+#endif // GAMELOGICLIB_MENUSTATE_H

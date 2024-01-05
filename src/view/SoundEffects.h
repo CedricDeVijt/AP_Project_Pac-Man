@@ -17,6 +17,7 @@ private:
     sf::Sound foregroundSound, backgroundSound;
     sf::SoundBuffer bufferEatingCherry, bufferEatingGhost, bufferExtraLife, bufferIntermission, bufferOpeningSong,
         bufferSiren, bufferWakaWaka, bufferGameOver, bufferVictory, bufferToyBoxWorld;
+
 public:
     SoundEffects();
 
