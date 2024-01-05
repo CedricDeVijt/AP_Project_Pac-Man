@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP Pac-Man project: IntermissionState Class Reference</title>
+<title>AP: Project Pac-Man: IntermissionState Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP Pac-Man project
+   <div id="projectname">AP: Project Pac-Man
    </div>
   </td>
  </tr>
@@ -93,6 +93,8 @@ $(function(){initNavTree('class_intermission_state.html',''); initResizable(); }
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_intermission_state-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">IntermissionState Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
@@ -114,7 +116,7 @@ Inheritance diagram for IntermissionState:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aadb59a7909292c5e59f6e1c2b0e635f3" id="r_aadb59a7909292c5e59f6e1c2b0e635f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadb59a7909292c5e59f6e1c2b0e635f3">IntermissionState</a> (<a class="el" href="class_state_manager.html">StateManager</a> *<a class="el" href="class_state.html#a78388f59b0a570faa4b7ea640fea668e">stateManager</a>, int level)</td></tr>
+<tr class="memitem:aadb59a7909292c5e59f6e1c2b0e635f3" id="r_aadb59a7909292c5e59f6e1c2b0e635f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadb59a7909292c5e59f6e1c2b0e635f3">IntermissionState</a> (<a class="el" href="class_state_manager.html">StateManager</a> *<a class="el" href="class_state.html#a78388f59b0a570faa4b7ea640fea668e">stateManager</a>, int <a class="el" href="#a8fa9be9eb95cdd0401c51377004227ae">level</a>)</td></tr>
 <tr class="memdesc:aadb59a7909292c5e59f6e1c2b0e635f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_intermission_state.html" title="Represents the intermission state between two levels.">IntermissionState</a> class.  <br /></td></tr>
 <tr class="separator:aadb59a7909292c5e59f6e1c2b0e635f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af77268c12ea28ced63f27d6b002496c3" id="r_af77268c12ea28ced63f27d6b002496c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af77268c12ea28ced63f27d6b002496c3">processInput</a> (sf::Keyboard::Key key) override</td></tr>
@@ -134,6 +136,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a783d52422b544bb226e13de8ecfd6ad6 inherit pub_methods_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for the <a class="el" href="class_state.html" title="Abstract base class representing different states in the game.">State</a> class.  <br /></td></tr>
 <tr class="separator:a783d52422b544bb226e13de8ecfd6ad6 inherit pub_methods_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aefa77c9d2f44f1fe5d59acd8fcc5fade" id="r_aefa77c9d2f44f1fe5d59acd8fcc5fade"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefa77c9d2f44f1fe5d59acd8fcc5fade">toNextLevelState</a> () const</td></tr>
+<tr class="memdesc:aefa77c9d2f44f1fe5d59acd8fcc5fade"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transitions to <a class="el" href="class_menu_state.html" title="Represents the menu state of the game.">MenuState</a>.  <br /></td></tr>
+<tr class="separator:aefa77c9d2f44f1fe5d59acd8fcc5fade"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a8fa9be9eb95cdd0401c51377004227ae" id="r_a8fa9be9eb95cdd0401c51377004227ae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fa9be9eb95cdd0401c51377004227ae">level</a></td></tr>
+<tr class="memdesc:a8fa9be9eb95cdd0401c51377004227ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">The value of the level that just has been completed.  <br /></td></tr>
+<tr class="separator:a8fa9be9eb95cdd0401c51377004227ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_class_state"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_state')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_state.html">State</a></td></tr>
@@ -151,6 +165,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents the intermission state between two levels. </p>
+
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00299">299</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aadb59a7909292c5e59f6e1c2b0e635f3" name="aadb59a7909292c5e59f6e1c2b0e635f3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aadb59a7909292c5e59f6e1c2b0e635f3">&#9670;&#160;</a></span>IntermissionState()</h2>
@@ -188,6 +204,8 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00286">286</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -224,6 +242,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_state.html#a22d8ccd962cdd3d1a934fca7a0f16cdb">State</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00310">310</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
+
 </div>
 </div>
 <a id="af77268c12ea28ced63f27d6b002496c3" name="af77268c12ea28ced63f27d6b002496c3"></a>
@@ -259,6 +279,37 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_state.html#ae4c38c28c92ab5b57bdcde634b57f0c5">State</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00298">298</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aefa77c9d2f44f1fe5d59acd8fcc5fade" name="aefa77c9d2f44f1fe5d59acd8fcc5fade"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefa77c9d2f44f1fe5d59acd8fcc5fade">&#9670;&#160;</a></span>toNextLevelState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntermissionState::toNextLevelState </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transitions to <a class="el" href="class_menu_state.html" title="Represents the menu state of the game.">MenuState</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00288">288</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a10a44b46f7569e162e27b96127fcd092" name="a10a44b46f7569e162e27b96127fcd092"></a>
@@ -288,11 +339,40 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_state.html#a06315e7e44aadfa576cbf7e6c1c7d87f">State</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00308">308</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a8fa9be9eb95cdd0401c51377004227ae" name="a8fa9be9eb95cdd0401c51377004227ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fa9be9eb95cdd0401c51377004227ae">&#9670;&#160;</a></span>level</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int IntermissionState::level</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The value of the level that just has been completed. </p>
+
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00332">332</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/controller/<a class="el" href="_state_8h_source.html">State.h</a></li>
-<li>src/controller/<a class="el" href="_state_8cpp.html">State.cpp</a></li>
+<li>src/controller/<a class="el" href="_state_8cpp_source.html">State.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

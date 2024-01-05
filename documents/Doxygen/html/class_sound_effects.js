@@ -1,6 +1,8 @@
 var class_sound_effects =
 [
+    [ "SoundEffects", "class_sound_effects.html#a09e8170634b4ee92c1097cb00bb713d5", null ],
     [ "SoundEffects", "class_sound_effects.html#a472017548e302f52ba6c9e777467dff9", null ],
+    [ "getInstance", "class_sound_effects.html#a39ab790d1bcc01de2c35edef9c63622b", null ],
     [ "operator=", "class_sound_effects.html#a2ae34ab1688dc911390bf4b073387f49", null ],
     [ "play", "class_sound_effects.html#ada049bd6d027731c1ea4ee82e3088f8c", null ],
     [ "playEatingCherry", "class_sound_effects.html#a136f0280ab146ef0bb8ea73408e866f5", null ],
@@ -12,5 +14,16 @@ var class_sound_effects =
     [ "playSiren", "class_sound_effects.html#a291d262ad569413ef4ee0f1219316b9c", null ],
     [ "playVictory", "class_sound_effects.html#a914da0b8f4ccf2bcef069eaf30b6a1a3", null ],
     [ "playWakaWaka", "class_sound_effects.html#aa97b7df483ee30bfce1226ae82cda2f6", null ],
-    [ "stop", "class_sound_effects.html#aeea1d1fd893fb218051fabcd9c5d0b39", null ]
+    [ "stop", "class_sound_effects.html#aeea1d1fd893fb218051fabcd9c5d0b39", null ],
+    [ "bufferEatingCherry", "class_sound_effects.html#a73f9bce5d73228b1a4083272de545813", null ],
+    [ "bufferEatingGhost", "class_sound_effects.html#ab9934a5870d1566d66d487afad16932f", null ],
+    [ "bufferExtraLife", "class_sound_effects.html#a86c5d4fffc03c36f8fd7d205292a6683", null ],
+    [ "bufferGameOver", "class_sound_effects.html#a37937416fa3ad4ce7dcafa9bf740a55b", null ],
+    [ "bufferIntermission", "class_sound_effects.html#aefdbb404821ffaaa8fd021b6fbc548b4", null ],
+    [ "bufferOpeningSong", "class_sound_effects.html#a51422d4e834b8ded2d16afa310759773", null ],
+    [ "bufferSiren", "class_sound_effects.html#ae0db59a23205b13951d9159ed39a925f", null ],
+    [ "bufferVictory", "class_sound_effects.html#a57917ee1f190099f1d47f01d901e5187", null ],
+    [ "bufferWakaWaka", "class_sound_effects.html#a2dd4677fe63f09b894738dd2e6b67299", null ],
+    [ "sound", "class_sound_effects.html#abf68fb8456896ee4f9760f3691539828", null ],
+    [ "soundMap", "class_sound_effects.html#a9d3535a0499eff53c3f3ed582b137cec", null ]
 ];

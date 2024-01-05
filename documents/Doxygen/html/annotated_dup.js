@@ -1,7 +1,7 @@
 var annotated_dup =
 [
     [ "AbstractFactory", "class_abstract_factory.html", "class_abstract_factory" ],
-    [ "Camera", "class_camera.html", null ],
+    [ "Camera", "class_camera.html", "class_camera" ],
     [ "Coin", "class_coin.html", "class_coin" ],
     [ "CoinView", "class_coin_view.html", "class_coin_view" ],
     [ "Collectable", "class_collectable.html", "class_collectable" ],
@@ -24,7 +24,7 @@ var annotated_dup =
     [ "PausedState", "class_paused_state.html", "class_paused_state" ],
     [ "Random", "class_random.html", "class_random" ],
     [ "Score", "class_score.html", "class_score" ],
-    [ "Singleton", "class_singleton.html", null ],
+    [ "Singleton", "class_singleton.html", "class_singleton" ],
     [ "SoundEffectObserver", "class_sound_effect_observer.html", "class_sound_effect_observer" ],
     [ "SoundEffects", "class_sound_effects.html", "class_sound_effects" ],
     [ "SpriteFactory", "class_sprite_factory.html", "class_sprite_factory" ],

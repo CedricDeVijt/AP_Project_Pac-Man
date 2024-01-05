@@ -1,5 +1,15 @@
 var searchData=
 [
-  ['unpause_0',['unPause',['../class_stopwatch.html#acf6d0c742854046e69f1b1a1b90519ff',1,'Stopwatch']]],
-  ['update_1',['update',['../class_state.html#a06315e7e44aadfa576cbf7e6c1c7d87f',1,'State::update()'],['../class_menu_state.html#a97112c5ce679c35ed37e476187b5e60f',1,'MenuState::update()'],['../class_level_state.html#a8be0d18bb49fe468fd148aedce1428c0',1,'LevelState::update()'],['../class_paused_state.html#a9fe6612a34ba084d20c7a778e3bc5656',1,'PausedState::update()'],['../class_victory_state.html#a3ce9ea47219abc4f6af67f18c464b635',1,'VictoryState::update()'],['../class_game_over_state.html#a5acb1744cc27bdb94d29f4f02d81ff08',1,'GameOverState::update()'],['../class_intermission_state.html#a10a44b46f7569e162e27b96127fcd092',1,'IntermissionState::update()'],['../class_ghost.html#ac1ec7a1d656c643c6f7e5e93f0c9bd18',1,'Ghost::update()'],['../class_pac_man.html#a8ce6d92c692fba675deefce20771755f',1,'PacMan::update()'],['../class_world.html#aac8c1fde63c06577ffc648aaefdb37f0',1,'World::update()']]]
+  ['savescore_0',['saveScore',['../class_score.html#a239e69363e4267f8656005b268a17eb0',1,'Score']]],
+  ['setdirectionpacman_1',['setDirectionPacMan',['../class_world.html#a252b3ee782abf3b7ac91d60c7d9c8f1b',1,'World']]],
+  ['settargetdirection_2',['setTargetDirection',['../class_pac_man.html#ab01e341b6da02b5cd32b710e389f4c6e',1,'PacMan']]],
+  ['singleton_3',['Singleton',['../class_singleton.html#a923b995920da9c06590adb170ab2f890',1,'Singleton::Singleton()'],['../class_singleton.html#a23b2407170cc04f6746874704b928044',1,'Singleton::Singleton(const Singleton &amp;)=delete']]],
+  ['soundeffects_4',['SoundEffects',['../class_sound_effects.html#a09e8170634b4ee92c1097cb00bb713d5',1,'SoundEffects::SoundEffects()'],['../class_sound_effects.html#a472017548e302f52ba6c9e777467dff9',1,'SoundEffects::SoundEffects(const SoundEffects &amp;)=delete']]],
+  ['spritefactory_5',['SpriteFactory',['../class_sprite_factory.html#ae6f8f31b056bd9a2161ee9d2bc6e96e7',1,'SpriteFactory::SpriteFactory()'],['../class_sprite_factory.html#ac1404d459105c49bde7b73aa6bb0d6e4',1,'SpriteFactory::SpriteFactory(const SpriteFactory &amp;)=delete']]],
+  ['start_6',['start',['../class_stopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d',1,'Stopwatch']]],
+  ['state_7',['State',['../class_state.html#ae9f025009d51df7d3558cb2a29229914',1,'State']]],
+  ['statemanager_8',['StateManager',['../class_state_manager.html#a3e2be96d935eb56813b096a885d58587',1,'StateManager']]],
+  ['step_9',['step',['../class_entity_model.html#afeaa0deed64d5d1a504b5027fe979ffa',1,'EntityModel']]],
+  ['stop_10',['stop',['../class_sound_effects.html#aeea1d1fd893fb218051fabcd9c5d0b39',1,'SoundEffects']]],
+  ['stopwatch_11',['Stopwatch',['../class_stopwatch.html#a065a29c53432709399b1279cb796c579',1,'Stopwatch::Stopwatch()=default'],['../class_stopwatch.html#a9168950a70e64909ac292fa1ab203c83',1,'Stopwatch::Stopwatch(const Stopwatch &amp;)=delete']]]
 ];

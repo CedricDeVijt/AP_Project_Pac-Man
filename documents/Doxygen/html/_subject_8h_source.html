@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP Pac-Man project: src/model/Subject.h Source File</title>
+<title>AP: Project Pac-Man: src/model/Subject.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP Pac-Man project
+   <div id="projectname">AP: Project Pac-Man
    </div>
   </td>
  </tr>
@@ -119,16 +119,17 @@ $(function(){initNavTree('_subject_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_subject.html#a387dc37db1c44a94001f9cd64dcd3942">notifyObservers</a>(<a class="code hl_enumeration" href="_observer_8h.html#a2628ea8d12e8b2563c32f05dc7fff6fa">EventType</a> eventType) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::vector&lt;shared_ptr&lt;Observer&gt;&gt; observers; </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_subject.html#a12f50ff5f7d1982092dd72b064868dd7">   31</a></span>    std::vector&lt;shared_ptr&lt;Observer&gt;&gt; <a class="code hl_variable" href="class_subject.html#a12f50ff5f7d1982092dd72b064868dd7">observers</a>; </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
 </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif </span><span class="comment">// AP_PROJECT_PAC_MAN_SUBJECT_H</span></div>
 <div class="ttc" id="a_observer_8h_html"><div class="ttname"><a href="_observer_8h.html">Observer.h</a></div></div>
-<div class="ttc" id="a_observer_8h_html_a2628ea8d12e8b2563c32f05dc7fff6fa"><div class="ttname"><a href="_observer_8h.html#a2628ea8d12e8b2563c32f05dc7fff6fa">EventType</a></div><div class="ttdeci">EventType</div><div class="ttdef"><b>Definition</b> Observer.h:4</div></div>
-<div class="ttc" id="aclass_subject_html"><div class="ttname"><a href="class_subject.html">Subject</a></div><div class="ttdoc">A class representing the subject in the observer pattern.</div><div class="ttdef"><b>Definition</b> Subject.h:15</div></div>
-<div class="ttc" id="aclass_subject_html_a387dc37db1c44a94001f9cd64dcd3942"><div class="ttname"><a href="class_subject.html#a387dc37db1c44a94001f9cd64dcd3942">Subject::notifyObservers</a></div><div class="ttdeci">void notifyObservers(EventType eventType) const</div><div class="ttdoc">Notifies all registered observers.</div><div class="ttdef"><b>Definition</b> Subject.cpp:5</div></div>
-<div class="ttc" id="aclass_subject_html_a64c0a9fdc37c4648b6885d4d7e7dd304"><div class="ttname"><a href="class_subject.html#a64c0a9fdc37c4648b6885d4d7e7dd304">Subject::registerObserver</a></div><div class="ttdeci">void registerObserver(const shared_ptr&lt; Observer &gt; &amp;observer)</div><div class="ttdoc">Registers an observer to receive updates from the subject.</div><div class="ttdef"><b>Definition</b> Subject.cpp:3</div></div>
+<div class="ttc" id="a_observer_8h_html_a2628ea8d12e8b2563c32f05dc7fff6fa"><div class="ttname"><a href="_observer_8h.html#a2628ea8d12e8b2563c32f05dc7fff6fa">EventType</a></div><div class="ttdeci">EventType</div><div class="ttdef"><b>Definition</b> <a href="_observer_8h_source.html#l00004">Observer.h:4</a></div></div>
+<div class="ttc" id="aclass_subject_html"><div class="ttname"><a href="class_subject.html">Subject</a></div><div class="ttdoc">A class representing the subject in the observer pattern.</div><div class="ttdef"><b>Definition</b> <a href="#l00015">Subject.h:15</a></div></div>
+<div class="ttc" id="aclass_subject_html_a12f50ff5f7d1982092dd72b064868dd7"><div class="ttname"><a href="class_subject.html#a12f50ff5f7d1982092dd72b064868dd7">Subject::observers</a></div><div class="ttdeci">std::vector&lt; shared_ptr&lt; Observer &gt; &gt; observers</div><div class="ttdoc">List of registered observers.</div><div class="ttdef"><b>Definition</b> <a href="#l00031">Subject.h:31</a></div></div>
+<div class="ttc" id="aclass_subject_html_a387dc37db1c44a94001f9cd64dcd3942"><div class="ttname"><a href="class_subject.html#a387dc37db1c44a94001f9cd64dcd3942">Subject::notifyObservers</a></div><div class="ttdeci">void notifyObservers(EventType eventType) const</div><div class="ttdoc">Notifies all registered observers.</div><div class="ttdef"><b>Definition</b> <a href="_subject_8cpp_source.html#l00005">Subject.cpp:5</a></div></div>
+<div class="ttc" id="aclass_subject_html_a64c0a9fdc37c4648b6885d4d7e7dd304"><div class="ttname"><a href="class_subject.html#a64c0a9fdc37c4648b6885d4d7e7dd304">Subject::registerObserver</a></div><div class="ttdeci">void registerObserver(const shared_ptr&lt; Observer &gt; &amp;observer)</div><div class="ttdoc">Registers an observer to receive updates from the subject.</div><div class="ttdef"><b>Definition</b> <a href="_subject_8cpp_source.html#l00003">Subject.cpp:3</a></div></div>
 <div class="ttc" id="aclass_subject_html_af9723476c61afcceeb91bee3211258c7"><div class="ttname"><a href="class_subject.html#af9723476c61afcceeb91bee3211258c7">Subject::~Subject</a></div><div class="ttdeci">virtual ~Subject()=default</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

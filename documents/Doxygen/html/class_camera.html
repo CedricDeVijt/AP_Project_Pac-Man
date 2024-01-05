@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP Pac-Man project: Camera Class Reference</title>
+<title>AP: Project Pac-Man: Camera Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP Pac-Man project
+   <div id="projectname">AP: Project Pac-Man
    </div>
   </td>
  </tr>
@@ -93,6 +93,7 @@ $(function(){initNavTree('class_camera.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="class_camera-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Camera Class Reference</div></div>
 </div><!--header-->
@@ -108,9 +109,20 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a59270c946c8373f24308194b2f115984" id="r_a59270c946c8373f24308194b2f115984"><td class="memItemLeft" align="right" valign="top">static std::tuple&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59270c946c8373f24308194b2f115984">toPixelCoordinates</a> (const std::tuple&lt; double, double, double, double &gt; &amp;position)</td></tr>
 <tr class="memdesc:a59270c946c8373f24308194b2f115984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts normalized coordinates to pixel coordinates.  <br /></td></tr>
 <tr class="separator:a59270c946c8373f24308194b2f115984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:ae7556c9a35ee894a7b3b11e3bf0a2bbe" id="r_ae7556c9a35ee894a7b3b11e3bf0a2bbe"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7556c9a35ee894a7b3b11e3bf0a2bbe">toPixelX</a> (double position)</td></tr>
+<tr class="memdesc:ae7556c9a35ee894a7b3b11e3bf0a2bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts normalized coordinates to pixel coordinates on the X-axis.  <br /></td></tr>
+<tr class="separator:ae7556c9a35ee894a7b3b11e3bf0a2bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc5d6f59ea5042dc72124bde41138c82" id="r_abc5d6f59ea5042dc72124bde41138c82"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc5d6f59ea5042dc72124bde41138c82">toPixelY</a> (double position)</td></tr>
+<tr class="memdesc:abc5d6f59ea5042dc72124bde41138c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts normalized coordinates to pixel coordinates on the Y-axis.  <br /></td></tr>
+<tr class="separator:abc5d6f59ea5042dc72124bde41138c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Models how the positions of the entities in coordinate system [-1, 1] will be mapped on the screen. </p>
+
+<p class="definition">Definition at line <a class="el" href="_camera_8h_source.html#l00009">9</a> of file <a class="el" href="_camera_8h_source.html">Camera.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a59270c946c8373f24308194b2f115984" name="a59270c946c8373f24308194b2f115984"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a59270c946c8373f24308194b2f115984">&#9670;&#160;</a></span>toPixelCoordinates()</h2>
@@ -144,11 +156,85 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The pixel positions on the X and Y-axis. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_camera_8cpp_source.html#l00023">23</a> of file <a class="el" href="_camera_8cpp_source.html">Camera.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae7556c9a35ee894a7b3b11e3bf0a2bbe" name="ae7556c9a35ee894a7b3b11e3bf0a2bbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7556c9a35ee894a7b3b11e3bf0a2bbe">&#9670;&#160;</a></span>toPixelX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Camera::toPixelX </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts normalized coordinates to pixel coordinates on the X-axis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>The normalized position on the X-axis. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The pixel position on the X-axis. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_camera_8cpp_source.html#l00011">11</a> of file <a class="el" href="_camera_8cpp_source.html">Camera.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abc5d6f59ea5042dc72124bde41138c82" name="abc5d6f59ea5042dc72124bde41138c82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc5d6f59ea5042dc72124bde41138c82">&#9670;&#160;</a></span>toPixelY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Camera::toPixelY </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts normalized coordinates to pixel coordinates on the Y-axis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>The normalized position on the Y-axis. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The pixel position on the Y-axis. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_camera_8cpp_source.html#l00017">17</a> of file <a class="el" href="_camera_8cpp_source.html">Camera.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/view/<a class="el" href="_camera_8h_source.html">Camera.h</a></li>
-<li>src/view/<a class="el" href="_camera_8cpp.html">Camera.cpp</a></li>
+<li>src/view/<a class="el" href="_camera_8cpp_source.html">Camera.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

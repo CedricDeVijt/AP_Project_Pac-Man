@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['second_0',['SECOND',['../class_stopwatch.html#adeac41ff29a64713109f8b6da081b9b6',1,'Stopwatch']]],
-  ['spritefactory_1',['spriteFactory',['../class_entity_view.html#abb2ea6e35d210b313baff50580a640aa',1,'EntityView']]],
-  ['statemanager_2',['stateManager',['../class_state.html#a78388f59b0a570faa4b7ea640fea668e',1,'State']]]
+  ['coin_0',['coin',['../class_coin_view.html#a7db94b7d03d08f0732c11c21ca414674',1,'CoinView']]],
+  ['coins_1',['coins',['../class_world.html#a4d94272975fd708736456a5bab449706',1,'World']]],
+  ['currentscore_2',['currentScore',['../class_score.html#aecc586bfe2f391ae7b9cb78a50668022',1,'Score']]]
 ];

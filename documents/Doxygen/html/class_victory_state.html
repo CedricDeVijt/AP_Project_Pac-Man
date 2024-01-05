@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP Pac-Man project: VictoryState Class Reference</title>
+<title>AP: Project Pac-Man: VictoryState Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP Pac-Man project
+   <div id="projectname">AP: Project Pac-Man
    </div>
   </td>
  </tr>
@@ -93,6 +93,7 @@ $(function(){initNavTree('class_victory_state.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="class_victory_state-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">VictoryState Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
@@ -134,6 +135,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a783d52422b544bb226e13de8ecfd6ad6 inherit pub_methods_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for the <a class="el" href="class_state.html" title="Abstract base class representing different states in the game.">State</a> class.  <br /></td></tr>
 <tr class="separator:a783d52422b544bb226e13de8ecfd6ad6 inherit pub_methods_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a017f56f436d1bb589ecf3863ce28542f" id="r_a017f56f436d1bb589ecf3863ce28542f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a017f56f436d1bb589ecf3863ce28542f">toLevelState</a> () const</td></tr>
+<tr class="memdesc:a017f56f436d1bb589ecf3863ce28542f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transitions to <a class="el" href="class_menu_state.html" title="Represents the menu state of the game.">MenuState</a>.  <br /></td></tr>
+<tr class="separator:a017f56f436d1bb589ecf3863ce28542f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_class_state"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_state')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_state.html">State</a></td></tr>
@@ -151,6 +158,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents the victory state of the game. </p>
+
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00223">223</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aec56e5717226973edd55bf4a9122dc9f" name="aec56e5717226973edd55bf4a9122dc9f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aec56e5717226973edd55bf4a9122dc9f">&#9670;&#160;</a></span>VictoryState()</h2>
@@ -182,6 +191,8 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00201">201</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
 
 </div>
 </div>
@@ -219,6 +230,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_state.html#a22d8ccd962cdd3d1a934fca7a0f16cdb">State</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00221">221</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
+
 </div>
 </div>
 <a id="ab4251916f67b86023141dbd7edc6d091" name="ab4251916f67b86023141dbd7edc6d091"></a>
@@ -254,6 +267,37 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_state.html#ae4c38c28c92ab5b57bdcde634b57f0c5">State</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00209">209</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a017f56f436d1bb589ecf3863ce28542f" name="a017f56f436d1bb589ecf3863ce28542f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a017f56f436d1bb589ecf3863ce28542f">&#9670;&#160;</a></span>toLevelState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VictoryState::toLevelState </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transitions to <a class="el" href="class_menu_state.html" title="Represents the menu state of the game.">MenuState</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00203">203</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a3ce9ea47219abc4f6af67f18c464b635" name="a3ce9ea47219abc4f6af67f18c464b635"></a>
@@ -283,11 +327,13 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_state.html#a06315e7e44aadfa576cbf7e6c1c7d87f">State</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00219">219</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/controller/<a class="el" href="_state_8h_source.html">State.h</a></li>
-<li>src/controller/<a class="el" href="_state_8cpp.html">State.cpp</a></li>
+<li>src/controller/<a class="el" href="_state_8cpp_source.html">State.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

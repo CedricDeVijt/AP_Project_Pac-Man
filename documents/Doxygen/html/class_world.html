@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP Pac-Man project: World Class Reference</title>
+<title>AP: Project Pac-Man: World Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP Pac-Man project
+   <div id="projectname">AP: Project Pac-Man
    </div>
   </td>
  </tr>
@@ -93,6 +93,8 @@ $(function(){initNavTree('class_world.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_world-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">World Class Reference</div></div>
 </div><!--header-->
@@ -105,7 +107,7 @@ $(function(){initNavTree('class_world.html',''); initResizable(); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a343d0152258aff750d5b33269143aa96" id="r_a343d0152258aff750d5b33269143aa96"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a343d0152258aff750d5b33269143aa96">World</a> (const shared_ptr&lt; <a class="el" href="class_abstract_factory.html">AbstractFactory</a> &gt; &amp;factory, int level, const shared_ptr&lt; <a class="el" href="class_score.html">Score</a> &gt; &amp;score)</td></tr>
+<tr class="memitem:a343d0152258aff750d5b33269143aa96" id="r_a343d0152258aff750d5b33269143aa96"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a343d0152258aff750d5b33269143aa96">World</a> (const shared_ptr&lt; <a class="el" href="class_abstract_factory.html">AbstractFactory</a> &gt; &amp;factory, int <a class="el" href="#a92bc94e57e060c95b8127e99e78f4715">level</a>, const shared_ptr&lt; <a class="el" href="class_score.html">Score</a> &gt; &amp;<a class="el" href="#afcafa1774abbe12477aa09d48b434a2f">score</a>)</td></tr>
 <tr class="memdesc:a343d0152258aff750d5b33269143aa96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_world.html" title="Represents the game world containing walls, coins, fruits, ghosts, and PacMan.">World</a> object with the specified parameters.  <br /></td></tr>
 <tr class="separator:a343d0152258aff750d5b33269143aa96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d07ed2f713c3946fbbaa3a1b7b7f8c0" id="r_a3d07ed2f713c3946fbbaa3a1b7b7f8c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d07ed2f713c3946fbbaa3a1b7b7f8c0">~World</a> ()=default</td></tr>
@@ -125,9 +127,47 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0ccb7137db33414179c4bdc1609331bd" id="r_a0ccb7137db33414179c4bdc1609331bd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ccb7137db33414179c4bdc1609331bd">isGameOver</a> () const</td></tr>
 <tr class="memdesc:a0ccb7137db33414179c4bdc1609331bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if game is over.  <br /></td></tr>
 <tr class="separator:a0ccb7137db33414179c4bdc1609331bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ac3a887dcb574e12d2c71ecafe4c001ce" id="r_ac3a887dcb574e12d2c71ecafe4c001ce"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3a887dcb574e12d2c71ecafe4c001ce">getPossibleDirections</a> (const std::shared_ptr&lt; <a class="el" href="class_entity_model.html">EntityModel</a> &gt; &amp;entityModel, double tolerance) const</td></tr>
+<tr class="memdesc:ac3a887dcb574e12d2c71ecafe4c001ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the possible directions for an entity based on its current position and size.  <br /></td></tr>
+<tr class="separator:ac3a887dcb574e12d2c71ecafe4c001ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9910f0f3801e0099fc30b8fc6d1ba549" id="r_a9910f0f3801e0099fc30b8fc6d1ba549"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9910f0f3801e0099fc30b8fc6d1ba549">collect</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_coin.html">Coin</a> &gt; &gt; &amp;<a class="el" href="#a4d94272975fd708736456a5bab449706">coins</a>) const</td></tr>
+<tr class="memdesc:a9910f0f3801e0099fc30b8fc6d1ba549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects coins that overlap with <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a> and updates the score.  <br /></td></tr>
+<tr class="separator:a9910f0f3801e0099fc30b8fc6d1ba549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87c01399e0219a01b6d1d263a378ee14" id="r_a87c01399e0219a01b6d1d263a378ee14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87c01399e0219a01b6d1d263a378ee14">collect</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_fruit.html">Fruit</a> &gt; &gt; &amp;<a class="el" href="#a0b895647df17a86650ec4554247565e8">fruits</a>) const</td></tr>
+<tr class="memdesc:a87c01399e0219a01b6d1d263a378ee14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects fruits that overlap with <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a>, triggers fear mode for ghosts, and updates the score.  <br /></td></tr>
+<tr class="separator:a87c01399e0219a01b6d1d263a378ee14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a03bb0f302a2a1accbe4a84416b5dcbd9" id="r_a03bb0f302a2a1accbe4a84416b5dcbd9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; shared_ptr&lt; <a class="el" href="class_wall.html">Wall</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03bb0f302a2a1accbe4a84416b5dcbd9">walls</a></td></tr>
+<tr class="memdesc:a03bb0f302a2a1accbe4a84416b5dcbd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of walls in the game.  <br /></td></tr>
+<tr class="separator:a03bb0f302a2a1accbe4a84416b5dcbd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d94272975fd708736456a5bab449706" id="r_a4d94272975fd708736456a5bab449706"><td class="memItemLeft" align="right" valign="top">std::vector&lt; shared_ptr&lt; <a class="el" href="class_coin.html">Coin</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d94272975fd708736456a5bab449706">coins</a></td></tr>
+<tr class="memdesc:a4d94272975fd708736456a5bab449706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of coins in the game.  <br /></td></tr>
+<tr class="separator:a4d94272975fd708736456a5bab449706"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b895647df17a86650ec4554247565e8" id="r_a0b895647df17a86650ec4554247565e8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; shared_ptr&lt; <a class="el" href="class_fruit.html">Fruit</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b895647df17a86650ec4554247565e8">fruits</a></td></tr>
+<tr class="memdesc:a0b895647df17a86650ec4554247565e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of fruits in the game.  <br /></td></tr>
+<tr class="separator:a0b895647df17a86650ec4554247565e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aa15f54be00762297c09621708fb7e8" id="r_a2aa15f54be00762297c09621708fb7e8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; shared_ptr&lt; <a class="el" href="class_ghost.html">Ghost</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2aa15f54be00762297c09621708fb7e8">ghosts</a></td></tr>
+<tr class="memdesc:a2aa15f54be00762297c09621708fb7e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of ghosts in the game.  <br /></td></tr>
+<tr class="separator:a2aa15f54be00762297c09621708fb7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92ee9c19d004f4827e699c3441117fbf" id="r_a92ee9c19d004f4827e699c3441117fbf"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_pac_man.html">PacMan</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92ee9c19d004f4827e699c3441117fbf">pacMan</a></td></tr>
+<tr class="memdesc:a92ee9c19d004f4827e699c3441117fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a> character.  <br /></td></tr>
+<tr class="separator:a92ee9c19d004f4827e699c3441117fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcafa1774abbe12477aa09d48b434a2f" id="r_afcafa1774abbe12477aa09d48b434a2f"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_score.html">Score</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcafa1774abbe12477aa09d48b434a2f">score</a></td></tr>
+<tr class="memdesc:afcafa1774abbe12477aa09d48b434a2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The score object to track game score and lives.  <br /></td></tr>
+<tr class="separator:afcafa1774abbe12477aa09d48b434a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92bc94e57e060c95b8127e99e78f4715" id="r_a92bc94e57e060c95b8127e99e78f4715"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92bc94e57e060c95b8127e99e78f4715">level</a></td></tr>
+<tr class="memdesc:a92bc94e57e060c95b8127e99e78f4715"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current level of the game.  <br /></td></tr>
+<tr class="separator:a92bc94e57e060c95b8127e99e78f4715"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents the game world containing walls, coins, fruits, ghosts, and <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="_world_8h_source.html#l00017">17</a> of file <a class="el" href="_world_8h_source.html">World.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a343d0152258aff750d5b33269143aa96" name="a343d0152258aff750d5b33269143aa96"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a343d0152258aff750d5b33269143aa96">&#9670;&#160;</a></span>World()</h2>
@@ -171,6 +211,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00008">8</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a3d07ed2f713c3946fbbaa3a1b7b7f8c0" name="a3d07ed2f713c3946fbbaa3a1b7b7f8c0"></a>
@@ -199,6 +241,117 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9910f0f3801e0099fc30b8fc6d1ba549" name="a9910f0f3801e0099fc30b8fc6d1ba549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9910f0f3801e0099fc30b8fc6d1ba549">&#9670;&#160;</a></span>collect() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void World::collect </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_coin.html">Coin</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>coins</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Collects coins that overlap with <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a> and updates the score. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coins</td><td>The vector of collectable items to check for collection. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00132">132</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a87c01399e0219a01b6d1d263a378ee14" name="a87c01399e0219a01b6d1d263a378ee14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87c01399e0219a01b6d1d263a378ee14">&#9670;&#160;</a></span>collect() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void World::collect </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_fruit.html">Fruit</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>fruits</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Collects fruits that overlap with <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a>, triggers fear mode for ghosts, and updates the score. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fruits</td><td>The vector of collectable items to check for collection. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00147">147</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac3a887dcb574e12d2c71ecafe4c001ce" name="ac3a887dcb574e12d2c71ecafe4c001ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3a887dcb574e12d2c71ecafe4c001ce">&#9670;&#160;</a></span>getPossibleDirections()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> &gt; World::getPossibleDirections </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_entity_model.html">EntityModel</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>entityModel</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tolerance</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the possible directions for an entity based on its current position and size. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entityModel</td><td>The entity for which to determine possible directions. </td></tr>
+    <tr><td class="paramname">tolerance</td><td>The tolerance factor for collision detection. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of possible directions. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00167">167</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a6f8a316dcf7b3197a7d92b56dd8d08e0" name="a6f8a316dcf7b3197a7d92b56dd8d08e0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f8a316dcf7b3197a7d92b56dd8d08e0">&#9670;&#160;</a></span>isAllLevelsComplete()</h2>
 
@@ -216,6 +369,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Checks if all levels are complete. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if all levels are complete, false otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00224">224</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -237,6 +392,8 @@ Public Member Functions</h2></td></tr>
 <p>Checks if game is over. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if all lives of pacman are exhausted, false otherwise. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00228">228</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a00e253136f5f25681fc0971be399f364" name="a00e253136f5f25681fc0971be399f364"></a>
@@ -256,6 +413,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Checks if the current level is complete. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if the level is complete, false otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00220">220</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -282,6 +441,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00165">165</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
+
 </div>
 </div>
 <a id="aac8c1fde63c06577ffc648aaefdb37f0" name="aac8c1fde63c06577ffc648aaefdb37f0"></a>
@@ -301,11 +462,196 @@ Public Member Functions</h2></td></tr>
 
 <p>Updates the state of the game world. </p>
 
+<p class="definition">Definition at line <a class="el" href="_world_8cpp_source.html#l00096">96</a> of file <a class="el" href="_world_8cpp_source.html">World.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4d94272975fd708736456a5bab449706" name="a4d94272975fd708736456a5bab449706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d94272975fd708736456a5bab449706">&#9670;&#160;</a></span>coins</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;shared_ptr&lt;<a class="el" href="class_coin.html">Coin</a>&gt; &gt; World::coins</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vector of coins in the game. </p>
+
+<p class="definition">Definition at line <a class="el" href="_world_8h_source.html#l00060">60</a> of file <a class="el" href="_world_8h_source.html">World.h</a>.</p>
+
+</div>
+</div>
+<a id="a0b895647df17a86650ec4554247565e8" name="a0b895647df17a86650ec4554247565e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b895647df17a86650ec4554247565e8">&#9670;&#160;</a></span>fruits</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;shared_ptr&lt;<a class="el" href="class_fruit.html">Fruit</a>&gt; &gt; World::fruits</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vector of fruits in the game. </p>
+
+<p class="definition">Definition at line <a class="el" href="_world_8h_source.html#l00061">61</a> of file <a class="el" href="_world_8h_source.html">World.h</a>.</p>
+
+</div>
+</div>
+<a id="a2aa15f54be00762297c09621708fb7e8" name="a2aa15f54be00762297c09621708fb7e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2aa15f54be00762297c09621708fb7e8">&#9670;&#160;</a></span>ghosts</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;shared_ptr&lt;<a class="el" href="class_ghost.html">Ghost</a>&gt; &gt; World::ghosts</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vector of ghosts in the game. </p>
+
+<p class="definition">Definition at line <a class="el" href="_world_8h_source.html#l00062">62</a> of file <a class="el" href="_world_8h_source.html">World.h</a>.</p>
+
+</div>
+</div>
+<a id="a92bc94e57e060c95b8127e99e78f4715" name="a92bc94e57e060c95b8127e99e78f4715"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92bc94e57e060c95b8127e99e78f4715">&#9670;&#160;</a></span>level</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int World::level</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The current level of the game. </p>
+
+<p class="definition">Definition at line <a class="el" href="_world_8h_source.html#l00065">65</a> of file <a class="el" href="_world_8h_source.html">World.h</a>.</p>
+
+</div>
+</div>
+<a id="a92ee9c19d004f4827e699c3441117fbf" name="a92ee9c19d004f4827e699c3441117fbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92ee9c19d004f4827e699c3441117fbf">&#9670;&#160;</a></span>pacMan</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt;<a class="el" href="class_pac_man.html">PacMan</a>&gt; World::pacMan</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a> character. </p>
+
+<p class="definition">Definition at line <a class="el" href="_world_8h_source.html#l00063">63</a> of file <a class="el" href="_world_8h_source.html">World.h</a>.</p>
+
+</div>
+</div>
+<a id="afcafa1774abbe12477aa09d48b434a2f" name="afcafa1774abbe12477aa09d48b434a2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcafa1774abbe12477aa09d48b434a2f">&#9670;&#160;</a></span>score</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt;<a class="el" href="class_score.html">Score</a>&gt; World::score</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The score object to track game score and lives. </p>
+
+<p class="definition">Definition at line <a class="el" href="_world_8h_source.html#l00064">64</a> of file <a class="el" href="_world_8h_source.html">World.h</a>.</p>
+
+</div>
+</div>
+<a id="a03bb0f302a2a1accbe4a84416b5dcbd9" name="a03bb0f302a2a1accbe4a84416b5dcbd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03bb0f302a2a1accbe4a84416b5dcbd9">&#9670;&#160;</a></span>walls</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;shared_ptr&lt;<a class="el" href="class_wall.html">Wall</a>&gt; &gt; World::walls</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vector of walls in the game. </p>
+
+<p class="definition">Definition at line <a class="el" href="_world_8h_source.html#l00059">59</a> of file <a class="el" href="_world_8h_source.html">World.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/model/<a class="el" href="_world_8h_source.html">World.h</a></li>
-<li>src/model/<a class="el" href="_world_8cpp.html">World.cpp</a></li>
+<li>src/model/<a class="el" href="_world_8cpp_source.html">World.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
