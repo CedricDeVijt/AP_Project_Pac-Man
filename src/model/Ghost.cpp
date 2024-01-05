@@ -32,8 +32,6 @@ std::ostream& operator<<(std::ostream& os, const GhostType& ghostType) {
 
 Ghost::Ghost(const GhostType type, const std::tuple<double, double, double, double>& homePosition, const int level)
     : EntityModel(homePosition), type(type), homePosition(homePosition), level(level) {
-    // set the wait time for the fear mode
-    fearWaitTime = 0.0;
 
     // set the appropiate wait time for each of the ghosts
     switch (type) {
@@ -81,6 +79,7 @@ void Ghost::update(const std::vector<Direction>& directions,
         fearWaitTime -= Stopwatch::getInstance().getDeltaTime();
     }
 
+    // TODO cleanup nested if's
     if (isWaitMode()) {
         // decrease wait time
         waitTime -= Stopwatch::getInstance().getDeltaTime();
@@ -117,7 +116,7 @@ void Ghost::update(const std::vector<Direction>& directions,
     // determine the acceleration for the given level
     const double acceleration = std::pow(accelerator, level) * 0.8;
     position = step(direction, position, acceleration);
-    notifyObservers(TICK);
+    notifyObservers(EventType::TICK);
 }
 
 Direction Ghost::getRandomDirection(const std::vector<Direction>& possibleDirections) const {
@@ -143,7 +142,7 @@ Direction Ghost::getDirectionWithMinmumManhattanDistance(
     const std::tuple<double, double, double, double>& pacManPosition) const {
     // initialisation
     double minDistance = std::numeric_limits<double>::max();
-    Direction minDirection = NONE;
+    Direction minDirection = Direction::NONE;
     // check each possible direction against what we previously had
     for (const auto possibleDirection : possibleDirections) {
         const std::tuple<double, double, double, double> nextPosition = step(possibleDirection, position, accelerator);
@@ -163,7 +162,7 @@ Direction Ghost::getDirectionWithMaximumManhattanDistance(
     const std::tuple<double, double, double, double>& pacManPosition) const {
     // initialisation
     double maxDistance = std::numeric_limits<double>::min();
-    Direction maxDirection = NONE;
+    Direction maxDirection = Direction::NONE;
     // check each possible direction against what we previously had
     for (const auto possibleDirection : possibleDirections) {
         std::tuple<double, double, double, double> nextPosition = step(possibleDirection, position, accelerator);

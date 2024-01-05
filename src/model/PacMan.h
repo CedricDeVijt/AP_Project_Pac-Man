@@ -35,9 +35,9 @@ public:
 
     /**
      * @brief Sets the target direction for Pac-Man.
-     * @param direction The target direction to set.
+     * @param newDirection The target direction to set.
      */
-    void setTargetDirection(const Direction& direction);
+    void setTargetDirection(const Direction& newDirection);
 
     /**
      * @brief Gets the current direction of Pac-Man.

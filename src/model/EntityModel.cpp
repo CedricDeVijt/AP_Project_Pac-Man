@@ -63,13 +63,13 @@ std::tuple<double, double, double, double> EntityModel::step(
 
     double x, y, sizeX, sizeY;
     std::tie(x, y, sizeX, sizeY) = startPosition;
-    if (direction == LEFT) {
+    if (direction == Direction::LEFT) {
         x -= stepX;
-    } else if (direction == RIGHT) {
+    } else if (direction == Direction::RIGHT) {
         x += stepX;
-    } else if (direction == UP) {
+    } else if (direction == Direction::UP) {
         y -= stepY;
-    } else if (direction == DOWN) {
+    } else if (direction == Direction::DOWN) {
         y += stepY;
     }
     return std::make_tuple(x, y, sizeX, sizeY);

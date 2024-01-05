@@ -149,7 +149,7 @@ std::vector<Direction> World::getPossibleDirections(const std::shared_ptr<Entity
     const double toleranceY = sizeY * tolerance;
 
     // Initialize possible directions with all directions initially
-    std::vector<Direction> possibleDirections = {LEFT, RIGHT, UP, DOWN};
+    std::vector<Direction> possibleDirections = {Direction::LEFT, Direction::RIGHT, Direction::UP, Direction::DOWN};
 
     // Check if entity collides with the wall
     for (auto& wall : walls) {
@@ -164,10 +164,10 @@ std::vector<Direction> World::getPossibleDirections(const std::shared_ptr<Entity
         // If there is a collision along both axes, PacMan cannot move in that direction
         if (collisionX && collisionY) {
             if (y <= wallY) {
-                possibleDirections.erase(std::remove(possibleDirections.begin(), possibleDirections.end(), DOWN),
+                possibleDirections.erase(std::remove(possibleDirections.begin(), possibleDirections.end(), Direction::DOWN),
                                          possibleDirections.end());
             } else if (y + sizeY >= wallY + wallSizeY) {
-                possibleDirections.erase(std::remove(possibleDirections.begin(), possibleDirections.end(), UP),
+                possibleDirections.erase(std::remove(possibleDirections.begin(), possibleDirections.end(), Direction::UP),
                                          possibleDirections.end());
             }
         }
@@ -180,10 +180,10 @@ std::vector<Direction> World::getPossibleDirections(const std::shared_ptr<Entity
         if (collisionX && collisionY) {
             // Remove the corresponding direction from the possible directions
             if (x <= wallX) {
-                possibleDirections.erase(std::remove(possibleDirections.begin(), possibleDirections.end(), RIGHT),
+                possibleDirections.erase(std::remove(possibleDirections.begin(), possibleDirections.end(), Direction::RIGHT),
                                          possibleDirections.end());
             } else if (x + sizeX >= wallX + wallSizeX) {
-                possibleDirections.erase(std::remove(possibleDirections.begin(), possibleDirections.end(), LEFT),
+                possibleDirections.erase(std::remove(possibleDirections.begin(), possibleDirections.end(), Direction::LEFT),
                                          possibleDirections.end());
             }
         }

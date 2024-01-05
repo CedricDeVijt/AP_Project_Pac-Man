@@ -21,9 +21,6 @@ private:
 public:
     SoundEffects();
 
-    // Static method to get the instance of the singleton
-    static SoundEffects& getInstance();
-
     /**
      * @brief Plays the sound effect for eating a cherry.
      */

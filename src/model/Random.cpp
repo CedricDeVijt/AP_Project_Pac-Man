@@ -1,6 +1,6 @@
 #include "Random.h"
 #include <iostream>
-
+// TODO check with spec
 Random::Random() {
     std::random_device rd;
     std::mt19937 generator(rd());

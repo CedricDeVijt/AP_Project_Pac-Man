@@ -5,11 +5,11 @@
 #include <iostream>
 #include <vector>
 
-void PacMan::setTargetDirection(const Direction& direction) { targetDirection = direction; }
+void PacMan::setTargetDirection(const Direction& newDirection) { targetDirection = newDirection; }
 
 PacMan::PacMan(const std::tuple<double, double, double, double>& position, const int level)
     : EntityModel(position), homePosition(position), level(level) {
-    direction = NONE;
+    direction = Direction::NONE;
 }
 
 Direction PacMan::getDirection() const { return direction; }
@@ -23,7 +23,7 @@ void PacMan::update(const std::vector<Direction>& directions) {
         // Check if we can take the target direction, if so take the new direction and align back to the grid
         if (std::find(directions.begin(), directions.end(), targetDirection) != directions.end()) {
             direction = targetDirection;
-            targetDirection = NONE;
+            targetDirection = Direction::NONE;
             nudgeToGrid();
             position = step(direction, position, acceleration);
         } else if (std::find(directions.begin(), directions.end(), direction) != directions.end()) {
@@ -31,7 +31,7 @@ void PacMan::update(const std::vector<Direction>& directions) {
             position = step(direction, position, acceleration);
         }
     }
-    notifyObservers(TICK);
+    notifyObservers(EventType::TICK);
 }
 
 void PacMan::die() {
@@ -40,14 +40,14 @@ void PacMan::die() {
 
     // go back to starting point
     position = homePosition;
-    direction = NONE;
-    notifyObservers(PACMAN_DIES);
+    direction = Direction::NONE;
+    notifyObservers(EventType::PACMAN_DIES);
 }
 
-void PacMan::captureGhost() const { notifyObservers(PACMAN_CAPTURES_GHOST); }
+void PacMan::captureGhost() const { notifyObservers(EventType::PACMAN_CAPTURES_GHOST); }
 
-void PacMan::captureFruit() const { notifyObservers(PACMAN_CAPTURES_FRUIT); }
+void PacMan::captureFruit() const { notifyObservers(EventType::PACMAN_CAPTURES_FRUIT); }
 
-void PacMan::captureCoin() const { notifyObservers(PACMAN_CAPTURES_COIN); }
+void PacMan::captureCoin() const { notifyObservers(EventType::PACMAN_CAPTURES_COIN); }
 
 bool PacMan::isDead() const { return lives == 0; }

@@ -66,7 +66,7 @@ std::vector<std::pair<std::string, int>> Score::loadHighScores() {
 
 void Score::processEvent(EventType eventType) {
     switch (eventType) {
-    case TICK:
+    case EventType::TICK:
         // in each update cycle this method will be called 5 times (for packman and each of the ghosts), therfore
         // we need to divide by 5
         timeToReduceScore -= Stopwatch::getInstance().getDeltaTime() / 5;
@@ -78,16 +78,16 @@ void Score::processEvent(EventType eventType) {
             }
         }
         break;
-    case PACMAN_CAPTURES_COIN:
+    case EventType::PACMAN_CAPTURES_COIN:
         currentScore += POINTS_COIN;
         break;
-    case PACMAN_CAPTURES_FRUIT:
+    case EventType::PACMAN_CAPTURES_FRUIT:
         currentScore += POINTS_FRUIT;
         break;
-    case PACMAN_CAPTURES_GHOST:
+    case EventType::PACMAN_CAPTURES_GHOST:
         currentScore += POINTS_GHOST;
         break;
-    case PACMAN_DIES:
+    case EventType::PACMAN_DIES:
         livesRemaining -= 1;
         break;
     default:

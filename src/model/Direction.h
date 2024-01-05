@@ -6,7 +6,7 @@
  * @enum Direction
  * @brief Represents the possible directions of movement in the game.
  */
-enum Direction { LEFT, RIGHT, UP, DOWN, NONE };
+enum class Direction { LEFT, RIGHT, UP, DOWN, NONE };
 
 /**
  * @brief Gets the opposite direction of the given direction.

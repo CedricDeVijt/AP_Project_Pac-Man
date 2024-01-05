@@ -32,7 +32,7 @@ void GameOverState::draw(shared_ptr<sf::RenderWindow> window) {
     // draw the title
     sf::Font pacManFont = Singleton<FontFactory>::getInstance().getPacManFont();
     sf::Text title("Game Over", pacManFont, 50);
-    centerHorizontally(title, sprite.getGlobalBounds().height + 70);
+    centerHorizontally(title, int(sprite.getGlobalBounds().height) + 70);
     window->draw(title);
 
     // draw the instructions
