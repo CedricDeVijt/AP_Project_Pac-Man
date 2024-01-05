@@ -13,14 +13,13 @@ using std::shared_ptr;
  */
 class SoundEffects {
 private:
-    // Private constructor to prevent external instantiation
-    SoundEffects();
     std::map<std::string, shared_ptr<sf::SoundBuffer>> soundMap;
-    sf::Sound sound;
+    sf::Sound foregroundSound, backgroundSound;
     sf::SoundBuffer bufferEatingCherry, bufferEatingGhost, bufferExtraLife, bufferIntermission, bufferOpeningSong,
-        bufferSiren, bufferWakaWaka, bufferGameOver, bufferVictory;
-
+        bufferSiren, bufferWakaWaka, bufferGameOver, bufferVictory, bufferToyBoxWorld;
 public:
+    SoundEffects();
+
     // Static method to get the instance of the singleton
     static SoundEffects& getInstance();
 
@@ -70,19 +69,36 @@ public:
     void playGameOver();
 
     /**
-     * @brief Plays a given sound buffer.
+     * @brief Plays the background sound effect ToyBoxWorld.
+     */
+    void playToyBoxWorld();
+
+    /**
+     * @brief Plays a given sound buffer in the foreground.
      * @param buffer The sound buffer to be played.
      */
-    void play(const sf::SoundBuffer& buffer);
+    void playForeground(const sf::SoundBuffer& buffer);
 
-    // Prevent copying and assignment
-    SoundEffects(const SoundEffects&) = delete;
-    SoundEffects& operator=(const SoundEffects&) = delete;
+    /**
+     * @brief Plays a given sound buffer in the background.
+     * @param buffer The sound buffer to be played.
+     */
+    void playBackground(const sf::SoundBuffer& buffer);
 
     /**
      * @brief Stop any sound that is playing.
      */
     void stop();
+
+    /**
+     * @brief pause any sound that is playing.
+     */
+    void pause();
+
+    /**
+     * @brief unpause any sound that was paused.
+     */
+    void unpause();
 };
 
 #endif // AP_PROJECT_PAC_MAN_SOUNDEFFECTS_H

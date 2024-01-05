@@ -10,30 +10,35 @@ SoundEffects::SoundEffects() {
         !bufferSiren.loadFromFile("resources/sounds/Pacman_Siren.wav") ||
         !bufferWakaWaka.loadFromFile("resources/sounds/Pacman_Waka_Waka.wav") ||
         !bufferGameOver.loadFromFile("resources/sounds/Pacman_Game_Over.wav") ||
-        !bufferVictory.loadFromFile("resources/sounds/Pacman_Victory.wav")) {
+        !bufferVictory.loadFromFile("resources/sounds/Pacman_Victory.wav") ||
+        !bufferToyBoxWorld.loadFromFile("resources/sounds/Pacman_Toy_Box_World.wav")) {
         throw std::runtime_error("Failed to load sounds file");
     }
 }
 
-SoundEffects& SoundEffects::getInstance() {
-    static SoundEffects instance; // Guaranteed to be destroyed, instantiated on first use
-    return instance;
+void SoundEffects::playEatingCherry() { playForeground(bufferEatingCherry); }
+void SoundEffects::playEatingGhost() { playForeground(bufferEatingGhost); }
+void SoundEffects::playExtraLife() { playForeground(bufferExtraLife); }
+void SoundEffects::playIntermission() { playBackground(bufferIntermission); }
+void SoundEffects::playOpeningSong() { playBackground(bufferOpeningSong); }
+void SoundEffects::playSiren() { playForeground(bufferSiren); }
+void SoundEffects::playWakaWaka() { playForeground(bufferWakaWaka); }
+void SoundEffects::playVictory() { playForeground(bufferVictory); }
+void SoundEffects::playGameOver() { playBackground(bufferGameOver); }
+void SoundEffects::playToyBoxWorld() { playBackground(bufferToyBoxWorld); }
+
+void SoundEffects::playBackground(const sf::SoundBuffer& buffer) {
+    backgroundSound.setBuffer(buffer);
+    backgroundSound.play();
 }
 
-void SoundEffects::playEatingCherry() { play(bufferEatingCherry); }
-void SoundEffects::playEatingGhost() { play(bufferEatingGhost); }
-void SoundEffects::playExtraLife() { play(bufferExtraLife); }
-void SoundEffects::playIntermission() { play(bufferIntermission); }
-
-void SoundEffects::playOpeningSong() { play(bufferOpeningSong); }
-void SoundEffects::playSiren() { play(bufferSiren); }
-void SoundEffects::playWakaWaka() { play(bufferWakaWaka); }
-void SoundEffects::playVictory() { play(bufferVictory); }
-void SoundEffects::playGameOver() { play(bufferGameOver); }
-
-void SoundEffects::play(const sf::SoundBuffer& buffer) {
-    sound.setBuffer(buffer);
-    sound.play();
+void SoundEffects::playForeground(const sf::SoundBuffer& buffer) {
+    foregroundSound.setBuffer(buffer);
+    foregroundSound.play();
 }
 
-void SoundEffects::stop() { sound.stop(); }
+void SoundEffects::stop() { backgroundSound.stop(); }
+
+void SoundEffects::pause() { backgroundSound.pause(); }
+
+void SoundEffects::unpause() { backgroundSound.play(); }
