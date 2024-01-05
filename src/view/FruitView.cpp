@@ -1,11 +1,9 @@
 #include "FruitView.h"
 
-#include "../model/Collectable.h"
-#include "../model/Ghost.h"
+#include "Collectable.h"
 #include "Camera.h"
-#include "EntityView.h"
-#include "SpriteFactory.h"
-#include "WindowSingleton.h"
+#include "Window.h"
+#include "../util/Singleton.h"
 #include <utility>
 
 FruitView::FruitView(shared_ptr<Fruit> fruit) : fruit(std::move(fruit)) {}

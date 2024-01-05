@@ -2,13 +2,8 @@
 #ifndef GAMELOGICLIB_FRUITVIEW_H
 #define GAMELOGICLIB_FRUITVIEW_H
 #include "EntityView.h"
-#include "../model/Ghost.h"
-#include "../model/Collectable.h"
-#include "../model/Ghost.h"
-#include "../model/PacMan.h"
-#include "../model/Wall.h"
-#include "SpriteFactory.h"
-#include "WindowSingleton.h"
+#include "Collectable.h"
+#include "Window.h"
 
 
 

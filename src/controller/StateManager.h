@@ -1,7 +1,6 @@
 #ifndef AP_PROJECT_PAC_MAN_STATEMANAGER_H
 #define AP_PROJECT_PAC_MAN_STATEMANAGER_H
 
-#include <SFML/Graphics.hpp>
 #include <memory>
 #include <stack>
 

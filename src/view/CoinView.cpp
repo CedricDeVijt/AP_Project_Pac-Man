@@ -2,10 +2,9 @@
 
 #include <utility>
 #include "EntityView.h"
-#include "../model/Ghost.h"
-#include "../model/Collectable.h"
+#include "Collectable.h"
 #include "SpriteFactory.h"
-#include "WindowSingleton.h"
+#include "Window.h"
 #include "Camera.h"
 
 

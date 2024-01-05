@@ -1,7 +1,7 @@
 #ifndef AP_PROJECT_PAC_MAN_CONCRETEFACTORY_H
 #define AP_PROJECT_PAC_MAN_CONCRETEFACTORY_H
 
-#include "../model/AbstractFactory.h"
+#include "AbstractFactory.h"
 #include <memory>
 using std::shared_ptr;
 

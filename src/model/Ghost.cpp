@@ -122,7 +122,7 @@ void Ghost::update(const std::vector<Direction>& directions,
         }
     }
     // determine the acceleration for the given level
-    const double acceleration = std::pow(accelerator, level);
+    const double acceleration = std::pow(accelerator, level)*0.8;
     position = step(direction, position, acceleration);
     notifyObservers(TICK);
 }

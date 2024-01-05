@@ -1,19 +1,21 @@
 #include "Game.h"
-#include "../view/SoundEffects.h"
-#include "../view/WindowSingleton.h"
+
+#include <SFML/Graphics.hpp>
+
+#include "../view/Window.h"
+#include "../util/Singleton.h"
 #include "State.h"
 
 Game::Game(){
-    window = WindowSingleton::getInstance().getWindow();
+    window = Singleton<Window>::getInstance().getWindow();
     window->setFramerateLimit(60);
 }
 
 void Game::run() const {
-    SoundEffects::getInstance().playOpeningSong();
     // Main game loop
     while (window->isOpen()) {
         // Event handling loop
-        sf::Event event;
+        sf::Event event{};
         while (window->pollEvent(event)) {
             switch (event.type) {
             case sf::Event::Closed:

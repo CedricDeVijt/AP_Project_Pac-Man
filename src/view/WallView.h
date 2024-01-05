@@ -2,13 +2,10 @@
 #ifndef GAMELOGICLIB_WALLVIEW_H
 #define GAMELOGICLIB_WALLVIEW_H
 #include "EntityView.h"
-#include "../model/Ghost.h"
-#include "../model/Collectable.h"
-#include "../model/Ghost.h"
-#include "../model/PacMan.h"
-#include "../model/Wall.h"
+#include "Wall.h"
 #include "SpriteFactory.h"
-#include "WindowSingleton.h"
+#include "Window.h"
+#include "../util/Singleton.h"
 
 
 /**

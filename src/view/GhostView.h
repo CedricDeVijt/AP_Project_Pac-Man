@@ -2,9 +2,7 @@
 #ifndef GAMELOGICLIB_GHOSTVIEW_H
 #define GAMELOGICLIB_GHOSTVIEW_H
 #include "EntityView.h"
-#include "../model/Ghost.h"
-#include "SpriteFactory.h"
-#include "WindowSingleton.h"
+#include "Ghost.h"
 
 /**
  * @class GhostView

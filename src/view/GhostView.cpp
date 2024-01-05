@@ -1,10 +1,10 @@
 #include "GhostView.h"
 
-#include "../model/Ghost.h"
+#include "Ghost.h"
 #include "Camera.h"
 #include "EntityView.h"
 #include "SpriteFactory.h"
-#include "WindowSingleton.h"
+#include "Window.h"
 #include <utility>
 GhostView::GhostView(shared_ptr<Ghost> ghost) : ghost(std::move(ghost)) {}
 
