@@ -20,9 +20,8 @@ public:
      * @brief Constructs a World object with the specified parameters.
      * @param factory The factory used to create game entities.
      * @param level The current level of the game.
-     * @param score The score object to track the game score and lives remaining.
      */
-    explicit World(const shared_ptr<AbstractFactory>& factory, int level, const shared_ptr<Score>& score);
+    explicit World(const shared_ptr<AbstractFactory>& factory, int level);
 
     ~World() = default;
 
@@ -55,13 +54,19 @@ public:
      */
     bool isGameOver() const;
 
+    /**
+    * @brief Registers an observer to receive updates from the entities in the world.
+    * @param observer The observer to register.
+    */
+    void registerObserver(const shared_ptr<Observer>& observer);
+
+
 private:
     std::vector<shared_ptr<Wall>> walls;   ///< Vector of walls in the game.
     std::vector<shared_ptr<Coin>> coins;   ///< Vector of coins in the game.
     std::vector<shared_ptr<Fruit>> fruits; ///< Vector of fruits in the game.
     std::vector<shared_ptr<Ghost>> ghosts; ///< Vector of ghosts in the game.
     shared_ptr<PacMan> pacMan;             ///< The PacMan character.
-    shared_ptr<Score> score;               ///< The score object to track game score and lives.
     int level;                             ///< The current level of the game.
 
     /**
@@ -84,5 +89,4 @@ private:
      */
     void collect(std::vector<std::shared_ptr<Fruit>>& fruits) const;
 };
-
 #endif // AP_PROJECT_PAC_MAN_WORLD_H

@@ -1,11 +1,10 @@
 #include "World.h"
 #include "Stopwatch.h"
 #include <algorithm>
-#include <iostream>
 #include <string>
 #include <vector>
 
-World::World(const shared_ptr<AbstractFactory>& factory, int level, const shared_ptr<Score>& score) : score(score), level(level) {
+World::World(const shared_ptr<AbstractFactory>& factory, int level) : level(level) {
     std::vector <std::vector<std::string>> maizes;
 
     maizes.push_back({
@@ -29,19 +28,13 @@ World::World(const shared_ptr<AbstractFactory>& factory, int level, const shared
                              "wfcccwcccfccccwcccfw", "wwwwwwwwwwwwwwwwwwww"
                      });
 
-    //    std::vector<std::string> tst_level{
-    //            "                    ",
-    //            " P                  ",
-    //            "                    ",
-    //            "                    ",
-    //            "       ww  ww       ",
-    //            "       w   4w       ",
-    //            "       wwwwww       ",
-    //            "                    ",
-    //            "                    ",
-    //            "                    ",
-    //            "                    ",
-    //    };
+    maizes.push_back({
+                             "wwwwwwwwwwwwwwwwwwww", "wfcccwccccccccwcccfw", "wcwwcwcw1234wcwcwwcw",
+                             "wcwccccccccccccccwcw", "wcwcwwcwwwwwwcwwcwcw", "wcccfccccwccccccfccw",
+                             "wcwcwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw", "wcwwcwcwwwwwwcwcwwcw",
+                             "wfcccwPcccccccwcccfw", "wwwwwwwwwwwwwwwwwwww"
+                     });
+
     const std::vector<std::string> board = maizes[level % maizes.size()];
 
     const int items_x = board[0].length();
@@ -84,12 +77,6 @@ World::World(const shared_ptr<AbstractFactory>& factory, int level, const shared
                     break;
             }
         }
-    }
-
-    // register pacMan and all ghost to the Observer Score
-    pacMan->registerObserver(score);
-    for (const auto &ghost : ghosts) {
-        ghost->registerObserver(score);
     }
 }
 
@@ -222,9 +209,17 @@ bool World::isLevelComplete() const {
 }
 
 bool World::isAllLevelsComplete() const {
-    return isLevelComplete() && (level == 2);
+    return isLevelComplete() && (level == 3);
 }
 
 bool World::isGameOver() const {
     return pacMan->isDead();
+}
+
+void World::registerObserver(const shared_ptr<Observer>& observer) {
+    // register pacMan and all ghost to the observer
+    pacMan->registerObserver(observer);
+    for (const auto &ghost : ghosts) {
+        ghost->registerObserver(observer);
+    }
 }
