@@ -1,8 +1,7 @@
 #ifndef GAMELOGICLIB_PACMANVIEW_H
 #define GAMELOGICLIB_PACMANVIEW_H
 
-#include "../model/Ghost.h"
-#include "../model/PacMan.h"
+#include "PacMan.h"
 #include "EntityView.h"
 /**
  * @class PacManView

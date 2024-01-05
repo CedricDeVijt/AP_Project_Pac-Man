@@ -1,19 +1,20 @@
 #include "SoundEffectObserver.h"
 #include "SoundEffects.h"
+#include "../util/Singleton.h"
 
 void SoundEffectObserver::processEvent(const EventType eventType) {
     switch (eventType) {
     case PACMAN_CAPTURES_COIN:
-        SoundEffects::getInstance().playWakaWaka();
+        Singleton<SoundEffects>::getInstance().playWakaWaka();
         break;
     case PACMAN_CAPTURES_FRUIT:
-        SoundEffects::getInstance().playEatingCherry();
+        Singleton<SoundEffects>::getInstance().playEatingCherry();
         break;
     case PACMAN_CAPTURES_GHOST:
-        SoundEffects::getInstance().playEatingGhost();
+        Singleton<SoundEffects>::getInstance().playEatingGhost();
         break;
     case PACMAN_DIES:
-        SoundEffects::getInstance().playSiren();
+        Singleton<SoundEffects>::getInstance().playSiren();
         break;
     default:
         break;

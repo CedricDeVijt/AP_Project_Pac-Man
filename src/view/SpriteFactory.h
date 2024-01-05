@@ -1,7 +1,7 @@
 #ifndef AP_PROJECT_PAC_MAN_SPRITEFACTORY_H
 #define AP_PROJECT_PAC_MAN_SPRITEFACTORY_H
 
-#include "../model/Ghost.h"
+#include "Ghost.h"
 #include <SFML/Graphics.hpp>
 
 /**
@@ -10,9 +10,6 @@
  */
 class SpriteFactory {
 private:
-    // Private constructor to prevent external instantiation
-    SpriteFactory();
-    ~SpriteFactory() = default;
     sf::Texture texture, levelTexture;
 
     /**
@@ -25,8 +22,8 @@ private:
     sf::Sprite createSprite(sf::IntRect textureRect, const sf::Vector2f& position, const sf::Vector2f& scale) const;
 
 public:
-    // Static method to get the instance of the singleton
-    static SpriteFactory& getInstance();
+    SpriteFactory();
+    ~SpriteFactory() = default;
 
     /**
      * @brief Creates a ghost sprite based on type, alternative, position, and grid size.

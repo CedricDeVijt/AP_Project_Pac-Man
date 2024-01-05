@@ -1,5 +1,6 @@
 #include "Camera.h"
-#include "WindowSingleton.h"
+#include "Window.h"
+#include "../util/Singleton.h"
 
 int toPixelValue(double position, int canvasSize) {
     // move origin [-1, 1] -> [0, 2]
@@ -9,13 +10,13 @@ int toPixelValue(double position, int canvasSize) {
 }
 
 int Camera::toPixelX(double position) {
-    const auto window = WindowSingleton::getInstance().getWindow();
+    const auto window = Singleton<Window>::getInstance().getWindow();
     const int canvasWidth = window->getSize().x;
     return toPixelValue(position, canvasWidth);
 }
 
 int Camera::toPixelY(double position) {
-    const auto window = WindowSingleton::getInstance().getWindow();
+    const auto window = Singleton<Window>::getInstance().getWindow();
     const int canvasHeight = window->getSize().x * 11 / 20; // same aspect ratio for a 20 by 11 grid
     return toPixelValue(position, canvasHeight);
 }

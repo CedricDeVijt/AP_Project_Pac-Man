@@ -1,5 +1,5 @@
 #include "FontFactory.h"
-#include "WindowSingleton.h"
+#include "../util/Singleton.h"
 
 // Define the static instance of the singleton
 FontFactory::FontFactory() {
@@ -9,11 +9,6 @@ FontFactory::FontFactory() {
     if (!pacManFont.loadFromFile("resources/fonts/pacManFont.ttf")) {
         throw std::runtime_error("Error loading font");
     }
-}
-
-FontFactory& FontFactory::getInstance() {
-    static FontFactory instance; // Guaranteed to be destroyed, instantiated on first use
-    return instance;
 }
 
 sf::Font FontFactory::getPixelFont() const { return pixelFont; }

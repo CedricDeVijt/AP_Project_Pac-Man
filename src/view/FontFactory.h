@@ -9,15 +9,11 @@
  */
 class FontFactory {
 private:
-    // Private constructor to prevent external instantiation
-    FontFactory();
-    ~FontFactory() = default;
     sf::Font pixelFont, pacManFont;
 
-
 public:
-    // Static method to get the instance of the singleton
-    static FontFactory& getInstance();
+    FontFactory();
+    ~FontFactory() = default;
 
     sf::Font getPixelFont() const;
     sf::Font getPacManFont() const;

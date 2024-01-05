@@ -1,5 +1,6 @@
 #include "SpriteFactory.h"
-#include "WindowSingleton.h"
+#include "Window.h"
+#include "../util/Singleton.h"
 
 // Define the static instance of the singleton
 SpriteFactory::SpriteFactory() {
@@ -10,11 +11,6 @@ SpriteFactory::SpriteFactory() {
     if (!levelTexture.loadFromFile("resources/sprites/PacMan_Logo.png")) {
         throw std::runtime_error("Failed to load texture");
     }
-}
-
-SpriteFactory& SpriteFactory::getInstance() {
-    static SpriteFactory instance; // Guaranteed to be destroyed, instantiated on first use
-    return instance;
 }
 
 sf::Sprite SpriteFactory::createSprite(sf::IntRect textureRect, const sf::Vector2f& position,
@@ -145,7 +141,7 @@ sf::Sprite SpriteFactory::createLogo() const {
     sprite.setTexture(levelTexture);
 
     // determine origin
-    const auto window = WindowSingleton::getInstance().getWindow();
+    const auto window = Singleton<Window>::getInstance().getWindow();
     const sf::FloatRect spriteBounds = sprite.getLocalBounds();
     sprite.setOrigin(spriteBounds.width / 2, 0);
 
