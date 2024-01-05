@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['notifyobservers_0',['notifyObservers',['../class_subject.html#a387dc37db1c44a94001f9cd64dcd3942',1,'Subject']]],
-  ['nudgetogrid_1',['nudgeToGrid',['../class_entity_model.html#a2ae6d9b765424b533f81a4e2e28e21db',1,'EntityModel']]]
+  ['levelstate_0',['LevelState',['../class_level_state.html#a9c0274d7c7d68c33cbc3525c8a9dd74d',1,'LevelState::LevelState(StateManager *stateManager)'],['../class_level_state.html#afec2ee046af0d5d38a44785630cda02c',1,'LevelState::LevelState(StateManager *stateManager, int level, const shared_ptr&lt; Score &gt; &amp;score)']]],
+  ['loadhighscores_1',['loadHighScores',['../class_score.html#a57290f0758b4356ea87027353d253b71',1,'Score']]]
 ];

@@ -6,5 +6,6 @@ var class_entity_model =
     [ "overlapsWith", "class_entity_model.html#aea97f936a65dc02ec7856ea3b89a005f", null ],
     [ "overlapsWith", "class_entity_model.html#a246d9f44a802256c9086f490b898e4d8", null ],
     [ "processEvent", "class_entity_model.html#a1e9222296f2cd4ebfc02aaf232b4cecd", null ],
+    [ "step", "class_entity_model.html#afeaa0deed64d5d1a504b5027fe979ffa", null ],
     [ "position", "class_entity_model.html#acc5b23c0badcf41e886b21eb623cd81a", null ]
 ];

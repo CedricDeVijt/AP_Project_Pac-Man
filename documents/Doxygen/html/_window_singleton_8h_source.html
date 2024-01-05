@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP Pac-Man project: src/view/WindowSingleton.h Source File</title>
+<title>AP: Project Pac-Man: src/view/WindowSingleton.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP Pac-Man project
+   <div id="projectname">AP: Project Pac-Man
    </div>
   </td>
  </tr>
@@ -110,8 +110,8 @@ $(function(){initNavTree('_window_singleton_8h_source.html',''); initResizable()
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_window_singleton.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_window_singleton.html">WindowSingleton</a> {</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="comment">// Private constructor to prevent external instantiation</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="class_window_singleton.html">WindowSingleton</a>();</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    shared_ptr&lt;sf::RenderWindow&gt; window; </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_function" href="class_window_singleton.html#acb41ea2bebe5ca09bc81069b02d14935">WindowSingleton</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_window_singleton.html#a802c3c0a5ba02858f7ce3c19b981d01d">   16</a></span>    shared_ptr&lt;sf::RenderWindow&gt; <a class="code hl_variable" href="class_window_singleton.html#a802c3c0a5ba02858f7ce3c19b981d01d">window</a>; </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_window_singleton.html">WindowSingleton</a>&amp; <a class="code hl_function" href="class_window_singleton.html#a2eef26936c47e8591e2f2f8318544791">getInstance</a>();</div>
@@ -125,10 +125,12 @@ $(function(){initNavTree('_window_singleton_8h_source.html',''); initResizable()
 </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif </span><span class="comment">// AP_PROJECT_PAC_MAN_WINDOWSINGLETON_H</span></div>
-<div class="ttc" id="aclass_window_singleton_html"><div class="ttname"><a href="class_window_singleton.html">WindowSingleton</a></div><div class="ttdoc">A singleton class managing the application's SFML window.</div><div class="ttdef"><b>Definition</b> WindowSingleton.h:12</div></div>
-<div class="ttc" id="aclass_window_singleton_html_a2c42c37668171f0de709132cd438d768"><div class="ttname"><a href="class_window_singleton.html#a2c42c37668171f0de709132cd438d768">WindowSingleton::getWindow</a></div><div class="ttdeci">shared_ptr&lt; sf::RenderWindow &gt; getWindow()</div><div class="ttdoc">Gets the SFML window instance.</div><div class="ttdef"><b>Definition</b> WindowSingleton.cpp:14</div></div>
-<div class="ttc" id="aclass_window_singleton_html_a2eef26936c47e8591e2f2f8318544791"><div class="ttname"><a href="class_window_singleton.html#a2eef26936c47e8591e2f2f8318544791">WindowSingleton::getInstance</a></div><div class="ttdeci">static WindowSingleton &amp; getInstance()</div><div class="ttdoc">Retrieves the instance of the WindowSingleton.</div><div class="ttdef"><b>Definition</b> WindowSingleton.cpp:9</div></div>
+<div class="ttc" id="aclass_window_singleton_html"><div class="ttname"><a href="class_window_singleton.html">WindowSingleton</a></div><div class="ttdoc">A singleton class managing the application's SFML window.</div><div class="ttdef"><b>Definition</b> <a href="#l00012">WindowSingleton.h:12</a></div></div>
+<div class="ttc" id="aclass_window_singleton_html_a2c42c37668171f0de709132cd438d768"><div class="ttname"><a href="class_window_singleton.html#a2c42c37668171f0de709132cd438d768">WindowSingleton::getWindow</a></div><div class="ttdeci">shared_ptr&lt; sf::RenderWindow &gt; getWindow()</div><div class="ttdoc">Gets the SFML window instance.</div><div class="ttdef"><b>Definition</b> <a href="_window_singleton_8cpp_source.html#l00014">WindowSingleton.cpp:14</a></div></div>
+<div class="ttc" id="aclass_window_singleton_html_a2eef26936c47e8591e2f2f8318544791"><div class="ttname"><a href="class_window_singleton.html#a2eef26936c47e8591e2f2f8318544791">WindowSingleton::getInstance</a></div><div class="ttdeci">static WindowSingleton &amp; getInstance()</div><div class="ttdoc">Retrieves the instance of the WindowSingleton.</div><div class="ttdef"><b>Definition</b> <a href="_window_singleton_8cpp_source.html#l00009">WindowSingleton.cpp:9</a></div></div>
 <div class="ttc" id="aclass_window_singleton_html_a38fb2fea44cd09d47b2610d7f8d755f1"><div class="ttname"><a href="class_window_singleton.html#a38fb2fea44cd09d47b2610d7f8d755f1">WindowSingleton::WindowSingleton</a></div><div class="ttdeci">WindowSingleton(const WindowSingleton &amp;)=delete</div></div>
+<div class="ttc" id="aclass_window_singleton_html_a802c3c0a5ba02858f7ce3c19b981d01d"><div class="ttname"><a href="class_window_singleton.html#a802c3c0a5ba02858f7ce3c19b981d01d">WindowSingleton::window</a></div><div class="ttdeci">shared_ptr&lt; sf::RenderWindow &gt; window</div><div class="ttdoc">The SFML window instance.</div><div class="ttdef"><b>Definition</b> <a href="#l00016">WindowSingleton.h:16</a></div></div>
+<div class="ttc" id="aclass_window_singleton_html_acb41ea2bebe5ca09bc81069b02d14935"><div class="ttname"><a href="class_window_singleton.html#acb41ea2bebe5ca09bc81069b02d14935">WindowSingleton::WindowSingleton</a></div><div class="ttdeci">WindowSingleton()</div><div class="ttdef"><b>Definition</b> <a href="_window_singleton_8cpp_source.html#l00004">WindowSingleton.cpp:4</a></div></div>
 <div class="ttc" id="aclass_window_singleton_html_adf35f142ba3c4d03c12b8a1e1d7accff"><div class="ttname"><a href="class_window_singleton.html#adf35f142ba3c4d03c12b8a1e1d7accff">WindowSingleton::operator=</a></div><div class="ttdeci">WindowSingleton &amp; operator=(const WindowSingleton &amp;)=delete</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

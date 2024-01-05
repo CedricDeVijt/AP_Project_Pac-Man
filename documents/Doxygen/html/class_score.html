@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP Pac-Man project: Score Class Reference</title>
+<title>AP: Project Pac-Man: Score Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP Pac-Man project
+   <div id="projectname">AP: Project Pac-Man
    </div>
   </td>
  </tr>
@@ -94,6 +94,8 @@ $(function(){initNavTree('class_score.html',''); initResizable(); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_score-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Score Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
@@ -140,9 +142,38 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a57290f0758b4356ea87027353d253b71" id="r_a57290f0758b4356ea87027353d253b71"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::pair&lt; std::string, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57290f0758b4356ea87027353d253b71">loadHighScores</a> ()</td></tr>
 <tr class="memdesc:a57290f0758b4356ea87027353d253b71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the high scores from a file.  <br /></td></tr>
 <tr class="separator:a57290f0758b4356ea87027353d253b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aecc586bfe2f391ae7b9cb78a50668022" id="r_aecc586bfe2f391ae7b9cb78a50668022"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecc586bfe2f391ae7b9cb78a50668022">currentScore</a> = 0</td></tr>
+<tr class="memdesc:aecc586bfe2f391ae7b9cb78a50668022"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current score.  <br /></td></tr>
+<tr class="separator:aecc586bfe2f391ae7b9cb78a50668022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e220dc3be49c57223a2745e1b043a6c" id="r_a9e220dc3be49c57223a2745e1b043a6c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e220dc3be49c57223a2745e1b043a6c">livesRemaining</a> = 3</td></tr>
+<tr class="memdesc:a9e220dc3be49c57223a2745e1b043a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The remaining lives.  <br /></td></tr>
+<tr class="separator:a9e220dc3be49c57223a2745e1b043a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0183fabbb52e5924fd44f1861db6e46" id="r_ab0183fabbb52e5924fd44f1861db6e46"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0183fabbb52e5924fd44f1861db6e46">timeToReduceScore</a> = 0</td></tr>
+<tr class="memdesc:ab0183fabbb52e5924fd44f1861db6e46"><td class="mdescLeft">&#160;</td><td class="mdescRight">The remaining time until the score is reduced by one.  <br /></td></tr>
+<tr class="separator:ab0183fabbb52e5924fd44f1861db6e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:aa4cea55adfca1fb27c1031b8e06b389f" id="r_aa4cea55adfca1fb27c1031b8e06b389f"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4cea55adfca1fb27c1031b8e06b389f">POINTS_TICK</a> = -1</td></tr>
+<tr class="memdesc:aa4cea55adfca1fb27c1031b8e06b389f"><td class="mdescLeft">&#160;</td><td class="mdescRight">the number of points losts with each tick  <br /></td></tr>
+<tr class="separator:aa4cea55adfca1fb27c1031b8e06b389f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0527a04fef6fd6c0732b35260285f24" id="r_ab0527a04fef6fd6c0732b35260285f24"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0527a04fef6fd6c0732b35260285f24">POINTS_COIN</a> = 1</td></tr>
+<tr class="memdesc:ab0527a04fef6fd6c0732b35260285f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">the number of points scored when a coin is captured  <br /></td></tr>
+<tr class="separator:ab0527a04fef6fd6c0732b35260285f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa53351012a7d0bdd5ca2f2778e26ed6f" id="r_aa53351012a7d0bdd5ca2f2778e26ed6f"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa53351012a7d0bdd5ca2f2778e26ed6f">POINTS_FRUIT</a> = 10</td></tr>
+<tr class="memdesc:aa53351012a7d0bdd5ca2f2778e26ed6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">the number of points scored when a fruit is captured  <br /></td></tr>
+<tr class="separator:aa53351012a7d0bdd5ca2f2778e26ed6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a185723377695c8afd92b0690687cc79a" id="r_a185723377695c8afd92b0690687cc79a"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a185723377695c8afd92b0690687cc79a">POINTS_GHOST</a> = 50</td></tr>
+<tr class="memdesc:a185723377695c8afd92b0690687cc79a"><td class="mdescLeft">&#160;</td><td class="mdescRight">the number of points scored when a ghost is captured  <br /></td></tr>
+<tr class="separator:a185723377695c8afd92b0690687cc79a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Keeps track of the player's score and lives, and manages high scores. </p>
+
+<p class="definition">Definition at line <a class="el" href="_score_8h_source.html#l00012">12</a> of file <a class="el" href="_score_8h_source.html">Score.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a44a0eabd0756ee0a31424f480f6edc48" name="a44a0eabd0756ee0a31424f480f6edc48"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44a0eabd0756ee0a31424f480f6edc48">&#9670;&#160;</a></span>getCurrentScore()</h2>
@@ -161,6 +192,8 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Gets the current score. </p>
 <dl class="section return"><dt>Returns</dt><dd>The current score. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00098">98</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
 
 </div>
 </div>
@@ -181,6 +214,8 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Gets the remaining lives. </p>
 <dl class="section return"><dt>Returns</dt><dd>The remaining lives. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00100">100</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
 
 </div>
 </div>
@@ -210,6 +245,8 @@ Static Public Member Functions</h2></td></tr>
 <p>Loads the high scores from a file. </p>
 <dl class="section return"><dt>Returns</dt><dd>A vector of pairs containing player names and their corresponding scores. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00038">38</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
+
 </div>
 </div>
 <a id="ac40c2925c8c35bbd7be6eb377920bea8" name="ac40c2925c8c35bbd7be6eb377920bea8"></a>
@@ -238,6 +275,8 @@ Static Public Member Functions</h2></td></tr>
 <p>Overrides the update method from the <a class="el" href="class_observer.html" title="Represents an observer in the observer design pattern.">Observer</a> class. </p>
 
 <p>Implements <a class="el" href="class_observer.html#accc39c6ac8cc1b9b23fcefab43b91dbf">Observer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00067">67</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
 
 </div>
 </div>
@@ -277,11 +316,196 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00010">10</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aecc586bfe2f391ae7b9cb78a50668022" name="aecc586bfe2f391ae7b9cb78a50668022"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecc586bfe2f391ae7b9cb78a50668022">&#9670;&#160;</a></span>currentScore</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Score::currentScore = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The current score. </p>
+
+<p class="definition">Definition at line <a class="el" href="_score_8h_source.html#l00045">45</a> of file <a class="el" href="_score_8h_source.html">Score.h</a>.</p>
+
+</div>
+</div>
+<a id="a9e220dc3be49c57223a2745e1b043a6c" name="a9e220dc3be49c57223a2745e1b043a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e220dc3be49c57223a2745e1b043a6c">&#9670;&#160;</a></span>livesRemaining</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Score::livesRemaining = 3</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The remaining lives. </p>
+
+<p class="definition">Definition at line <a class="el" href="_score_8h_source.html#l00046">46</a> of file <a class="el" href="_score_8h_source.html">Score.h</a>.</p>
+
+</div>
+</div>
+<a id="ab0527a04fef6fd6c0732b35260285f24" name="ab0527a04fef6fd6c0732b35260285f24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0527a04fef6fd6c0732b35260285f24">&#9670;&#160;</a></span>POINTS_COIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int Score::POINTS_COIN = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the number of points scored when a coin is captured </p>
+
+<p class="definition">Definition at line <a class="el" href="_score_8h_source.html#l00050">50</a> of file <a class="el" href="_score_8h_source.html">Score.h</a>.</p>
+
+</div>
+</div>
+<a id="aa53351012a7d0bdd5ca2f2778e26ed6f" name="aa53351012a7d0bdd5ca2f2778e26ed6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa53351012a7d0bdd5ca2f2778e26ed6f">&#9670;&#160;</a></span>POINTS_FRUIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int Score::POINTS_FRUIT = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the number of points scored when a fruit is captured </p>
+
+<p class="definition">Definition at line <a class="el" href="_score_8h_source.html#l00051">51</a> of file <a class="el" href="_score_8h_source.html">Score.h</a>.</p>
+
+</div>
+</div>
+<a id="a185723377695c8afd92b0690687cc79a" name="a185723377695c8afd92b0690687cc79a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a185723377695c8afd92b0690687cc79a">&#9670;&#160;</a></span>POINTS_GHOST</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int Score::POINTS_GHOST = 50</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the number of points scored when a ghost is captured </p>
+
+<p class="definition">Definition at line <a class="el" href="_score_8h_source.html#l00052">52</a> of file <a class="el" href="_score_8h_source.html">Score.h</a>.</p>
+
+</div>
+</div>
+<a id="aa4cea55adfca1fb27c1031b8e06b389f" name="aa4cea55adfca1fb27c1031b8e06b389f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4cea55adfca1fb27c1031b8e06b389f">&#9670;&#160;</a></span>POINTS_TICK</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int Score::POINTS_TICK = -1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the number of points losts with each tick </p>
+
+<p class="definition">Definition at line <a class="el" href="_score_8h_source.html#l00049">49</a> of file <a class="el" href="_score_8h_source.html">Score.h</a>.</p>
+
+</div>
+</div>
+<a id="ab0183fabbb52e5924fd44f1861db6e46" name="ab0183fabbb52e5924fd44f1861db6e46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0183fabbb52e5924fd44f1861db6e46">&#9670;&#160;</a></span>timeToReduceScore</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Score::timeToReduceScore = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The remaining time until the score is reduced by one. </p>
+
+<p class="definition">Definition at line <a class="el" href="_score_8h_source.html#l00047">47</a> of file <a class="el" href="_score_8h_source.html">Score.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/model/<a class="el" href="_score_8h_source.html">Score.h</a></li>
-<li>src/model/<a class="el" href="_score_8cpp.html">Score.cpp</a></li>
+<li>src/model/<a class="el" href="_score_8cpp_source.html">Score.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP Pac-Man project: src/view/Camera.h Source File</title>
+<title>AP: Project Pac-Man: src/view/Camera.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP Pac-Man project
+   <div id="projectname">AP: Project Pac-Man
    </div>
   </td>
  </tr>
@@ -109,16 +109,18 @@ $(function(){initNavTree('_camera_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">static</span> std::tuple&lt;int, int&gt; <a class="code hl_function" href="class_camera.html#a59270c946c8373f24308194b2f115984">toPixelCoordinates</a>(<span class="keyword">const</span> std::tuple&lt;double, double, double, double&gt;&amp; position);</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> toPixelX(<span class="keywordtype">double</span> position);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_camera.html#ae7556c9a35ee894a7b3b11e3bf0a2bbe">toPixelX</a>(<span class="keywordtype">double</span> position);</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> toPixelY(<span class="keywordtype">double</span> position);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_camera.html#abc5d6f59ea5042dc72124bde41138c82">toPixelY</a>(<span class="keywordtype">double</span> position);</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
 </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif </span><span class="comment">// AP_PROJECT_PAC_MAN_CAMERA_H</span></div>
-<div class="ttc" id="aclass_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdoc">Models how the positions of the entities in coordinate system [-1, 1] will be mapped on the screen.</div><div class="ttdef"><b>Definition</b> Camera.h:9</div></div>
-<div class="ttc" id="aclass_camera_html_a59270c946c8373f24308194b2f115984"><div class="ttname"><a href="class_camera.html#a59270c946c8373f24308194b2f115984">Camera::toPixelCoordinates</a></div><div class="ttdeci">static std::tuple&lt; int, int &gt; toPixelCoordinates(const std::tuple&lt; double, double, double, double &gt; &amp;position)</div><div class="ttdoc">Converts normalized coordinates to pixel coordinates.</div><div class="ttdef"><b>Definition</b> Camera.cpp:23</div></div>
+<div class="ttc" id="aclass_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdoc">Models how the positions of the entities in coordinate system [-1, 1] will be mapped on the screen.</div><div class="ttdef"><b>Definition</b> <a href="#l00009">Camera.h:9</a></div></div>
+<div class="ttc" id="aclass_camera_html_a59270c946c8373f24308194b2f115984"><div class="ttname"><a href="class_camera.html#a59270c946c8373f24308194b2f115984">Camera::toPixelCoordinates</a></div><div class="ttdeci">static std::tuple&lt; int, int &gt; toPixelCoordinates(const std::tuple&lt; double, double, double, double &gt; &amp;position)</div><div class="ttdoc">Converts normalized coordinates to pixel coordinates.</div><div class="ttdef"><b>Definition</b> <a href="_camera_8cpp_source.html#l00023">Camera.cpp:23</a></div></div>
+<div class="ttc" id="aclass_camera_html_abc5d6f59ea5042dc72124bde41138c82"><div class="ttname"><a href="class_camera.html#abc5d6f59ea5042dc72124bde41138c82">Camera::toPixelY</a></div><div class="ttdeci">static int toPixelY(double position)</div><div class="ttdoc">Converts normalized coordinates to pixel coordinates on the Y-axis.</div><div class="ttdef"><b>Definition</b> <a href="_camera_8cpp_source.html#l00017">Camera.cpp:17</a></div></div>
+<div class="ttc" id="aclass_camera_html_ae7556c9a35ee894a7b3b11e3bf0a2bbe"><div class="ttname"><a href="class_camera.html#ae7556c9a35ee894a7b3b11e3bf0a2bbe">Camera::toPixelX</a></div><div class="ttdeci">static int toPixelX(double position)</div><div class="ttdoc">Converts normalized coordinates to pixel coordinates on the X-axis.</div><div class="ttdef"><b>Definition</b> <a href="_camera_8cpp_source.html#l00011">Camera.cpp:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

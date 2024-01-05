@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "AP Pac-Man project", "index.html", [
+  [ "AP: Project Pac-Man", "index.html", [
     [ "Intro", "md__r_e_a_d_m_e.html", [
       [ "How to run", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
       [ "Dependencies", "md__r_e_a_d_m_e.html#autotoc_md2", null ]
@@ -34,7 +34,7 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
@@ -56,7 +56,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_abstract_factory_8cpp.html",
-"class_intermission_state.html#af77268c12ea28ced63f27d6b002496c3"
+"class_game_over_state.html#a48f34c6f9de3d7f6cde534e26202658c",
+"functions_c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
