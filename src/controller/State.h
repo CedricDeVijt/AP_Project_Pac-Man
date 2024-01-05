@@ -3,9 +3,9 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "../model/Score.h"
-#include "../model/World.h"
+#include "Score.h"
 #include "StateManager.h"
+#include "World.h"
 
 using std::shared_ptr;
 
@@ -18,27 +18,21 @@ class StateManager;
 class State {
 
 protected:
-    StateManager *stateManager; ///< Pointer to the StateManager managing the game states.
-
-    /**
-     * @brief Creates a new MenuState and adds it to the state stack.
-     */
-    void createNewMenuState();
-
+    StateManager* stateManager; ///< Pointer to the StateManager managing the game states.
 
     /**
      * @brief Centers a text horizontally in the middle of a window
      * @param text the text to center.
      * @param posY the vertical position.
      */
-    static void centerHorizontally(sf::Text &text, int posY);
+    static void centerHorizontally(sf::Text& text, int posY);
 
 public:
     /**
      * @brief Constructor for the State class.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit State(StateManager *stateManager);
+    explicit State(StateManager* stateManager);
 
     /**
      * @brief Virtual destructor for the State class.
@@ -60,276 +54,7 @@ public:
      * @brief Draws the state on the given window.
      * @param window Shared pointer to the SFML RenderWindow.
      */
-    virtual void draw(shared_ptr <sf::RenderWindow> window) = 0;
-};
-
-/**
- * @class MenuState
- * @brief Represents the menu state of the game.
- */
-class MenuState final : public State {
-public:
-    /**
-     * @brief Constructor for the MenuState class.
-     * @param stateManager Pointer to the StateManager managing the game states.
-     */
-    explicit MenuState(StateManager *stateManager);
-
-    /**
-     * @brief Processes input events for the MenuState.
-     * Transitions to LevelState on Enter key press.
-     * @param key The key that was pressed.
-     */
-    void processInput(sf::Keyboard::Key key) override;
-
-    /**
-     * @brief Updates the MenuState logic.
-     */
-    void update() override;
-
-    /**
-     * @brief Draws the MenuState on the given window.
-     * Displays the Pac-man logo and high scores.
-     * @param window Shared pointer to the SFML RenderWindow.
-     */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
-
-private:
-    /**
-     * @brief Transitions to LevelState.
-     */
-    void toLevelState();
-};
-
-/**
- * @class LevelState
- * @brief Represents the level state of the game.
- */
-class LevelState final : public State {
-public:
-    /**
-     * @brief Constructor for the LevelState class.  Creates a world of level 0.
-     * @param stateManager Pointer to the StateManager managing the game states.
-     */
-    explicit LevelState(StateManager *stateManager);
-
-    /**
-     * @brief Constructor for the LevelState class.  Creates a world with given level and score.
-     * @param stateManager Pointer to the StateManager managing the game states.
-     * @param level The level of the game
-     * @param score The object containing the current score info
-     */
-    explicit LevelState(StateManager *stateManager, int level, const shared_ptr <Score>& score);
-
-    /**
-     * @brief Processes input events for the LevelState.
-     * Transitions to VictoryState on completing all levels.
-     * Transitions to PausedState on Escape key press.
-     * @param key The key that was pressed.
-     */
-    void processInput(sf::Keyboard::Key key) override;
-
-    /**
-     * @brief Updates the LevelState logic.
-     */
-    void update() override;
-
-    /**
-     * @brief Draws the LevelState on the given window.
-     * Displays the current score and remaining lives.
-     * @param window Shared pointer to the SFML RenderWindow.
-     */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
-
-    /**
-     * @brief creates a LevelState that corresponds to the next level in the game.
-     */
-    void toNextLevelState();
-
-private:
-
-    /**
-     * @brief Transitions to VictoryState.
-     */
-    void toVictoryState();
-
-    /**
-     * @brief Transitions to PausedState.
-     */
-    void toPausedState();
-
-    /**
-     * @brief Transitions to GameOverState.
-     */
-    void toGameOverState();
-
-    /**
-     * @brief Transitions to IntermissionState.
-     */
-    void toIntermissionState();
-
-    shared_ptr <World> world; ///< Pointer to the game world.
-    shared_ptr <Score> score; ///< Pointer to the game score.
-    int level = 0;                ///< The current level of the game
-};
-
-/**
- * @class PausedState
- * @brief Represents the paused state of the game.
- */
-class PausedState final : public State {
-public:
-    /**
-     * @brief Constructor for the PausedState class.
-     * @param stateManager Pointer to the StateManager managing the game states.
-     */
-    explicit PausedState(StateManager *stateManager);
-
-    /**
-     * @brief Processes input events for the PausedState.
-     * Transitions to LevelState on Escape key press.
-     * @param key The key that was pressed.
-     */
-    void processInput(sf::Keyboard::Key key) override;
-
-    /**
-     * @brief Updates the PausedState logic.
-     */
-    void update() override;
-
-    /**
-     * @brief Draws the PausedState on the given window.
-     * @param window Shared pointer to the SFML RenderWindow.
-     */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
-
-private:
-    /**
-     * @brief Transitions to LevelState.
-     */
-    void toMenuState();
-
-    /**
-     * @brief Transitions to LevelState.
-     */
-    void toLevelState() const;
-
-};
-
-/**
- * @class VictoryState
- * @brief Represents the victory state of the game.
- */
-class VictoryState final : public State {
-public:
-    /**
-     * @brief Constructor for the VictoryState class.
-     * @param stateManager Pointer to the StateManager managing the game states.
-     */
-    explicit VictoryState(StateManager *stateManager);
-
-    /**
-     * @brief Processes input events for the VictoryState.
-     * Transitions to MenuState on Enter key press.
-     * @param key The key that was pressed.
-     */
-    void processInput(sf::Keyboard::Key key) override;
-
-    /**
-     * @brief Updates the VictoryState logic.
-     */
-    void update() override;
-
-    /**
-     * @brief Draws the VictoryState on the given window.
-     * @param window Shared pointer to the SFML RenderWindow.
-     */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
-
-private:
-    /**
-     * @brief Transitions to MenuState.
-     */
-    void toLevelState() const;
-};
-
-/**
- * @class GameOverState
- * @brief Represents the game over state of the game.
- */
-class GameOverState final : public State {
-public:
-    /**
-     * @brief Constructor for the GameOverState class.
-     * @param stateManager Pointer to the StateManager managing the game states.
-     */
-    explicit GameOverState(StateManager *stateManager);
-
-    /**
-     * @brief Processes input events for the GameOverState.
-     * Transitions to MenuState on Enter key press.
-     * @param key The key that was pressed.
-     */
-    void processInput(sf::Keyboard::Key key) override;
-
-    /**
-     * @brief Updates the GameOverState logic.
-     */
-    void update() override;
-
-    /**
-     * @brief Draws the GameOverState on the given window.
-     * @param window Shared pointer to the SFML RenderWindow.
-     */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
-
-private:
-    /**
-     * @brief Transitions to MenuState.
-     */
-    void toMenuState();
-
-    void toNewGameState() const;
-};
-
-/**
- * @class IntermissionState
- * @brief Represents the intermission state between two levels.
- */
-class IntermissionState final : public State {
-public:
-    /**
-     * @brief Constructor for the IntermissionState class.
-     * @param stateManager Pointer to the StateManager managing the game states.
-     * @param level The level that just has been completed.
-     */
-    explicit IntermissionState(StateManager *stateManager, int level);
-
-    /**
-     * @brief Processes input events for the IntermissionState.
-     * Transitions to MenuState on Enter key press.
-     * @param key The key that was pressed.
-     */
-    void processInput(sf::Keyboard::Key key) override;
-
-    /**
-     * @brief Updates the IntermissionState logic.
-     */
-    void update() override;
-
-    /**
-     * @brief Draws the IntermissionState on the given window.
-     * @param window Shared pointer to the SFML RenderWindow.
-     */
-    void draw(shared_ptr <sf::RenderWindow> window) override;
-
-private:
-    /**
-     * @brief Transitions to MenuState.
-     */
-    void toNextLevelState() const;
-
-    int level; ///< The value of the level that just has been completed
+    virtual void draw(shared_ptr<sf::RenderWindow> window) = 0;
 };
 
 #endif // AP_PROJECT_PAC_MAN_STATE_H
