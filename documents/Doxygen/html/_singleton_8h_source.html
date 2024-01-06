@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP: Project Pac-Man: src/util/Singleton.h Source File</title>
+<title>My Project: /Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 2/1 Advanced programming/AP_Project/src/util/Singleton.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP: Project Pac-Man
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -108,30 +108,28 @@ $(function(){initNavTree('_singleton_8h_source.html',''); initResizable(); });
 <div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_singleton.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="class_singleton.html">Singleton</a> {</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="comment">// get the static instance</span></div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_singleton.html#a4aec04ab40783981bc6314c390206a68">   10</a></span>    <span class="keyword">static</span> T&amp; <a class="code hl_function" href="class_singleton.html#a4aec04ab40783981bc6314c390206a68">getInstance</a>() {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>            <span class="keyword">static</span> T instance;  <span class="comment">// The instance is created only once</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>            <span class="keywordflow">return</span> instance;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    };</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_singleton.html#a23b2407170cc04f6746874704b928044">   10</a></span>    <a class="code hl_function" href="class_singleton.html#a23b2407170cc04f6746874704b928044">Singleton</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_singleton.html">Singleton</a>&amp;) = <span class="keyword">delete</span>;            <span class="comment">// Disable copy constructor</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">// get the static instance</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_singleton.html#a4aec04ab40783981bc6314c390206a68">   13</a></span>    <span class="keyword">static</span> T&amp; <a class="code hl_function" href="class_singleton.html#a4aec04ab40783981bc6314c390206a68">getInstance</a>() {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keyword">static</span> T instance; <span class="comment">// The instance is created only once</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    };</div>
 </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_singleton.html#a923b995920da9c06590adb170ab2f890">   16</a></span>    <a class="code hl_function" href="class_singleton.html#a923b995920da9c06590adb170ab2f890">Singleton</a>() {}  <span class="comment">// Private constructor to prevent external instantiation</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_singleton.html#ac6e7af82cba33f561bd64e5e0243e7f8">   17</a></span>    <a class="code hl_function" href="class_singleton.html#ac6e7af82cba33f561bd64e5e0243e7f8">~Singleton</a>() {} <span class="comment">// Optional: Destructor to ensure proper cleanup</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_singleton.html#a23b2407170cc04f6746874704b928044">   18</a></span>    <a class="code hl_function" href="class_singleton.html#a23b2407170cc04f6746874704b928044">Singleton</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_singleton.html">Singleton</a>&amp;) = <span class="keyword">delete</span>;             <span class="comment">// Disable copy constructor</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_singleton.html#a77024ec0dcc861c2d5f4a848d726e2ad">   19</a></span>    <a class="code hl_class" href="class_singleton.html">Singleton</a>&amp; <a class="code hl_function" href="class_singleton.html#a77024ec0dcc861c2d5f4a848d726e2ad">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_singleton.html">Singleton</a>&amp;) = <span class="keyword">delete</span>;  <span class="comment">// Disable copy assignment</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="class_singleton.html">Singleton</a>() = <span class="keywordflow">default</span>;                           <span class="comment">// Private constructor to prevent external instantiation</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_class" href="class_singleton.html">~Singleton</a>() = <span class="keywordflow">default</span>;                          <span class="comment">// Optional: Destructor to ensure proper cleanup</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_class" href="class_singleton.html">Singleton</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="class_singleton.html">Singleton</a>&amp;) = <span class="keyword">delete</span>; <span class="comment">// Disable copy assignment</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
 </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif </span><span class="comment">//GAMELOGICLIB_SINGLETON_H</span></div>
-<div class="ttc" id="aclass_singleton_html"><div class="ttname"><a href="class_singleton.html">Singleton</a></div><div class="ttdef"><b>Definition</b> <a href="#l00007">Singleton.h:7</a></div></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif </span><span class="comment">// GAMELOGICLIB_SINGLETON_H</span></div>
+<div class="ttc" id="aclass_singleton_html"><div class="ttname"><a href="class_singleton.html">Singleton</a></div><div class="ttdef"><b>Definition</b> Singleton.h:7</div></div>
 <div class="ttc" id="aclass_singleton_html_a23b2407170cc04f6746874704b928044"><div class="ttname"><a href="class_singleton.html#a23b2407170cc04f6746874704b928044">Singleton::Singleton</a></div><div class="ttdeci">Singleton(const Singleton &amp;)=delete</div></div>
-<div class="ttc" id="aclass_singleton_html_a4aec04ab40783981bc6314c390206a68"><div class="ttname"><a href="class_singleton.html#a4aec04ab40783981bc6314c390206a68">Singleton::getInstance</a></div><div class="ttdeci">static T &amp; getInstance()</div><div class="ttdef"><b>Definition</b> <a href="#l00010">Singleton.h:10</a></div></div>
-<div class="ttc" id="aclass_singleton_html_a77024ec0dcc861c2d5f4a848d726e2ad"><div class="ttname"><a href="class_singleton.html#a77024ec0dcc861c2d5f4a848d726e2ad">Singleton::operator=</a></div><div class="ttdeci">Singleton &amp; operator=(const Singleton &amp;)=delete</div></div>
-<div class="ttc" id="aclass_singleton_html_a923b995920da9c06590adb170ab2f890"><div class="ttname"><a href="class_singleton.html#a923b995920da9c06590adb170ab2f890">Singleton::Singleton</a></div><div class="ttdeci">Singleton()</div><div class="ttdef"><b>Definition</b> <a href="#l00016">Singleton.h:16</a></div></div>
-<div class="ttc" id="aclass_singleton_html_ac6e7af82cba33f561bd64e5e0243e7f8"><div class="ttname"><a href="class_singleton.html#ac6e7af82cba33f561bd64e5e0243e7f8">Singleton::~Singleton</a></div><div class="ttdeci">~Singleton()</div><div class="ttdef"><b>Definition</b> <a href="#l00017">Singleton.h:17</a></div></div>
+<div class="ttc" id="aclass_singleton_html_a4aec04ab40783981bc6314c390206a68"><div class="ttname"><a href="class_singleton.html#a4aec04ab40783981bc6314c390206a68">Singleton::getInstance</a></div><div class="ttdeci">static T &amp; getInstance()</div><div class="ttdef"><b>Definition</b> Singleton.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

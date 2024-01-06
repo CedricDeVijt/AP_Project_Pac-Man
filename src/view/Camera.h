@@ -15,7 +15,6 @@ public:
      */
     static std::tuple<int, int, int, int> toPixelCoordinates(const std::tuple<double, double, double, double>& position);
 
-    // TODO
     static int getMazeOffsetX();
     static int getMazeOffsetY();
     static int getMazeWidth();

@@ -1,7 +1,7 @@
 var annotated_dup =
 [
     [ "AbstractFactory", "class_abstract_factory.html", "class_abstract_factory" ],
-    [ "Camera", "class_camera.html", "class_camera" ],
+    [ "Camera", "class_camera.html", null ],
     [ "Coin", "class_coin.html", "class_coin" ],
     [ "CoinView", "class_coin_view.html", "class_coin_view" ],
     [ "Collectable", "class_collectable.html", "class_collectable" ],
@@ -35,6 +35,6 @@ var annotated_dup =
     [ "VictoryState", "class_victory_state.html", "class_victory_state" ],
     [ "Wall", "class_wall.html", "class_wall" ],
     [ "WallView", "class_wall_view.html", "class_wall_view" ],
-    [ "WindowSingleton", "class_window_singleton.html", "class_window_singleton" ],
+    [ "Window", "class_window.html", "class_window" ],
     [ "World", "class_world.html", "class_world" ]
 ];

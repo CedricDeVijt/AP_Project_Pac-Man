@@ -1,6 +1,26 @@
 var searchData=
 [
-  ['fontfactory_0',['FontFactory',['../class_font_factory.html#aa221cc8f6b2e3533ce7e362a4ab75614',1,'FontFactory::FontFactory()'],['../class_font_factory.html#a2b7bdc50f02c07cea2c5044a82b383c5',1,'FontFactory::FontFactory(const FontFactory &amp;)=delete']]],
-  ['fruit_1',['Fruit',['../class_fruit.html#a00f8d8742ae6ac5af8ae339bfee8c14f',1,'Fruit']]],
-  ['fruitview_2',['FruitView',['../class_fruit_view.html#a3780072d4453695819141d3103a3af93',1,'FruitView']]]
+  ['game_0',['Game',['../class_game.html#ad59df6562a58a614fda24622d3715b65',1,'Game']]],
+  ['gameoverstate_1',['GameOverState',['../class_game_over_state.html#abef3d9413534880fbee0351f8eda15b0',1,'GameOverState']]],
+  ['getalternative_2',['getAlternative',['../class_fruit.html#aaac45180deb71233fffcfbe3267707d1',1,'Fruit']]],
+  ['getcurrentscore_3',['getCurrentScore',['../class_score.html#a44a0eabd0756ee0a31424f480f6edc48',1,'Score']]],
+  ['getcurrentstate_4',['getCurrentState',['../class_state_manager.html#ac2b5f1e1362b62ffb4f4dcc9c36ecb0d',1,'StateManager']]],
+  ['getdeltatime_5',['getDeltaTime',['../class_stopwatch.html#af3270e4ab050781a8b8dbe1aedbe43e0',1,'Stopwatch']]],
+  ['getdirection_6',['getDirection',['../class_pac_man.html#a2375bd26e590b4d8147924c66091db29',1,'PacMan']]],
+  ['getgridsize_7',['getGridSize',['../class_entity_view.html#a1971f1f8ab444bd33254283a54334664',1,'EntityView']]],
+  ['getinstance_8',['getInstance',['../class_random.html#a2aa30d2f678fc76f75efc60356c6ea4d',1,'Random::getInstance()'],['../class_stopwatch.html#ae8cfd6ad5161541a7dc62fe3b3e1ca6b',1,'Stopwatch::getInstance()'],['../class_singleton.html#a4aec04ab40783981bc6314c390206a68',1,'Singleton::getInstance()']]],
+  ['getlivesremaining_9',['getLivesRemaining',['../class_score.html#afdafc2e4459a73028a30a19c6c63ab8a',1,'Score']]],
+  ['getmazeheight_10',['getMazeHeight',['../class_camera.html#a57f6502a6af8cbd326a757a3e520117e',1,'Camera']]],
+  ['getmazeoffsetx_11',['getMazeOffsetX',['../class_camera.html#af89b03a2c01f521a4cc74dcbc6f3631e',1,'Camera']]],
+  ['getmazeoffsety_12',['getMazeOffsetY',['../class_camera.html#a60746f0796eeff40bbfb867daa6e5ad0',1,'Camera']]],
+  ['getmazewidth_13',['getMazeWidth',['../class_camera.html#a677b9f848403efa954dff9fe867294b4',1,'Camera']]],
+  ['getpacmanfont_14',['getPacManFont',['../class_font_factory.html#ab3b44f6db279f9b1d020e7598128fa63',1,'FontFactory']]],
+  ['getpixelfont_15',['getPixelFont',['../class_font_factory.html#aabc97cc128a43c8990204472f6b2d027',1,'FontFactory']]],
+  ['getposition_16',['getPosition',['../class_entity_model.html#a463a5226e31eb6a7b41dea4990661a89',1,'EntityModel']]],
+  ['getrandomnumber_17',['getRandomNumber',['../class_random.html#a6b9c9c33c1cb535fecf9bfe41d554899',1,'Random']]],
+  ['gettype_18',['getType',['../class_ghost.html#ab8d20cb24321210bd075803ddc5721b1',1,'Ghost']]],
+  ['getwindow_19',['getWindow',['../class_window.html#aba39dff7c78220ee6e4ba623c64b5f8d',1,'Window']]],
+  ['ghost_20',['Ghost',['../class_ghost.html#ae74cc07055f76ceb4a280c9fa416b8cd',1,'Ghost']]],
+  ['ghostview_21',['GhostView',['../class_ghost_view.html#aeb0ad753c5f749526ec66f49ab984b89',1,'GhostView']]],
+  ['gohome_22',['goHome',['../class_ghost.html#a0c6d41d57edf393eb20f08eb10457914',1,'Ghost']]]
 ];

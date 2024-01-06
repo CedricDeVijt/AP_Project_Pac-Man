@@ -24,6 +24,6 @@ var dir_b39b5091e8d1d2be4b7fc59d57749634 =
     [ "SpriteFactory.h", "_sprite_factory_8h.html", "_sprite_factory_8h" ],
     [ "WallView.cpp", "_wall_view_8cpp.html", null ],
     [ "WallView.h", "_wall_view_8h.html", "_wall_view_8h" ],
-    [ "WindowSingleton.cpp", "_window_singleton_8cpp.html", null ],
-    [ "WindowSingleton.h", "_window_singleton_8h.html", "_window_singleton_8h" ]
+    [ "Window.cpp", "_window_8cpp.html", null ],
+    [ "Window.h", "_window_8h.html", "_window_8h" ]
 ];

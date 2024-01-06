@@ -6,12 +6,15 @@ var searchData=
   ['info_5flanguage_5fstandard_5fdefault_3',['info_language_standard_default',['../_c_make_c_compiler_id_8c.html#a4607cccf070750927b458473ca82c090',1,'info_language_standard_default:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a4607cccf070750927b458473ca82c090',1,'info_language_standard_default:&#160;CMakeCXXCompilerId.cpp']]],
   ['info_5fplatform_4',['info_platform',['../_c_make_c_compiler_id_8c.html#a2321403dee54ee23f0c2fa849c60f7d4',1,'info_platform:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a2321403dee54ee23f0c2fa849c60f7d4',1,'info_platform:&#160;CMakeCXXCompilerId.cpp']]],
   ['inky_5',['Inky',['../_ghost_8h.html#a19c48855930abe71014f6f21514b3925ac858cb3f4b62782c3880d08176ab41a6',1,'Ghost.h']]],
-  ['intermissionstate_6',['IntermissionState',['../class_intermission_state.html',1,'IntermissionState'],['../class_intermission_state.html#aadb59a7909292c5e59f6e1c2b0e635f3',1,'IntermissionState::IntermissionState()']]],
-  ['intro_7',['Intro',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['isalllevelscomplete_8',['isAllLevelsComplete',['../class_world.html#a6f8a316dcf7b3197a7d92b56dd8d08e0',1,'World']]],
-  ['isdead_9',['isDead',['../class_pac_man.html#a030df4513158bfe3c8fee1760deca67c',1,'PacMan']]],
-  ['isfearmode_10',['isFearMode',['../class_ghost.html#aad492e35e29c1f2035eb81fd8819ca4e',1,'Ghost']]],
-  ['isgameover_11',['isGameOver',['../class_world.html#a0ccb7137db33414179c4bdc1609331bd',1,'World']]],
-  ['islevelcomplete_12',['isLevelComplete',['../class_world.html#a00e253136f5f25681fc0971be399f364',1,'World']]],
-  ['iswaitmode_13',['isWaitMode',['../class_ghost.html#a56992bd2170837be73d3125d6b36baa5',1,'Ghost']]]
+  ['intermissionstate_6',['IntermissionState',['../class_intermission_state.html',1,'IntermissionState'],['../class_intermission_state.html#a5d1eb8929b106d6f452e8366c8a26494',1,'IntermissionState::IntermissionState()']]],
+  ['intermissionstate_2ecpp_7',['IntermissionState.cpp',['../_intermission_state_8cpp.html',1,'']]],
+  ['intermissionstate_2eh_8',['IntermissionState.h',['../_intermission_state_8h.html',1,'']]],
+  ['intro_9',['Intro',['../md__2_users_2cedric_2_library_2_mobile_01_documents_2com_0iapple_0i_cloud_docs_2_school_2_inform00f29acc337fd1c4397aa94066fa9743.html',1,'']]],
+  ['isalllevelscomplete_10',['isAllLevelsComplete',['../class_world.html#a6f8a316dcf7b3197a7d92b56dd8d08e0',1,'World']]],
+  ['isdead_11',['isDead',['../class_pac_man.html#a030df4513158bfe3c8fee1760deca67c',1,'PacMan']]],
+  ['isfearmode_12',['isFearMode',['../class_ghost.html#aad492e35e29c1f2035eb81fd8819ca4e',1,'Ghost']]],
+  ['isgameover_13',['isGameOver',['../class_world.html#a0ccb7137db33414179c4bdc1609331bd',1,'World']]],
+  ['isheigthlimited_14',['isHeigthLimited',['../_camera_8cpp.html#afe0702f789902ccf8b0d1a939861c8c0',1,'Camera.cpp']]],
+  ['islevelcomplete_15',['isLevelComplete',['../class_world.html#a00e253136f5f25681fc0971be399f364',1,'World']]],
+  ['iswaitmode_16',['isWaitMode',['../class_ghost.html#a56992bd2170837be73d3125d6b36baa5',1,'Ghost']]]
 ];

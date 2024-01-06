@@ -24,17 +24,17 @@
 */
 var NAVTREE =
 [
-  [ "AP: Project Pac-Man", "index.html", [
-    [ "Intro", "md__r_e_a_d_m_e.html", [
-      [ "How to run", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
-      [ "Dependencies", "md__r_e_a_d_m_e.html#autotoc_md2", null ]
+  [ "My Project", "index.html", [
+    [ "Intro", "md__2_users_2cedric_2_library_2_mobile_01_documents_2com_0iapple_0i_cloud_docs_2_school_2_inform00f29acc337fd1c4397aa94066fa9743.html", [
+      [ "How to run", "md__2_users_2cedric_2_library_2_mobile_01_documents_2com_0iapple_0i_cloud_docs_2_school_2_inform00f29acc337fd1c4397aa94066fa9743.html#autotoc_md1", null ],
+      [ "Dependencies", "md__2_users_2cedric_2_library_2_mobile_01_documents_2com_0iapple_0i_cloud_docs_2_school_2_inform00f29acc337fd1c4397aa94066fa9743.html#autotoc_md2", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
+        [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
@@ -46,7 +46,6 @@ var NAVTREE =
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -56,8 +55,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_abstract_factory_8cpp.html",
-"class_game_over_state.html#a48f34c6f9de3d7f6cde534e26202658c",
-"functions_c.html"
+"class_level_state.html#ac225fd33e286237d525941ea6acb8c7f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

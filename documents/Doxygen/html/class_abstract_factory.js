@@ -1,9 +1,9 @@
 var class_abstract_factory =
 [
     [ "~AbstractFactory", "class_abstract_factory.html#ae0b348ff14d4b3e9ab8322afd2fd8b38", null ],
-    [ "createCoin", "class_abstract_factory.html#af917b76ea5b5983caa7613e4e2c451a1", null ],
-    [ "createFruit", "class_abstract_factory.html#a3c30ff8dcf0f04d12687851ab2e7558e", null ],
-    [ "createGhost", "class_abstract_factory.html#a1d22c3a0c62babadd078e1a1b3a523d2", null ],
-    [ "createPacMan", "class_abstract_factory.html#a04fb539d445f85a53b232a671e5a1b6b", null ],
-    [ "createWall", "class_abstract_factory.html#aaf7c315ffb49a948b939113e31ec41e2", null ]
+    [ "createCoin", "class_abstract_factory.html#a26d4e79bc9f66ef0884906d09d81e180", null ],
+    [ "createFruit", "class_abstract_factory.html#aac58bad8cd138930e21ac7abc65d2828", null ],
+    [ "createGhost", "class_abstract_factory.html#aa0619e3825d3fab9b196a37cd60e3df6", null ],
+    [ "createPacMan", "class_abstract_factory.html#a9b3ecf03d368df94ba42398eb0c2cb20", null ],
+    [ "createWall", "class_abstract_factory.html#a0e07886bea1ee40272489efeacdea49e", null ]
 ];

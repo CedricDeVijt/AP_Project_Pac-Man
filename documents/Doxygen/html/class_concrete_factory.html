@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP: Project Pac-Man: ConcreteFactory Class Reference</title>
+<title>My Project: ConcreteFactory Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP: Project Pac-Man
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -93,7 +93,6 @@ $(function(){initNavTree('class_concrete_factory.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_concrete_factory-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ConcreteFactory Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
@@ -115,42 +114,34 @@ Inheritance diagram for ConcreteFactory:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1d4d4286a557d8bc0673bf990751ff38" id="r_a1d4d4286a557d8bc0673bf990751ff38"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d4d4286a557d8bc0673bf990751ff38">ConcreteFactory</a> (int <a class="el" href="#a2dc0cf1de4836e79bb7d5f5e0da965c2">level</a>)</td></tr>
+<tr class="memitem:a1d4d4286a557d8bc0673bf990751ff38" id="r_a1d4d4286a557d8bc0673bf990751ff38"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d4d4286a557d8bc0673bf990751ff38">ConcreteFactory</a> (int level)</td></tr>
 <tr class="memdesc:a1d4d4286a557d8bc0673bf990751ff38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_concrete_factory.html" title="A concrete implementation of the AbstractFactory interface.">ConcreteFactory</a> object.  <br /></td></tr>
 <tr class="separator:a1d4d4286a557d8bc0673bf990751ff38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fdf991ea94d71513b0df9c6df963a6a" id="r_a2fdf991ea94d71513b0df9c6df963a6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fdf991ea94d71513b0df9c6df963a6a">~ConcreteFactory</a> () override=default</td></tr>
 <tr class="memdesc:a2fdf991ea94d71513b0df9c6df963a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructs a <a class="el" href="class_concrete_factory.html" title="A concrete implementation of the AbstractFactory interface.">ConcreteFactory</a> object.  <br /></td></tr>
 <tr class="separator:a2fdf991ea94d71513b0df9c6df963a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0068fa7669427e98b7e60eac2d6232f7" id="r_a0068fa7669427e98b7e60eac2d6232f7"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_ghost.html">Ghost</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0068fa7669427e98b7e60eac2d6232f7">createGhost</a> (<a class="el" href="_ghost_8h.html#a19c48855930abe71014f6f21514b3925">GhostType</a> type, std::tuple&lt; double, double, double, double &gt; position) final</td></tr>
-<tr class="memdesc:a0068fa7669427e98b7e60eac2d6232f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="class_ghost.html" title="Represents a ghost entity in the game with specific behavior and movement.">Ghost</a> object of the specified type and position.  <br /></td></tr>
-<tr class="separator:a0068fa7669427e98b7e60eac2d6232f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19adf51b0d2afacd59f0ce61ce05dadb" id="r_a19adf51b0d2afacd59f0ce61ce05dadb"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_pac_man.html">PacMan</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19adf51b0d2afacd59f0ce61ce05dadb">createPacMan</a> (std::tuple&lt; double, double, double, double &gt; position) final</td></tr>
-<tr class="memdesc:a19adf51b0d2afacd59f0ce61ce05dadb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a> object with the specified position.  <br /></td></tr>
-<tr class="separator:a19adf51b0d2afacd59f0ce61ce05dadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b9e03a4feced663a2245fe3759a1adb" id="r_a5b9e03a4feced663a2245fe3759a1adb"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_wall.html">Wall</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b9e03a4feced663a2245fe3759a1adb">createWall</a> (std::tuple&lt; double, double, double, double &gt; position) final</td></tr>
-<tr class="memdesc:a5b9e03a4feced663a2245fe3759a1adb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="class_wall.html" title="Represents a wall in the game.">Wall</a> object with the specified position.  <br /></td></tr>
-<tr class="separator:a5b9e03a4feced663a2245fe3759a1adb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af31d2d933931cc7201606e0647460b17" id="r_af31d2d933931cc7201606e0647460b17"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_coin.html">Coin</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af31d2d933931cc7201606e0647460b17">createCoin</a> (std::tuple&lt; double, double, double, double &gt; position) final</td></tr>
-<tr class="memdesc:af31d2d933931cc7201606e0647460b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="class_coin.html" title="Represents a coin collectable entity in the game.">Coin</a> object with the specified position.  <br /></td></tr>
-<tr class="separator:af31d2d933931cc7201606e0647460b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace9fa01ce18a8254ded577838a85a0c2" id="r_ace9fa01ce18a8254ded577838a85a0c2"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_fruit.html">Fruit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace9fa01ce18a8254ded577838a85a0c2">createFruit</a> (std::tuple&lt; double, double, double, double &gt; position) final</td></tr>
-<tr class="memdesc:ace9fa01ce18a8254ded577838a85a0c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="class_fruit.html" title="Represents a fruit collectable entity in the game.">Fruit</a> object with the specified position.  <br /></td></tr>
-<tr class="separator:ace9fa01ce18a8254ded577838a85a0c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae239b5150b72207ab90dabb970b8196" id="r_aae239b5150b72207ab90dabb970b8196"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_ghost.html">Ghost</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae239b5150b72207ab90dabb970b8196">createGhost</a> (const <a class="el" href="_ghost_8h.html#a19c48855930abe71014f6f21514b3925">GhostType</a> type, const std::tuple&lt; double, double, double, double &gt; &amp;position) override</td></tr>
+<tr class="memdesc:aae239b5150b72207ab90dabb970b8196"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="class_ghost.html" title="Represents a ghost entity in the game with specific behavior and movement.">Ghost</a> object of the specified type and position.  <br /></td></tr>
+<tr class="separator:aae239b5150b72207ab90dabb970b8196"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a260e129cdd91bd76c171e3df03d70e00" id="r_a260e129cdd91bd76c171e3df03d70e00"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_pac_man.html">PacMan</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a260e129cdd91bd76c171e3df03d70e00">createPacMan</a> (const std::tuple&lt; double, double, double, double &gt; &amp;position) override</td></tr>
+<tr class="memdesc:a260e129cdd91bd76c171e3df03d70e00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a> object with the specified position.  <br /></td></tr>
+<tr class="separator:a260e129cdd91bd76c171e3df03d70e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb82ae648bf8f781d36b80fdc3036440" id="r_abb82ae648bf8f781d36b80fdc3036440"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_wall.html">Wall</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb82ae648bf8f781d36b80fdc3036440">createWall</a> (const std::tuple&lt; double, double, double, double &gt; &amp;position) override</td></tr>
+<tr class="memdesc:abb82ae648bf8f781d36b80fdc3036440"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="class_wall.html" title="Represents a wall in the game.">Wall</a> object with the specified position.  <br /></td></tr>
+<tr class="separator:abb82ae648bf8f781d36b80fdc3036440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba3a19147a9cacc468824b5d4a277e57" id="r_aba3a19147a9cacc468824b5d4a277e57"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_coin.html">Coin</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba3a19147a9cacc468824b5d4a277e57">createCoin</a> (const std::tuple&lt; double, double, double, double &gt; &amp;position) override</td></tr>
+<tr class="memdesc:aba3a19147a9cacc468824b5d4a277e57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="class_coin.html" title="Represents a coin collectable entity in the game.">Coin</a> object with the specified position.  <br /></td></tr>
+<tr class="separator:aba3a19147a9cacc468824b5d4a277e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af745c7fa841e55cc81cdfd69fb293951" id="r_af745c7fa841e55cc81cdfd69fb293951"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_fruit.html">Fruit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af745c7fa841e55cc81cdfd69fb293951">createFruit</a> (const std::tuple&lt; double, double, double, double &gt; &amp;position) override</td></tr>
+<tr class="memdesc:af745c7fa841e55cc81cdfd69fb293951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="class_fruit.html" title="Represents a fruit collectable entity in the game.">Fruit</a> object with the specified position.  <br /></td></tr>
+<tr class="separator:af745c7fa841e55cc81cdfd69fb293951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_abstract_factory"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_abstract_factory')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_abstract_factory.html">AbstractFactory</a></td></tr>
 <tr class="memitem:ae0b348ff14d4b3e9ab8322afd2fd8b38 inherit pub_methods_class_abstract_factory" id="r_ae0b348ff14d4b3e9ab8322afd2fd8b38"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_factory.html#ae0b348ff14d4b3e9ab8322afd2fd8b38">~AbstractFactory</a> ()=default</td></tr>
 <tr class="memdesc:ae0b348ff14d4b3e9ab8322afd2fd8b38 inherit pub_methods_class_abstract_factory"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for the <a class="el" href="class_abstract_factory.html" title="Abstract base class for creating game entities.">AbstractFactory</a> class.  <br /></td></tr>
 <tr class="separator:ae0b348ff14d4b3e9ab8322afd2fd8b38 inherit pub_methods_class_abstract_factory"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a2dc0cf1de4836e79bb7d5f5e0da965c2" id="r_a2dc0cf1de4836e79bb7d5f5e0da965c2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2dc0cf1de4836e79bb7d5f5e0da965c2">level</a> = 0</td></tr>
-<tr class="memdesc:a2dc0cf1de4836e79bb7d5f5e0da965c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The level of the current game.  <br /></td></tr>
-<tr class="separator:a2dc0cf1de4836e79bb7d5f5e0da965c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A concrete implementation of the <a class="el" href="class_abstract_factory.html" title="Abstract base class for creating game entities.">AbstractFactory</a> interface. </p>
-
-<p class="definition">Definition at line <a class="el" href="_concrete_factory_8h_source.html#l00012">12</a> of file <a class="el" href="_concrete_factory_8h_source.html">ConcreteFactory.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1d4d4286a557d8bc0673bf990751ff38" name="a1d4d4286a557d8bc0673bf990751ff38"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d4d4286a557d8bc0673bf990751ff38">&#9670;&#160;</a></span>ConcreteFactory()</h2>
@@ -183,8 +174,6 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_concrete_factory_8cpp_source.html#l00047">47</a> of file <a class="el" href="_concrete_factory_8cpp_source.html">ConcreteFactory.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a2fdf991ea94d71513b0df9c6df963a6a" name="a2fdf991ea94d71513b0df9c6df963a6a"></a>
@@ -215,8 +204,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af31d2d933931cc7201606e0647460b17" name="af31d2d933931cc7201606e0647460b17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af31d2d933931cc7201606e0647460b17">&#9670;&#160;</a></span>createCoin()</h2>
+<a id="aba3a19147a9cacc468824b5d4a277e57" name="aba3a19147a9cacc468824b5d4a277e57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba3a19147a9cacc468824b5d4a277e57">&#9670;&#160;</a></span>createCoin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -227,13 +216,13 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">shared_ptr&lt; <a class="el" href="class_coin.html">Coin</a> &gt; ConcreteFactory::createCoin </td>
           <td>(</td>
-          <td class="paramtype">std::tuple&lt; double, double, double, double &gt;</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
+          <td class="paramtype">const std::tuple&lt; double, double, double, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -247,14 +236,12 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A shared pointer to the created <a class="el" href="class_coin.html" title="Represents a coin collectable entity in the game.">Coin</a>. </dd></dl>
 
-<p>Implements <a class="el" href="class_abstract_factory.html#af917b76ea5b5983caa7613e4e2c451a1">AbstractFactory</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_concrete_factory_8cpp_source.html#l00033">33</a> of file <a class="el" href="_concrete_factory_8cpp_source.html">ConcreteFactory.cpp</a>.</p>
+<p>Implements <a class="el" href="class_abstract_factory.html#a26d4e79bc9f66ef0884906d09d81e180">AbstractFactory</a>.</p>
 
 </div>
 </div>
-<a id="ace9fa01ce18a8254ded577838a85a0c2" name="ace9fa01ce18a8254ded577838a85a0c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace9fa01ce18a8254ded577838a85a0c2">&#9670;&#160;</a></span>createFruit()</h2>
+<a id="af745c7fa841e55cc81cdfd69fb293951" name="af745c7fa841e55cc81cdfd69fb293951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af745c7fa841e55cc81cdfd69fb293951">&#9670;&#160;</a></span>createFruit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,13 +252,13 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">shared_ptr&lt; <a class="el" href="class_fruit.html">Fruit</a> &gt; ConcreteFactory::createFruit </td>
           <td>(</td>
-          <td class="paramtype">std::tuple&lt; double, double, double, double &gt;</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
+          <td class="paramtype">const std::tuple&lt; double, double, double, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -285,14 +272,12 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A shared pointer to the created <a class="el" href="class_fruit.html" title="Represents a fruit collectable entity in the game.">Fruit</a>. </dd></dl>
 
-<p>Implements <a class="el" href="class_abstract_factory.html#a3c30ff8dcf0f04d12687851ab2e7558e">AbstractFactory</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_concrete_factory_8cpp_source.html#l00040">40</a> of file <a class="el" href="_concrete_factory_8cpp_source.html">ConcreteFactory.cpp</a>.</p>
+<p>Implements <a class="el" href="class_abstract_factory.html#aac58bad8cd138930e21ac7abc65d2828">AbstractFactory</a>.</p>
 
 </div>
 </div>
-<a id="a0068fa7669427e98b7e60eac2d6232f7" name="a0068fa7669427e98b7e60eac2d6232f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0068fa7669427e98b7e60eac2d6232f7">&#9670;&#160;</a></span>createGhost()</h2>
+<a id="aae239b5150b72207ab90dabb970b8196" name="aae239b5150b72207ab90dabb970b8196"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae239b5150b72207ab90dabb970b8196">&#9670;&#160;</a></span>createGhost()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,17 +288,17 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">shared_ptr&lt; <a class="el" href="class_ghost.html">Ghost</a> &gt; ConcreteFactory::createGhost </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_ghost_8h.html#a19c48855930abe71014f6f21514b3925">GhostType</a></td>          <td class="paramname"><span class="paramname"><em>type</em>, </span></td>
+          <td class="paramtype">const <a class="el" href="_ghost_8h.html#a19c48855930abe71014f6f21514b3925">GhostType</a></td>          <td class="paramname"><span class="paramname"><em>type</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::tuple&lt; double, double, double, double &gt;</td>          <td class="paramname"><span class="paramname"><em>position</em></span>&#160;)</td>
+          <td class="paramtype">const std::tuple&lt; double, double, double, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -328,14 +313,12 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A shared pointer to the created <a class="el" href="class_ghost.html" title="Represents a ghost entity in the game with specific behavior and movement.">Ghost</a>. </dd></dl>
 
-<p>Implements <a class="el" href="class_abstract_factory.html#a1d22c3a0c62babadd078e1a1b3a523d2">AbstractFactory</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_concrete_factory_8cpp_source.html#l00012">12</a> of file <a class="el" href="_concrete_factory_8cpp_source.html">ConcreteFactory.cpp</a>.</p>
+<p>Implements <a class="el" href="class_abstract_factory.html#aa0619e3825d3fab9b196a37cd60e3df6">AbstractFactory</a>.</p>
 
 </div>
 </div>
-<a id="a19adf51b0d2afacd59f0ce61ce05dadb" name="a19adf51b0d2afacd59f0ce61ce05dadb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19adf51b0d2afacd59f0ce61ce05dadb">&#9670;&#160;</a></span>createPacMan()</h2>
+<a id="a260e129cdd91bd76c171e3df03d70e00" name="a260e129cdd91bd76c171e3df03d70e00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a260e129cdd91bd76c171e3df03d70e00">&#9670;&#160;</a></span>createPacMan()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -346,13 +329,13 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">shared_ptr&lt; <a class="el" href="class_pac_man.html">PacMan</a> &gt; ConcreteFactory::createPacMan </td>
           <td>(</td>
-          <td class="paramtype">std::tuple&lt; double, double, double, double &gt;</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
+          <td class="paramtype">const std::tuple&lt; double, double, double, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -366,14 +349,12 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A shared pointer to the created <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a>. </dd></dl>
 
-<p>Implements <a class="el" href="class_abstract_factory.html#a04fb539d445f85a53b232a671e5a1b6b">AbstractFactory</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_concrete_factory_8cpp_source.html#l00019">19</a> of file <a class="el" href="_concrete_factory_8cpp_source.html">ConcreteFactory.cpp</a>.</p>
+<p>Implements <a class="el" href="class_abstract_factory.html#a9b3ecf03d368df94ba42398eb0c2cb20">AbstractFactory</a>.</p>
 
 </div>
 </div>
-<a id="a5b9e03a4feced663a2245fe3759a1adb" name="a5b9e03a4feced663a2245fe3759a1adb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b9e03a4feced663a2245fe3759a1adb">&#9670;&#160;</a></span>createWall()</h2>
+<a id="abb82ae648bf8f781d36b80fdc3036440" name="abb82ae648bf8f781d36b80fdc3036440"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb82ae648bf8f781d36b80fdc3036440">&#9670;&#160;</a></span>createWall()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -384,13 +365,13 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">shared_ptr&lt; <a class="el" href="class_wall.html">Wall</a> &gt; ConcreteFactory::createWall </td>
           <td>(</td>
-          <td class="paramtype">std::tuple&lt; double, double, double, double &gt;</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
+          <td class="paramtype">const std::tuple&lt; double, double, double, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -404,42 +385,13 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A shared pointer to the created <a class="el" href="class_wall.html" title="Represents a wall in the game.">Wall</a>. </dd></dl>
 
-<p>Implements <a class="el" href="class_abstract_factory.html#aaf7c315ffb49a948b939113e31ec41e2">AbstractFactory</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_concrete_factory_8cpp_source.html#l00026">26</a> of file <a class="el" href="_concrete_factory_8cpp_source.html">ConcreteFactory.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a2dc0cf1de4836e79bb7d5f5e0da965c2" name="a2dc0cf1de4836e79bb7d5f5e0da965c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2dc0cf1de4836e79bb7d5f5e0da965c2">&#9670;&#160;</a></span>level</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int ConcreteFactory::level = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The level of the current game. </p>
-
-<p class="definition">Definition at line <a class="el" href="_concrete_factory_8h_source.html#l00062">62</a> of file <a class="el" href="_concrete_factory_8h_source.html">ConcreteFactory.h</a>.</p>
+<p>Implements <a class="el" href="class_abstract_factory.html#a0e07886bea1ee40272489efeacdea49e">AbstractFactory</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/view/<a class="el" href="_concrete_factory_8h_source.html">ConcreteFactory.h</a></li>
-<li>src/view/<a class="el" href="_concrete_factory_8cpp_source.html">ConcreteFactory.cpp</a></li>
+<li>/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 2/1 Advanced programming/AP_Project/src/view/<a class="el" href="_concrete_factory_8h_source.html">ConcreteFactory.h</a></li>
+<li>/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 2/1 Advanced programming/AP_Project/src/view/<a class="el" href="_concrete_factory_8cpp.html">ConcreteFactory.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

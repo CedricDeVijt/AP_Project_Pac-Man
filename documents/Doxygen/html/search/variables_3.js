@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['deltatime_0',['deltaTime',['../class_stopwatch.html#a644f8239c97e58b9a00d6470a6b5f259',1,'Stopwatch']]],
-  ['direction_1',['direction',['../class_ghost.html#ae0f4cbe6d4512b3bbb792467b483ead4',1,'Ghost::direction'],['../class_pac_man.html#ac98ad7366fa613727ab5f179bfa10777',1,'PacMan::direction']]]
+  ['second_0',['SECOND',['../class_stopwatch.html#adeac41ff29a64713109f8b6da081b9b6',1,'Stopwatch']]],
+  ['spritefactory_1',['spriteFactory',['../class_entity_view.html#abb2ea6e35d210b313baff50580a640aa',1,'EntityView']]],
+  ['statemanager_2',['stateManager',['../class_state.html#a6cd2f5c276bcca2f7370db198617538d',1,'State']]]
 ];

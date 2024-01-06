@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['unpause_0',['unPause',['../class_stopwatch.html#acf6d0c742854046e69f1b1a1b90519ff',1,'Stopwatch']]],
-  ['update_1',['update',['../class_state.html#a06315e7e44aadfa576cbf7e6c1c7d87f',1,'State::update()'],['../class_menu_state.html#a97112c5ce679c35ed37e476187b5e60f',1,'MenuState::update()'],['../class_level_state.html#a8be0d18bb49fe468fd148aedce1428c0',1,'LevelState::update()'],['../class_paused_state.html#a9fe6612a34ba084d20c7a778e3bc5656',1,'PausedState::update()'],['../class_victory_state.html#a3ce9ea47219abc4f6af67f18c464b635',1,'VictoryState::update()'],['../class_game_over_state.html#a5acb1744cc27bdb94d29f4f02d81ff08',1,'GameOverState::update()'],['../class_intermission_state.html#a10a44b46f7569e162e27b96127fcd092',1,'IntermissionState::update()'],['../class_ghost.html#ac1ec7a1d656c643c6f7e5e93f0c9bd18',1,'Ghost::update()'],['../class_pac_man.html#a8ce6d92c692fba675deefce20771755f',1,'PacMan::update()'],['../class_world.html#aac8c1fde63c06577ffc648aaefdb37f0',1,'World::update()']]]
+  ['wall_0',['Wall',['../class_wall.html#a23579c4b2eebd71c8ad2ef2957730201',1,'Wall']]],
+  ['wallview_1',['WallView',['../class_wall_view.html#ac5de69ce928aed9c796342438f680825',1,'WallView']]],
+  ['window_2',['Window',['../class_window.html#a74e6087da23d3c24e9fac0245e5ec92c',1,'Window']]],
+  ['world_3',['World',['../class_world.html#ae467079a0497c62bf993de9901851e5e',1,'World']]]
 ];

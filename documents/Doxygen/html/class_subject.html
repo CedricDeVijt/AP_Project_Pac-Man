@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP: Project Pac-Man: Subject Class Reference</title>
+<title>My Project: Subject Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP: Project Pac-Man
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -94,7 +94,6 @@ $(function(){initNavTree('class_subject.html',''); initResizable(); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_subject-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Subject Class Reference</div></div>
 </div><!--header-->
@@ -133,17 +132,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a387dc37db1c44a94001f9cd64dcd3942" id="r_a387dc37db1c44a94001f9cd64dcd3942"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a387dc37db1c44a94001f9cd64dcd3942">notifyObservers</a> (<a class="el" href="_observer_8h.html#a2628ea8d12e8b2563c32f05dc7fff6fa">EventType</a> eventType) const</td></tr>
 <tr class="memdesc:a387dc37db1c44a94001f9cd64dcd3942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies all registered observers.  <br /></td></tr>
 <tr class="separator:a387dc37db1c44a94001f9cd64dcd3942"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a12f50ff5f7d1982092dd72b064868dd7" id="r_a12f50ff5f7d1982092dd72b064868dd7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; shared_ptr&lt; <a class="el" href="class_observer.html">Observer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12f50ff5f7d1982092dd72b064868dd7">observers</a></td></tr>
-<tr class="memdesc:a12f50ff5f7d1982092dd72b064868dd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of registered observers.  <br /></td></tr>
-<tr class="separator:a12f50ff5f7d1982092dd72b064868dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class representing the subject in the observer pattern. </p>
-
-<p class="definition">Definition at line <a class="el" href="_subject_8h_source.html#l00015">15</a> of file <a class="el" href="_subject_8h_source.html">Subject.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af9723476c61afcceeb91bee3211258c7" name="af9723476c61afcceeb91bee3211258c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9723476c61afcceeb91bee3211258c7">&#9670;&#160;</a></span>~Subject()</h2>
@@ -196,8 +187,6 @@ Private Attributes</h2></td></tr>
 
 <p>Notifies all registered observers. </p>
 
-<p class="definition">Definition at line <a class="el" href="_subject_8cpp_source.html#l00005">5</a> of file <a class="el" href="_subject_8cpp_source.html">Subject.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a64c0a9fdc37c4648b6885d4d7e7dd304" name="a64c0a9fdc37c4648b6885d4d7e7dd304"></a>
@@ -223,40 +212,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_subject_8cpp_source.html#l00003">3</a> of file <a class="el" href="_subject_8cpp_source.html">Subject.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a12f50ff5f7d1982092dd72b064868dd7" name="a12f50ff5f7d1982092dd72b064868dd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12f50ff5f7d1982092dd72b064868dd7">&#9670;&#160;</a></span>observers</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;shared_ptr&lt;<a class="el" href="class_observer.html">Observer</a>&gt; &gt; Subject::observers</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>List of registered observers. </p>
-
-<p class="definition">Definition at line <a class="el" href="_subject_8h_source.html#l00031">31</a> of file <a class="el" href="_subject_8h_source.html">Subject.h</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/model/<a class="el" href="_subject_8h_source.html">Subject.h</a></li>
-<li>src/model/<a class="el" href="_subject_8cpp_source.html">Subject.cpp</a></li>
+<li>/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 2/1 Advanced programming/AP_Project/src/model/<a class="el" href="_subject_8h_source.html">Subject.h</a></li>
+<li>/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 2/1 Advanced programming/AP_Project/src/model/<a class="el" href="_subject_8cpp.html">Subject.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

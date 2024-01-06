@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['random_0',['Random',['../class_random.html#acb76b49c3903a3c4fb67fd216341f08d',1,'Random::Random()'],['../class_random.html#a9bfadeaa4adc5ac44142d000b1c99441',1,'Random::Random(const Random &amp;)=delete']]],
-  ['registerobserver_1',['registerObserver',['../class_subject.html#a64c0a9fdc37c4648b6885d4d7e7dd304',1,'Subject']]],
-  ['restart_2',['restart',['../class_stopwatch.html#acd64e7c6f80445f25640e7a5dbd4b3be',1,'Stopwatch']]],
-  ['roundtoclosestmultiple_3',['roundToClosestMultiple',['../_entity_model_8cpp.html#ab30eeafce566e614df38cc9a6ccfc66f',1,'EntityModel.cpp']]],
-  ['run_4',['run',['../class_game.html#ac8d50cd547373b11b247a00f79191e7e',1,'Game']]]
+  ['tick_0',['tick',['../class_stopwatch.html#a76c97b8ae59f93b713e2bd191fda48ed',1,'Stopwatch']]],
+  ['tofearmode_1',['toFearMode',['../class_ghost.html#ab6f4894f26a5c31b2151e5710f0c64f6',1,'Ghost']]],
+  ['tonextlevelstate_2',['toNextLevelState',['../class_level_state.html#a3e123d7a5a5b3480b3706d4fca1a91e0',1,'LevelState']]],
+  ['topixelcoordinates_3',['toPixelCoordinates',['../class_camera.html#ad1086671d6550758928d8a8a4c3f21cb',1,'Camera']]],
+  ['topixelvalue_4',['toPixelValue',['../_camera_8cpp.html#af7f4e9b3dd8b6d64d79c7134619335dc',1,'Camera.cpp']]]
 ];

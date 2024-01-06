@@ -79,7 +79,6 @@ void Ghost::update(const std::vector<Direction>& directions,
         fearWaitTime -= Stopwatch::getInstance().getDeltaTime();
     }
 
-    // TODO cleanup nested if's
     if (isWaitMode()) {
         // decrease wait time
         waitTime -= Stopwatch::getInstance().getDeltaTime();

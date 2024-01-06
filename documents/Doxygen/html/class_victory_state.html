@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP: Project Pac-Man: VictoryState Class Reference</title>
+<title>My Project: VictoryState Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP: Project Pac-Man
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -93,7 +93,6 @@ $(function(){initNavTree('class_victory_state.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="class_victory_state-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">VictoryState Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
@@ -102,7 +101,7 @@ $(function(){initNavTree('class_victory_state.html',''); initResizable(); });
 <p>Represents the victory state of the game.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_state_8h_source.html">State.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_victory_state_8h_source.html">VictoryState.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for VictoryState:</div>
 <div class="dyncontent">
@@ -115,9 +114,9 @@ Inheritance diagram for VictoryState:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aec56e5717226973edd55bf4a9122dc9f" id="r_aec56e5717226973edd55bf4a9122dc9f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec56e5717226973edd55bf4a9122dc9f">VictoryState</a> (<a class="el" href="class_state_manager.html">StateManager</a> *<a class="el" href="class_state.html#a78388f59b0a570faa4b7ea640fea668e">stateManager</a>)</td></tr>
-<tr class="memdesc:aec56e5717226973edd55bf4a9122dc9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_victory_state.html" title="Represents the victory state of the game.">VictoryState</a> class.  <br /></td></tr>
-<tr class="separator:aec56e5717226973edd55bf4a9122dc9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46902432958e01049a4c7e4461a69eb4" id="r_a46902432958e01049a4c7e4461a69eb4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46902432958e01049a4c7e4461a69eb4">VictoryState</a> (shared_ptr&lt; <a class="el" href="class_state_manager.html">StateManager</a> &gt; <a class="el" href="class_state.html#a6cd2f5c276bcca2f7370db198617538d">stateManager</a>, int score)</td></tr>
+<tr class="memdesc:a46902432958e01049a4c7e4461a69eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_victory_state.html" title="Represents the victory state of the game.">VictoryState</a> class.  <br /></td></tr>
+<tr class="separator:a46902432958e01049a4c7e4461a69eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4251916f67b86023141dbd7edc6d091" id="r_ab4251916f67b86023141dbd7edc6d091"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4251916f67b86023141dbd7edc6d091">processInput</a> (sf::Keyboard::Key key) override</td></tr>
 <tr class="memdesc:ab4251916f67b86023141dbd7edc6d091"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes input events for the <a class="el" href="class_victory_state.html" title="Represents the victory state of the game.">VictoryState</a>. Transitions to <a class="el" href="class_menu_state.html" title="Represents the menu state of the game.">MenuState</a> on Enter key press.  <br /></td></tr>
 <tr class="separator:ab4251916f67b86023141dbd7edc6d091"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,41 +127,29 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a22615a997984a8684bff0ac55ab4f939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the <a class="el" href="class_victory_state.html" title="Represents the victory state of the game.">VictoryState</a> on the given window.  <br /></td></tr>
 <tr class="separator:a22615a997984a8684bff0ac55ab4f939"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_state"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_state')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_state.html">State</a></td></tr>
-<tr class="memitem:ae9f025009d51df7d3558cb2a29229914 inherit pub_methods_class_state" id="r_ae9f025009d51df7d3558cb2a29229914"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#ae9f025009d51df7d3558cb2a29229914">State</a> (<a class="el" href="class_state_manager.html">StateManager</a> *<a class="el" href="class_state.html#a78388f59b0a570faa4b7ea640fea668e">stateManager</a>)</td></tr>
-<tr class="memdesc:ae9f025009d51df7d3558cb2a29229914 inherit pub_methods_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_state.html" title="Abstract base class representing different states in the game.">State</a> class.  <br /></td></tr>
-<tr class="separator:ae9f025009d51df7d3558cb2a29229914 inherit pub_methods_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a221e9adf3baf53c4d7529d50d4c1b6 inherit pub_methods_class_state" id="r_a3a221e9adf3baf53c4d7529d50d4c1b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a3a221e9adf3baf53c4d7529d50d4c1b6">State</a> (shared_ptr&lt; <a class="el" href="class_state_manager.html">StateManager</a> &gt; <a class="el" href="class_state.html#a6cd2f5c276bcca2f7370db198617538d">stateManager</a>)</td></tr>
+<tr class="memdesc:a3a221e9adf3baf53c4d7529d50d4c1b6 inherit pub_methods_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_state.html" title="Abstract base class representing different states in the game.">State</a> class.  <br /></td></tr>
+<tr class="separator:a3a221e9adf3baf53c4d7529d50d4c1b6 inherit pub_methods_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a783d52422b544bb226e13de8ecfd6ad6 inherit pub_methods_class_state" id="r_a783d52422b544bb226e13de8ecfd6ad6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a783d52422b544bb226e13de8ecfd6ad6">~State</a> ()=default</td></tr>
 <tr class="memdesc:a783d52422b544bb226e13de8ecfd6ad6 inherit pub_methods_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for the <a class="el" href="class_state.html" title="Abstract base class representing different states in the game.">State</a> class.  <br /></td></tr>
 <tr class="separator:a783d52422b544bb226e13de8ecfd6ad6 inherit pub_methods_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a017f56f436d1bb589ecf3863ce28542f" id="r_a017f56f436d1bb589ecf3863ce28542f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a017f56f436d1bb589ecf3863ce28542f">toLevelState</a> () const</td></tr>
-<tr class="memdesc:a017f56f436d1bb589ecf3863ce28542f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transitions to <a class="el" href="class_menu_state.html" title="Represents the menu state of the game.">MenuState</a>.  <br /></td></tr>
-<tr class="separator:a017f56f436d1bb589ecf3863ce28542f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_class_state"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_state')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_state.html">State</a></td></tr>
-<tr class="memitem:a84116a44615df8be696372938764d1ef inherit pro_methods_class_state" id="r_a84116a44615df8be696372938764d1ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a84116a44615df8be696372938764d1ef">createNewMenuState</a> ()</td></tr>
-<tr class="memdesc:a84116a44615df8be696372938764d1ef inherit pro_methods_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="class_menu_state.html" title="Represents the menu state of the game.">MenuState</a> and adds it to the state stack.  <br /></td></tr>
-<tr class="separator:a84116a44615df8be696372938764d1ef inherit pro_methods_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_methods_class_state"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_static_methods_class_state')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="class_state.html">State</a></td></tr>
 <tr class="memitem:a27594080ae1af9fd0324007e3199de73 inherit pro_static_methods_class_state" id="r_a27594080ae1af9fd0324007e3199de73"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a27594080ae1af9fd0324007e3199de73">centerHorizontally</a> (sf::Text &amp;text, int posY)</td></tr>
 <tr class="memdesc:a27594080ae1af9fd0324007e3199de73 inherit pro_static_methods_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Centers a text horizontally in the middle of a window.  <br /></td></tr>
 <tr class="separator:a27594080ae1af9fd0324007e3199de73 inherit pro_static_methods_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_state"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_state')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_state.html">State</a></td></tr>
-<tr class="memitem:a78388f59b0a570faa4b7ea640fea668e inherit pro_attribs_class_state" id="r_a78388f59b0a570faa4b7ea640fea668e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_state_manager.html">StateManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a78388f59b0a570faa4b7ea640fea668e">stateManager</a></td></tr>
-<tr class="memdesc:a78388f59b0a570faa4b7ea640fea668e inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="class_state_manager.html" title="Manages the game states.">StateManager</a> managing the game states.  <br /></td></tr>
-<tr class="separator:a78388f59b0a570faa4b7ea640fea668e inherit pro_attribs_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cd2f5c276bcca2f7370db198617538d inherit pro_attribs_class_state" id="r_a6cd2f5c276bcca2f7370db198617538d"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="class_state_manager.html">StateManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a6cd2f5c276bcca2f7370db198617538d">stateManager</a></td></tr>
+<tr class="memdesc:a6cd2f5c276bcca2f7370db198617538d inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="class_state_manager.html" title="Manages the game states.">StateManager</a> managing the game states.  <br /></td></tr>
+<tr class="separator:a6cd2f5c276bcca2f7370db198617538d inherit pro_attribs_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents the victory state of the game. </p>
-
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00223">223</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aec56e5717226973edd55bf4a9122dc9f" name="aec56e5717226973edd55bf4a9122dc9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec56e5717226973edd55bf4a9122dc9f">&#9670;&#160;</a></span>VictoryState()</h2>
+<a id="a46902432958e01049a4c7e4461a69eb4" name="a46902432958e01049a4c7e4461a69eb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46902432958e01049a4c7e4461a69eb4">&#9670;&#160;</a></span>VictoryState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,8 +160,12 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">VictoryState::VictoryState </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_state_manager.html">StateManager</a> *</td>          <td class="paramname"><span class="paramname"><em>stateManager</em></span></td><td>)</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_state_manager.html">StateManager</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>stateManager</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>score</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -188,11 +179,10 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">stateManager</td><td>Pointer to the <a class="el" href="class_state_manager.html" title="Manages the game states.">StateManager</a> managing the game states. </td></tr>
+    <tr><td class="paramname">score</td><td>The score that the player obtained. </td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00201">201</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
 
 </div>
 </div>
@@ -230,8 +220,6 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_state.html#a22d8ccd962cdd3d1a934fca7a0f16cdb">State</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00221">221</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
-
 </div>
 </div>
 <a id="ab4251916f67b86023141dbd7edc6d091" name="ab4251916f67b86023141dbd7edc6d091"></a>
@@ -267,37 +255,6 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_state.html#ae4c38c28c92ab5b57bdcde634b57f0c5">State</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00209">209</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a017f56f436d1bb589ecf3863ce28542f" name="a017f56f436d1bb589ecf3863ce28542f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a017f56f436d1bb589ecf3863ce28542f">&#9670;&#160;</a></span>toLevelState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void VictoryState::toLevelState </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Transitions to <a class="el" href="class_menu_state.html" title="Represents the menu state of the game.">MenuState</a>. </p>
-
-<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00203">203</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a3ce9ea47219abc4f6af67f18c464b635" name="a3ce9ea47219abc4f6af67f18c464b635"></a>
@@ -327,13 +284,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_state.html#a06315e7e44aadfa576cbf7e6c1c7d87f">State</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00219">219</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/controller/<a class="el" href="_state_8h_source.html">State.h</a></li>
-<li>src/controller/<a class="el" href="_state_8cpp_source.html">State.cpp</a></li>
+<li>/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 2/1 Advanced programming/AP_Project/src/controller/<a class="el" href="_victory_state_8h_source.html">VictoryState.h</a></li>
+<li>/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 2/1 Advanced programming/AP_Project/src/controller/<a class="el" href="_victory_state_8cpp.html">VictoryState.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

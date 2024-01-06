@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP: Project Pac-Man: Member List</title>
+<title>My Project: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP: Project Pac-Man
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -98,14 +98,13 @@ $(function(){initNavTree('class_concrete_factory.html',''); initResizable(); });
 <p>This is the complete list of members for <a class="el" href="class_concrete_factory.html">ConcreteFactory</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="class_concrete_factory.html#a1d4d4286a557d8bc0673bf990751ff38">ConcreteFactory</a>(int level)</td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_concrete_factory.html#af31d2d933931cc7201606e0647460b17">createCoin</a>(std::tuple&lt; double, double, double, double &gt; position) final</td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_concrete_factory.html#ace9fa01ce18a8254ded577838a85a0c2">createFruit</a>(std::tuple&lt; double, double, double, double &gt; position) final</td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_concrete_factory.html#a0068fa7669427e98b7e60eac2d6232f7">createGhost</a>(GhostType type, std::tuple&lt; double, double, double, double &gt; position) final</td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_concrete_factory.html#a19adf51b0d2afacd59f0ce61ce05dadb">createPacMan</a>(std::tuple&lt; double, double, double, double &gt; position) final</td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_concrete_factory.html#a5b9e03a4feced663a2245fe3759a1adb">createWall</a>(std::tuple&lt; double, double, double, double &gt; position) final</td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_concrete_factory.html#a2dc0cf1de4836e79bb7d5f5e0da965c2">level</a></td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_abstract_factory.html#ae0b348ff14d4b3e9ab8322afd2fd8b38">~AbstractFactory</a>()=default</td><td class="entry"><a class="el" href="class_abstract_factory.html">AbstractFactory</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_concrete_factory.html#a2fdf991ea94d71513b0df9c6df963a6a">~ConcreteFactory</a>() override=default</td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_concrete_factory.html#aba3a19147a9cacc468824b5d4a277e57">createCoin</a>(const std::tuple&lt; double, double, double, double &gt; &amp;position) override</td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_concrete_factory.html#af745c7fa841e55cc81cdfd69fb293951">createFruit</a>(const std::tuple&lt; double, double, double, double &gt; &amp;position) override</td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_concrete_factory.html#aae239b5150b72207ab90dabb970b8196">createGhost</a>(const GhostType type, const std::tuple&lt; double, double, double, double &gt; &amp;position) override</td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_concrete_factory.html#a260e129cdd91bd76c171e3df03d70e00">createPacMan</a>(const std::tuple&lt; double, double, double, double &gt; &amp;position) override</td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_concrete_factory.html#abb82ae648bf8f781d36b80fdc3036440">createWall</a>(const std::tuple&lt; double, double, double, double &gt; &amp;position) override</td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_abstract_factory.html#ae0b348ff14d4b3e9ab8322afd2fd8b38">~AbstractFactory</a>()=default</td><td class="entry"><a class="el" href="class_abstract_factory.html">AbstractFactory</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_concrete_factory.html#a2fdf991ea94d71513b0df9c6df963a6a">~ConcreteFactory</a>() override=default</td><td class="entry"><a class="el" href="class_concrete_factory.html">ConcreteFactory</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

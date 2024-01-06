@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP: Project Pac-Man: Ghost Class Reference</title>
+<title>My Project: Ghost Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP: Project Pac-Man
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -93,9 +93,6 @@ $(function(){initNavTree('class_ghost.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_ghost-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Ghost Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
@@ -118,7 +115,7 @@ Inheritance diagram for Ghost:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae74cc07055f76ceb4a280c9fa416b8cd" id="r_ae74cc07055f76ceb4a280c9fa416b8cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae74cc07055f76ceb4a280c9fa416b8cd">Ghost</a> (<a class="el" href="_ghost_8h.html#a19c48855930abe71014f6f21514b3925">GhostType</a> <a class="el" href="#a13a4c3b065ee08ce849d19680718ee18">type</a>, const std::tuple&lt; double, double, double, double &gt; &amp;<a class="el" href="#a174644de4f273da8e54c3a053d8d7033">homePosition</a>, int <a class="el" href="#a0b71693f4eba10d1ed0bc831da5bb2e1">level</a>)</td></tr>
+<tr class="memitem:ae74cc07055f76ceb4a280c9fa416b8cd" id="r_ae74cc07055f76ceb4a280c9fa416b8cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae74cc07055f76ceb4a280c9fa416b8cd">Ghost</a> (<a class="el" href="_ghost_8h.html#a19c48855930abe71014f6f21514b3925">GhostType</a> type, const std::tuple&lt; double, double, double, double &gt; &amp;homePosition, int level)</td></tr>
 <tr class="memdesc:ae74cc07055f76ceb4a280c9fa416b8cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_ghost.html" title="Represents a ghost entity in the game with specific behavior and movement.">Ghost</a> class.  <br /></td></tr>
 <tr class="separator:ae74cc07055f76ceb4a280c9fa416b8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8d20cb24321210bd075803ddc5721b1" id="r_ab8d20cb24321210bd075803ddc5721b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_ghost_8h.html#a19c48855930abe71014f6f21514b3925">GhostType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8d20cb24321210bd075803ddc5721b1">getType</a> () const</td></tr>
@@ -165,53 +162,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a64c0a9fdc37c4648b6885d4d7e7dd304 inherit pub_methods_class_subject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers an observer to receive updates from the subject.  <br /></td></tr>
 <tr class="separator:a64c0a9fdc37c4648b6885d4d7e7dd304 inherit pub_methods_class_subject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a453f59abcf35937b337efc881e41b9e3" id="r_a453f59abcf35937b337efc881e41b9e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a453f59abcf35937b337efc881e41b9e3">getDirectionWithMinmumManhattanDistance</a> (const std::vector&lt; <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> &gt; &amp;possibleDirections, const std::tuple&lt; double, double, double, double &gt; &amp;pacManPosition) const</td></tr>
-<tr class="memdesc:a453f59abcf35937b337efc881e41b9e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the direction with the minimum Manhattan distance to <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a>.  <br /></td></tr>
-<tr class="separator:a453f59abcf35937b337efc881e41b9e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19193bb1bc591ee6d839ebc95103c37c" id="r_a19193bb1bc591ee6d839ebc95103c37c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19193bb1bc591ee6d839ebc95103c37c">getDirectionWithMaximumManhattanDistance</a> (const std::vector&lt; <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> &gt; &amp;possibleDirections, const std::tuple&lt; double, double, double, double &gt; &amp;pacManPosition) const</td></tr>
-<tr class="memdesc:a19193bb1bc591ee6d839ebc95103c37c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the direction with the maximum Manhattan distance to <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a>.  <br /></td></tr>
-<tr class="separator:a19193bb1bc591ee6d839ebc95103c37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c877b7ba6cdec98432a162714139c12" id="r_a4c877b7ba6cdec98432a162714139c12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c877b7ba6cdec98432a162714139c12">hasLeftStartingPoint</a> () const</td></tr>
-<tr class="memdesc:a4c877b7ba6cdec98432a162714139c12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the ghost has left his starting point.  <br /></td></tr>
-<tr class="separator:a4c877b7ba6cdec98432a162714139c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fa8f385a06c1f32287c978ff00d9ece" id="r_a2fa8f385a06c1f32287c978ff00d9ece"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fa8f385a06c1f32287c978ff00d9ece">getRandomDirection</a> (const std::vector&lt; <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> &gt; &amp;possibleDirections) const</td></tr>
-<tr class="separator:a2fa8f385a06c1f32287c978ff00d9ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
-Static Private Member Functions</h2></td></tr>
-<tr class="memitem:a282378c890b4d733aafb99ffd6307bc8" id="r_a282378c890b4d733aafb99ffd6307bc8"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a282378c890b4d733aafb99ffd6307bc8">atCornerOrIntersection</a> (const std::vector&lt; <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> &gt; &amp;possibleDirections)</td></tr>
-<tr class="memdesc:a282378c890b4d733aafb99ffd6307bc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the ghost is at a corner or intersection.  <br /></td></tr>
-<tr class="separator:a282378c890b4d733aafb99ffd6307bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02eff7993e321427da38676509c290be" id="r_a02eff7993e321427da38676509c290be"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02eff7993e321427da38676509c290be">atDeadEnd</a> (const std::vector&lt; <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> &gt; &amp;directions)</td></tr>
-<tr class="memdesc:a02eff7993e321427da38676509c290be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the ghost is at a dead end.  <br /></td></tr>
-<tr class="separator:a02eff7993e321427da38676509c290be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a13a4c3b065ee08ce849d19680718ee18" id="r_a13a4c3b065ee08ce849d19680718ee18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_ghost_8h.html#a19c48855930abe71014f6f21514b3925">GhostType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13a4c3b065ee08ce849d19680718ee18">type</a></td></tr>
-<tr class="memdesc:a13a4c3b065ee08ce849d19680718ee18"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the ghost.  <br /></td></tr>
-<tr class="separator:a13a4c3b065ee08ce849d19680718ee18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a174644de4f273da8e54c3a053d8d7033" id="r_a174644de4f273da8e54c3a053d8d7033"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; double, double, double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a174644de4f273da8e54c3a053d8d7033">homePosition</a></td></tr>
-<tr class="memdesc:a174644de4f273da8e54c3a053d8d7033"><td class="mdescLeft">&#160;</td><td class="mdescRight">The home position of the ghost.  <br /></td></tr>
-<tr class="separator:a174644de4f273da8e54c3a053d8d7033"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0f4cbe6d4512b3bbb792467b483ead4" id="r_ae0f4cbe6d4512b3bbb792467b483ead4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0f4cbe6d4512b3bbb792467b483ead4">direction</a> = <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aaac157bdf0b85a40d2619cbc8bc1ae5fe2">Direction::NONE</a></td></tr>
-<tr class="memdesc:ae0f4cbe6d4512b3bbb792467b483ead4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current direction of the ghost.  <br /></td></tr>
-<tr class="separator:ae0f4cbe6d4512b3bbb792467b483ead4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f26380f196f3debcd7451fc5cd7f97e" id="r_a7f26380f196f3debcd7451fc5cd7f97e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f26380f196f3debcd7451fc5cd7f97e">waitTime</a> {0}</td></tr>
-<tr class="memdesc:a7f26380f196f3debcd7451fc5cd7f97e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The remaining time before the ghost can start moving.  <br /></td></tr>
-<tr class="separator:a7f26380f196f3debcd7451fc5cd7f97e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae73b63247148dc713064acf9ac734ea8" id="r_ae73b63247148dc713064acf9ac734ea8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae73b63247148dc713064acf9ac734ea8">fearWaitTime</a></td></tr>
-<tr class="memdesc:ae73b63247148dc713064acf9ac734ea8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The remaining time before the ghost leaves fear mode.  <br /></td></tr>
-<tr class="separator:ae73b63247148dc713064acf9ac734ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b71693f4eba10d1ed0bc831da5bb2e1" id="r_a0b71693f4eba10d1ed0bc831da5bb2e1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b71693f4eba10d1ed0bc831da5bb2e1">level</a> {0}</td></tr>
-<tr class="memdesc:a0b71693f4eba10d1ed0bc831da5bb2e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The level of the current game.  <br /></td></tr>
-<tr class="separator:a0b71693f4eba10d1ed0bc831da5bb2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9701065a5d6f34815630dfca0e805f1c" id="r_a9701065a5d6f34815630dfca0e805f1c"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9701065a5d6f34815630dfca0e805f1c">accelerator</a> {1.1}</td></tr>
-<tr class="memdesc:a9701065a5d6f34815630dfca0e805f1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The accelerator factor used to speed up the movements of the ghost.  <br /></td></tr>
-<tr class="separator:a9701065a5d6f34815630dfca0e805f1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_class_entity_model"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_entity_model')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_entity_model.html">EntityModel</a></td></tr>
@@ -233,8 +183,6 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a ghost entity in the game with specific behavior and movement. </p>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8h_source.html#l00028">28</a> of file <a class="el" href="_ghost_8h_source.html">Ghost.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae74cc07055f76ceb4a280c9fa416b8cd" name="ae74cc07055f76ceb4a280c9fa416b8cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae74cc07055f76ceb4a280c9fa416b8cd">&#9670;&#160;</a></span>Ghost()</h2>
@@ -270,83 +218,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00033">33</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a282378c890b4d733aafb99ffd6307bc8" name="a282378c890b4d733aafb99ffd6307bc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a282378c890b4d733aafb99ffd6307bc8">&#9670;&#160;</a></span>atCornerOrIntersection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Ghost::atCornerOrIntersection </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>possibleDirections</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if the ghost is at a corner or intersection. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">possibleDirections</td><td>A vector of possible directions the ghost can move in. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the ghost is at a corner or intersection, false otherwise. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00188">188</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a02eff7993e321427da38676509c290be" name="a02eff7993e321427da38676509c290be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02eff7993e321427da38676509c290be">&#9670;&#160;</a></span>atDeadEnd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Ghost::atDeadEnd </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>directions</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if the ghost is at a dead end. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">directions</td><td>A vector of possible directions the ghost can move in. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the ghost is at a dead end, false otherwise. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00201">201</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
-
-</div>
-</div>
 <a id="ae87635b7292f42d1cbfbe4fbd62073b6" name="ae87635b7292f42d1cbfbe4fbd62073b6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae87635b7292f42d1cbfbe4fbd62073b6">&#9670;&#160;</a></span>capturedByPacMan()</h2>
 
@@ -363,117 +237,6 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Handles the event when the ghost is captured by <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a>. </p>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00055">55</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a19193bb1bc591ee6d839ebc95103c37c" name="a19193bb1bc591ee6d839ebc95103c37c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19193bb1bc591ee6d839ebc95103c37c">&#9670;&#160;</a></span>getDirectionWithMaximumManhattanDistance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> Ghost::getDirectionWithMaximumManhattanDistance </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>possibleDirections</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::tuple&lt; double, double, double, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pacManPosition</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the direction with the maximum Manhattan distance to <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">possibleDirections</td><td>A vector of possible directions the ghost can move in. </td></tr>
-    <tr><td class="paramname">pacManPosition</td><td>A tuple representing the current position (x, y, width, height) of <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The direction with the maximum Manhattan distance. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00169">169</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a453f59abcf35937b337efc881e41b9e3" name="a453f59abcf35937b337efc881e41b9e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a453f59abcf35937b337efc881e41b9e3">&#9670;&#160;</a></span>getDirectionWithMinmumManhattanDistance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> Ghost::getDirectionWithMinmumManhattanDistance </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>possibleDirections</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::tuple&lt; double, double, double, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pacManPosition</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the direction with the minimum Manhattan distance to <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">possibleDirections</td><td>A vector of possible directions the ghost can move in. </td></tr>
-    <tr><td class="paramname">pacManPosition</td><td>A tuple representing the current position (x, y, width, height) of <a class="el" href="class_pac_man.html" title="Represents the Pac-Man entity in the game.">PacMan</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The direction with the minimum Manhattan distance. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00149">149</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a2fa8f385a06c1f32287c978ff00d9ece" name="a2fa8f385a06c1f32287c978ff00d9ece"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2fa8f385a06c1f32287c978ff00d9ece">&#9670;&#160;</a></span>getRandomDirection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> Ghost::getRandomDirection </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>possibleDirections</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00130">130</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
 
 </div>
 </div>
@@ -495,8 +258,6 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets the type of the ghost. </p>
 <dl class="section return"><dt>Returns</dt><dd>The type of the ghost. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00072">72</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a0c6d41d57edf393eb20f08eb10457914" name="a0c6d41d57edf393eb20f08eb10457914"></a>
@@ -515,38 +276,6 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Go back to home position. </p>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00207">207</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a4c877b7ba6cdec98432a162714139c12" name="a4c877b7ba6cdec98432a162714139c12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c877b7ba6cdec98432a162714139c12">&#9670;&#160;</a></span>hasLeftStartingPoint()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Ghost::hasLeftStartingPoint </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if the ghost has left his starting point. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the ghost has left the starting point, false otherwise. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00203">203</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
 
 </div>
 </div>
@@ -568,8 +297,6 @@ Additional Inherited Members</h2></td></tr>
 <p>Checks if the ghost is in fear mode. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if the ghost is in fear mode, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00064">64</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a56992bd2170837be73d3125d6b36baa5" name="a56992bd2170837be73d3125d6b36baa5"></a>
@@ -590,8 +317,6 @@ Additional Inherited Members</h2></td></tr>
 <p>Checks if the ghost is in wait mode. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if the ghost is in wait mode, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00068">68</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
-
 </div>
 </div>
 <a id="ab6f4894f26a5c31b2151e5710f0c64f6" name="ab6f4894f26a5c31b2151e5710f0c64f6"></a>
@@ -610,8 +335,6 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Switches the ghost to fear mode. </p>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00060">60</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
 
 </div>
 </div>
@@ -643,196 +366,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_ghost_8cpp_source.html#l00083">83</a> of file <a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9701065a5d6f34815630dfca0e805f1c" name="a9701065a5d6f34815630dfca0e805f1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9701065a5d6f34815630dfca0e805f1c">&#9670;&#160;</a></span>accelerator</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const double Ghost::accelerator {1.1}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The accelerator factor used to speed up the movements of the ghost. </p>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8h_source.html#l00087">87</a> of file <a class="el" href="_ghost_8h_source.html">Ghost.h</a>.</p>
-
-</div>
-</div>
-<a id="ae0f4cbe6d4512b3bbb792467b483ead4" name="ae0f4cbe6d4512b3bbb792467b483ead4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0f4cbe6d4512b3bbb792467b483ead4">&#9670;&#160;</a></span>direction</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> Ghost::direction = <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aaac157bdf0b85a40d2619cbc8bc1ae5fe2">Direction::NONE</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The current direction of the ghost. </p>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8h_source.html#l00082">82</a> of file <a class="el" href="_ghost_8h_source.html">Ghost.h</a>.</p>
-
-</div>
-</div>
-<a id="ae73b63247148dc713064acf9ac734ea8" name="ae73b63247148dc713064acf9ac734ea8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae73b63247148dc713064acf9ac734ea8">&#9670;&#160;</a></span>fearWaitTime</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Ghost::fearWaitTime</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The remaining time before the ghost leaves fear mode. </p>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8h_source.html#l00085">85</a> of file <a class="el" href="_ghost_8h_source.html">Ghost.h</a>.</p>
-
-</div>
-</div>
-<a id="a174644de4f273da8e54c3a053d8d7033" name="a174644de4f273da8e54c3a053d8d7033"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a174644de4f273da8e54c3a053d8d7033">&#9670;&#160;</a></span>homePosition</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::tuple&lt;double, double, double, double&gt; Ghost::homePosition</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The home position of the ghost. </p>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8h_source.html#l00081">81</a> of file <a class="el" href="_ghost_8h_source.html">Ghost.h</a>.</p>
-
-</div>
-</div>
-<a id="a0b71693f4eba10d1ed0bc831da5bb2e1" name="a0b71693f4eba10d1ed0bc831da5bb2e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b71693f4eba10d1ed0bc831da5bb2e1">&#9670;&#160;</a></span>level</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Ghost::level {0}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The level of the current game. </p>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8h_source.html#l00086">86</a> of file <a class="el" href="_ghost_8h_source.html">Ghost.h</a>.</p>
-
-</div>
-</div>
-<a id="a13a4c3b065ee08ce849d19680718ee18" name="a13a4c3b065ee08ce849d19680718ee18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13a4c3b065ee08ce849d19680718ee18">&#9670;&#160;</a></span>type</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_ghost_8h.html#a19c48855930abe71014f6f21514b3925">GhostType</a> Ghost::type</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The type of the ghost. </p>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8h_source.html#l00080">80</a> of file <a class="el" href="_ghost_8h_source.html">Ghost.h</a>.</p>
-
-</div>
-</div>
-<a id="a7f26380f196f3debcd7451fc5cd7f97e" name="a7f26380f196f3debcd7451fc5cd7f97e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f26380f196f3debcd7451fc5cd7f97e">&#9670;&#160;</a></span>waitTime</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Ghost::waitTime {0}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The remaining time before the ghost can start moving. </p>
-
-<p class="definition">Definition at line <a class="el" href="_ghost_8h_source.html#l00084">84</a> of file <a class="el" href="_ghost_8h_source.html">Ghost.h</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/model/<a class="el" href="_ghost_8h_source.html">Ghost.h</a></li>
-<li>src/model/<a class="el" href="_ghost_8cpp_source.html">Ghost.cpp</a></li>
+<li>/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 2/1 Advanced programming/AP_Project/src/model/<a class="el" href="_ghost_8h_source.html">Ghost.h</a></li>
+<li>/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 2/1 Advanced programming/AP_Project/src/model/<a class="el" href="_ghost_8cpp.html">Ghost.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

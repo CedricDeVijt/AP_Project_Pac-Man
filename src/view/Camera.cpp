@@ -91,7 +91,6 @@ std::tuple<int, int, int, int> Camera::toPixelCoordinates(const std::tuple<doubl
     int posX = toPixelX(x);
     int posY = toPixelY(y);
 
-    // TODO
     int size = getMazeWidth() /20;
     return {posX, posY, size, size};
 }

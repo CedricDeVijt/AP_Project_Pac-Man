@@ -42,6 +42,6 @@ var hierarchy =
         [ "Wall", "class_wall.html", null ]
       ] ]
     ] ],
-    [ "WindowSingleton", "class_window_singleton.html", null ],
+    [ "Window", "class_window.html", null ],
     [ "World", "class_world.html", null ]
 ];

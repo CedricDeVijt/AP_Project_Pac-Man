@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP: Project Pac-Man: EntityView Class Reference</title>
+<title>My Project: EntityView Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP: Project Pac-Man
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -126,9 +126,9 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a91de0a5b9c3e258d1814709b11628279" id="r_a91de0a5b9c3e258d1814709b11628279"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; sf::RenderWindow &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91de0a5b9c3e258d1814709b11628279">window</a> = <a class="el" href="class_window_singleton.html#a2eef26936c47e8591e2f2f8318544791">WindowSingleton::getInstance</a>().getWindow()</td></tr>
+<tr class="memitem:a91de0a5b9c3e258d1814709b11628279" id="r_a91de0a5b9c3e258d1814709b11628279"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; sf::RenderWindow &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91de0a5b9c3e258d1814709b11628279">window</a> = <a class="el" href="class_singleton.html">Singleton</a>&lt;<a class="el" href="class_window.html">Window</a>&gt;::getInstance().getWindow()</td></tr>
 <tr class="separator:a91de0a5b9c3e258d1814709b11628279"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb2ea6e35d210b313baff50580a640aa" id="r_abb2ea6e35d210b313baff50580a640aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sprite_factory.html">SpriteFactory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb2ea6e35d210b313baff50580a640aa">spriteFactory</a> = <a class="el" href="class_sprite_factory.html#a1e8c2a6c5f5058ce565872a980c231e6">SpriteFactory::getInstance</a>()</td></tr>
+<tr class="memitem:abb2ea6e35d210b313baff50580a640aa" id="r_abb2ea6e35d210b313baff50580a640aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sprite_factory.html">SpriteFactory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb2ea6e35d210b313baff50580a640aa">spriteFactory</a> = <a class="el" href="class_singleton.html">Singleton</a>&lt;<a class="el" href="class_sprite_factory.html">SpriteFactory</a>&gt;::getInstance()</td></tr>
 <tr class="separator:abb2ea6e35d210b313baff50580a640aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
@@ -146,8 +146,6 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for visual representation of entities in the game. </p>
-
-<p class="definition">Definition at line <a class="el" href="_entity_view_8h_source.html#l00020">20</a> of file <a class="el" href="_entity_view_8h_source.html">EntityView.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1971f1f8ab444bd33254283a54334664" name="a1971f1f8ab444bd33254283a54334664"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1971f1f8ab444bd33254283a54334664">&#9670;&#160;</a></span>getGridSize()</h2>
@@ -175,8 +173,6 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets the grid size based on the window size. </p>
 <dl class="section return"><dt>Returns</dt><dd>The size of a grid cell. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_view_8cpp_source.html#l00004">4</a> of file <a class="el" href="_entity_view_8cpp_source.html">EntityView.cpp</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -190,7 +186,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_sprite_factory.html">SpriteFactory</a>&amp; EntityView::spriteFactory = <a class="el" href="class_sprite_factory.html#a1e8c2a6c5f5058ce565872a980c231e6">SpriteFactory::getInstance</a>()</td>
+          <td class="memname"><a class="el" href="class_sprite_factory.html">SpriteFactory</a>&amp; EntityView::spriteFactory = <a class="el" href="class_singleton.html">Singleton</a>&lt;<a class="el" href="class_sprite_factory.html">SpriteFactory</a>&gt;::getInstance()</td>
         </tr>
       </table>
   </td>
@@ -199,8 +195,6 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_view_8h_source.html#l00023">23</a> of file <a class="el" href="_entity_view_8h_source.html">EntityView.h</a>.</p>
 
 </div>
 </div>
@@ -214,7 +208,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt;sf::RenderWindow&gt; EntityView::window = <a class="el" href="class_window_singleton.html#a2eef26936c47e8591e2f2f8318544791">WindowSingleton::getInstance</a>().getWindow()</td>
+          <td class="memname">shared_ptr&lt;sf::RenderWindow&gt; EntityView::window = <a class="el" href="class_singleton.html">Singleton</a>&lt;<a class="el" href="class_window.html">Window</a>&gt;::getInstance().getWindow()</td>
         </tr>
       </table>
   </td>
@@ -224,13 +218,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_view_8h_source.html#l00022">22</a> of file <a class="el" href="_entity_view_8h_source.html">EntityView.h</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/view/<a class="el" href="_entity_view_8h_source.html">EntityView.h</a></li>
-<li>src/view/<a class="el" href="_entity_view_8cpp_source.html">EntityView.cpp</a></li>
+<li>/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 2/1 Advanced programming/AP_Project/src/view/<a class="el" href="_entity_view_8h_source.html">EntityView.h</a></li>
+<li>/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 2/1 Advanced programming/AP_Project/src/view/<a class="el" href="_entity_view_8cpp.html">EntityView.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

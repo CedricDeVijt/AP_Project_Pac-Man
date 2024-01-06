@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AP: Project Pac-Man: Game Class Reference</title>
+<title>My Project: Game Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AP: Project Pac-Man
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -93,7 +93,6 @@ $(function(){initNavTree('class_game.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_game-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Game Class Reference</div></div>
 </div><!--header-->
@@ -115,20 +114,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac8d50cd547373b11b247a00f79191e7e" id="r_ac8d50cd547373b11b247a00f79191e7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8d50cd547373b11b247a00f79191e7e">run</a> () const</td></tr>
 <tr class="memdesc:ac8d50cd547373b11b247a00f79191e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the main game loop. This function handles the main game loop, including event processing, updating, and rendering.  <br /></td></tr>
 <tr class="separator:ac8d50cd547373b11b247a00f79191e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a6271ac448e803b87a631fcd9cc88bb8c" id="r_a6271ac448e803b87a631fcd9cc88bb8c"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; sf::RenderWindow &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6271ac448e803b87a631fcd9cc88bb8c">window</a></td></tr>
-<tr class="memdesc:a6271ac448e803b87a631fcd9cc88bb8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main game window.  <br /></td></tr>
-<tr class="separator:a6271ac448e803b87a631fcd9cc88bb8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45bf3c8212b1e28026a32e2ba6833be0" id="r_a45bf3c8212b1e28026a32e2ba6833be0"><td class="memItemLeft" align="right" valign="top">const shared_ptr&lt; <a class="el" href="class_state_manager.html">StateManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45bf3c8212b1e28026a32e2ba6833be0">stateManager</a> = std::make_shared&lt;<a class="el" href="class_state_manager.html">StateManager</a>&gt;()</td></tr>
-<tr class="memdesc:a45bf3c8212b1e28026a32e2ba6833be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages the game states.  <br /></td></tr>
-<tr class="separator:a45bf3c8212b1e28026a32e2ba6833be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents the main game class following the Model-View-Controller (MVC) design pattern. </p>
-
-<p class="definition">Definition at line <a class="el" href="_game_8h_source.html#l00015">15</a> of file <a class="el" href="_game_8h_source.html">Game.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad59df6562a58a614fda24622d3715b65" name="ad59df6562a58a614fda24622d3715b65"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad59df6562a58a614fda24622d3715b65">&#9670;&#160;</a></span>Game()</h2>
@@ -146,8 +134,6 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Default constructor for the <a class="el" href="class_game.html" title="Represents the main game class following the Model-View-Controller (MVC) design pattern.">Game</a> class. </p>
-
-<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00006">6</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
@@ -196,66 +182,11 @@ Private Attributes</h2></td></tr>
 
 <p>Runs the main game loop. This function handles the main game loop, including event processing, updating, and rendering. </p>
 
-<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00011">11</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a45bf3c8212b1e28026a32e2ba6833be0" name="a45bf3c8212b1e28026a32e2ba6833be0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45bf3c8212b1e28026a32e2ba6833be0">&#9670;&#160;</a></span>stateManager</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const shared_ptr&lt;<a class="el" href="class_state_manager.html">StateManager</a>&gt; Game::stateManager = std::make_shared&lt;<a class="el" href="class_state_manager.html">StateManager</a>&gt;()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Manages the game states. </p>
-
-<p class="definition">Definition at line <a class="el" href="_game_8h_source.html#l00018">18</a> of file <a class="el" href="_game_8h_source.html">Game.h</a>.</p>
-
-</div>
-</div>
-<a id="a6271ac448e803b87a631fcd9cc88bb8c" name="a6271ac448e803b87a631fcd9cc88bb8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6271ac448e803b87a631fcd9cc88bb8c">&#9670;&#160;</a></span>window</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">shared_ptr&lt;sf::RenderWindow&gt; Game::window</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The main game window. </p>
-
-<p class="definition">Definition at line <a class="el" href="_game_8h_source.html#l00017">17</a> of file <a class="el" href="_game_8h_source.html">Game.h</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/controller/<a class="el" href="_game_8h_source.html">Game.h</a></li>
-<li>src/controller/<a class="el" href="_game_8cpp_source.html">Game.cpp</a></li>
+<li>/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 2/1 Advanced programming/AP_Project/src/controller/<a class="el" href="_game_8h_source.html">Game.h</a></li>
+<li>/Users/cedric/Library/Mobile Documents/com~apple~CloudDocs/School/Informatica 2/1 Advanced programming/AP_Project/src/controller/<a class="el" href="_game_8cpp.html">Game.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
