@@ -11,10 +11,11 @@ CoinView::CoinView(shared_ptr<Coin> coin) : coin(std::move(coin)) {}
 
 void CoinView::processEvent(EventType eventType) {
     if (eventType == EventType::TICK) {
-        const int gridSize = getGridSize();
-        int posX, posY;
-        std::tie(posX, posY) = Camera::toPixelCoordinates(coin->getPosition());
+        // determine position
+        int posX, posY, sizeX, sizeY;
+        std::tie(posX, posY, sizeX, sizeY) = Camera::toPixelCoordinates(coin->getPosition());
 
-        window->draw(spriteFactory.createCoin(posX, posY, gridSize));
+        // draw the sprite
+        window->draw(spriteFactory.createCoin(posX, posY, sizeX));
     }
 }

@@ -11,11 +11,17 @@ public:
     /**
      * @brief Converts normalized coordinates to pixel coordinates
      * @param position The normalized position
-     * @return The pixel positions on the X and Y-axis.
+     * @return The pixel positions on the X and Y-axis and the x and y-size.
      */
-    static std::tuple<int, int> toPixelCoordinates(const std::tuple<double, double, double, double>& position);
+    static std::tuple<int, int, int, int> toPixelCoordinates(const std::tuple<double, double, double, double>& position);
 
-private:
+    // TODO
+    static int getMazeOffsetX();
+    static int getMazeOffsetY();
+    static int getMazeWidth();
+    static int getMazeHeight();
+
+        private:
     /**
      * @brief Converts normalized coordinates to pixel coordinates on the X-axis.
      * @param position The normalized position on the X-axis.

@@ -10,10 +10,11 @@ FruitView::FruitView(shared_ptr<Fruit> fruit) : fruit(std::move(fruit)) {}
 
 void FruitView::processEvent(EventType eventType) {
     if (eventType == EventType::TICK) {
-        const int gridSize = getGridSize();
-        int posX, posY;
-        std::tie(posX, posY) = Camera::toPixelCoordinates(fruit->getPosition());
+        // determine position
+        int posX, posY, sizeX, sizeY;
+        std::tie(posX, posY, sizeX, sizeY) = Camera::toPixelCoordinates(fruit->getPosition());
 
-        window->draw(spriteFactory.createFruit(fruit->getAlternative(), posX, posY, gridSize));
+        // draw the sprite
+        window->draw(spriteFactory.createFruit(fruit->getAlternative(), posX, posY, sizeX));
     }
 }

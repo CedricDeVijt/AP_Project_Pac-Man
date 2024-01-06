@@ -10,6 +10,7 @@
 #include "StateManager.h"
 #include "Stopwatch.h"
 #include "VictoryState.h"
+#include "../view/Camera.h"
 
 LevelState::LevelState(StateManager* stateManager) : LevelState(stateManager, 0, std::make_shared<Score>()) {}
 
@@ -81,13 +82,15 @@ void LevelState::draw(shared_ptr<sf::RenderWindow> window) {
 
     // draw the score on the left bottom of the screen
     sf::Text scoreText("Score: " + std::to_string(score->getCurrentScore()), font, 20);
-    const int textPosY = window->getSize().y - scoreText.getGlobalBounds().height - textMargin;
-    scoreText.setPosition(textMargin, textPosY);
+    int textPosX = textMargin + Camera::getMazeOffsetX();
+    int textPosY = textMargin + Camera::getMazeOffsetY() + Camera::getMazeHeight();
+    scoreText.setPosition(textPosX, textPosY);
     window->draw(scoreText);
 
     // draw the lives remaining on the right bottom of the screen
     sf::Text livesText("# Lives Remaining: " + std::to_string(score->getLivesRemaining()), font, 20);
-    livesText.setPosition(window->getSize().x - livesText.getGlobalBounds().width - textMargin, textPosY);
+    textPosX = Camera::getMazeOffsetX() + Camera::getMazeWidth() - livesText.getGlobalBounds().width - textMargin;
+    livesText.setPosition(textPosX, textPosY);
     window->draw(livesText);
 }
 

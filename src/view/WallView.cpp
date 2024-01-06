@@ -11,11 +11,12 @@ WallView::WallView(shared_ptr<Wall> wall) : wall(std::move(wall)) {}
 
 void WallView::processEvent(EventType eventType) {
     if (eventType == EventType::TICK) {
-        const int gridSize = getGridSize() + 1; // +1 since rounding effects might leave a small gap otherwise
-        int posX, posY;
-        std::tie(posX, posY) = Camera::toPixelCoordinates(wall->getPosition());
+        // determine position
+        int posX, posY, sizeX, sizeY;
+        std::tie(posX, posY, sizeX, sizeY) = Camera::toPixelCoordinates(wall->getPosition());
 
-        sf::RectangleShape rectangle(sf::Vector2f(gridSize, gridSize));
+        sf::RectangleShape rectangle(sf::Vector2f(sizeX+1, sizeY +1)); // +1 since otherwise we might have gaps
+                                                                        // between walls
         rectangle.setPosition(posX, posY);
         rectangle.setFillColor(sf::Color::Blue);
         window->draw(rectangle);

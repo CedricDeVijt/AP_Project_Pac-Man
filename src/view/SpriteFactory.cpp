@@ -39,7 +39,7 @@ sf::Sprite SpriteFactory::createGhost(GhostType type, const int alternative, con
 
     // determine the scale factor using a margin around the image
     constexpr int margin = 10;
-    const double scaleFactor = gridSize / static_cast<double>(size + margin);
+    const double scaleFactor = gridSize / (size + margin + 0.0);
 
     // determine the x-offset for a particular ghost type
     int x;
@@ -87,7 +87,7 @@ sf::Sprite SpriteFactory::createPacMan(const int alternative, const int posX, co
 
     // determine the scale factor using a margin around the image
     constexpr int margin = 10;
-    const double scaleFactor = gridSize / static_cast<double>(size + margin);
+    const double scaleFactor = gridSize / (size + margin + 0.0);
 
     // determine the x and y-offset for a particular alternative
     constexpr int x = offset_top_x;
@@ -109,7 +109,7 @@ sf::Sprite SpriteFactory::createFruit(const int alternative, const int posX, con
     // determine the scale factor using a margin around the image
     constexpr int x = offset_top_x;
     const int y = offset_top_y + alternative * (size + separator);
-    const double scaleFactor = gridSize / static_cast<double>(size + margin);
+    const double scaleFactor = gridSize / (size + margin + 0.0);
 
     // create the sprite
     return createSprite(sf::IntRect(x, y, size, size), sf::Vector2f(posX + margin / 2, posY + margin / 2),
@@ -124,7 +124,7 @@ sf::Sprite SpriteFactory::createCoin(const int posX, const int posY, const int g
 
     // determine the scale factor using a margin around the image
     constexpr int margin = 50;
-    const double scaleFactor = gridSize / static_cast<double>(size + margin);
+    const double scaleFactor = gridSize / (size + margin + 0.0);
 
     // determine the x and y-offset
     constexpr int x = offset_top_x;
@@ -141,10 +141,10 @@ sf::Sprite SpriteFactory::createLogo() const {
     sprite.setTexture(levelTexture);
 
     // determine origin
-    const auto window = Singleton<Window>::getInstance().getWindow();
     const sf::FloatRect spriteBounds = sprite.getLocalBounds();
     sprite.setOrigin(spriteBounds.width / 2, 0);
 
+    const auto window = Singleton<Window>::getInstance().getWindow();
     // Update the position and scale of the sprite based on window size
     sprite.setPosition(window->getSize().x / 2, 0);
     sprite.setScale(static_cast<float>(window->getSize().x) / spriteBounds.width,
