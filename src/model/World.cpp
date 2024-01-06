@@ -7,12 +7,12 @@
 World::World(const shared_ptr<AbstractFactory>& factory, int level) : level(level) {
     std::vector<std::vector<std::string>> maizes;
 
-    maizes.push_back({"wwwwwwwwwwwwwwwwwwww", "wPcccwccccccccwcccfw", "wcwwcwcwwwwwwcwcwwcw", "wcwccccccccccccccwcw",
-                      "wcwcwwcwwGGwwcwwcwcw", "wcccccfw1234wccccccw", "wcwcwwcwwwwwwcwwcwcw", "wcwcccccfccccccccwcw",
+    maizes.push_back({"wwwwwwwwwwwwwwwwwwww", "wPcccwcccccfccwcccfw", "wcwwcwcwwwwwwcwcwwcw", "wcwccccccccccccccwcw",
+                      "wcwcwwcwwGGwwcwwcwcw", "wcccccfw1234wfcccccw", "wcwcwwcwwwwwwcwwcwcw", "wcwcccccfccccccccwcw",
                       "wcwwcwcwwwwwwcwcwwcw", "wfcccwccccccccwcccfw", "wwwwwwwwwwwwwwwwwwww"});
 
     maizes.push_back({"wwwwwwwwwwwwwwwwwwww", "wfcccwccccccccwcccfw", "wcwwcwcwcwwcwcwcwwcw", "wcwccwcwccccwcwccwcw",
-                      "wcwcwwcwwwwwwcwwcwcw", "wccccccw1234wccccccw", "wwwcwcwwwccwwwcwcwww", "wcccwccccccccccwcccw",
+                      "wcwcwwcwwwwwwcwwcwcw", "wccccccw1234wccccccw", "wwwcwcwwwGGwwwcwcwww", "wcccwccccccccccwcccw",
                       "wcwwwwcwwcwwwcwwwwcw", "wPccfcccwccwccccfccw", "wwwwwwwwwwwwwwwwwwww"});
 
     maizes.push_back({"wwwwwwwwwwwwwwwwwwww", "wPcccwfcccccccwcccfw", "wcwwcwcwwwwwwcwcwwcw", "wcwccccccccccccccwcw",
