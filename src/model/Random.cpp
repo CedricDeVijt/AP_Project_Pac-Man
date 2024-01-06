@@ -1,10 +1,6 @@
 #include "Random.h"
-#include <iostream>
-// TODO check with spec
-Random::Random() {
-    std::random_device rd;
-    std::mt19937 generator(rd());
-}
+
+Random::Random() : mt(std::random_device{}()){};
 
 Random& Random::getInstance() {
     static Random instance;
@@ -13,5 +9,5 @@ Random& Random::getInstance() {
 
 int Random::getRandomNumber(int max) {
     std::uniform_int_distribution<int> distribution(0, max);
-    return distribution(generator);
+    return distribution(mt);
 }

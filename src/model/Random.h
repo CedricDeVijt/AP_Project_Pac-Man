@@ -33,7 +33,7 @@ public:
     Random& operator=(const Random&) = delete;
 
 private:
-    std::default_random_engine generator; ///< Random number generator engine.
+    std::mt19937 mt;  ///< Mersenne Twister engine
 };
 
 #endif // AP_PROJECT_PAC_MAN_RANDOM_H
