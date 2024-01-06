@@ -6,7 +6,7 @@
 #include "StateManager.h"
 #include "Stopwatch.h"
 
-PausedState::PausedState(StateManager* stateManager) : State(stateManager) {
+PausedState::PausedState(shared_ptr<StateManager> stateManager) : State(stateManager) {
     Stopwatch::getInstance().pause();
     Singleton<SoundEffects>::getInstance().pause();
 }

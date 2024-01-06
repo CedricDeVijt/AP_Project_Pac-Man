@@ -13,7 +13,7 @@ public:
      * @brief Constructor for the PausedState class.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit PausedState(StateManager* stateManager);
+    explicit PausedState(shared_ptr<StateManager> stateManager);
 
     /**
      * @brief Processes input events for the PausedState.

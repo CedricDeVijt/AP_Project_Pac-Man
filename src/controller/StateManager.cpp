@@ -1,8 +1,8 @@
 #include "StateManager.h"
-#include "MenuState.h"
 #include "State.h"
 
-StateManager::StateManager() { stateStack.push(std::make_shared<MenuState>(this)); }
+StateManager::StateManager() {
+}
 
 shared_ptr<State> StateManager::getCurrentState() { return stateStack.top(); }
 

@@ -6,7 +6,7 @@
 #include "LevelState.h"
 #include "State.h"
 
-MenuState::MenuState(StateManager* stateManager) : State(stateManager) {
+MenuState::MenuState(shared_ptr<StateManager> stateManager) : State(stateManager) {
     Singleton<SoundEffects>::getInstance().playOpeningSong();
 }
 

@@ -18,7 +18,7 @@ class StateManager;
 class State {
 
 protected:
-    StateManager* stateManager; ///< Pointer to the StateManager managing the game states.
+    shared_ptr<StateManager> stateManager; ///< Pointer to the StateManager managing the game states.
 
     /**
      * @brief Centers a text horizontally in the middle of a window
@@ -32,7 +32,7 @@ public:
      * @brief Constructor for the State class.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit State(StateManager* stateManager);
+    explicit State(shared_ptr<StateManager> stateManager);
 
     /**
      * @brief Virtual destructor for the State class.

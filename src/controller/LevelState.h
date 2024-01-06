@@ -16,7 +16,7 @@ public:
      * @brief Constructor for the LevelState class.  Creates a world of level 0.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit LevelState(StateManager* stateManager);
+    explicit LevelState(shared_ptr<StateManager> stateManager);
 
     /**
      * @brief Constructor for the LevelState class.  Creates a world with given level and score.
@@ -24,7 +24,7 @@ public:
      * @param level The level of the game
      * @param score The object containing the current score info
      */
-    explicit LevelState(StateManager* stateManager, int level, const shared_ptr<Score>& score);
+    explicit LevelState(shared_ptr<StateManager> stateManager, int level, const shared_ptr<Score>& score);
 
     /**
      * @brief Processes input events for the LevelState.

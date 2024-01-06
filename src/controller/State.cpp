@@ -2,7 +2,7 @@
 #include "../util/Singleton.h"
 #include "../view/Window.h"
 
-State::State(StateManager* stateManager) : stateManager(stateManager) {}
+State::State(shared_ptr<StateManager> stateManager) : stateManager(stateManager) {}
 
 void State::centerHorizontally(sf::Text& title, int posY) {
     const auto window = Singleton<Window>::getInstance().getWindow();

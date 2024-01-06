@@ -8,7 +8,7 @@
 #include "StateManager.h"
 #include "Stopwatch.h"
 
-IntermissionState::IntermissionState(StateManager* stateManager, int level) : State(stateManager), level(level) {
+IntermissionState::IntermissionState(shared_ptr<StateManager> stateManager, int level) : State(stateManager), level(level) {
     Singleton<SoundEffects>::getInstance().stop();
     Singleton<SoundEffects>::getInstance().playIntermission();
 }

@@ -15,7 +15,7 @@ public:
      * @param stateManager Pointer to the StateManager managing the game states.
      * @param score The score that the player obtained.
      */
-    explicit VictoryState(StateManager* stateManager, int score);
+    explicit VictoryState(shared_ptr<StateManager> stateManager, int score);
 
     /**
      * @brief Processes input events for the VictoryState.

@@ -13,7 +13,7 @@ public:
      * @brief Constructor for the MenuState class.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit MenuState(StateManager* stateManager);
+    explicit MenuState(shared_ptr<StateManager> stateManager);
 
     /**
      * @brief Processes input events for the MenuState.

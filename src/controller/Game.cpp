@@ -5,10 +5,12 @@
 #include "../util/Singleton.h"
 #include "../view/Window.h"
 #include "State.h"
+#include "MenuState.h"
 
 Game::Game() {
     window = Singleton<Window>::getInstance().getWindow();
     window->setFramerateLimit(60);
+    stateManager->pushState(std::make_shared<MenuState>(stateManager));
 }
 
 void Game::run() const {

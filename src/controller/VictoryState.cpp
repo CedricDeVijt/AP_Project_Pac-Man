@@ -5,7 +5,7 @@
 #include "../view/SoundEffects.h"
 #include "../view/SpriteFactory.h"
 
-VictoryState::VictoryState(StateManager* stateManager, int score) : State(stateManager), score(score) {
+VictoryState::VictoryState(shared_ptr<StateManager> stateManager, int score) : State(stateManager), score(score) {
     // stop any background sound that was playing
     Singleton<SoundEffects>::getInstance().stop();
     // play the background sound corresponding to this level

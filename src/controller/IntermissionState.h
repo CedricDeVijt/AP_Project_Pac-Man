@@ -15,7 +15,7 @@ public:
      * @param stateManager Pointer to the StateManager managing the game states.
      * @param level The level that just has been completed.
      */
-    explicit IntermissionState(StateManager* stateManager, int level);
+    explicit IntermissionState(shared_ptr<StateManager> stateManager, int level);
 
     /**
      * @brief Processes input events for the IntermissionState.

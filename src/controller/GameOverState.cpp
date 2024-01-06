@@ -5,7 +5,7 @@
 #include "../view/SoundEffects.h"
 #include "../view/SpriteFactory.h"
 
-GameOverState::GameOverState(StateManager* stateManager) : State(stateManager) {
+GameOverState::GameOverState(shared_ptr<StateManager> stateManager) : State(stateManager) {
     // stop any background sound that was playing
     Singleton<SoundEffects>::getInstance().stop();
     // play the background sound corresponding to this level

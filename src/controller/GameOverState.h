@@ -14,7 +14,7 @@ public:
      * @brief Constructor for the GameOverState class.
      * @param stateManager Pointer to the StateManager managing the game states.
      */
-    explicit GameOverState(StateManager* stateManager);
+    explicit GameOverState(shared_ptr<StateManager> stateManager);
 
     /**
      * @brief Processes input events for the GameOverState.

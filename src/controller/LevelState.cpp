@@ -12,9 +12,9 @@
 #include "VictoryState.h"
 #include "../view/Camera.h"
 
-LevelState::LevelState(StateManager* stateManager) : LevelState(stateManager, 0, std::make_shared<Score>()) {}
+LevelState::LevelState(shared_ptr<StateManager> stateManager) : LevelState(stateManager, 0, std::make_shared<Score>()) {}
 
-LevelState::LevelState(StateManager* stateManager, int level, const shared_ptr<Score>& score)
+LevelState::LevelState(shared_ptr<StateManager> stateManager, int level, const shared_ptr<Score>& score)
     : State(stateManager), score(score), level(level) {
     // stop any background sound that was playing
     Singleton<SoundEffects>::getInstance().stop();
