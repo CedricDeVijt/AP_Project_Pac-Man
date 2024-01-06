@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "My Project", "index.html", [
+  [ "AP Pac-Man Project", "index.html", [
     [ "Intro", "md__2_users_2cedric_2_library_2_mobile_01_documents_2com_0iapple_0i_cloud_docs_2_school_2_inform00f29acc337fd1c4397aa94066fa9743.html", [
       [ "How to run", "md__2_users_2cedric_2_library_2_mobile_01_documents_2com_0iapple_0i_cloud_docs_2_school_2_inform00f29acc337fd1c4397aa94066fa9743.html#autotoc_md1", null ],
       [ "Dependencies", "md__2_users_2cedric_2_library_2_mobile_01_documents_2com_0iapple_0i_cloud_docs_2_school_2_inform00f29acc337fd1c4397aa94066fa9743.html#autotoc_md2", null ]

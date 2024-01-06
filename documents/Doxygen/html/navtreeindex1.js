@@ -38,6 +38,7 @@ var NAVTREEINDEX1 =
 "class_score.html#afdafc2e4459a73028a30a19c6c63ab8a":[1,0,23,1],
 "class_singleton.html":[1,0,24],
 "class_singleton.html#a23b2407170cc04f6746874704b928044":[1,0,24,0],
+"class_singleton.html#a77024ec0dcc861c2d5f4a848d726e2ad":[1,0,24,1],
 "class_sound_effect_observer.html":[1,0,25],
 "class_sound_effect_observer.html#ae04cb09ac67fabdc95f05ba53b15159d":[1,0,25,0],
 "class_sound_effects.html":[1,0,26],
