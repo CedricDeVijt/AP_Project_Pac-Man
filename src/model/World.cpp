@@ -8,7 +8,7 @@ World::World(const shared_ptr<AbstractFactory>& factory, int level) : level(leve
     std::vector<std::vector<std::string>> maizes;
 
     maizes.push_back({"wwwwwwwwwwwwwwwwwwww", "wPcccwccccccccwcccfw", "wcwwcwcwwwwwwcwcwwcw", "wcwccccccccccccccwcw",
-                      "wcwcwwcwwGGwwcwwcwcw", "wccccccw1234wccccccw", "wcwcwwcwwwwwwcwwcwcw", "wcwccccccccccccccwcw",
+                      "wcwcwwcwwGGwwcwwcwcw", "wcccccfw1234wccccccw", "wcwcwwcwwwwwwcwwcwcw", "wcwcccccfccccccccwcw",
                       "wcwwcwcwwwwwwcwcwwcw", "wfcccwccccccccwcccfw", "wwwwwwwwwwwwwwwwwwww"});
 
     maizes.push_back({"wwwwwwwwwwwwwwwwwwww", "wfcccwccccccccwcccfw", "wcwwcwcwcwwcwcwcwwcw", "wcwccwcwccccwcwccwcw",

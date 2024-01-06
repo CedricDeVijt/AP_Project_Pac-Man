@@ -17,7 +17,7 @@ void PacManView::processEvent(EventType eventType) {
 
         // animate PacMan by choosing a different variant dependent on the position
         constexpr int variants[] = {0, 1, 2, 1};
-        const int variant = variants[((posX + posY) * 2 / gridSize) % 4];
+        const int variant = variants[((posX + posY) * 2 / getGridSize()) % 4];
 
         switch (pacMan->getDirection()) {
         case Direction::UP:

@@ -17,9 +17,6 @@ std::ostream& operator<<(std::ostream& os, const Direction& dir) {
     case Direction::NONE:
         os << "NONE";
         break;
-    default:
-        os << "UNKNOWN";
-        break;
     }
     return os;
 }

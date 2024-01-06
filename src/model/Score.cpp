@@ -90,8 +90,6 @@ void Score::processEvent(EventType eventType) {
     case EventType::PACMAN_DIES:
         livesRemaining -= 1;
         break;
-    default:
-        break;
     }
 }
 

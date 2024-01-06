@@ -24,9 +24,6 @@ protected:
      * @return The size of a grid cell.
      */
     int getGridSize() const;
-
-    // TODO
-    const int gridSize = window->getSize().x / 20;
 };
 
 #endif // AP_PROJECT_PAC_MAN_ENTITYVIEW_H

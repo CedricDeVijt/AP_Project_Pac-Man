@@ -1,11 +1,11 @@
 #include "GhostView.h"
-
 #include "Camera.h"
 #include "EntityView.h"
 #include "Ghost.h"
 #include "SpriteFactory.h"
 #include "Window.h"
 #include <utility>
+
 GhostView::GhostView(shared_ptr<Ghost> ghost) : ghost(std::move(ghost)) {}
 
 void GhostView::processEvent(EventType eventType) {
@@ -16,7 +16,7 @@ void GhostView::processEvent(EventType eventType) {
 
         // animate ghost by choosing a different variant dependent on the position
         constexpr int variants[] = {0, 1};
-        const int variant = variants[((posX + posY) * 2 / gridSize) % 2];
+        const int variant = variants[((posX + posY) * 2 / getGridSize()) % 2];
 
         if (ghost->isFearMode()) {
             window->draw(spriteFactory.createGhost(GhostType::Fear, variant, posX, posY, sizeX));
